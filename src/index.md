@@ -7,7 +7,7 @@ eleventyNavigation:
   order: 100
 ---
 
-### Hi there 👋
+## Hi there 👋
 
 - 🔭 I’m currently working on building a [blog](https://pmekh.com).
 - 🌱 I’m currently [learning in public](https://www.learninpublic.org/).
