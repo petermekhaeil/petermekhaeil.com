@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "eleventy",
+    "build": "npm run build:css && eleventy",
+    "build:css": "postcss ./src/styles.css -o ./_site/compiled.css --config ./postcss.config.js",
     "dev": "eleventy --serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,6 +14,12 @@
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
-    "@11ty/eleventy-navigation": "^0.1.6"
+    "@11ty/eleventy-navigation": "^0.1.6",
+    "postcss": "^8.1.7",
+    "postcss-cli": "^8.3.0"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.0.2",
+    "tailwindcss": "^2.0.1"
   }
 }
