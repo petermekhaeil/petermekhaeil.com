@@ -9,10 +9,10 @@
   </head>
   <body class="antialiased text-gray-900 px-4 py-10 max-w-3xl mx-auto sm:px-6 sm:py-12 lg:max-w-4xl lg:py-16 lg:px-6 xl:max-w-6xl">
 
-    <header class="pt-6 pb-6">
-      <div class="container px-4 mx-auto flex justify-between items-center">
+    <header class="pt-6 pb-6 border-b border-gray-200">
+      <div class="container px-4 mx-auto flex flex-wrap justify-between items-center">
         <h1 class="text-3xl md:text-5xl lg:text-5xl font-semibold"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
-        <nav>
+        <nav class="mt-2 sm:mt-0">
           {% set navPages = collections.all | eleventyNavigation %}
           <ul class="flex items-center">
           {%- for entry in navPages %}
