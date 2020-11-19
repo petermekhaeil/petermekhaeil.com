@@ -1,7 +1,7 @@
 {
   "name": "pmekh.com",
   "version": "1.0.0",
-  "description": "",
+  "description": "Peter Mekhaeil's site",
   "main": "index.js",
   "scripts": {
     "build": "npm run build:css && eleventy",
@@ -10,8 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Peter Mekhaeil <mekhaeil.peter@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
     "@11ty/eleventy-navigation": "^0.1.6",
