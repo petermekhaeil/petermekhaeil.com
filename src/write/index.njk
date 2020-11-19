@@ -1,0 +1,16 @@
+---
+layout: base.njk
+title: pmekh.com | Write
+eleventyNavigation:
+  key: write
+  order: 200
+---
+
+<ul>
+  {% for post in collections.posts | reverse %}
+    <li>
+      <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
+      <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+    </li>
+  {% endfor %}
+</ul>

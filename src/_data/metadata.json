@@ -1,4 +1,16 @@
 {
   "title": "Peter Mekhaeil",
-  "description": "Peter Mekhaeil"
+  "description": "Peter Mekhaeil",
+  "url": "https://pmekh.com",
+  "feed": {
+    "subtitle": "",
+    "filename": "feed.xml",
+    "path": "/feed.xml",
+    "id": "https://pmekh.com/"
+  },
+  "author": {
+    "name": "Peter Mekhaeil",
+    "email": "mekhaeil.peter@gmail.com",
+    "url": "https://pmekh.com/"
+  }
 }
