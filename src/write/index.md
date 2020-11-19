@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: base.njk
 title: pmekh.com | Write
 eleventyNavigation:
   key: write

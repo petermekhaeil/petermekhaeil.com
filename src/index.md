@@ -1,7 +1,7 @@
 ---
-title: Peter Mekhaeil's World
-description: Peter Mekhaeil's World
-layout: layouts/base.njk
+title: Peter Mekhaeil
+description: Peter Mekhaeil
+layout: base.njk
 eleventyNavigation:
   key: about
   order: 100
@@ -15,5 +15,5 @@ eleventyNavigation:
 - 🤔 I’m looking for help with how to write blogs.
 - 💬 Ask me about how to stay active while being a software engineer.
 - 📫 How to reach me: [Twitter](https://twitter.com/PMekhaeil).
-- 😄 Pronouns: he/him
+- 😄 Pronouns: he/him.
 - ⚡ Fun fact: 🇪🇬 Born in Egypt 🇦🇺 raised in Australia 🇸🇬 living in Singapore.

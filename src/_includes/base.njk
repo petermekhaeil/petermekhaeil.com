@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title or metadata.title }}</title>
+    <meta name="description" content="{{ description or metadata.description }}">
+    <link rel="stylesheet" href="{{ '/compiled.css' | url }}">
+  </head>
+  <body class="antialiased text-gray-900 px-4 py-10 max-w-3xl mx-auto sm:px-6 sm:py-12 lg:max-w-4xl lg:py-16 lg:px-6 xl:max-w-6xl">
+
+    <header class="pt-6 pb-6">
+      <div class="container px-4 mx-auto flex justify-between items-center">
+        <h1 class="text-3xl md:text-5xl lg:text-5xl font-semibold"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
+        <nav>
+          {% set navPages = collections.all | eleventyNavigation %}
+          <ul class="flex items-center">
+          {%- for entry in navPages %}
+            <li class="mr-6 text-md lg:text-2xl {% if entry.url == page.url %} font-semibold underline {% endif %}">
+              <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+            </li>
+          {%- endfor %}
+            <li class="mr-6">
+              <a href="https://github.com/petermekhaeil" title="GitHub" target="_blank" rel="noopener" class="text-gray-400 hover:text-gray-500 transition-colors duration-200">
+                <span class="sr-only">Connect with Peter on GitHub</span>
+                {% include 'icon-github.njk' %}
+              </a>
+            </li>
+            <li class="mr-6">
+              <a href="https://twitter.com/PMekhaeil" title="Twitter" target="_blank" rel="noopener" class="text-gray-400 hover:text-gray-500 transition-colors duration-200">
+                <span class="sr-only">Connect with Peter on GitHub</span>
+                {% include 'icon-twitter.njk' %}
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="m-20 prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto">
+      {{ content | safe }}
+    </main>
+
+    <footer></footer>
+  </body>
+</html>
