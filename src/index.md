@@ -1,7 +1,7 @@
 ---
 title: Peter Mekhaeil
 description: Peter Mekhaeil
-layout: base.njk
+layout: home.njk
 eleventyNavigation:
   key: about
   order: 100
