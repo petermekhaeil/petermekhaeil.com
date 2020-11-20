@@ -2,6 +2,7 @@
   "title": "pmekh.com",
   "description": "Peter Mekhaeil's Site",
   "url": "https://pmekh.com",
+  "image": "https://pmekh.com/profile.png",
   "feed": {
     "subtitle": "",
     "filename": "feed.xml",

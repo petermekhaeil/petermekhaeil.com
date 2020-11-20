@@ -3,8 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{metadata.title}} | {{ title or metadata.title }}</title>
-    <meta name="description" content="{{ description or metadata.description }}">
+    {% include 'seo.njk' %}
     <link rel="stylesheet" href="{{ '/compiled.css' | url }}">
     <style>
      a { color: #111827; }

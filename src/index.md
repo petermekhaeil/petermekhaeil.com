@@ -1,6 +1,5 @@
 ---
 title: Peter Mekhaeil 👋
-description: Peter Mekhaeil's site
 layout: home.njk
 eleventyNavigation:
   key: about
