@@ -3,10 +3,47 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const Image = require("@11ty/eleventy-img");
 const path = require("path");
+const CleanCSS = require("clean-css");
 
 module.exports = (config) => {
   config.addPlugin(eleventyNavigationPlugin);
   config.addPlugin(pluginRss);
+
+  config.addFilter("cssmin", function (code) {
+    return new CleanCSS({}).minify(code).styles;
+  });
+
+  const markdownIt = require("markdown-it");
+  const markdownItAttrs = require("markdown-it-attrs");
+
+  const markdownLib = markdownIt({
+    html: true,
+    breaks: true,
+    linkify: true,
+  }).use(markdownItAttrs);
+
+  config.setLibrary("md", markdownLib);
+
+  config.addFilter("emojiReadTime", (content) => {
+    const { wpm, showEmoji, emoji, label, bucketSize } = {
+      wpm: 275,
+      showEmoji: true,
+      emoji: "🥤",
+      label: "min. read",
+      bucketSize: 5,
+    };
+
+    const minutes = Math.ceil(content.trim().split(/\s+/).length / wpm);
+    const buckets = Math.round(minutes / bucketSize) || 1;
+
+    const displayLabel = `${minutes} ${label}`;
+
+    if (showEmoji) {
+      return `${new Array(buckets || 1).fill(emoji).join("")}  ${displayLabel}`;
+    }
+
+    return displayLabel;
+  });
 
   config.addFilter("readableDate", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(

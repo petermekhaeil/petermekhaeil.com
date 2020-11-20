@@ -1,13 +1,8 @@
 module.exports = {
   purge: {
-    enabled: true,
-    mode: "all",
-    content: ["./src/**/*.njk", "./src/**/*.md"],
-    options: {
-      safelist: ["rounded-lg", "w-full"],
-    },
+    content: ["./src/**/*.njk", "./src/**/*.md", "./*.js"],
   },
-  darkMode: false, // or 'media' or 'class'
+  darkMode: "class", // or 'media' or 'class'
   theme: {
     extend: {},
   },

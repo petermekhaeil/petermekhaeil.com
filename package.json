@@ -4,7 +4,7 @@
   "description": "Peter Mekhaeil's site",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build:css && eleventy",
+    "build": "NODE_ENV=production npm run build:css && eleventy",
     "build:css": "postcss ./src/styles.css -o ./_site/compiled.css --config ./postcss.config.js",
     "dev": "eleventy --serve",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,7 +23,9 @@
     "@11ty/eleventy-img": "^0.3.0",
     "@tailwindcss/typography": "^0.3.1",
     "autoprefixer": "^10.0.2",
+    "clean-css": "^4.2.3",
     "luxon": "^1.25.0",
+    "markdown-it-attrs": "^3.0.3",
     "tailwindcss": "^2.0.1"
   }
 }

@@ -1,0 +1,13 @@
+---
+layout: base.njk
+---
+
+<article class="m-14 prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto">
+  <h2>{{ title }}</h2>
+  {% if date %}
+    <div class="mb-6">
+      📅 {{ date | htmlDateString }} {{ content | emojiReadTime }}
+    </div>
+  {% endif %}
+  {{ content | safe }}
+</article>

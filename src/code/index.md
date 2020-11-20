@@ -1,6 +1,6 @@
 ---
-layout: base.njk
-title: pmekh.com | Code
+layout: post.njk
+title: Code
 eleventyNavigation:
   key: code
   order: 300
