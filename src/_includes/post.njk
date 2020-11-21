@@ -9,5 +9,8 @@ layout: base.njk
       📅 {{ date | htmlDateString }} {{ content | emojiReadTime }}
     </div>
   {% endif %}
+  {% for tag in tags %}
+    <i><small>#{{ tag }}</small></i>
+  {% endfor %}
   {{ content | safe }}
 </article>

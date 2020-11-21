@@ -10,7 +10,19 @@ eleventyNavigation:
   {% for post in collections.posts | reverse %}
     <li>
       <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
-      <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+      <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+      {% for tag in post.data.tags %}
+        <i><small>#{{ tag }}</small></i>
+      {% endfor %}
     </li>
   {% endfor %}
+</ul>
+
+<h2>Other posts on the web</h2>
+
+<ul>
+  <li>
+    <a href="https://medium.com/singtel-digital-technology/modernising-an-enterprise-front-end-stack-fe0571f259a1">Modernising an Enterprise Front End Stack</a>
+    <time datetime="2018-11-27">27 Nov 2018</time>
+  </li>
 </ul>
