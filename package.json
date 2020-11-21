@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm -rf ./_site && mkdir ./_site",
     "build": "NODE_ENV=production npm run clean && npm run build:copy && npm run build:css && eleventy",
-    "build:css": "postcss ./src/styles.css -o ./_site/compiled.css --config ./postcss.config.js",
+    "build:css": "NODE_ENV=production postcss ./src/styles.css -o ./_site/compiled.css --config ./postcss.config.js",
     "build:copy": "cp -r ./static/* ./_site",
     "dev": "eleventy --serve"
   },
@@ -17,6 +17,8 @@
     "@11ty/eleventy": "^0.11.1",
     "@11ty/eleventy-navigation": "^0.1.6",
     "@11ty/eleventy-plugin-rss": "^1.0.9",
+    "@fullhuman/postcss-purgecss": "^3.0.0",
+    "cssnano": "^4.1.10",
     "postcss": "^8.1.7",
     "postcss-cli": "^8.3.0"
   },
