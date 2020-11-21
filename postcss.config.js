@@ -11,6 +11,7 @@ module.exports = {
     purgecss({
       content: ["./src/**/*.njk", "./src/**/*.md", "./*.js"],
       defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
+      safelist: ["rounded-lg", "w-full"],
     }),
   ],
 };
