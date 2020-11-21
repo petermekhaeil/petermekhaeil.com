@@ -1,5 +1,5 @@
 ---
-title: Peter Mekhaeil 👋
+title: Peter Mekhaeil
 layout: home.njk
 eleventyNavigation:
   key: about
