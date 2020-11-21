@@ -5,7 +5,7 @@ tags:
   - productivity
 ---
 
-We spend our days building scalable and performant applications, so why are we not doing the same to our mind and body? Staying fit and active is more important to our well-being and I'd like to share some tips to remind us to take care of ourselves while we code away.
+We spend our days building scalable and performant applications, so why are we not doing the same to our mind and body? Staying fit and active is important to our well-being and I'd like to remind us to take care of ourselves while we code away.
 
 ### Daily Maintenance
 
