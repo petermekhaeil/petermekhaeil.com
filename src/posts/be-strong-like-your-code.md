@@ -61,7 +61,7 @@ Connect with them on [Strava](https://strava.com/){alt="Strava"}{target=\_blank}
 
 #### Measure your activites
 
-Just like we execute performance tests against our applications, we should also be measuring our physical activites and use the results as benchmarks. Track your activities in your favourite notes editor, or use an app to automatically track the activites for you. I personally use Notes on my iPhone + [Garmin Connect](https://connect.garmin.com/){alt="Garmin Connect"}{target=\_blank}{rel=noopener}.
+Like we execute performance tests against our applications, we should also be measuring our physical activites and use the results as benchmarks. Track your activities in your favourite notes editor, or use an app to automatically track the activites for you. I personally use Notes on my iPhone + [Garmin Connect](https://connect.garmin.com/){alt="Garmin Connect"}{target=\_blank}{rel=noopener}.
 
 ### Stretching
 
