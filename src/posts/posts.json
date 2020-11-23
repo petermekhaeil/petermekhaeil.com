@@ -1,4 +1,5 @@
 {
   "tags": ["posts"],
-  "layout": "post.njk"
+  "layout": "post.njk",
+  "permalink": "/{{ title | slug }}/index.html"
 }
