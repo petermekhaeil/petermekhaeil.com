@@ -7,7 +7,7 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
     <link rel="stylesheet" href="{{ '/compiled.css' | url }}">
   </head>
-  <body class="dark:bg-gray-800 antialiased text-gray-900 px-4 py-6 max-w-3xl mx-auto sm:px-6 sm:py-6 lg:max-w-4xl lg:py-6 lg:px-6 xl:max-w-6xl">
+  <body class="dark:bg-gray-800 dark:text-gray-200 antialiased text-gray-900 px-4 py-6 max-w-3xl mx-auto sm:px-6 sm:py-6 lg:max-w-4xl lg:py-6 lg:px-6 xl:max-w-6xl">
 
     <header class="pt-6 pb-6 border-b border-gray-200 dark:border-gray-700 dark:text-blue-300">
       <div class="container px-4 mx-auto flex flex-wrap justify-between items-center">
@@ -32,6 +32,16 @@
                 {% include 'icon-twitter.njk' %}
               </a>
             </li>
+            <li class="mr-6">
+              <!-- https://heroicons.com/ -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="sm:h-8 sm:w-8 h-6 w-6 hidden cursor-pointer" id="toggle-light">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="sm:h-8 sm:w-8 h-6 w-6 hidden cursor-pointer" id="toggle-dark">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+              </svg>
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -43,5 +53,37 @@
 
     <footer></footer>
     <img src="https://pmekh.goatcounter.com/count?p={{ page.url }}" alt="" />
+
+    <script>
+     if (
+        localStorage.getItem("theme") === "dark" ||
+        (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.querySelector("html").classList.add("dark");
+        document.getElementById("toggle-dark").classList.add("visible");
+        document.getElementById("toggle-light").classList.remove("hidden");
+      } else {
+        document.getElementById("toggle-light").classList.add("visible");
+        document.getElementById("toggle-dark").classList.remove("hidden");
+      }
+
+      document.getElementById("toggle-light").addEventListener("click", function () {
+        localStorage.setItem("theme", "light");
+        document.querySelector("html").classList.remove("dark");
+        document.getElementById("toggle-dark").classList.add("visible");
+        document.getElementById("toggle-dark").classList.remove("hidden");
+        document.getElementById("toggle-light").classList.add("hidden");
+        document.getElementById("toggle-light").classList.remove("visible");
+      });
+
+      document.getElementById("toggle-dark").addEventListener("click", function () {
+        localStorage.setItem("theme", "dark");
+        document.querySelector("html").classList.add("dark");
+        document.getElementById("toggle-light").classList.add("visible");
+        document.getElementById("toggle-light").classList.remove("hidden");
+        document.getElementById("toggle-dark").classList.add("hidden");
+        document.getElementById("toggle-dark").classList.remove("visible");
+      });
+    </script>
   </body>
 </html>
