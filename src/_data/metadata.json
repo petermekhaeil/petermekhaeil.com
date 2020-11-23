@@ -5,8 +5,8 @@
   "image": "https://pmekh.com/profile.png",
   "feed": {
     "subtitle": "",
-    "filename": "feed.xml",
-    "path": "/feed.xml",
+    "filename": "rss.xml",
+    "path": "/rss.xml",
     "id": "https://pmekh.com/"
   },
   "author": {
