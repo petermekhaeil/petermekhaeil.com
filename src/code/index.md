@@ -6,7 +6,7 @@ eleventyNavigation:
   order: 300
 ---
 
-A collection of projects I have started. Feel free to contribute or send feedback!
+A collection of projects I have started. Feel free to contribute or send feedback.
 
 ### Tailwind CSS Explorer for VSCode
 
