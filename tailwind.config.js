@@ -4,10 +4,61 @@ module.exports = {
   },
   darkMode: "class", // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme("colors.gray.900"),
+            a: {
+              color: theme("colors.blue.600"),
+              "&:hover": {
+                color: theme("colors.blue.600"),
+                textDecoration: "none",
+              },
+            },
+          },
+        },
+
+        dark: {
+          css: {
+            color: theme("colors.gray.200"),
+            a: {
+              color: theme("colors.yellow.400"),
+              "&:hover": {
+                color: theme("colors.yellow.400"),
+              },
+            },
+            h1: {
+              color: theme("colors.blue.300"),
+            },
+            h2: {
+              color: theme("colors.blue.300"),
+            },
+            h3: {
+              color: theme("colors.blue.300"),
+            },
+            h4: {
+              color: theme("colors.blue.300"),
+            },
+            h5: {
+              color: theme("colors.blue.300"),
+            },
+            h6: {
+              color: theme("colors.blue.300"),
+            },
+            strong: {
+              color: theme("colors.blue.300"),
+            },
+            blockquote: {
+              color: theme("colors.blue.300"),
+            },
+          },
+        },
+      }),
+    },
   },
   variants: {
-    extend: {},
+    typography: ["responsive", "dark"],
   },
   plugins: [require("@tailwindcss/typography")],
 };
