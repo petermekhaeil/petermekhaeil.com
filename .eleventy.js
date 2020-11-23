@@ -9,6 +9,8 @@ module.exports = (config) => {
   config.addPlugin(eleventyNavigationPlugin);
   config.addPlugin(pluginRss);
 
+  config.addPassthroughCopy("src/assets");
+
   config.addFilter("cssmin", function (code) {
     return new CleanCSS({}).minify(code).styles;
   });
