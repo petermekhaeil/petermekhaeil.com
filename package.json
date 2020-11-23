@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf ./_site",
-    "build": "NODE_ENV=production npm run clean && npm run build:css && eleventy",
+    "build": "NODE_ENV=production npm run clean && npm run build:css:prod && eleventy",
     "build:css": "postcss ./src/styles.css -o ./_site/compiled.css --config ./postcss.config.js",
+    "build:css:prod": "NODE_ENV=production postcss ./src/styles.css -o ./_site/compiled.css --config ./postcss.config.js",
     "dev": "npm run build:css && eleventy --serve"
   },
   "keywords": [],
