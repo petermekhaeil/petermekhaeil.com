@@ -6,9 +6,6 @@
     {% include 'seo.njk' %}
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
     <link rel="stylesheet" href="{{ '/compiled.css' | url }}">
-    <style>
-     a { color: #111827; }
-    </style>
   </head>
   <body class="antialiased text-gray-900 px-4 py-6 max-w-3xl mx-auto sm:px-6 sm:py-6 lg:max-w-4xl lg:py-6 lg:px-6 xl:max-w-6xl">
 
@@ -24,13 +21,13 @@
             </li>
           {%- endfor %}
             <li class="mr-6">
-              <a href="https://github.com/petermekhaeil" title="GitHub" target="_blank" rel="noopener" class="text-gray-400 hover:text-gray-500 transition-colors duration-200">
+              <a href="https://github.com/petermekhaeil" title="GitHub" target="_blank" rel="noopener">
                 <span class="sr-only">Connect with Peter on GitHub</span>
                 {% include 'icon-github.njk' %}
               </a>
             </li>
             <li class="mr-6">
-              <a href="https://twitter.com/PMekhaeil" title="Twitter" target="_blank" rel="noopener" class="text-gray-400 hover:text-gray-500 transition-colors duration-200">
+              <a href="https://twitter.com/PMekhaeil" title="Twitter" target="_blank" rel="noopener">
                 <span class="sr-only">Connect with Peter on GitHub</span>
                 {% include 'icon-twitter.njk' %}
               </a>
