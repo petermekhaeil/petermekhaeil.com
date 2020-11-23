@@ -1,13 +1,23 @@
+const path = require("path");
 const { DateTime } = require("luxon");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const Image = require("@11ty/eleventy-img");
-const path = require("path");
+const inclusiveLangPlugin = require("@11ty/eleventy-plugin-inclusive-language");
+const emojiReadTime = require("@11tyrocks/eleventy-plugin-emoji-readtime");
 const CleanCSS = require("clean-css");
 
 module.exports = (config) => {
   config.addPlugin(eleventyNavigationPlugin);
   config.addPlugin(pluginRss);
+  config.addPlugin(inclusiveLangPlugin);
+  config.addPlugin(emojiReadTime, {
+    wpm: 275,
+    showEmoji: true,
+    emoji: "🥤",
+    label: "min. read",
+    bucketSize: 5,
+  });
 
   config.addPassthroughCopy("src/assets");
 
@@ -26,27 +36,6 @@ module.exports = (config) => {
 
   config.setLibrary("md", markdownLib);
 
-  config.addFilter("emojiReadTime", (content) => {
-    const { wpm, showEmoji, emoji, label, bucketSize } = {
-      wpm: 275,
-      showEmoji: true,
-      emoji: "🥤",
-      label: "min. read",
-      bucketSize: 5,
-    };
-
-    const minutes = Math.ceil(content.trim().split(/\s+/).length / wpm);
-    const buckets = Math.round(minutes / bucketSize) || 1;
-
-    const displayLabel = `${minutes} ${label}`;
-
-    if (showEmoji) {
-      return `${new Array(buckets || 1).fill(emoji).join("")}  ${displayLabel}`;
-    }
-
-    return displayLabel;
-  });
-
   config.addFilter("readableDate", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
       "dd LLL yyyy"
@@ -63,7 +52,11 @@ module.exports = (config) => {
   });
 
   // works also with addLiquidShortcode or addJavaScriptFunction
-  config.addNunjucksAsyncShortcode("Image", async function (src, alt) {
+  config.addNunjucksAsyncShortcode("Image", async function (
+    src,
+    alt,
+    outputFormat = "jpeg"
+  ) {
     if (alt === undefined) {
       // You bet we throw an error on missing alt (alt="" works okay)
       throw new Error(`Missing \`alt\` on myImage from: ${src}`);
@@ -81,37 +74,35 @@ module.exports = (config) => {
 
     // returns Promise
     let stats = await Image(fullSrc, {
-      widths: [320, 640, 960, 1200, 1800, 2400],
+      widths: [null],
       formats: ["jpeg", "webp"],
       urlPath: "./images/",
       outputDir: "./_site/images/",
     });
 
-    let lowestSrc = stats["jpeg"][0];
+    let lowestSrc = stats[outputFormat][0];
+    let sizes = "100vw"; // Make sure you customize this!
 
-    const srcset = Object.keys(stats).reduce(
-      (acc, format) => ({
-        ...acc,
-        [format]: stats[format].reduce(
-          (_acc, curr) => `${_acc} ${curr.srcset} ,`,
-          ""
-        ),
-      }),
-      {}
-    );
-
-    const source = `<source type="image/webp" srcset="${srcset["webp"]}" >`;
-
-    const img = `<img
-      class="rounded-lg w-full"
-      alt="${alt}"
-      src="${lowestSrc.url}"
-      sizes='(min-width: 1024px) 1024px, 100vw'
-      srcset="${srcset["jpeg"]}"
-      width="${lowestSrc.width}"
-      height="${lowestSrc.height}">`;
-
-    return `<picture> ${source} ${img} </picture>`;
+    return `
+    <picture>
+    ${Object.values(stats)
+      .map((imageFormat) => {
+        return `  <source
+                  type="image/${imageFormat[0].format}"
+                  srcset="${imageFormat
+                    .map((entry) => `${entry.url} ${entry.width}w`)
+                    .join(", ")}"
+                  sizes="${sizes}">`;
+      })
+      .join("\n")}
+      <img
+        class="rounded-lg mx-auto"
+        src="${lowestSrc.url}"
+        width="${lowestSrc.width}"
+        height="${lowestSrc.height}"
+        alt="${alt}">
+    </picture>
+      `;
   });
 
   return {

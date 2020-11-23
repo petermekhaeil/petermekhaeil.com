@@ -15,7 +15,9 @@
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
     "@11ty/eleventy-navigation": "^0.1.6",
+    "@11ty/eleventy-plugin-inclusive-language": "^1.0.0",
     "@11ty/eleventy-plugin-rss": "^1.0.9",
+    "@11tyrocks/eleventy-plugin-emoji-readtime": "^1.0.1",
     "@fullhuman/postcss-purgecss": "^3.0.0",
     "cssnano": "^4.1.10",
     "postcss": "^8.1.7",
