@@ -62,9 +62,10 @@
         var userPrefersDark = window.matchMedia("(prefers-color-scheme: dark)");
         var toggleDark = document.getElementById("toggle-dark");
         var toggleLight = document.getElementById("toggle-light");
+        var htmlElem = document.querySelector('html');
 
         if (theme === "dark" || (!theme && userPrefersDark.matches)) {
-          document.querySelector("html").classList.add("dark");
+          htmlElem.classList.add("dark");
           toggleDark.classList.add("visible");
           toggleLight.classList.remove("hidden");
         } else {
@@ -74,7 +75,7 @@
 
         toggleLight.addEventListener("click", function () {
           localStorage.setItem("theme", "light");
-          document.querySelector("html").classList.remove("dark");
+          htmlElem.classList.remove("dark");
           toggleDark.classList.add("visible");
           toggleDark.classList.remove("hidden");
           toggleLight.classList.add("hidden");
@@ -83,7 +84,7 @@
 
         toggleDark.addEventListener("click", function () {
           localStorage.setItem("theme", "dark");
-          document.querySelector("html").classList.add("dark");
+          htmlElem.classList.add("dark");
           toggleLight.classList.add("visible");
           toggleLight.classList.remove("hidden");
           toggleDark.classList.add("hidden");
