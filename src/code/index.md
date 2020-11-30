@@ -12,10 +12,10 @@ A collection of projects I have started. Feel free to contribute or send feedbac
 
 Explore the classes available in your project's tailwind setup.
 
-[Marketplace](https://marketplace.visualstudio.com/items?itemName=PeterMekhaeil.vscode-tailwindcss-explorer) | [Source code](https://github.com/petermekhaeil/vscode-tailwindcss-explorer)
+[Marketplace](https://marketplace.visualstudio.com/items?itemName=PeterMekhaeil.vscode-tailwindcss-explorer){alt="Marketplace"}{target=\_blank}{rel=noopener} | [Source code](https://github.com/petermekhaeil/vscode-tailwindcss-explorer){alt="GitHub"}{target=\_blank}{rel=noopener}
 
 ### Ractive Dev Tool
 
 Chrome Extension to view and edit Ractive.js components.
 
-[Chrome Web Store](https://chrome.google.com/webstore/detail/ractive-dev-tool/mobaekclikghnakiffjacknpimanblii) | [Source code](https://github.com/petermekhaeil/ractive-chrome-extension)
+[Chrome Web Store](https://chrome.google.com/webstore/detail/ractive-dev-tool/mobaekclikghnakiffjacknpimanblii){alt="Chrome Web Store"}{target=\_blank}{rel=noopener} | [Source code](https://github.com/petermekhaeil/ractive-chrome-extension){alt="GitHub"}{target=\_blank}{rel=noopener}
