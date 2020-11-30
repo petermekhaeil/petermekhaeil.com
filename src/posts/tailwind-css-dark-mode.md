@@ -6,7 +6,7 @@ tags:
   - tailwindcss
 ---
 
-Tailwind CSS v2.0 introduces [Dark mode support](https://tailwindcss.com/docs/dark-mode){alt="Tailwind CSS Dark Mode"}{target=\_blank}{rel=noopener} and with minimal JS and inline SVG, you can allow your users to manually toggle Dark Mode. We are going to walk through what is required to build the same one off [pmekh.com](https://pmekh.com){alt="Peter Mekhaeil's Site"}{target=\_blank}{rel=noopener}.
+Tailwind CSS v2.0 introduces [Dark mode support](https://tailwindcss.com/docs/dark-mode){alt="Tailwind CSS Dark Mode"}{target=\_blank}{rel=noopener} and with minimal JS and inline SVG, you can allow your users to manually toggle Dark Mode. We are going to walk through what is required to build the same one from [pmekh.com](https://pmekh.com){alt="Peter Mekhaeil's Site"}{target=\_blank}{rel=noopener}.
 
 Set `darkMode` to `class` in your config:
 
@@ -148,7 +148,7 @@ toggleDark.addEventListener('click', function () {
 });
 ```
 
-You can view the [source code](https://github.com/petermekhaeil/pmekh.com/blob/master/src/_includes/base.njk){alt="GitHub"}{target=\_blank}{rel=noopener} of this blog's template to see it all put together.
+You can view the [source code](https://github.com/petermekhaeil/pmekh.com/blob/master/src/_includes/base.njk){alt="GitHub"}{target=\_blank}{rel=noopener} to see it all put together.
 
 ### @tailwindcss/typography
 
