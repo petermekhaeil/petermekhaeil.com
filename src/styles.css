@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.prose p img {
+  @apply mx-auto;
+  @apply block;
+}
