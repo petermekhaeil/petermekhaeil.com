@@ -1,15 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     {% include 'seo.njk' %}
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
-    <link rel="stylesheet" href="{{ '/compiled.css' | url }}">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>"/>
+    <link rel="stylesheet" href="{{ '/compiled.css' | url }}"/>
+    <link href="https://unpkg.com/prism-theme-night-owl@1.4.0/build/no-italics.css" rel="stylesheet"/>
+    {#  <link href="https://unpkg.com/prism-theme-night-owl@1.4.0/build/light-no-italics.css" rel="stylesheet" />#}
   </head>
   <body class="dark:bg-gray-800 dark:text-gray-200 antialiased text-gray-900 px-4 py-6 max-w-3xl mx-auto sm:px-6 sm:py-6 lg:max-w-4xl lg:py-6 lg:px-6 xl:max-w-6xl">
 
-    <header class="pt-6 pb-6 border-b border-gray-200 dark:border-gray-700 dark:text-blue-300">
+    <header class="pt-0 pb-6 border-b border-gray-200 dark:border-gray-700 dark:text-blue-300">
       <div class="container px-4 mx-auto flex flex-wrap justify-between items-center">
         <h1 class="text-3xl md:text-5xl lg:text-6xl font-semibold"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
         <nav class="mt-2 sm:mt-0">
@@ -21,14 +23,14 @@
             </li>
           {%- endfor %}
             <li class="mr-6">
-              <a href="https://github.com/petermekhaeil" title="GitHub" target="_blank" rel="noopener">
+              <a href="https://github.com/petermekhaeil" title="GitHub" target="_blank" rel="me noopener">
                 <span class="sr-only">Connect with Peter on GitHub</span>
                 {% include 'icon-github.njk' %}
               </a>
             </li>
             <li class="mr-6">
-              <a href="https://twitter.com/PMekhaeil" title="Twitter" target="_blank" rel="noopener">
-                <span class="sr-only">Connect with Peter on GitHub</span>
+              <a href="https://twitter.com/PMekhaeil" title="Twitter" target="_blank" rel="me noopener">
+                <span class="sr-only">Connect with Peter on Twitter</span>
                 {% include 'icon-twitter.njk' %}
               </a>
             </li>
@@ -55,35 +57,39 @@
     <img src="https://pmekh.goatcounter.com/count?p={{ page.url }}" alt="" />
 
     <script>
-     if (
-        localStorage.getItem("theme") === "dark" ||
-        (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        document.querySelector("html").classList.add("dark");
-        document.getElementById("toggle-dark").classList.add("visible");
-        document.getElementById("toggle-light").classList.remove("hidden");
-      } else {
-        document.getElementById("toggle-light").classList.add("visible");
-        document.getElementById("toggle-dark").classList.remove("hidden");
-      }
+     (function () {
+        var theme = localStorage.getItem("theme");
+        var userPrefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+        var toggleDark = document.getElementById("toggle-dark");
+        var toggleLight = document.getElementById("toggle-light");
 
-      document.getElementById("toggle-light").addEventListener("click", function () {
-        localStorage.setItem("theme", "light");
-        document.querySelector("html").classList.remove("dark");
-        document.getElementById("toggle-dark").classList.add("visible");
-        document.getElementById("toggle-dark").classList.remove("hidden");
-        document.getElementById("toggle-light").classList.add("hidden");
-        document.getElementById("toggle-light").classList.remove("visible");
-      });
+        if (theme === "dark" || (!theme && userPrefersDark.matches)) {
+          document.querySelector("html").classList.add("dark");
+          toggleDark.classList.add("visible");
+          toggleLight.classList.remove("hidden");
+        } else {
+          toggleLight.classList.add("visible");
+          toggleDark.classList.remove("hidden");
+        }
 
-      document.getElementById("toggle-dark").addEventListener("click", function () {
-        localStorage.setItem("theme", "dark");
-        document.querySelector("html").classList.add("dark");
-        document.getElementById("toggle-light").classList.add("visible");
-        document.getElementById("toggle-light").classList.remove("hidden");
-        document.getElementById("toggle-dark").classList.add("hidden");
-        document.getElementById("toggle-dark").classList.remove("visible");
-      });
+        toggleLight.addEventListener("click", function () {
+          localStorage.setItem("theme", "light");
+          document.querySelector("html").classList.remove("dark");
+          toggleDark.classList.add("visible");
+          toggleDark.classList.remove("hidden");
+          toggleLight.classList.add("hidden");
+          toggleLight.classList.remove("visible");
+        });
+
+        toggleDark.addEventListener("click", function () {
+          localStorage.setItem("theme", "dark");
+          document.querySelector("html").classList.add("dark");
+          toggleLight.classList.add("visible");
+          toggleLight.classList.remove("hidden");
+          toggleDark.classList.add("hidden");
+          toggleDark.classList.remove("visible");
+        });
+      })();
     </script>
   </body>
 </html>
