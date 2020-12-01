@@ -12,7 +12,3 @@ pre[class*='language-'] {
   color: #fff;
   background: #011627;
 }
-
-pre[class*='language-'] {
-  @apply rounded-sm;
-}
