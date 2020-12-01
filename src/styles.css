@@ -6,3 +6,9 @@
   @apply mx-auto;
   @apply block;
 }
+
+code[class*='language-'],
+pre[class*='language-'] {
+  color: #fff;
+  background: #011627;
+}
