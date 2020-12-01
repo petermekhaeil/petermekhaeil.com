@@ -28,6 +28,9 @@ module.exports = {
                 textDecoration: 'none'
               },
               textDecoration: 'none'
+            },
+            pre: {
+              borderRadius: theme('spacing.1')
             }
           }
         },
