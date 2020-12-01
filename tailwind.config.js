@@ -8,6 +8,18 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            'code::before': {
+              content: ''
+            },
+            'code::after': {
+              content: ''
+            },
+            code: {
+              backgroundColor: theme('colors.gray.200'),
+              borderRadius: theme('spacing.1'),
+              fontWeight: theme('fontWeight.medium'),
+              padding: theme('spacing.1')
+            },
             color: theme('colors.gray.900'),
             a: {
               color: theme('colors.blue.600'),
@@ -54,8 +66,9 @@ module.exports = {
             blockquote: {
               color: theme('colors.blue.300')
             },
-            code: {
-              color: theme('colors.gray.300')
+            'code:not(.language-js):not(.language-html)': {
+              color: theme('colors.gray.300'),
+              backgroundColor: theme('colors.gray.700')
             }
           }
         }
