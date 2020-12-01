@@ -1,4 +1,4 @@
-<title>{{metadata.title}} | {{ title or metadata.title }}</title>
+<title>{{metadata.title }} | {{ title | safe or metadata.title | safe }}</title>
 <meta name="description" content="{{ metadata.description | safe }}">
 
 {% set canonicalUrl = metadata.url + page.url %}
@@ -6,7 +6,7 @@
 
 <meta property="og:type" content="blog">
 <meta property="og:url" content="{{ canonicalUrl }}">
-<meta property="og:title" content="{{ title }}">
+<meta property="og:title" content="{{ title | safe }}">
 <meta property="og:description" content="{{ metadata.description | safe }}">
 <meta property="og:site_name" itemprop="name" content="{{ metadata.title }}">
 
@@ -18,6 +18,6 @@
 <meta name="twitter:site" content="@{{ metadata.title }}">
 <meta name="twitter:creator" content="@{{ metadata.author.name }}">
 <meta name="twitter:url" content="{{ canonicalUrl }}">
-<meta name="twitter:title" content="{{title}}">
+<meta name="twitter:title" content="{{ title | safe }}">
 <meta name="twitter:description" content="{{ metadata.description | safe }}">
 <meta name="twitter:image" content="{{ metadata.image }}">
