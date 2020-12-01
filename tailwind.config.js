@@ -72,6 +72,9 @@ module.exports = {
             'code:not(.language-js):not(.language-html)': {
               color: theme('colors.gray.300'),
               backgroundColor: theme('colors.gray.700')
+            },
+            pre: {
+              backgroundColor: '#011627' // night-owl theme
             }
           }
         }

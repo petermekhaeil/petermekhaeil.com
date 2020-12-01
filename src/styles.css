@@ -1,14 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import 'prism-theme-night-owl/build/no-italics.css';
 
 .prose p img {
   @apply mx-auto;
   @apply block;
-}
-
-.sm\:prose code[class*='language-'],
-pre[class*='language-'] {
-  color: #fff;
-  background: #011627;
 }

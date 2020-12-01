@@ -35,6 +35,8 @@
     "luxon": "^1.25.0",
     "markdown-it-anchor": "^6.0.1",
     "markdown-it-attrs": "^3.0.3",
+    "postcss-import": "^13.0.0",
+    "prism-theme-night-owl": "^1.4.0",
     "tailwindcss": "^2.0.1"
   }
 }
