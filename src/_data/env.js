@@ -1,1 +1,3 @@
-module.exports = process.env.NODE_ENV;
+module.exports = {
+  environment: process.env.NODE_ENV
+};
