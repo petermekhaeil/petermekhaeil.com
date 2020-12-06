@@ -32,6 +32,7 @@
     "autoprefixer": "^10.0.2",
     "clean-css": "^4.2.3",
     "eleventy-plugin-toc": "^1.1.0",
+    "faunadb": "^4.0.0",
     "luxon": "^1.25.0",
     "markdown-it-anchor": "^6.0.1",
     "markdown-it-attrs": "^3.0.3",
