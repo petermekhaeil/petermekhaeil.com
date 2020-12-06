@@ -53,7 +53,10 @@
     </main>
 
     <footer></footer>
-    <img src="https://pmekh.goatcounter.com/count?p={{ page.url }}" alt="" />
+
+    {% if env == "production" %}
+      <img src="/.netlify/functions/tracker" alt="" />
+    {% endif %}
 
     <script>
      (function () {
