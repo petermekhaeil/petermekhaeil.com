@@ -38,7 +38,7 @@ Everything together should look like this:
 
 2. Create a new Database and name it after your project.
 
-   ![](../assets/blog-images/analytics-2.png)
+   ![](../assets/blog-images/analytics-7.png)
 
 3. Create a new collection `hits`. We will use this to store the page hits.
 
