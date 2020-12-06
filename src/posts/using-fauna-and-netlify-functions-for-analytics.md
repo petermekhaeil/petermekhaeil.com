@@ -2,8 +2,6 @@
 title: Using FaunaDB and Netlify Functions for Analytics
 date: 2020-12-06
 tags:
-  - faunadb
-  - netlify
   - serverless
   - javascript
 ---
