@@ -2,8 +2,8 @@
 title: Using FaunaDB and Netlify Functions for Analytics
 date: 2020-12-06
 tags:
-  - serverless
   - javascript
+  - serverless
 ---
 
 As I continue to build this blog, I want to add some analytics to get an idea of my viewers and what they are interested in reading. Using [FaunaDB](https://fauna.com/){alt="FaunaDB"}{target=\_blank}{rel=noopener} and [Netlify Functions](https://www.netlify.com/products/functions/){alt="Netlify Functions"}{target=\_blank}{rel=noopener}, we are going to build a basic API that will allow us to track the page hits.
