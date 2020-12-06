@@ -1,7 +1,6 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-@import 'prism-theme-night-owl/build/no-italics.css';
 
 .prose p img {
   @apply mx-auto;
