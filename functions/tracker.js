@@ -21,9 +21,7 @@ exports.handler = async (event) => {
       q.Let(
         {
           // Match the document by the pathname index
-          match: q.Match(q.Index('hits_by_pathname'), pathname),
-          // Get the current hit to a pagename (provided the document is found)
-          hits: q.Select(['data', 'hits'], q.Get(q.Var('match')))
+          match: q.Match(q.Index('hits_by_pathname'), pathname)
         },
         // Conditionally evaluate expressions
         q.If(
@@ -31,7 +29,13 @@ exports.handler = async (event) => {
           q.Exists(q.Var('match')),
           // THEN update the document with an updated page hit.
           q.Update(q.Select('ref', q.Get(q.Var('match'))), {
-            data: { hits: q.Add(q.Var('hits'), 1) }
+            data: {
+              hits: q.Add(
+                // Increment the previous hits by 1
+                q.Select(['data', 'hits'], q.Get(q.Var('match'))),
+                1
+              )
+            }
           }),
           // ELSE create the document and set the page hit to 1
           q.Create(q.Collection('hits'), {
