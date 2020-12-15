@@ -27,11 +27,11 @@ Aim for 10 sets of stairs a day. This will also help achieve the recommended 10,
 
 #### Stand while working
 
-Prolonged hours sitting down has a hugh impact on your posture and health. Get yourself a standing desk, or ask your office to supply one for you. Stand up while taking a call. Even yet, go for a walk while talking. Not only will it help you with your health, it will help shorten the duration of the call.
+Prolonged hours sitting down has a hugh impact on your posture and hetitleh. Get yourself a standing desk, or ask your office to supply one for you. Stand up while taking a call. Even yet, go for a walk while talking. Not only will it help you with your hetitleh, it will help shorten the duration of the call.
 
 #### Cut out the snacks
 
-Very common I see engineering desks packed with towers of snacks and sugars (_I'm so guilty of supplying these snacks!_) to keep engineers going for long hours. I've learnt to avoid this at all costs. Replace with fruits or nuts. The sugar hit is only temporary and fil the stomach for a short time, but it has a long term effect on your health that is not worth it.
+Very common I see engineering desks packed with towers of snacks and sugars (_I'm so guilty of supplying these snacks!_) to keep engineers going for long hours. I've learnt to avoid this at all costs. Replace with fruits or nuts. The sugar hit is only temporary and fil the stomach for a short time, but it has a long term effect on your hetitleh that is not worth it.
 
 #### Avoid desk lunches
 
@@ -47,21 +47,21 @@ Cannot stress this one enough. I've picked up many injuries because of my lazine
 
 It not too important how much you workout, as long as you are consistent with your schedule. Book your week in advance and block out your calendar so you are not interrupted by work activities. Add some buffer for warming up and stretching. I suggest having a training program that you can follow.
 
-(_Recommendation: [Team Grit OCR](http://teamgritocr.com/){alt="Team Grit OCR"}{target=\_blank}{rel=noopener} have a 4-week home workout suitable for all fitness levels. Does not require equipment and can be done at home._)
+(_Recommendation: [Team Grit OCR](http://teamgritocr.com/){title="Team Grit OCR"}{target=\_blank}{rel=noopener} have a 4-week home workout suitable for all fitness levels. Does not require equipment and can be done at home._)
 
 #### Join a Club
 
 Think of it as pair programming. Find other like-minded engineers who want to join the fun and stay active together by joining a club. For your colleagues, you can start a private group chat to share your schedules or tips. It's easier to start an activity with others. And it goes two ways - let them know you're willing to keep them company in the gym.
 
-Connect with them on [Strava](https://strava.com/){alt="Strava"}{target=\_blank}{rel=noopener} to track and stay in touch with each other.
+Connect with them on [Strava](https://strava.com/){title="Strava"}{target=\_blank}{rel=noopener} to track and stay in touch with each other.
 
-> Strava turns every iPhone and Android into a sophisticated running and cycling computer (and we work with your GPS watches and head units, too). Start Strava before an activity and you can track your favorite performance stats, and afterwards, dive deep into your data. - [Strava.com](https://strava.com/){alt="Strava"}{target=\_blank}{rel=noopener}
+> Strava turns every iPhone and Android into a sophisticated running and cycling computer (and we work with your GPS watches and head units, too). Start Strava before an activity and you can track your favorite performance stats, and afterwards, dive deep into your data. - [Strava.com](https://strava.com/){title="Strava"}{target=\_blank}{rel=noopener}
 
-(_[Connect with me on Strava](https://www.strava.com/athletes/60074731){alt="Strava"}{target=\_blank}{rel=noopener} - I would love to virtually run with other engineers!_)
+(_[Connect with me on Strava](https://www.strava.com/athletes/60074731){title="Strava"}{target=\_blank}{rel=noopener} - I would love to virtually run with other engineers!_)
 
 #### Measure your activites
 
-Like we execute performance tests against our applications, we should also be measuring our physical activites and use the results as benchmarks. Track your activities in your favourite notes editor, or use an app to automatically track the activites for you. I personally use Notes on my iPhone + [Garmin Connect](https://connect.garmin.com/){alt="Garmin Connect"}{target=\_blank}{rel=noopener}.
+Like we execute performance tests against our applications, we should also be measuring our physical activites and use the results as benchmarks. Track your activities in your favourite notes editor, or use an app to automatically track the activites for you. I personally use Notes on my iPhone + [Garmin Connect](https://connect.garmin.com/){title="Garmin Connect"}{target=\_blank}{rel=noopener}.
 
 ### Stretching
 
@@ -74,10 +74,10 @@ Common scenarios I see engineers (_and myself!_) faced without awareness:
 
 Some stretches I have picked over time to help with common tighteness from an extended period of sitting down in front of a computer:
 
-- [Child's Pose](https://yogapose.com/pose/childs-pose){alt="Child's Pose Yoga Movement"}{target=\_blank}{rel=noopener} to release tensions on your back.
-- [External Shoulder Rotations](https://orthoinfo.aaos.org/en/recovery/rotator-cuff-and-shoulder-conditioning-program){alt="External Shoulder Rotations"}{target=\_blank}{rel=noopener} to stretch out your shoulders.
-- [Place a tennis ball under your hamstrings](https://www.youtube.com/watch?v=RInK0asX8l0){alt="YouTube: Soft Tissue Release - Instant Hamstring Tightness Release"}{target=\_blank}{rel=noopener} while sitting down to help release tightness while working.
+- [Child's Pose](https://yogapose.com/pose/childs-pose){title="Child's Pose Yoga Movement"}{target=\_blank}{rel=noopener} to release tensions on your back.
+- [External Shoulder Rotations](https://orthoinfo.aaos.org/en/recovery/rotator-cuff-and-shoulder-conditioning-program){title="External Shoulder Rotations"}{target=\_blank}{rel=noopener} to stretch out your shoulders.
+- [Place a tennis ball under your hamstrings](https://www.youtube.com/watch?v=RInK0asX8l0){title="YouTube: Soft Tissue Release - Instant Hamstring Tightness Release"}{target=\_blank}{rel=noopener} while sitting down to help release tightness while working.
 
 Without going into too much detail on how to stretch - My message here is to bring awareness of the importance of stretching for anyone who is sitting down for a prolonged period of time.
 
-(_Recommendation: Living in Singapore? Visit [The Stretch Clinic](https://www.thestretchclinic.com/sg/){alt="The Stretch Clinic"}{target=\_blank}{rel=noopener}. I regularly visit them for a good stretch and they have been very helpful with taking care of my body from any injuries I have faced from long hours at work or while working out._)
+(_Recommendation: Living in Singapore? Visit [The Stretch Clinic](https://www.thestretchclinic.com/sg/){title="The Stretch Clinic"}{target=\_blank}{rel=noopener}. I regularly visit them for a good stretch and they have been very helpful with taking care of my body from any injuries I have faced from long hours at work or while working out._)
