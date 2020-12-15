@@ -6,11 +6,11 @@ tags:
   - serverless
 ---
 
-As I continue to build this blog, I want to add some analytics to get an idea of my viewers and what they are interested in reading. Using [FaunaDB](https://fauna.com/){alt="FaunaDB"}{target=\_blank}{rel=noopener} and [Netlify Functions](https://www.netlify.com/products/functions/){alt="Netlify Functions"}{target=\_blank}{rel=noopener}, we are going to build a basic API that will allow us to track the page hits.
+As I continue to build this blog, I want to add some analytics to get an idea of my viewers and what they are interested in reading. Using [FaunaDB](https://fauna.com/){title="FaunaDB"}{target=\_blank}{rel=noopener} and [Netlify Functions](https://www.netlify.com/products/functions/){title="Netlify Functions"}{target=\_blank}{rel=noopener}, we are going to build a basic API that will allow us to track the page hits.
 
 ## TL;DR
 
-You can use Netlify Functions to talk to a database such as FaunaDB. In the below example, we use tracking page hits as a use-case to save into the database. You can found the source code to the Netlify Function [here](https://github.com/petermekhaeil/pmekh.com/blob/master/functions/tracker.js){alt="GitHub"}{target=\_blank}{rel=noopener}.
+You can use Netlify Functions to talk to a database such as FaunaDB. In the below example, we use tracking page hits as a use-case to save into the database. You can found the source code to the Netlify Function [here](https://github.com/petermekhaeil/pmekh.com/blob/master/functions/tracker.js){title="GitHub"}{target=\_blank}{rel=noopener}.
 
 ## The Setup
 
@@ -20,11 +20,11 @@ We want to keep it as minimal as possible. We can achieve this without using Jav
 
 ### Back End
 
-This blog doesn't sit on a server (woohoo!). It's a static website built on [Eleventy](https://www.11ty.dev/){alt="Eleventy"}{target=\_blank}{rel=noopener} and served from [Netlify](https://netlify.app/){alt="Netlify"}{target=\_blank}{rel=noopener}. Our solution will involve using [Netlify Functions](https://www.netlify.com/products/functions/){alt="Netlify Functions"}{target=\_blank}{rel=noopener} which are serverless functions that you can deploy alongside your static website. Behind the scenes, Netlify Functions run on AWS Lambda and the beautiful thing about this is that you don't need to worry about using AWS. Lambda functions are fully managed and auto-scale. AWS and Netlify will take care of setting everything up for you, all we need to do is write the API function and deploy it.
+This blog doesn't sit on a server (woohoo!). It's a static website built on [Eleventy](https://www.11ty.dev/){title="Eleventy"}{target=\_blank}{rel=noopener} and served from [Netlify](https://netlify.app/){title="Netlify"}{target=\_blank}{rel=noopener}. Our solution will involve using [Netlify Functions](https://www.netlify.com/products/functions/){title="Netlify Functions"}{target=\_blank}{rel=noopener} which are serverless functions that you can deploy alongside your static website. Behind the scenes, Netlify Functions run on AWS Lambda and the beautiful thing about this is that you don't need to worry about using AWS. Lambda functions are fully managed and auto-scale. AWS and Netlify will take care of setting everything up for you, all we need to do is write the API function and deploy it.
 
 ### Database
 
-We going to use [FaunaDB](https://fauna.com/){alt="FaunaDB"}{target=\_blank}{rel=noopener}, a serverless database that is easy to use, can be set up in a couple minutes and works well with serverless functions. This is where we are going to store the page URLs and their page hits.
+We going to use [FaunaDB](https://fauna.com/){title="FaunaDB"}{target=\_blank}{rel=noopener}, a serverless database that is easy to use, can be set up in a couple minutes and works well with serverless functions. This is where we are going to store the page URLs and their page hits.
 
 Everything together should look like this:
 
@@ -34,7 +34,7 @@ Everything together should look like this:
 
 ### FaunaDB
 
-1. [Sign up](https://dashboard.fauna.com/accounts/register){alt="FaunaDB"}{target=\_blank}{rel=noopener} for an account. The Free account is enough for this tutorial.
+1. [Sign up](https://dashboard.fauna.com/accounts/register){title="FaunaDB"}{target=\_blank}{rel=noopener} for an account. The Free account is enough for this tutorial.
 
 2. Create a new Database and name it after your project.
 
@@ -44,7 +44,7 @@ Everything together should look like this:
 
    ![](../assets/blog-images/analytics-3.png)
 
-4. We now need to create a new [Index](https://docs.fauna.com/fauna/current/api/fql/indexes?lang=javascript){alt="FaunaDB Indexes"}{target=\_blank}{rel=noopener}. In FaunaDB, you use the index to query your documents. (a) Set the `Source Collection` to `hits` (b) Set `Index Name` to `hits_by_pathname` (c) Set `Terms` to `data.pathname`.
+4. We now need to create a new [Index](https://docs.fauna.com/fauna/current/api/fql/indexes?lang=javascript){title="FaunaDB Indexes"}{target=\_blank}{rel=noopener}. In FaunaDB, you use the index to query your documents. (a) Set the `Source Collection` to `hits` (b) Set `Index Name` to `hits_by_pathname` (c) Set `Terms` to `data.pathname`.
 
    ![](../assets/blog-images/analytics-4.png)
 
@@ -60,7 +60,7 @@ We need to write an API that will:
 2. Increase this count and store it back into the database.
 3. Respond to the client with a transparent image.
 
-We are going to use the [faunadb](https://github.com/fauna/faunadb-js){alt="FaunaDB"}{target=\_blank}{rel=noopener} package. We will need this as dependency to the serverless function (it won't be used on the client side).
+We are going to use the [faunadb](https://github.com/fauna/faunadb-js){title="FaunaDB"}{target=\_blank}{rel=noopener} package. We will need this as dependency to the serverless function (it won't be used on the client side).
 
 ```bash
 npm install faunadb
@@ -129,11 +129,11 @@ exports.handler = async (event) => {
 };
 ```
 
-The [Fauna Query Language](https://docs.fauna.com/fauna/current/api/fql/functions){alt="Fauna Query Language"}{target=\_blank}{rel=noopener} provides a collection of built-in functions that we used in this function. We started with [Let](https://docs.fauna.com/fauna/current/api/fql/functions/let?lang=javascript){alt="Fauna Query Language"}{target=\_blank}{rel=noopener} that allowed us to create the variable `match`. The expression used an [If](https://docs.fauna.com/fauna/current/api/fql/functions/if?lang=javascript){alt="Fauna Query Language"}{target=\_blank}{rel=noopener} which takes 3 parameters `( cond_expr, true_expr, false_expr )`. For the condition, we want to check if the document exists using [Exists](https://docs.fauna.com/fauna/current/api/fql/functions/exists?lang=javascript){alt="Fauna Query Language"}{target=\_blank}{rel=noopener}. If it exists, we referenced it using [Select](https://docs.fauna.com/fauna/current/api/fql/functions/select?lang=javascript) and [Update](https://docs.fauna.com/fauna/current/api/fql/functions/update?lang=javascript){alt="Fauna Query Language"}{target=\_blank}{rel=noopener}. We used [Add](https://docs.fauna.com/fauna/current/api/fql/functions/add?lang=javascript){alt="Fauna Query Language"}{target=\_blank}{rel=noopener} to add `1` to the previous count. If the document did not exist, we created it with [Create](https://docs.fauna.com/fauna/current/api/fql/functions/create?lang=javascript){alt="Fauna Query Language"}{target=\_blank}{rel=noopener}.
+The [Fauna Query Language](https://docs.fauna.com/fauna/current/api/fql/functions){title="Fauna Query Language"}{target=\_blank}{rel=noopener} provides a collection of built-in functions that we used in this function. We started with [Let](https://docs.fauna.com/fauna/current/api/fql/functions/let?lang=javascript){title="Fauna Query Language"}{target=\_blank}{rel=noopener} that allowed us to create the variable `match`. The expression used an [If](https://docs.fauna.com/fauna/current/api/fql/functions/if?lang=javascript){title="Fauna Query Language"}{target=\_blank}{rel=noopener} which takes 3 parameters `( cond_expr, true_expr, false_expr )`. For the condition, we want to check if the document exists using [Exists](https://docs.fauna.com/fauna/current/api/fql/functions/exists?lang=javascript){title="Fauna Query Language"}{target=\_blank}{rel=noopener}. If it exists, we referenced it using [Select](https://docs.fauna.com/fauna/current/api/fql/functions/select?lang=javascript) and [Update](https://docs.fauna.com/fauna/current/api/fql/functions/update?lang=javascript){title="Fauna Query Language"}{target=\_blank}{rel=noopener}. We used [Add](https://docs.fauna.com/fauna/current/api/fql/functions/add?lang=javascript){title="Fauna Query Language"}{target=\_blank}{rel=noopener} to add `1` to the previous count. If the document did not exist, we created it with [Create](https://docs.fauna.com/fauna/current/api/fql/functions/create?lang=javascript){title="Fauna Query Language"}{target=\_blank}{rel=noopener}.
 
 ### Build Environment Variables
 
-We need to add the FaunaDB API Key into Netlify's [Environment Variables](https://docs.netlify.com/configure-builds/environment-variables/){alt="Netlify Environment Variables"}{target=\_blank}{rel=noopener}. It's referenced in the above code using `process.env.FAUNA_SECRET_KEY`.
+We need to add the FaunaDB API Key into Netlify's [Environment Variables](https://docs.netlify.com/configure-builds/environment-variables/){title="Netlify Environment Variables"}{target=\_blank}{rel=noopener}. It's referenced in the above code using `process.env.FAUNA_SECRET_KEY`.
 
 ![](../assets/blog-images/analytics-5.png)
 
@@ -145,7 +145,7 @@ Place the `<img/>` on your template. Here is how I did it for my template:
 
 ```html
 {% if env.environment == "production" %}
-<img src="/.netlify/functions/tracker" alt="" />
+<img src="/.netlify/functions/tracker" title="" />
 {% endif %}
 ```
 
@@ -153,7 +153,7 @@ Place the `<img/>` on your template. Here is how I did it for my template:
 
 ## Testing
 
-Testing is a large topic on it's own. Read up on [Netlify Dev](https://docs.netlify.com/cli/get-started/#get-started-with-netlify-dev){alt="Netlify Dev"}{target=\_blank}{rel=noopener} to get started on the Netlify CLI which will let you test your serverless function locally. I recommend you to test your functions before commiting and deploying.
+Testing is a large topic on it's own. Read up on [Netlify Dev](https://docs.netlify.com/cli/get-started/#get-started-with-netlify-dev){title="Netlify Dev"}{target=\_blank}{rel=noopener} to get started on the Netlify CLI which will let you test your serverless function locally. I recommend you to test your functions before commiting and deploying.
 
 ## Wrapping it up
 

@@ -11,7 +11,7 @@ tags:
 
 - **You will have very difficult conversations.** Like really _difficult_ ones. As a manager, you will need to confront them and you will learn how to handle them. Do not avoid giving critical feedback because people need to hear your feedback for their own self-growth.
 
-- **Feedback is critical.** There is different types of feedback that you can provide. You can use the [Situation-Behavior-Impact (SBI) Feedback Model](https://www.ccl.org/articles/leading-effectively-articles/hr-pipeline-a-quick-win-to-improve-your-talent-development-process/){alt="Situation-Behavior-Impact (SBI) Feedback Model"}{target=\_blank}{rel=noopener} to provide constructive feedback to your peers.
+- **Feedback is critical.** There is different types of feedback that you can provide. You can use the [Situation-Behavior-Impact (SBI) Feedback Model](https://www.ccl.org/articles/leading-effectively-articles/hr-pipeline-a-quick-win-to-improve-your-talent-development-process/){title="Situation-Behavior-Impact (SBI) Feedback Model"}{target=\_blank}{rel=noopener} to provide constructive feedback to your peers.
 
 - **Don’t be afraid to get personal in your 1:1s.** Start the conversations as you would when you go for coffee with them. Ask them how is life treating them, or what they have planned for the weekend. And remember the conversations you’ve had so you can continue the flow in the next 1:1s. Sometimes these sessions shouldn't be about work and perhaps your team member wants to talk or take a break from the work hustle. This is how relationships are built.
 
@@ -21,9 +21,9 @@ tags:
 
 - **Stay Technical.** In saying the above, you'll still need to stay technical. Your new team wants to know you're technical so they can connect with you. You'll need to work out a balance between management and tech. Keep in touch with the industry. You'll also be learning from your team too.
 
-- **"One Of Us".** Work on letting your new team know you are [one of them](https://www.youtube.com/watch?v=9C4uTEEOJlM){alt="Gooble Gobble One of Us We Accept Her"}{target=\_blank}{rel=noopener}. Create an environment of openness and trust amongst your team. Work on letting them know you will always be there for them. They will support you when times get rough.
+- **"One Of Us".** Work on letting your new team know you are [one of them](https://www.youtube.com/watch?v=9C4uTEEOJlM){title="Gooble Gobble One of Us We Accept Her"}{target=\_blank}{rel=noopener}. Create an environment of openness and trust amongst your team. Work on letting them know you will always be there for them. They will support you when times get rough.
 
-- **Management is a change of profession.** Becoming an engineering manager is a different career path altogether and you'll be starting from scratch. You're now a junior again. You will do a poor job at the start. Read Charity Major's [The Engineer/Manager Pendulum](https://charity.wtf/2017/05/11/the-engineer-manager-pendulum/){alt="The Engineer/Manager Pendulum"}{target=\_blank}{rel=noopener}.
+- **Management is a change of profession.** Becoming an engineering manager is a different career path titleogether and you'll be starting from scratch. You're now a junior again. You will do a poor job at the start. Read Charity Major's [The Engineer/Manager Pendulum](https://charity.wtf/2017/05/11/the-engineer-manager-pendulum/){title="The Engineer/Manager Pendulum"}{target=\_blank}{rel=noopener}.
 
 - **Don’t be afraid to take on the management path.** You’ll have the full support from your new team, existing managers and business stakeholders. When you connect with them they will become your support model throughout your new challenges.
 
