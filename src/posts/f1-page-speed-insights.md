@@ -6,13 +6,13 @@ tags:
   - performance
 ---
 
-F1 2020 is over - Mercedes took 1st and 2nd position, with Red Bull right behind them in 3rd. But which team won in terms of web speed performance? Let's take a look at their PageSpeed Insights and Lighthouse scores.
+F1 2020 is over - Mercedes took 1st and 2nd position, with Red Bull right behind them in 3rd. But which team won in terms of web speed performance?
 
 ### How Scores are Measured
 
-[PageSpeed Insights](https://developers.google.com/speed/docs/insights/v5/about){title="PageSpeed Insights"}{target=\_blank}{rel=noopener} is a tool that reports on site performance and it includes lab data from [Lighthouse](https://developers.google.com/web/tools/lighthouse/){title="Lighthouse"}{target=\_blank}{rel=noopener} and real-world field data from [Chrome User Experience Report (CrUX)](https://developers.google.com/web/tools/chrome-user-experience-report/){title="CrUX"}{target=\_blank}{rel=noopener}.
+[PageSpeed Insights](https://developers.google.com/speed/docs/insights/v5/about){title="PageSpeed Insights"}{target=\_blank}{rel=noopener} is a tool that reports on site performance and it includes both lab data and real-world field data.
 
-[Lab Data](https://developers.google.com/web/fundamentals/performance/speed-tools/#lab_data){title="Lab Data"}{target=\_blank}{rel=noopener} is measured under controlled conditions - simulating a single device with fixed network conditions. [Field Data](https://developers.google.com/web/fundamentals/performance/speed-tools/#field_data){title="Field Data"}{target=\_blank}{rel=noopener} is capturing real-world user experience - these are from real page views over a set period of time.
+[Lab Data](https://developers.google.com/web/fundamentals/performance/speed-tools/#lab_data){title="Lab Data"}{target=\_blank}{rel=noopener} is collected by running [Lighthouse](https://developers.google.com/web/tools/lighthouse){title="Lighthouse"}{target=\_blank}{rel=noopener} and is measured under controlled conditions - simulating a single device with fixed network conditions. [Field Data](https://developers.google.com/web/fundamentals/performance/speed-tools/#field_data){title="Field Data"}{target=\_blank}{rel=noopener} is collected from [Chrome User Experience Report (CrUX)](https://developers.google.com/web/tools/chrome-user-experience-report/){title="CrUX"}{target=\_blank}{rel=noopener} and it is capturing real-world user experience - these are from real page views over a set period of time.
 
 I have aggregated the results and built a site to show us a summary: [F1 Page Speed Insights](https://f1-page-speed-insights.netlify.app/){title="F1 Page Speed Insights"}{target=\_blank}{rel=noopener}.
 
@@ -41,7 +41,7 @@ A score of 90 or above is considered good. So these teams have some work to do o
 
 The list is ordered according to their Performance Scores. We can see **Racing Point** takes the lead for `Cumulative Layout Shift` and **Williams** for `Largest Contentful Paint`.
 
-Field Data scores are gathered from the CrUX and you will notice 3 of them are metrics used in the Performance Scores. The 4th one being [First Input Delay (FID)](https://web.dev/fid/){title="First Input Delay"}{target=\_blank}{rel=noopener}. Each of these metrics have their own [scoring](https://developers.google.com/speed/docs/insights/v5/about#categories){title="Metric Scores"}{target=\_blank}{rel=noopener}.
+You will notice 3 of the Field Data metrics are used in the Performance Scores. The 4th one being [First Input Delay (FID)](https://web.dev/fid/){title="First Input Delay"}{target=\_blank}{rel=noopener}. Each of these metrics have their own [scoring](https://developers.google.com/speed/docs/insights/v5/about#categories){title="Metric Scores"}{target=\_blank}{rel=noopener}.
 
 ### Team Breakdown
 
