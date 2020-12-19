@@ -6,6 +6,8 @@ tags:
   - performance
 ---
 
+_**Edit (2020-12-19):** The scoring has changed. Read up on the [follow-up post](/updating-the-scoring-to-f1-page-speed-insights/)._
+
 F1 2020 is over - Mercedes took 1st and 2nd position, with Red Bull right behind them in 3rd. But which team won in terms of web speed performance?
 
 ### How Scores are Measured
