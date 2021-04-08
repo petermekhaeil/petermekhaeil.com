@@ -1,0 +1,18 @@
+---
+layout: post.njk
+title: Code
+eleventyNavigation:
+  key: code
+  order: 300
+---
+
+<p>A collection of projects I have started. Feel free to contribute or send feedback.</p>
+
+{% for repo in github %}
+  <h3><a href="{{ repo.url | url }}" target="_blank" rel="noopener" title="{{repo.name}}">{{ repo.name }}</a></h3>
+  <p>{{repo.description}}
+    {% for tag in repo.repositoryTopics.edges %}
+      <i class="text-gray-400"><small>#{{ tag.node.topic.name }}</small></i>
+    {% endfor %}
+</p>
+{% endfor %}
