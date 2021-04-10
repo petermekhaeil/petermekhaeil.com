@@ -24,6 +24,7 @@ module.exports = (config) => {
   });
 
   config.addPassthroughCopy('src/assets');
+  config.addPassthroughCopy({ 'public/admin': 'admin' });
 
   config.addFilter('cssmin', function (code) {
     return new CleanCSS({}).minify(code).styles;
