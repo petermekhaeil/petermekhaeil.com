@@ -1,6 +1,6 @@
 _site
 node_modules
 .DS_Store
-src/posts/draft-*
+drafts
 # Local Netlify folder
 .netlify
