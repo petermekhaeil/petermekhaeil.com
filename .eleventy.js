@@ -1,6 +1,5 @@
 const path = require('path');
 const { DateTime } = require('luxon');
-const CleanCSS = require('clean-css');
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const Image = require('@11ty/eleventy-img');
@@ -9,6 +8,7 @@ const emojiReadTime = require('@11tyrocks/eleventy-plugin-emoji-readtime');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const pluginTOC = require('eleventy-plugin-toc');
 const safeLinks = require('@sardine/eleventy-plugin-external-links');
+const pluginTailwindCSS = require('eleventy-plugin-tailwindcss');
 
 module.exports = (config) => {
   config.addPlugin(eleventyNavigationPlugin);
@@ -24,13 +24,14 @@ module.exports = (config) => {
     label: 'min. read',
     bucketSize: 5
   });
+  config.addPlugin(pluginTailwindCSS, {
+    src: 'src/styles.css',
+    dest: 'compiled.css',
+    keepFolderStructure: false
+  });
 
   config.addPassthroughCopy('src/assets');
   config.addPassthroughCopy({ 'public/admin': 'admin' });
-
-  config.addFilter('cssmin', function (code) {
-    return new CleanCSS({}).minify(code).styles;
-  });
 
   const markdownIt = require('markdown-it');
   const markdownItAttrs = require('markdown-it-attrs');
