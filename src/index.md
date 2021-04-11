@@ -10,4 +10,4 @@ I'm a software engineer with a passion for building performant web apps using th
 
 This is my space on the internet where I'll share my learnings in [writing](/write) and projects in [code](/code).
 
-Feel free to send me feedback on my learnings. You can reach me on [Twitter](https://twitter.com/PMekhaeil){alt="Twitter"}{target=\_blank}{rel=noopener}.
+Feel free to send me feedback on my learnings. You can reach me on [Twitter](https://twitter.com/PMekhaeil){alt="Twitter"}.

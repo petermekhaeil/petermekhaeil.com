@@ -12,11 +12,11 @@ F1 2020 is over - Mercedes took 1st and 2nd position, with Red Bull right behind
 
 ### How Scores are Measured
 
-[PageSpeed Insights](https://developers.google.com/speed/docs/insights/v5/about){title="PageSpeed Insights"}{target=\_blank}{rel=noopener} is a tool that reports on site performance and it includes both lab data and real-world field data.
+[PageSpeed Insights](https://developers.google.com/speed/docs/insights/v5/about){title="PageSpeed Insights"} is a tool that reports on site performance and it includes both lab data and real-world field data.
 
-[Lab Data](https://developers.google.com/web/fundamentals/performance/speed-tools/#lab_data){title="Lab Data"}{target=\_blank}{rel=noopener} is collected by running [Lighthouse](https://developers.google.com/web/tools/lighthouse){title="Lighthouse"}{target=\_blank}{rel=noopener} and is measured under controlled conditions - simulating a single device with fixed network conditions. [Field Data](https://developers.google.com/web/fundamentals/performance/speed-tools/#field_data){title="Field Data"}{target=\_blank}{rel=noopener} is collected from [Chrome User Experience Report (CrUX)](https://developers.google.com/web/tools/chrome-user-experience-report/){title="CrUX"}{target=\_blank}{rel=noopener} and it is capturing real-world user experience - these are from real page views over a set period of time.
+[Lab Data](https://developers.google.com/web/fundamentals/performance/speed-tools/#lab_data){title="Lab Data"} is collected by running [Lighthouse](https://developers.google.com/web/tools/lighthouse){title="Lighthouse"} and is measured under controlled conditions - simulating a single device with fixed network conditions. [Field Data](https://developers.google.com/web/fundamentals/performance/speed-tools/#field_data){title="Field Data"} is collected from [Chrome User Experience Report (CrUX)](https://developers.google.com/web/tools/chrome-user-experience-report/){title="CrUX"} and it is capturing real-world user experience - these are from real page views over a set period of time.
 
-I have aggregated the results and built a site to show us a summary: [F1 Page Speed Insights](https://f1-page-speed-insights.netlify.app/){title="F1 Page Speed Insights"}{target=\_blank}{rel=noopener}.
+I have aggregated the results and built a site to show us a summary: [F1 Page Speed Insights](https://f1-page-speed-insights.netlify.app/){title="F1 Page Speed Insights"}.
 
 We will start with the score everyone wants to see first:
 
@@ -24,14 +24,14 @@ We will start with the score everyone wants to see first:
 
 ![Performance Scores](../assets/blog-images/f1-page-speed-insights/1.png 'Performance Scores')
 
-At the time of this post, **Haas** takes the lead with a score of 64. This score is a weighted average of a collection of [performance metrics](https://web.dev/performance-scoring/){title="Performance Metrics"}{target=\_blank}{rel=noopener} measured in Lighthouse:
+At the time of this post, **Haas** takes the lead with a score of 64. This score is a weighted average of a collection of [performance metrics](https://web.dev/performance-scoring/){title="Performance Metrics"} measured in Lighthouse:
 
-- [First Contentful Paint (FCP)](https://web.dev/first-contentful-paint/){title="First Contentful Paint"}{target=\_blank}{rel=noopener} - time at which first content appears.
-- [Speed Index](https://web.dev/speed-index/){title="Speed Index"}{target=\_blank}{rel=noopener} - how quickly content visibly populates.
-- [Largest Contentful Paint (LCP)](https://web.dev/lcp/){title="Largest Contentful Paint"}{target=\_blank}{rel=noopener} - time at which largest content appears.
-- [Time to Interactive](https://web.dev/interactive/){title="Time to Interactive"}{target=\_blank}{rel=noopener} - time at which page becomes interactive.
-- [Total Blocking Time](https://web.dev/lighthouse-total-blocking-time/){title="Total Blocking Time"}{target=\_blank}{rel=noopener} - time from FCP to Time to Interactive.
-- [Cumulative Layout Shift (CLS)](https://web.dev/cls/){title="Cumulative Layout Shift"}{target=\_blank}{rel=noopener} - the movement of elements within the viewport.
+- [First Contentful Paint (FCP)](https://web.dev/first-contentful-paint/){title="First Contentful Paint"} - time at which first content appears.
+- [Speed Index](https://web.dev/speed-index/){title="Speed Index"} - how quickly content visibly populates.
+- [Largest Contentful Paint (LCP)](https://web.dev/lcp/){title="Largest Contentful Paint"} - time at which largest content appears.
+- [Time to Interactive](https://web.dev/interactive/){title="Time to Interactive"} - time at which page becomes interactive.
+- [Total Blocking Time](https://web.dev/lighthouse-total-blocking-time/){title="Total Blocking Time"} - time from FCP to Time to Interactive.
+- [Cumulative Layout Shift (CLS)](https://web.dev/cls/){title="Cumulative Layout Shift"} - the movement of elements within the viewport.
 
 Important to note here that these Lighthouse scores are based on **Lab Data**.
 
@@ -43,7 +43,7 @@ A score of 90 or above is considered good. So these teams have some work to do o
 
 The list is ordered according to their Performance Scores. We can see **Racing Point** takes the lead for `Cumulative Layout Shift` and **Williams** for `Largest Contentful Paint`.
 
-You will notice 3 of the Field Data metrics are used in the Performance Scores. The 4th one being [First Input Delay (FID)](https://web.dev/fid/){title="First Input Delay"}{target=\_blank}{rel=noopener}. Each of these metrics have their own [scoring](https://developers.google.com/speed/docs/insights/v5/about#categories){title="Metric Scores"}{target=\_blank}{rel=noopener}.
+You will notice 3 of the Field Data metrics are used in the Performance Scores. The 4th one being [First Input Delay (FID)](https://web.dev/fid/){title="First Input Delay"}. Each of these metrics have their own [scoring](https://developers.google.com/speed/docs/insights/v5/about#categories){title="Metric Scores"}.
 
 ### Team Breakdown
 
@@ -51,11 +51,11 @@ You will notice 3 of the Field Data metrics are used in the Performance Scores. 
 
 ![Racing Point](../assets/blog-images/f1-page-speed-insights/4.png 'Racing Point')
 
-The big number is the performance score we spoke about earlier. Right under it is the [Core Web Vitals](https://web.dev/vitals/){title="Core Web Vitals"}{target=\_blank}{rel=noopener} assessment summary.
+The big number is the performance score we spoke about earlier. Right under it is the [Core Web Vitals](https://web.dev/vitals/){title="Core Web Vitals"} assessment summary.
 
 Core Web Vitals are a common set of signals critical to all web experiences, measuring the quality of a site's user experience. A site either passes, or does not pass the assessment. 3 metrics are used to measure a website's Core Web Vital assessment: `Largest Contentful Paint (LCP)`, `Cumulative Layout Shift (CLS)` and `First Input Delay (FID)`.
 
-To pass the assessment, 75% of page views need to hit the recommended target of each metric for it to be considered good performance. When the 3 metrics hit that target, the site passes the assessment. Take a read on how Google [defines the metrics thresholds](https://web.dev/defining-core-web-vitals-thresholds/){title="Defining Core Web Vital Thresholds"}{target=\_blank}{rel=noopener}.
+To pass the assessment, 75% of page views need to hit the recommended target of each metric for it to be considered good performance. When the 3 metrics hit that target, the site passes the assessment. Take a read on how Google [defines the metrics thresholds](https://web.dev/defining-core-web-vitals-thresholds/){title="Defining Core Web Vital Thresholds"}.
 
 In the example above, Racing Point passed. And it can be seen in more details on the right hand side. These are the Field Data scores we saw earlier, but broken down to indicate the percentage of viewers and their experience. For example, for CLS - 79% of viewers had a good experience and 9% had a poor experience.
 

@@ -6,7 +6,7 @@ tags:
   - tailwindcss
 ---
 
-Tailwind CSS v2.0 introduces [Dark mode support](https://tailwindcss.com/docs/dark-mode){title="Tailwind CSS Dark Mode"}{target=\_blank}{rel=noopener} and with minimal JS and inline SVG, you can allow your users to manually toggle Dark Mode. We are going to walk through what is required to build the same one from [pmekh.com](https://pmekh.com){title="Peter Mekhaeil's Site"}{target=\_blank}{rel=noopener}.
+Tailwind CSS v2.0 introduces [Dark mode support](https://tailwindcss.com/docs/dark-mode){title="Tailwind CSS Dark Mode"} and with minimal JS and inline SVG, you can allow your users to manually toggle Dark Mode. We are going to walk through what is required to build the same one from [pmekh.com](https://pmekh.com){title="Peter Mekhaeil's Site"}.
 
 Set `darkMode` to `class` in your config:
 
@@ -29,7 +29,7 @@ Let's start with a base HTML page:
 </html>
 ```
 
-Let's add the UI switch using SVGs from [Heroicons](https://heroicons.com/){title="HeroIcons"}{target=\_blank}{rel=noopener}. We will be using the Moon and Sun SVGs. They also have IDs attached `#toggle-dark` and `#toggle-light`. You'll also noticed they are hidden using the `hidden` class. This is because we would like to avoid any flicker while the app decides which SVG to show (more on this later).
+Let's add the UI switch using SVGs from [Heroicons](https://heroicons.com/){title="HeroIcons"}. We will be using the Moon and Sun SVGs. They also have IDs attached `#toggle-dark` and `#toggle-light`. You'll also noticed they are hidden using the `hidden` class. This is because we would like to avoid any flicker while the app decides which SVG to show (more on this later).
 
 ```html
 <html>
@@ -148,11 +148,11 @@ toggleDark.addEventListener('click', function () {
 });
 ```
 
-You can view the [source code](https://github.com/petermekhaeil/pmekh.com/blob/master/src/_includes/base.njk){title="GitHub"}{target=\_blank}{rel=noopener} to see it all put together.
+You can view the [source code](https://github.com/petermekhaeil/pmekh.com/blob/master/src/_includes/base.njk){title="GitHub"} to see it all put together.
 
 ### @tailwindcss/typography
 
-If you use [@tailwindcss/typography](https://tailwindcss.com/docs/typography-plugin){title="Tailwind Typography Plugin"}{target=\_blank}{rel=noopener}, you'll need to add some configs to get dark mode working.
+If you use [@tailwindcss/typography](https://tailwindcss.com/docs/typography-plugin){title="Tailwind Typography Plugin"}, you'll need to add some configs to get dark mode working.
 
 Add a `dark:prose-dark` class. This will only work when placed next to `prose`.
 
@@ -162,7 +162,7 @@ Add a `dark:prose-dark` class. This will only work when placed next to `prose`.
 </article>
 ```
 
-Extend your configuration to add a dark [theme](https://tailwindcss.com/docs/theme){title="Tailwind Theme"}{target=\_blank}{rel=noopener}:
+Extend your configuration to add a dark [theme](https://tailwindcss.com/docs/theme){title="Tailwind Theme"}:
 
 ```js
 // tailwind.config.js
@@ -191,6 +191,6 @@ module.exports = {
 };
 ```
 
-If you've previously extended your theme for Tailwind CSS 1.x, for Tailwind CSS 2.0 you'll need to [update default theme key to DEFAULT](https://tailwindcss.com/docs/upgrading-to-v2#update-default-theme-keys-to-default){title="Tailwind CSS v2.0"}{target=\_blank}{rel=noopener}.
+If you've previously extended your theme for Tailwind CSS 1.x, for Tailwind CSS 2.0 you'll need to [update default theme key to DEFAULT](https://tailwindcss.com/docs/upgrading-to-v2#update-default-theme-keys-to-default){title="Tailwind CSS v2.0"}.
 
-You will then need to extend the rest of your styles. [Use this blog's config as an example](https://github.com/petermekhaeil/pmekh.com/blob/master/tailwind.config.js){title="GitHub"}{target=\_blank}{rel=noopener}.
+You will then need to extend the rest of your styles. [Use this blog's config as an example](https://github.com/petermekhaeil/pmekh.com/blob/master/tailwind.config.js){title="GitHub"}.

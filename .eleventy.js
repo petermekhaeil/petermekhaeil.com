@@ -8,6 +8,7 @@ const inclusiveLangPlugin = require('@11ty/eleventy-plugin-inclusive-language');
 const emojiReadTime = require('@11tyrocks/eleventy-plugin-emoji-readtime');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const pluginTOC = require('eleventy-plugin-toc');
+const safeLinks = require('@sardine/eleventy-plugin-external-links');
 
 module.exports = (config) => {
   config.addPlugin(eleventyNavigationPlugin);
@@ -15,6 +16,7 @@ module.exports = (config) => {
   config.addPlugin(inclusiveLangPlugin);
   config.addPlugin(syntaxHighlight);
   config.addPlugin(pluginTOC, { ul: true });
+  config.addPlugin(safeLinks);
   config.addPlugin(emojiReadTime, {
     wpm: 275,
     showEmoji: true,
