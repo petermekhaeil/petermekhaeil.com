@@ -24,11 +24,7 @@ module.exports = (config) => {
     label: 'min. read',
     bucketSize: 5
   });
-  config.addPlugin(pluginTailwindCSS, {
-    src: 'src/styles.css',
-    dest: 'compiled.css',
-    keepFolderStructure: false
-  });
+  config.addPlugin(pluginTailwindCSS);
 
   config.addPassthroughCopy('src/assets');
   config.addPassthroughCopy({ 'public/admin': 'admin' });

@@ -2,7 +2,8 @@ module.exports = {
   purge: {
     content: ['./src/**/*.njk', './src/**/*.md', './*.js']
   },
-  darkMode: 'class', // or 'media' or 'class'
+  mode: 'jit',
+  darkMode: 'class',
   theme: {
     extend: {
       typography: (theme) => ({
