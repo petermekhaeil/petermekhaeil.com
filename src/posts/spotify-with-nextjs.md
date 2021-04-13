@@ -47,9 +47,11 @@ Along the way, some changes were made to the UI to improve the lighthouse scores
 
 ## The Result
 
-It speaks for itself. Here is the final scores after migrating the Front-End stack to a static website:
+It speaks for itself. Here is the final Lab Data scores after migrating the Front-End stack to a static website:
 
 ![Go Bare performance Scores](/images/uploads/gobare-nextjs-lighthouse.gif 'Go Bare performance Scores')
+
+Next steps for GoBare is to start reporting on real user's scores and wait for [Chrome UX Report](https://developers.google.com/web/tools/chrome-user-experience-report) to have enough Field Data for us to revisit the site's performance.
 
 You can check out the website at [gobare.sg](https://gobare.sg) and compare the experience to the original website at [gobare.com.au](https://gobare.com.au).
 
