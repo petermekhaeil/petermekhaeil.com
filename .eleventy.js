@@ -28,6 +28,7 @@ module.exports = (config) => {
 
   config.addPassthroughCopy('src/assets');
   config.addPassthroughCopy({ 'public/admin': 'admin' });
+  config.addPassthroughCopy('images/uploads');
 
   const markdownIt = require('markdown-it');
   const markdownItAttrs = require('markdown-it-attrs');
