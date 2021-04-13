@@ -23,9 +23,9 @@ module.exports = {
             },
             color: theme('colors.gray.900'),
             a: {
-              color: theme('colors.blue.600'),
+              color: theme('colors.blue.700'),
               '&:hover': {
-                color: theme('colors.blue.600'),
+                color: theme('colors.blue.700'),
                 textDecoration: 'none'
               },
               textDecoration: 'none'

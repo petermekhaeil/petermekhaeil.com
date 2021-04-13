@@ -1,5 +1,5 @@
 ---
-title: Hi there, I'm Peter Mekhaeil 👋
+title: Hi there, I'm Peter 👋
 layout: home.njk
 eleventyNavigation:
   key: about
