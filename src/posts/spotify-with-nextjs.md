@@ -59,4 +59,4 @@ You can check out the website at [gobare.sg](https://gobare.sg) and compare the 
 - **Image Optimization** - Next.js optimizes images on demand and works with images hosted on external sources (in our use-case, they are hosted on Shopify). They are also lazy-loaded and are only loaded once they are in the user's view.
 - **Code Splitting** - Each page will be code split into its own bundle during the build process and will only include what is only required for that page to render. Smaller bundles means less code to execute, which will result in quicker page load speeds. This also includes the CSS.
 
-These 3 key items helped [Go Bare](https://gobare.com.au) improve their performance scores - removed unused CSS and Javascript, eliminated render-blocking resources and reduced the impact on third-party code.
+These 3 key items helped Go Bare improve their performance scores - removed unused CSS and Javascript, eliminated render-blocking resources and reduced the impact on third-party code.
