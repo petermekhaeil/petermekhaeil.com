@@ -41,8 +41,6 @@ Shopify provides developers access to their APIs - which will allow us to hook o
 
 Shopify redirecting to their own payment page is an awesome feature to the Shopify APIs because it allows us developers to not worry about building payment pages and the security involved in building one.
 
-The Shopify Provider is built on top of the [Shopify JavaaScript Buy SDK](https://github.com/Shopify/js-buy-sdk#readme) so do check out their documentation on their other features available.
-
 Along the way, some changes were made to the UI to improve the lighthouse scores in terms of accessbility and best practices.
 
 ## The Result
