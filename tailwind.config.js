@@ -38,19 +38,20 @@ module.exports = {
 
         dark: {
           css: {
-            color: theme('colors.gray.200'),
+            color: theme('colors.gray.400'),
             a: {
               color: theme('colors.yellow.400'),
+              textDecoration: 'none',
               '&:hover': {
-                color: theme('colors.yellow.400'),
-                textDecoration: 'none'
+                color: theme('colors.yellow.300'),
+                textDecoration: 'underline'
               }
             },
             h1: {
               color: theme('colors.blue.300')
             },
             h2: {
-              color: theme('colors.blue.300')
+              color: theme('colors.white')
             },
             h3: {
               color: theme('colors.blue.300')

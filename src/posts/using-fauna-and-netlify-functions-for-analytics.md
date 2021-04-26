@@ -28,7 +28,7 @@ We going to use [FaunaDB](https://fauna.com/){title="FaunaDB"}, a serverless dat
 
 Everything together should look like this:
 
-![](../assets/blog-images/analytics-1.png)
+![](/images/uploads/analytics-1.png)
 
 ## Putting it together
 
@@ -38,19 +38,19 @@ Everything together should look like this:
 
 2. Create a new Database and name it after your project.
 
-   ![](../assets/blog-images/analytics-7.png)
+   ![](/images/uploads/analytics-7.png)
 
 3. Create a new collection `hits`. We will use this to store the page hits.
 
-   ![](../assets/blog-images/analytics-3.png)
+   ![](/images/uploads/analytics-3.png)
 
 4. We now need to create a new [Index](https://docs.fauna.com/fauna/current/api/fql/indexes?lang=javascript){title="FaunaDB Indexes"}. In FaunaDB, you use the index to query your documents. (a) Set the `Source Collection` to `hits` (b) Set `Index Name` to `hits_by_pathname` (c) Set `Terms` to `data.pathname`.
 
-   ![](../assets/blog-images/analytics-4.png)
+   ![](/images/uploads/analytics-4.png)
 
 5. Generate an API key under `Security`. We will use this to query our database from within our serverless function.
 
-   ![](../assets/blog-images/analytics-6.png)
+   ![](/images/uploads/analytics-6.png)
 
 ### Netlify Function
 
@@ -135,7 +135,7 @@ The [Fauna Query Language](https://docs.fauna.com/fauna/current/api/fql/function
 
 We need to add the FaunaDB API Key into Netlify's [Environment Variables](https://docs.netlify.com/configure-builds/environment-variables/){title="Netlify Environment Variables"}. It's referenced in the above code using `process.env.FAUNA_SECRET_KEY`.
 
-![](../assets/blog-images/analytics-5.png)
+![](/images/uploads/analytics-5.png)
 
 ### Insert the image
 

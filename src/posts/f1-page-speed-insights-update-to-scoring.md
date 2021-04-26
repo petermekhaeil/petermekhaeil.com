@@ -16,7 +16,7 @@ I have come across [lighthouse-plugin-field-performance](https://github.com/treo
 
 Updating the F1 Page Speed Insights scoring to follow this approach results in new positions in the scoring:
 
-![Performance Scores](../assets/blog-images/f1-page-speed-insights/8.png 'Performance Scores')
+![Performance Scores](/images/uploads/f1-page-speed-insights-8.png 'Performance Scores')
 
 The scoring is based on the [Core Web Vitals](https://web.dev/vitals/){title="Core Web Vitals"} metrics and Lighthouse will score those metrics accordingly. The metric with the lowest score is the final performance score.
 

@@ -9,19 +9,13 @@
     <link href="https://unpkg.com/prism-theme-night-owl@1.4.0/build/no-italics.css" rel="stylesheet"/>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
-  <body class="dark:bg-gray-800 dark:text-gray-200 antialiased text-gray-900 px-4 py-6 max-w-3xl mx-auto sm:px-6 sm:py-6 lg:max-w-4xl lg:py-6 lg:px-6 xl:max-w-6xl">
+  <body class="dark:bg-gray-900 dark:text-gray-200 antialiased text-gray-900 px-4 py-6 max-w-3xl mx-auto sm:px-6 sm:py-6 lg:max-w-4xl lg:py-6 lg:px-6 xl:max-w-6xl">
 
     <header class="pt-0 pb-6 border-b border-gray-200 dark:border-gray-700 dark:text-blue-300">
       <div class="container px-4 mx-auto flex flex-wrap justify-between items-center">
-        <h1 class="text-2xl md:text-4xl lg:text-5xl font-semibold"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
+        <h1 class="heading"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
         <nav class="mt-2 sm:mt-0">
-          {% set navPages = collections.all | eleventyNavigation %}
           <ul class="flex items-center">
-          {%- for entry in navPages %}
-            <li class="mr-6 text-md lg:text-2xl {% if entry.url == page.url %} font-semibold underline {% endif %}">
-              <a href="{{ entry.url | url }}">{{ entry.title }}</a>
-            </li>
-          {%- endfor %}
             <li class="mr-3">
               <a href="https://github.com/petermekhaeil" title="GitHub" target="_blank" rel="me noopener">
                 <span class="sr-only">Connect with Peter on GitHub</span>

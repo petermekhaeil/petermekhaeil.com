@@ -1,4 +1,4 @@
-<title>{{metadata.title }} | {{ title | safe or metadata.title | safe }}</title>
+<title>{{metadata.title }} {% if title %}|{% endif %} {{ title | safe or metadata.title | safe }}</title>
 <meta name="description" content="{{ metadata.description | safe }}">
 
 {% set canonicalUrl = metadata.url + page.url %}

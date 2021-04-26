@@ -1,0 +1,60 @@
+---
+layout: post.njk
+eleventyNavigation:
+  key: about
+  order: 100
+---
+
+<h2>Posts</h2>
+
+<ul>
+  {% for post in collections.posts | reverse %}
+    <li>
+      <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
+      <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+    </li>
+  {% endfor %}
+  <li>
+    <a href="https://medium.com/singtel-digital-technology/modernising-an-enterprise-front-end-stack-fe0571f259a1">Modernising an Enterprise Front End Stack</a>
+    <time datetime="2018-11-27">27 Nov 2018</time>
+  </li>
+</ul>
+
+<h2>Projects</h2>
+<ul>
+  {% for repo in github %}
+  <li>
+    <a href="{{ repo.url | url }}" target="_blank" rel="noopener" title="{{repo.name}}">{{ repo.name }}</a>
+    <p style="margin: 0">{{repo.description}}</p>
+  </li>
+  {% endfor %}
+</ul>
+
+<h2>Sites</h2>
+
+<ul>
+  <li>
+    <a href="https://gobare.vercel.app" target="_blank" rel="noopener" title="gobare.vercel.app">Go Bare + Next.js</a>
+    <p style="margin: 0">Australian based skin care company - website built using Next.js and Shopify.</p>
+  </li>
+  <li>
+    <a href="https://f1-page-speed-insights.netlify.app/" target="_blank" rel="noopener" title="Formula 1 Page Speed Insights">Formula 1 Page Speed Insights</a>
+    <p style="margin: 0">Performance report using PageSpeed Insights and Chrome User Experience Report to showcase which Formula 1 team has the fastest web performance.</p>
+  </li>
+  <li>
+    <a href="https://sg-page-speed-insights.netlify.app/" target="_blank" rel="noopener" title="Singapore E-Commerce Page Speed Insights">Singapore E-Commerce Page Speed Insights</a>
+    <p style="margin: 0">Performance report using PageSpeed Insights and Chrome User Experience Report to showcase which Singapore E-Commerce store has the fastest web performance.</p>
+  </li>
+</ul>
+
+<hr />
+
+<div class="lg:grid lg:grid-cols-12 lg:gap-8">
+  <div class="lg:col-span-6 lg:flex lg:flex-col lg:justify-center">
+  <h2>Hi there 👋</h2>
+    <p>I'm a software engineer with a passion for building performant web apps using the latest web technologies. This is my space on the internet where I'll share my learnings. I am a work in progress so feel free to send me feedback on my learnings.<p>
+  </div>
+  <div class="sm:mx-auto lg:max-w-none lg:col-span-6">
+    {% Image "src/assets/profile.png", "Handsome photo of Peter Mekhaeil on the Great Wall of China" %}
+  </div>
+</div>

@@ -22,7 +22,7 @@ We will start with the score everyone wants to see first:
 
 ### Performance Score
 
-![Performance Scores](../assets/blog-images/f1-page-speed-insights/1.png 'Performance Scores')
+![Performance Scores](/images/uploads/f1-page-speed-insights-1.png 'Performance Scores')
 
 At the time of this post, **Haas** takes the lead with a score of 64. This score is a weighted average of a collection of [performance metrics](https://web.dev/performance-scoring/){title="Performance Metrics"} measured in Lighthouse:
 
@@ -39,7 +39,7 @@ A score of 90 or above is considered good. So these teams have some work to do o
 
 ### Field Data Scores
 
-![Field Data Scores](../assets/blog-images/f1-page-speed-insights/2.png 'Field Data Scores')
+![Field Data Scores](/images/uploads/f1-page-speed-insights-2.png 'Field Data Scores')
 
 The list is ordered according to their Performance Scores. We can see **Racing Point** takes the lead for `Cumulative Layout Shift` and **Williams** for `Largest Contentful Paint`.
 
@@ -49,7 +49,7 @@ You will notice 3 of the Field Data metrics are used in the Performance Scores. 
 
 #### Racing Point
 
-![Racing Point](../assets/blog-images/f1-page-speed-insights/4.png 'Racing Point')
+![Racing Point](/images/uploads/f1-page-speed-insights-4.png 'Racing Point')
 
 The big number is the performance score we spoke about earlier. Right under it is the [Core Web Vitals](https://web.dev/vitals/){title="Core Web Vitals"} assessment summary.
 
@@ -63,7 +63,7 @@ Let's take a look at the Williams too. They scored very similar scores but with 
 
 #### Williams
 
-![Williams](../assets/blog-images/f1-page-speed-insights/5.png 'Williams')
+![Williams](/images/uploads/f1-page-speed-insights-5.png 'Williams')
 
 The Lab Data didn't perform as well (which is totally fine! Lab Data has its purposes) and it passed the Core Vital assessment from the Field Data, collected from real-world users.
 
@@ -73,11 +73,11 @@ Perhaps it is not always about the score? Take a look at the time strip Lighthou
 
 #### Racing Point Timestrip
 
-![Racing Point Timestrip'](../assets/blog-images/f1-page-speed-insights/6.png 'Racing Point Timestrip')
+![Racing Point Timestrip'](/images/uploads/f1-page-speed-insights-6.png 'Racing Point Timestrip')
 
 #### Williams Timestrip
 
-![Williams Timestrip'](../assets/blog-images/f1-page-speed-insights/7.png 'Williams Timestrip')
+![Williams Timestrip'](/images/uploads/f1-page-speed-insights-7.png 'Williams Timestrip')
 
 We can see that content is loaded earlier for Williams.
 
