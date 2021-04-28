@@ -34,7 +34,7 @@ img {
   -webkit-text-fill-color: transparent;
   box-decoration-break: clone;
 
-  @apply text-3xl md:text-5xl lg:text-6xl font-bold;
+  @apply text-4xl md:text-5xl lg:text-6xl font-bold;
 }
 
 .heading {
@@ -43,7 +43,7 @@ img {
   -webkit-text-fill-color: transparent;
   box-decoration-break: clone;
 
-  @apply text-3xl md:text-5xl lg:text-6xl font-bold;
+  @apply text-4xl md:text-5xl lg:text-6xl font-bold;
 }
 
 .dark a:hover {
