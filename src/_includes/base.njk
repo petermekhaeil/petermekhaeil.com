@@ -49,10 +49,6 @@
 
     <footer></footer>
 
-    {% if env.environment == "production" %}
-      <img src="/.netlify/functions/tracker" alt="" />
-    {% endif %}
-
     <script>
      (function () {
         var theme = localStorage.getItem("theme");
@@ -88,17 +84,6 @@
           toggleDark.classList.remove("visible");
         });
       })();
-    </script>
-    <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
-          }
-        });
-      }
     </script>
   </body>
 </html>
