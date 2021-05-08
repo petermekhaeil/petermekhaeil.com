@@ -24,7 +24,7 @@ This blog doesn't sit on a server (woohoo!). It's a static website built on [Ele
 
 ### Database
 
-We going to use [FaunaDB](https://fauna.com/){title="FaunaDB"}, a serverless database that is easy to use, can be set up in a couple minutes and works well with serverless functions. This is where we are going to store the page URLs and their page hits.
+We going to use [FaunaDB](https://fauna.com/){title="FaunaDB"}, a serverless database that is well-documented, can be set up in a couple minutes and works well with serverless functions. This is where we are going to store the page URLs and their page hits.
 
 Everything together should look like this:
 
