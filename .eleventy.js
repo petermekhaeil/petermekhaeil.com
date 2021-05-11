@@ -27,7 +27,7 @@ module.exports = (config) => {
   config.addPlugin(pluginTailwindCSS);
 
   config.addPassthroughCopy('src/assets');
-  config.addPassthroughCopy({ 'public/admin': 'admin' });
+  config.addPassthroughCopy('src/_redirects');
   config.addPassthroughCopy('images/uploads');
 
   const markdownIt = require('markdown-it');
