@@ -10,7 +10,7 @@ As I continue to build this blog, I want to add some analytics to get an idea of
 
 ## TL;DR
 
-You can use Netlify Functions to talk to a database such as FaunaDB. In the below example, we use tracking page hits as a use-case to save into the database. You can found the source code to the Netlify Function [here](https://github.com/petermekhaeil/pmekh.com/blob/master/functions/tracker.js){title="GitHub"}.
+You can use Netlify Functions to talk to a database such as FaunaDB. In the below example, we use tracking page hits as a use-case to save into the database. You can found the source code to the Netlify Function [here](https://github.com/petermekhaeil/petermekhaeil.com/blob/master/functions/tracker.js){title="GitHub"}.
 
 ## The Setup
 

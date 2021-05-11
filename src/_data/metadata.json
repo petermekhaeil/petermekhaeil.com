@@ -1,17 +1,16 @@
 {
   "title": "Peter Mekhaeil",
   "description": "Peter Mekhaeil's Site",
-  "url": "https://pmekh.com",
-  "image": "https://pmekh.com/assets/profile.png",
+  "url": "https://petermekhaeil.com",
+  "image": "https://petermekhaeil.com/assets/profile.png",
   "feed": {
     "subtitle": "",
     "filename": "rss.xml",
     "path": "/rss.xml",
-    "id": "https://pmekh.com/"
+    "id": "https://petermekhaeil.com/"
   },
   "author": {
     "name": "Peter Mekhaeil",
-    "email": "mekhaeil.peter@gmail.com",
-    "url": "https://pmekh.com/"
+    "url": "https://petermekhaeil.com/"
   }
 }
