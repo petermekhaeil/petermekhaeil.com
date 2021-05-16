@@ -2,6 +2,7 @@
 title: Be strong like your code
 date: 2020-11-21
 tags:
+  - career
   - productivity
 ---
 

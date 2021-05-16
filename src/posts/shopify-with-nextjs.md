@@ -2,7 +2,6 @@
 title: Improving Shopify page performance using Next.js
 date: 2021-04-13
 tags:
-  - webdev
   - performance
 ---
 

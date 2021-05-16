@@ -1,0 +1,8 @@
+<ul>
+  {% for post in posts | reverse %}
+      <li>
+        <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
+        <p style="margin: 0"> {{ post.templateContent | striptags(true) | truncate(150) }}</p>
+      </li>
+  {% endfor %}
+</ul>

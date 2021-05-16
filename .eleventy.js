@@ -55,8 +55,19 @@ module.exports = (config) => {
     return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');
   });
 
-  config.addCollection('posts', function (collection) {
-    return collection.getFilteredByGlob('./src/posts/**/*.md');
+  config.addCollection('techPosts', function (collection) {
+    return (
+      collection.getFilteredByTags('webdev') &&
+      collection.getFilteredByTags('javascript')
+    );
+  });
+
+  config.addCollection('performancePosts', function (collection) {
+    return collection.getFilteredByTag('performance');
+  });
+
+  config.addCollection('careerPosts', function (collection) {
+    return collection.getFilteredByTag('career');
   });
 
   // works also with addLiquidShortcode or addJavaScriptFunction

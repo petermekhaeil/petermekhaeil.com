@@ -5,24 +5,39 @@ eleventyNavigation:
   order: 100
 ---
 
-<h2>Posts</h2>
-
+<h2>Improving Page Speed Performance</h2>
 <ul>
-  {% for post in collections.posts | reverse %}
+  {% for post in collections.performancePosts | reverse %}
+      <li>
+        <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
+        <p style="margin: 0"> {{ post.templateContent | striptags(true) | truncate(150) }}</p>
+      </li>
+  {% endfor %}
+</ul>
+
+
+<h2>Web Development</h2>
+<ul>
+  {% for post in collections.techPosts | reverse %}
     <li>
       <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
-      <p style="margin: 0">  {{ post.templateContent | striptags(true) | truncate(150) }}</p>
-      <p style="margin: 0">
-        {% for tag in post.data.tags %}
-          <i><small>#{{ tag }}</small></i>
-        {% endfor %}
-      </p>
+      <p style="margin: 0"> {{ post.templateContent | striptags(true) | truncate(150) }}</p>
     </li>
   {% endfor %}
   <li>
     <a href="https://medium.com/singtel-digital-technology/modernising-an-enterprise-front-end-stack-fe0571f259a1">Modernising an Enterprise Front End Stack</a>
     <p style="margin: 0">Almost any large enterprise struggles to keep their front-end code maintainable — and so did we! CSS and Javascript code bases grow large and unwieldy quite easily. With our component library, we were able to overcome these challenges.</p>
   </li>
+</ul>
+
+<h2>Career Learnings</h2>
+<ul>
+  {% for post in collections.careerPosts | reverse %}
+    <li>
+      <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
+      <p style="margin: 0"> {{ post.templateContent | striptags(true) | truncate(150) }}</p>
+    </li>
+  {% endfor %}
 </ul>
 
 <h2>Projects</h2>

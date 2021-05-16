@@ -2,7 +2,6 @@
 title: Page Speed Performance of Formula 1 Websites
 date: 2020-12-15
 tags:
-  - webdev
   - performance
 ---
 
