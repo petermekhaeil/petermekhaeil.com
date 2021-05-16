@@ -11,12 +11,17 @@ eleventyNavigation:
   {% for post in collections.posts | reverse %}
     <li>
       <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
-      <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+      <p style="margin: 0">  {{ post.templateContent | striptags(true) | truncate(150) }}</p>
+      <p style="margin: 0">
+        {% for tag in post.data.tags %}
+          <i><small>#{{ tag }}</small></i>
+        {% endfor %}
+      </p>
     </li>
   {% endfor %}
   <li>
     <a href="https://medium.com/singtel-digital-technology/modernising-an-enterprise-front-end-stack-fe0571f259a1">Modernising an Enterprise Front End Stack</a>
-    <time datetime="2018-11-27">27 Nov 2018</time>
+    <p style="margin: 0">Almost any large enterprise struggles to keep their front-end code maintainable — and so did we! CSS and Javascript code bases grow large and unwieldy quite easily. With our component library, we were able to overcome these challenges.</p>
   </li>
 </ul>
 
@@ -31,7 +36,6 @@ eleventyNavigation:
 </ul>
 
 <h2>Sites</h2>
-
 <ul>
   <li>
     <a href="https://gobare.vercel.app" target="_blank" rel="noopener" title="gobare.vercel.app">Go Bare + Next.js</a>

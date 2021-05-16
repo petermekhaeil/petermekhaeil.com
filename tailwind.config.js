@@ -32,6 +32,9 @@ module.exports = {
             },
             pre: {
               borderRadius: theme('spacing.1')
+            },
+            small: {
+              color: theme('colors.gray.800')
             }
           }
         },
@@ -77,6 +80,9 @@ module.exports = {
             },
             pre: {
               backgroundColor: '#011627' // night-owl theme
+            },
+            small: {
+              color: theme('colors.gray.500')
             }
           }
         }
