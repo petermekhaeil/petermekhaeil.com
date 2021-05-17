@@ -21,7 +21,7 @@ module.exports = {
               fontWeight: theme('fontWeight.medium'),
               padding: theme('spacing.1')
             },
-            color: theme('colors.gray.900'),
+            color: theme('colors.gray.800'),
             a: {
               color: theme('colors.blue.700'),
               '&:hover': {
@@ -51,30 +51,30 @@ module.exports = {
               }
             },
             h1: {
-              color: theme('colors.blue.300')
+              color: theme('colors.white')
             },
             h2: {
               color: theme('colors.white')
             },
             h3: {
-              color: theme('colors.blue.300')
+              color: theme('colors.white')
             },
             h4: {
-              color: theme('colors.blue.300')
+              color: theme('colors.white')
             },
             h5: {
-              color: theme('colors.blue.300')
+              color: theme('colors.white')
             },
             h6: {
-              color: theme('colors.blue.300')
+              color: theme('colors.white')
             },
             strong: {
-              color: theme('colors.blue.300')
+              color: theme('colors.white')
             },
             blockquote: {
               color: theme('colors.blue.300')
             },
-            'code:not(.language-js):not(.language-html)': {
+            'code:not(.language-js):not(.language-html):not(.language-jsx)': {
               color: theme('colors.gray.300'),
               backgroundColor: theme('colors.gray.700')
             },

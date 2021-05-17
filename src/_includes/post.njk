@@ -1,16 +1,13 @@
 ---
 layout: base.njk
 ---
-<article class="mt-4 mb-4 prose prose-sm sm:prose lg:prose-lg mx-auto dark:prose-dark">
+<article class="mt-4 lg:mt-10 mb-4 prose prose-sm sm:prose lg:prose-lg mx-auto dark:prose-dark">
   <h2>{{ title }}</h2>
   {% if date %}
     <div class="mb-2">
       📅 {{ date | htmlDateString }} {{ content | emojiReadTime }}
     </div>
   {% endif %}
-  {% for tag in tags %}
-    <i><small>#{{ tag }}</small></i>
-  {% endfor %}
   {% if toc %}
     {{ content | toc | safe }}
   {% endif %}
