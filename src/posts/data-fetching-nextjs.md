@@ -1,14 +1,13 @@
 ---
 title: Data Fetching in Next.js
-date: 2021-05-17
+date: 2021-05-18
 tags:
   - performance
-eleventyExcludeFromCollections: true
 ---
 
-### Static Site Generation vs Server-side Rendering
+Next.js offers different methods to fetch data for your page content - choosing the right approach for your application will allow you to benefit from the performant advantages that Next.js provides. We will first start with describing the different methods available, followed with an e-commerce use-case example.
 
-Next.js offers different methods to fetch data for your page content. Each method comes with advantages and their uses. We will first start with describing the different methods followed with an e-commerce use-case example.
+### Static Site Generation vs Server-side Rendering
 
 #### Static Rendering
 
