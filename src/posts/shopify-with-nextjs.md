@@ -9,8 +9,6 @@ With Google [announcing](https://support.google.com/webmasters/thread/86521401?h
 
 One way to improve page speed performance is to migrate to a JAMStack architecture - static sites have the benefits of a strong SEO performance boost which is key to an online e-commerce store.
 
-## Use Case
-
 [Go Bare](http://gobare.com.au/) is a popular Australian based skin care company hosted on Shopify. They have plans to take on the world globally and so they are going to need a website with strong SEO and fast page load speeds to improve their Google ranking.
 
 We will use Lighthouse to measure the [Lab Data](https://web.dev/user-centric-performance-metrics/#in-the-lab) (because the Chrome User Experience Report [does not have sufficient real-world speed data](https://developers.google.com/speed/docs/insights/about#faq) for the new website we are building). Here is the score for the existing website hosted on Shopify:
