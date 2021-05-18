@@ -1,6 +1,7 @@
 ---
 title: Adding Dark Mode to your Tailwind CSS website
 date: 2020-11-30
+description: How to add Dark Mode to your Tailwind CSS website.
 tags:
   - javascript
   - tailwindcss

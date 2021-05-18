@@ -1,6 +1,7 @@
 ---
 title: Page Speed Performance of Formula 1 Websites (Part 2)
 date: 2020-12-19
+description: Performance report using PageSpeed Insights and Chrome User Experience Report to showcase which Formula 1 team has the fastest web performance.
 tags:
   - performance
 ---

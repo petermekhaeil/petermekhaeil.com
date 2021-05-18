@@ -1,6 +1,7 @@
 ---
 title: Be strong like your code
 date: 2020-11-21
+description: Staying fit and active is important to our well-being and I'd like to remind us to take care of ourselves while we code away.
 tags:
   - career
   - productivity

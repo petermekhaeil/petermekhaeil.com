@@ -1,6 +1,7 @@
 ---
 title: What I have learnt as an engineering manager
 date: 2020-11-24
+description: A collection of learnings from my adventures as an engineering manager.
 tags:
   - career
   - leadership

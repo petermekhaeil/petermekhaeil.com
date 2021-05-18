@@ -1,6 +1,7 @@
 ---
 title: Using FaunaDB and Netlify Functions for Analytics
 date: 2020-12-06
+description: Build an API that will allow you to track page hits using FaunaDB and Netlify functions.
 tags:
   - javascript
   - serverless

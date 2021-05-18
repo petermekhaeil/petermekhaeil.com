@@ -1,6 +1,7 @@
 ---
 title: Improving Shopify page performance using Next.js
 date: 2021-04-13
+description: With Google announcing that rankings are impacted by Core Web Vitals Audit scores, this is a perfect time for a Shopify-based online store to take the lead against their competitors by improving their SEO and their page performance speeds.
 tags:
   - performance
 ---

@@ -1,6 +1,7 @@
 ---
 title: Data Fetching in Next.js
 date: 2021-05-18
+description: Next.js offers different methods to fetch data for your page content - choosing the right approach for your application will allow you to benefit from the performant advantages that Next.js provides.
 tags:
   - performance
 ---

@@ -1,6 +1,7 @@
 ---
 title: Notes - The Coding Career Handbook
 date: 2021-02-19
+description: Notes from The Coding Career Handbook - Learning in Public by Shawn Wang.
 tags:
   - webdev
   - career
