@@ -1,45 +1,10 @@
 module.exports = {
-  purge: {
-    content: ['./src/**/*.njk', './src/**/*.md', './*.js']
-  },
-  mode: 'jit',
-  darkMode: 'class',
+  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       typography: (theme) => ({
         DEFAULT: {
-          css: {
-            'code::before': {
-              content: ''
-            },
-            'code::after': {
-              content: ''
-            },
-            code: {
-              backgroundColor: theme('colors.gray.200'),
-              borderRadius: theme('spacing.1'),
-              fontWeight: theme('fontWeight.medium'),
-              padding: theme('spacing.1')
-            },
-            color: theme('colors.gray.800'),
-            a: {
-              color: theme('colors.blue.700'),
-              '&:hover': {
-                color: theme('colors.blue.700'),
-                textDecoration: 'none'
-              },
-              textDecoration: 'none'
-            },
-            pre: {
-              borderRadius: theme('spacing.1')
-            },
-            small: {
-              color: theme('colors.gray.800')
-            }
-          }
-        },
-
-        dark: {
           css: {
             color: theme('colors.gray.400'),
             a: {
@@ -90,7 +55,7 @@ module.exports = {
     }
   },
   variants: {
-    typography: ['responsive', 'dark']
+    extend: {}
   },
   plugins: [require('@tailwindcss/typography')]
 };

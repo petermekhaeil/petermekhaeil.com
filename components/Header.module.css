@@ -1,0 +1,8 @@
+.heading {
+  background: linear-gradient(-70deg, #ff7170, #ffe57f);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  box-decoration-break: clone;
+
+  @apply text-4xl md:text-5xl lg:text-6xl font-bold;
+}
