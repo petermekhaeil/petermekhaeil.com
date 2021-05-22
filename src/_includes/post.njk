@@ -12,4 +12,9 @@ layout: base.njk
     {{ content | toc | safe }}
   {% endif %}
   {{ content | safe }}
+  {% if devto %}
+    <div>
+      <p class="text-center">Leave a comment on <a href={{ devto }}>Dev.to</a>.</p>
+    </div>
+  {% endif %}
 </article>

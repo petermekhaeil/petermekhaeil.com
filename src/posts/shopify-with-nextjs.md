@@ -4,6 +4,7 @@ date: 2021-04-13
 description: With Google announcing that rankings are impacted by Core Web Vitals Audit scores, this is a perfect time for a Shopify-based online store to take the lead against their competitors by improving their SEO and their page performance speeds.
 tags:
   - performance
+devto: https://dev.to/petermekhaeil/improving-shopify-page-performance-using-next-js-1ihb
 ---
 
 With Google [announcing](https://support.google.com/webmasters/thread/86521401?hl=en) that from May 2021 onwards websites will have their rankings impacted by their [Core Web Vitals Audit](https://web.dev/learn-web-vitals/) scores, this is a perfect time for a Shopify-based online store to take the lead against their competitors by improving their SEO and their page performance speeds.

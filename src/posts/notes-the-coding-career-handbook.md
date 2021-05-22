@@ -5,6 +5,7 @@ description: Notes from The Coding Career Handbook - Learning in Public by Shawn
 tags:
   - webdev
   - career
+devto: https://dev.to/petermekhaeil/notes-the-coding-career-handbook-1ca5
 ---
 
 These are my learnings from reading [The Coding Career Handbook](https://www.learninpublic.org/) by [Shawn Wang](https://www.swyx.io/). Notes for my future-self. I highly recommend this book for everyone of all levels in their career.
