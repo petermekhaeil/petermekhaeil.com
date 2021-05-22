@@ -55,6 +55,10 @@ module.exports = (config) => {
     return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');
   });
 
+  config.addCollection('posts', function (collection) {
+    return collection.getFilteredByGlob('./src/posts/**/*.md');
+  });
+
   config.addCollection('techPosts', function (collection) {
     return (
       collection.getFilteredByTags('webdev') &&
