@@ -6,10 +6,6 @@ import Header from './Header';
 const Layout = ({ children }) => {
   return (
     <>
-      <Head>
-        <title>petermekhaeil.com</title>
-      </Head>
-
       <Header />
       <main>{children}</main>
 

@@ -30,7 +30,7 @@ export function getPostBySlug(slug, fields = []) {
     }
   });
 
-  return items;
+  return JSON.parse(JSON.stringify(items));
 }
 
 export function getAllPosts(fields = []) {

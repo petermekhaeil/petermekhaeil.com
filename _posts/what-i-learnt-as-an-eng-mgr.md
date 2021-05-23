@@ -5,6 +5,7 @@ excerpt: A collection of learnings from my adventures as an engineering manager.
 tags:
   - career
   - leadership
+devto: https://dev.to/petermekhaeil/what-i-have-learnt-as-an-engineering-manager-49cm
 ---
 
 - **Taking care of people is hard.** Mentors will warn you about this, but you’ll only really know how hard it is when you experience it. Regardless of the difficulty, it’s very fulfilling. There is a strong sense of satisfaction in your duties. And that is because people’s life’s and careers were involved and impacted.

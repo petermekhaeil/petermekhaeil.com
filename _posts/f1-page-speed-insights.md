@@ -4,6 +4,7 @@ date: 2020-12-15
 excerpt: Performance report using PageSpeed Insights and Chrome User Experience Report to showcase which Formula 1 team has the fastest web performance.
 tags:
   - performance
+devto: https://dev.to/petermekhaeil/f1-page-speed-insights-3bji
 ---
 
 _**Edit (2020-12-19):** The scoring has changed. Read up on the [follow-up post](</page-speed-performance-of-formula-1-websites-(part-2)/>)._

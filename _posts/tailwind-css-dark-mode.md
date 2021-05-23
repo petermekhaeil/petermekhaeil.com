@@ -5,6 +5,7 @@ excerpt: How to add Dark Mode to your Tailwind CSS website.
 tags:
   - javascript
   - tailwindcss
+devto: https://dev.to/petermekhaeil/adding-dark-mode-to-your-tailwind-css-website-47m7
 ---
 
 Tailwind CSS v2.0 introduces [Dark mode support](https://tailwindcss.com/docs/dark-mode){title="Tailwind CSS Dark Mode"} and with minimal JS and inline SVG, you can allow your users to manually toggle Dark Mode. We are going to walk through what is required to build the same one from [petermekhaeil.com](https://petermekhaeil.com){title="Peter Mekhaeil's Site"}.
