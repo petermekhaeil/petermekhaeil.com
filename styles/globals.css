@@ -1,16 +1,54 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+.prose img,
+.prose pre {
+  @apply mx-auto rounded-sm;
+
+  @apply mx-auto;
+  @apply block;
+
+  box-shadow: 0 0 65px rgb(237 78 80 / 40%), 0 0 0 1px hsl(0deg 0% 100% / 10%),
+    0 2px 2px rgb(0 0 0 / 3%), 0 4px 4px rgb(0 0 0 / 4%),
+    0 10px 8px rgb(0 0 0 / 5%), 0 15px 15px rgb(0 0 0 / 6%),
+    0 30px 30px rgb(0 0 0 / 7%), 0 70px 65px rgb(0 0 0 / 9%);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.prose pre {
+  /* opacity: 0.75; */
 }
 
-* {
-  box-sizing: border-box;
+.token.attr-name,
+.token.important,
+.token.keyword,
+.token.operator,
+.token.pseudo-class,
+.token.rule {
+  --tw-text-opacity: 1;
+  color: rgba(56, 189, 248, var(--tw-text-opacity));
+}
+
+.token.module,
+.token.property,
+.token.punctuation {
+  --tw-text-opacity: 1;
+  color: rgba(103, 232, 249, var(--tw-text-opacity));
+}
+
+.token.attr-value,
+.token.class,
+.token.color,
+.token.number,
+.token.string,
+.token.unit {
+  color: rgba(134, 239, 172, 1);
+}
+
+token.class-name,
+.token.function,
+.token.selector,
+.token.selector .class,
+.token.tag {
+  color: rgba(192, 132, 252, 1);
+}
+
+.token.comment {
+  color: rgba(156, 163, 175, 1);
 }

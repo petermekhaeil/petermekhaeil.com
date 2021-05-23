@@ -12,7 +12,7 @@ const Intro = () => {
           feel free to send me feedback on my learnings.
         </p>
       </div>
-      <div className="sm:mx-auto lg:max-w-none lg:col-span-6">
+      <div className="sm:mx-auto lg:max-w-none lg:col-span-6 text-center">
         <Image
           src="/profile.png"
           alt="Handsome photo of Peter Mekhaeil on the Great Wall of China"

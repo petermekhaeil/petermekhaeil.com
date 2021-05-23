@@ -1,43 +1,26 @@
-import Head from 'next/head';
 import React from 'react';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
 import Intro from '../components/Intro';
 import Posts from '../components/Posts';
 import Projects from '../components/Projects';
 import Sites from '../components/Sites';
 import { getAllPosts } from '../lib/api';
-import styles from '../styles/index.module.css';
 
 export default function Home({ allPosts, sites }) {
-  console.log(allPosts);
   return (
-    <div>
-      <Head>
-        <title>petermekhaeil.com</title>
-      </Head>
-
-      <main className={styles.container}>
-        <Header />
-
-        <article className="mt-4 lg:mt-10 mb-4 prose prose-sm sm:prose lg:prose-lg mx-auto dark:prose-dark">
-          <h2>Improving Page Speed Performance</h2>
-          <Posts posts={allPosts} tags={['performance']} />
-          <h2>Web Development</h2>
-          <Posts posts={allPosts} tags={['javascript', 'webdev']} />
-          <h2>Career Learnings</h2>
-          <Posts posts={allPosts} tags={['career']} />
-          <h2>Projects</h2>
-          <Projects />
-          <h2>Sites</h2>
-          <Sites sites={sites} />
-          <hr />
-          <Intro />
-        </article>
-      </main>
-
-      <Footer />
-    </div>
+    <article className="mt-4 lg:mt-10 mb-4 prose prose-sm sm:prose lg:prose-lg mx-auto">
+      <h2>Improving Page Speed Performance</h2>
+      <Posts posts={allPosts} tags={['performance']} />
+      <h2>Web Development</h2>
+      <Posts posts={allPosts} tags={['javascript', 'webdev']} />
+      <h2>Career Learnings</h2>
+      <Posts posts={allPosts} tags={['career']} />
+      <h2>Projects</h2>
+      <Projects />
+      <h2>Sites</h2>
+      <Sites sites={sites} />
+      <hr />
+      <Intro />
+    </article>
   );
 }
 

@@ -4,16 +4,14 @@ import { getPostBySlug, getAllPosts } from '../lib/api';
 
 export default function Post({ post }) {
   return (
-    <>
-      <article>
-        <Head>
-          <title>{post.title}</title>
-        </Head>
-        <h2>{post.title}</h2>
-        <p>{post.date}</p>
-        <div dangerouslySetInnerHTML={{ __html: post.content }} />
-      </article>
-    </>
+    <article className="mt-4 lg:mt-10 mb-4 prose prose-sm sm:prose lg:prose-lg mx-auto">
+      <Head>
+        <title>{post.title}</title>
+      </Head>
+      <h2>{post.title}</h2>
+      <p>{post.date}</p>
+      <div dangerouslySetInnerHTML={{ __html: post.content }} />
+    </article>
   );
 }
 

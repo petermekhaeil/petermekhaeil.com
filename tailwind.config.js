@@ -44,7 +44,7 @@ module.exports = {
               backgroundColor: theme('colors.gray.700')
             },
             pre: {
-              backgroundColor: '#011627' // night-owl theme
+              backgroundColor: '#0c162d'
             },
             small: {
               color: theme('colors.gray.500')
