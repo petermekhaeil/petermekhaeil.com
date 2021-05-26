@@ -2,7 +2,6 @@ import Link from 'next/link';
 import React from 'react';
 
 const Projects = ({ projects }) => {
-  console.log(projects);
   return (
     <ul>
       {projects.map((project) => {
