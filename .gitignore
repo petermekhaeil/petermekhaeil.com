@@ -2,5 +2,6 @@ _site
 node_modules
 .DS_Store
 drafts
-# Local Netlify folder
 .netlify
+.env
+.env.local
