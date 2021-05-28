@@ -24,7 +24,7 @@ devto: https://dev.to/petermekhaeil/what-i-have-learnt-as-an-engineering-manager
 
 - **Stay Technical.** In saying the above, you'll still need to stay technical. Your new team wants to know you're technical so they can connect with you. You'll need to work out a balance between management and tech. Keep in touch with the industry. You'll also be learning from your team too.
 
-- **"One Of Us".** Work on letting your new team know you are [one of them](https://www.youtube.com/watch?v=9C4uTEEOJlM){title="Gooble Gobble One of Us We Accept Her"}. Create an environment of openness and trust amongst your team. Work on letting them know you will always be there for them. They will support you when times get rough.
+- **"One Of Us".** Work on letting your new team know you are [one of them](https://www.youtube.com/watch?v=GdxuWq1-5qk){title="Gooble Gobble One of Us!"}. Create an environment of openness and trust amongst your team. Work on letting them know you will always be there for them. They will support you when times get rough.
 
 - **Management is a change of profession.** Becoming an engineering manager is a different career path titleogether and you'll be starting from scratch. You're now a junior again. You will do a poor job at the start. Read Charity Major's [The Engineer/Manager Pendulum](https://charity.wtf/2017/05/11/the-engineer-manager-pendulum/){title="The Engineer/Manager Pendulum"}.
 
