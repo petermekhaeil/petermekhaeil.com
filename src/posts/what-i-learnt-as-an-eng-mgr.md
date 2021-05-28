@@ -26,7 +26,7 @@ devto: https://dev.to/petermekhaeil/what-i-have-learnt-as-an-engineering-manager
 
 - **"One Of Us".** Work on letting your new team know you are [one of them](https://www.youtube.com/watch?v=GdxuWq1-5qk){title="Gooble Gobble One of Us!"}. Create an environment of openness and trust amongst your team. Work on letting them know you will always be there for them. They will support you when times get rough.
 
-- **Management is a change of profession.** Becoming an engineering manager is a different career path titleogether and you'll be starting from scratch. You're now a junior again. You will do a poor job at the start. Read Charity Major's [The Engineer/Manager Pendulum](https://charity.wtf/2017/05/11/the-engineer-manager-pendulum/){title="The Engineer/Manager Pendulum"}.
+- **Management is a change of profession.** Becoming an engineering manager is a different career path and you'll be starting from scratch. You're now a junior again. You will do a poor job at the start. Read Charity Major's [The Engineer/Manager Pendulum](https://charity.wtf/2017/05/11/the-engineer-manager-pendulum/){title="The Engineer/Manager Pendulum"}.
 
 - **Don’t be afraid to take on the management path.** You’ll have the full support from your new team, existing managers and business stakeholders. When you connect with them they will become your support model throughout your new challenges.
 
