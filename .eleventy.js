@@ -19,7 +19,7 @@ module.exports = (config) => {
   config.addPlugin(safeLinks);
   config.addPlugin(emojiReadTime, {
     wpm: 275,
-    showEmoji: true,
+    showEmoji: false,
     emoji: '🥤',
     label: 'min. read',
     bucketSize: 5
@@ -52,7 +52,9 @@ module.exports = (config) => {
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   config.addFilter('htmlDateString', (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');
+    return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat(
+      'dd LLLL yyyy'
+    );
   });
 
   config.addCollection('posts', function (collection) {

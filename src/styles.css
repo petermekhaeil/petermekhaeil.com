@@ -96,3 +96,11 @@ token.class-name,
 .token.comment {
   color: rgba(156, 163, 175, 1);
 }
+
+.prose-sm ul.list-none > li::before {
+  display: none;
+}
+
+.prose-sm ul.list-none > li {
+  padding-left: 0;
+}

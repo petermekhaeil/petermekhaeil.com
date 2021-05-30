@@ -6,7 +6,7 @@ eleventyNavigation:
 ---
 
 <h2>Improving Page Speed Performance</h2>
-<ul>
+<ul class="list-none">
   {% for post in collections.performancePosts | reverse %}
       <li>
         <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
@@ -17,7 +17,7 @@ eleventyNavigation:
 
 
 <h2>Web Development</h2>
-<ul>
+<ul class="list-none">
   {% for post in collections.techPosts | reverse %}
     <li>
       <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
@@ -31,7 +31,7 @@ eleventyNavigation:
 </ul>
 
 <h2>Career Learnings</h2>
-<ul>
+<ul class="list-none">
   {% for post in collections.careerPosts | reverse %}
     <li>
       <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
@@ -41,7 +41,7 @@ eleventyNavigation:
 </ul>
 
 <h2>Projects</h2>
-<ul>
+<ul class="list-none">
   {% for repo in github %}
   <li>
     <a href="{{ repo.url | url }}" target="_blank" rel="noopener" title="{{repo.name}}">{{ repo.name }}</a>
@@ -51,7 +51,7 @@ eleventyNavigation:
 </ul>
 
 <h2>Sites</h2>
-<ul>
+<ul class="list-none">
   <li>
     <a href="https://gobare.vercel.app" target="_blank" rel="noopener" title="gobare.vercel.app">Go Bare + Next.js</a>
     <p style="margin: 0">Australian based skin care company - website built using Next.js and Shopify.</p>

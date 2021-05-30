@@ -5,7 +5,8 @@ layout: base.njk
   <h2>{{ title }}</h2>
   {% if date %}
     <div class="mb-2">
-      {{ date | htmlDateString }} {{ content | emojiReadTime }}
+     <p class="text-sm" style="margin:0">{{ date | htmlDateString }}</p>
+     <p class="text-sm" style="margin:0">{{ content | emojiReadTime }}</p>
     </div>
   {% endif %}
   {% if toc %}
