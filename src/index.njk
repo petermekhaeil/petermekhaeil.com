@@ -8,10 +8,11 @@ eleventyNavigation:
 <h2>Improving Page Speed Performance</h2>
 <ul class="list-none">
   {% for post in collections.performancePosts | reverse %}
-      <li>
-        <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
-        <p style="margin: 0"> {{ post.data.description }}</p>
-      </li>
+    <li class="pb-6">
+      <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
+      <p style="margin: 0"><small>{{ post.data.date | htmlDateString }}</small></p>
+      <p style="margin: 0">{{ post.data.description }}</p>
+    </li>
   {% endfor %}
 </ul>
 
@@ -19,13 +20,15 @@ eleventyNavigation:
 <h2>Web Development</h2>
 <ul class="list-none">
   {% for post in collections.techPosts | reverse %}
-    <li>
+    <li class="pb-6">
       <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
-      <p style="margin: 0"> {{ post.data.description }}</p>
+      <p style="margin: 0"><small>{{ post.data.date | htmlDateString }}</small></p>
+      <p style="margin: 0">{{ post.data.description }}</p>
     </li>
   {% endfor %}
-  <li>
+  <li class="pb-6">
     <a href="https://medium.com/singtel-digital-technology/modernising-an-enterprise-front-end-stack-fe0571f259a1">Modernising an Enterprise Front End Stack</a>
+    <p style="margin: 0"><small>27 November, 2018</small></p>
     <p style="margin: 0">Almost any large enterprise struggles to keep their front-end code maintainable — and so did we! CSS and Javascript code bases grow large and unwieldy quite easily. With our component library, we were able to overcome these challenges.</p>
   </li>
 </ul>
@@ -33,9 +36,10 @@ eleventyNavigation:
 <h2>Career Learnings</h2>
 <ul class="list-none">
   {% for post in collections.careerPosts | reverse %}
-    <li>
+    <li class="pb-6">
       <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
-      <p style="margin: 0"> {{ post.data.description }}</p>
+      <p style="margin: 0"><small>{{ post.data.date | htmlDateString }}</small></p>
+      <p style="margin: 0">{{ post.data.description }}</p>
     </li>
   {% endfor %}
 </ul>
