@@ -4,6 +4,7 @@ date: 2021-06-10
 description: Comparison of popular Singapore Commerce sites using data from the Chrome UX Report. We look at how they perform and the areas of improvement they can benefit from.
 tags:
   - performance
+devto: https://dev.to/petermekhaeil/page-speed-comparison-of-singapore-commerce-1go6
 ---
 
 An online commerce store that offers a great user experience will satisfy the needs of its users and page speed performance is a driving factor to this. This is where [Core Web Vitals](https://web.dev/vitals/) comes into play. The Core Web Vitals aim to measure user experience. It is a set of metrics that Google uses to measure user experience and it has become one of their key factors in search result rankings. It is also a great way to compare your commerce store against your competitors.
