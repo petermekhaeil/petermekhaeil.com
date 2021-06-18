@@ -4,7 +4,6 @@ date: 2021-06-18
 description: With so many techniques on improving site performance - how does one start learning about site performance and what are the first steps in doing so?
 tags:
   - performance
-eleventyExcludeFromCollections: true
 ---
 
 There are so many articles online and so many techniques on improving site performance - where does one start on learning how to improve the performance of a website?
