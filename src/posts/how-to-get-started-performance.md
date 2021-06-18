@@ -1,13 +1,13 @@
 ---
 title: How to get started with improving site performance
 date: 2021-06-18
-description: With so many techniques on improving site performance - how does one start learning about site performance and what are the first steps in doing so?
+description: With so many techniques on improving site performance - how does one start learning about site performance and what are the first steps?
 tags:
   - performance
 devto: https://dev.to/petermekhaeil/how-to-get-started-with-improving-site-performance-mg1
 ---
 
-There are so many articles online and so many techniques on improving site performance - where does one start on learning how to improve the performance of a website?
+With so many techniques on improving site performance - how does one start learning about site performance and what are the first steps?
 
 Going to break it into 3 sections that should be explored:
 
