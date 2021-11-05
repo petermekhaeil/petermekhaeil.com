@@ -3,12 +3,15 @@ layout: base.njk
 ---
 <article class="mt-4 lg:mt-10 mb-4 prose prose-sm sm:prose lg:prose-lg mx-auto dark:prose-dark">
   {% if title %}<h2>{{ title }}</h2>{% endif %}
-  {% if date %}
-    <div class="mb-2">
-     <p class="text-sm" style="margin:0">{{ date | htmlDateString }}</p>
+
+  <div class="mb-2">
+    {% if date %}
+      <p class="text-sm" style="margin:0">{{ date | htmlDateString }}</p>
+    {% endif %}
+    {% if title and not hideReadingTime %}
      <p class="text-sm" style="margin:0">{{ content | emojiReadTime }}</p>
-    </div>
-  {% endif %}
+    {% endif %}
+  </div>
   {% if toc %}
     {{ content | toc | safe }}
   {% endif %}

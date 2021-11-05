@@ -1,0 +1,17 @@
+[
+  {
+    "url": "https://gobare.vercel.app",
+    "name": "Go Bare + Next.js",
+    "description": "Australian based skin care company - website built using Next.js and Shopify."
+  },
+  {
+    "url": "https://f1-page-speed-insights.netlify.app/",
+    "name": "Formula 1 Page Speed Insights",
+    "description": "Performance report using PageSpeed Insights and Chrome User Experience Report to showcase which Formula 1 team has the fastest web performance."
+  },
+  {
+    "url": "https://sg-page-speed-insights.netlify.app/",
+    "name": "Singapore E-Commerce Page Speed Insights",
+    "description": "Performance report using PageSpeed Insights and Chrome User Experience Report to showcase which Singapore E-Commerce store has the fastest web performance."
+  }
+]

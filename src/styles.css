@@ -6,6 +6,10 @@ img {
   border-radius: 8px;
 }
 
+.dark .prose th {
+  color: white;
+}
+
 .dark .prose p img,
 .dark .prose pre {
   @apply mx-auto;
