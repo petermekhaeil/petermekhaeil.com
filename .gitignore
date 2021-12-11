@@ -5,3 +5,4 @@ drafts
 .netlify
 .env
 .env.local
+/src/output.css

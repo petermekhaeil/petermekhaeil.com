@@ -1,53 +1,39 @@
 ---
-layout: post.njk
+layout: base.njk
 eleventyNavigation:
-  key: about
+  key: Blog
   order: 100
 ---
 
-<ul class="list-none">
-  {% for post in collections.posts | reverse %}
-    <li style="margin-bottom: 32px">
-      <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
-      <p style="margin: 0"><small>{{ post.data.date | htmlDateString }}</small></p>
-      <p style="margin: 0">{{ post.data.description }}</p>
-      <p style="margin: 0">
-        {% for tag in post.data.tags %}
-          <i><small style="font-size:14px">#{{ tag }}</small></i>
-        {% endfor %}
-      </p>
-    </li>
-  {% endfor %}
-</ul>
+<div class="mt-4 lg:mt-10 mb-16 mx-auto max-w-2xl">
 
-<h2>Projects</h2>
-<ul class="list-none">
-  {% for repo in github %}
-  <li>
-    <a href="{{ repo.url | url }}" target="_blank" rel="noopener" title="{{repo.name}}">{{ repo.name }}</a>
-    <p style="margin: 0">{{repo.description}}</p>
-  </li>
-  {% endfor %}
-</ul>
+  <ul class="list-none space-y-8">
+    {% for post in collections.posts | reverse %}
+      <li>
+        <a href="{{ post.url | url }}">
+          <h3 class="w-full mb-2 font-medium text-indigo-700 text-lg md:text-xl dark:text-gray-100">
+          {% if post.data.title %}
+            {{ post.data.title }}
+          {% else %}
+            <code>{{ post.url }}</code>
+          {% endif %}
+          </h3>
+        </a>
+        <p class="text-gray-600 dark:text-gray-400">{{ post.data.description }}</p>
+      </li>
+    {% endfor %}
+  </ul>
 
-<h2>Sites</h2>
-<ul class="list-none">
-  {% for site in sites %}
-  <li>
-    <a href="{{ site.url | url }}" target="_blank" rel="noopener" title="{{site.name}}">{{ site.name }}</a>
-    <p style="margin: 0">{{site.description}}</p>
-  </li>
-  {% endfor %}
-</ul>
+  <hr class="m-16" />
 
-<hr />
-
-<div class="lg:grid lg:grid-cols-12 lg:gap-8">
-  <div class="lg:col-span-6 lg:flex lg:flex-col lg:justify-center">
-  <h2>Hi there 👋</h2>
-    <p>I'm a software engineer with a passion for building performant web apps using the latest web technologies. This is my space on the internet where I'll share my learnings. I am a work in progress so feel free to send me feedback on my learnings.<p>
-  </div>
-  <div class="sm:mx-auto lg:max-w-none lg:col-span-6">
-    {% Image "src/assets/profile.png", "Handsome photo of Peter Mekhaeil on the Great Wall of China" %}
+  <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+    <div class="lg:col-span-6 lg:flex lg:flex-col lg:justify-center space-y-6">
+      <h2 class="font-medium text-black text-3xl dark:text-gray-100">Hi there 👋</h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400">I'm a software engineer with a passion for building performant web apps using the latest web technologies.</p>
+      <p class="text-lg text-gray-600 dark:text-gray-400">This is my space where I'll share my learnings. I am a work in progress so feel free to send me feedback.<p>
+    </div>
+    <div class="sm:mx-auto lg:max-w-none lg:col-span-6">
+      {% Image "src/assets/profile.png", "Handsome photo of Peter Mekhaeil on the Great Wall of China" %}
+    </div>
   </div>
 </div>

@@ -7,13 +7,20 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>"/>
     <link rel="stylesheet" href="{{ '/styles.css' | url }}"/>
   </head>
-  <body class="dark:bg-gray-900 dark:text-gray-200 antialiased text-gray-900 px-4 py-6 max-w-3xl mx-auto sm:px-6 sm:py-6 lg:max-w-4xl lg:py-6 lg:px-6 xl:max-w-6xl">
+  <body class="bg-gray-50 dark:bg-gray-900 dark:text-gray-200 antialiased text-gray-900 px-4 py-6 max-w-2xl mx-auto">
 
-    <header class="pt-0 pb-6 border-b border-gray-200 dark:border-gray-700 dark:text-blue-300">
-      <div class="container mx-auto flex flex-wrap justify-between items-center">
+    <header class="pb-6 border-b border-gray-200 dark:border-gray-700 dark:text-blue-300">
+      <div class="container mx-auto flex flex-wrap justify-between items-end">
         <h1 class="heading"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
-        <nav class="mt-2 sm:mt-0">
-          <ul class="flex items-center">
+        <nav>
+          <ul class="flex items-center gap-5 font-medium text-lg mt-3">
+            {%- for entry in collections.all | eleventyNavigation %}
+              <li>
+                <a href="{{ entry.url | url }}" class="{% if entry.url == page.url %} underline {% endif %}">
+                  {{ entry.title }}
+                </a>
+              </li>
+            {%- endfor %}
             <li>
               {% include 'icon-sun.njk' %}
               {% include 'icon-moon.njk' %}

@@ -16,10 +16,14 @@ module.exports = {
               content: ''
             },
             code: {
-              backgroundColor: theme('colors.gray.200'),
+              color: theme('colors.white'),
               borderRadius: theme('spacing.1'),
               fontWeight: theme('fontWeight.medium'),
               padding: theme('spacing.1')
+            },
+            'code:not(.language-js):not(.language-html):not(.language-jsx)': {
+              color: theme('colors.black'),
+              backgroundColor: theme('colors.gray.500')
             },
             color: theme('colors.gray.800'),
             a: {
