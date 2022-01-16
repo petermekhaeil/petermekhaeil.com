@@ -1,0 +1,13 @@
+---
+layout: post.njk
+pagination:
+  data: github_til_repo
+  size: 1
+  alias: til
+permalink: "til/{{ til.name | removeExtension | slug }}/"
+---
+
+<div class="mt-4 lg:mt-10 mb-16 mx-auto">
+  {{ til.object.text | markdown | safe }}
+</div>
+

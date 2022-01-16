@@ -50,6 +50,20 @@ module.exports = (config) => {
     );
   });
 
+  config.addFilter('markdown', (value) => {
+    return `<div class="md-block">${markdownLib.render(value)}</div>`;
+  });
+
+  config.addFilter('toTitleCase', (value) => {
+    return value.replace(/-/g, ' ').replace(/\w\S*/g, function (txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  });
+
+  config.addFilter('removeExtension', (value) => {
+    return value.substr(0, value.lastIndexOf('.'));
+  });
+
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   config.addFilter('htmlDateString', (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat(

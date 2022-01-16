@@ -21,7 +21,7 @@ module.exports = {
               fontWeight: theme('fontWeight.medium'),
               padding: theme('spacing.1')
             },
-            'code:not(.language-js):not(.language-html):not(.language-jsx)': {
+            'code:not([class^="language-"])': {
               color: theme('colors.black'),
               backgroundColor: theme('colors.gray.500')
             },
@@ -78,7 +78,7 @@ module.exports = {
             blockquote: {
               color: theme('colors.blue.300')
             },
-            'code:not(.language-js):not(.language-html):not(.language-jsx)': {
+            'code:not([class^="language-"])': {
               color: theme('colors.gray.300'),
               backgroundColor: theme('colors.gray.700')
             },

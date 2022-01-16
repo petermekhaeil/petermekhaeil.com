@@ -13,7 +13,7 @@
       <div class="container mx-auto flex flex-wrap justify-between items-end">
         <h1 class="heading"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
         <nav>
-          <ul class="flex items-center gap-5 font-medium text-lg mt-3">
+          <ul class="flex items-center gap-4 font-medium text-lg mt-3">
             {%- for entry in collections.all | eleventyNavigation %}
               <li>
                 <a href="{{ entry.url | url }}" class="{% if entry.url == page.url %} underline {% endif %}">
