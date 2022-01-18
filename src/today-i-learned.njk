@@ -5,15 +5,14 @@ eleventyNavigation:
   order: 100
 pagination:
   data: github_til_repo
-  size: 1
-  alias: til
+  size: 100
 ---
 
 <div class="mt-4 lg:mt-10 mb-16 mx-auto">
 
   <p class="text-gray-600 dark:text-gray-400 mb-12">A collection of bite-size learnings I have picked up while <a class="text-indigo-700 dark:text-gray-100" href="https://www.learninpublic.org/" target="noopener">Learning In Public</a>.</p>
 
-  <ul class="list-none space-y-8">
+  <ul class="list-none">
     {%- for item in pagination.items %}
       <li>
         <a href="/til/{{ item.name | removeExtension | slug }}">
