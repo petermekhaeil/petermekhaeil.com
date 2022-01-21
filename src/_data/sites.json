@@ -1,8 +1,13 @@
 [
   {
+    "url": "https://shop.singtel.com",
+    "name": "Singtel Shop",
+    "description": "Online store for Singapore's largest telecommunication company. Jamstack website built using Gatsby and AEM as a headless CMS. Hosted on AWS."
+  },
+  {
     "url": "https://gobare.vercel.app",
     "name": "Go Bare + Next.js",
-    "description": "Australian based skin care company - built using Next.js and Shopify."
+    "description": "Australian based skin care company. Jamstack website built using Next.js and Shopify. Hosted on Vercel."
   },
   {
     "url": "https://f1-page-speed-insights.netlify.app/",

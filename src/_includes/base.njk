@@ -9,14 +9,14 @@
   </head>
   <body class="bg-gray-50 dark:bg-gray-900 dark:text-gray-200 antialiased text-gray-900 px-4 py-6 max-w-2xl mx-auto">
 
-    <header class="pb-6 border-b border-gray-200 dark:border-gray-700 dark:text-blue-300">
+    <header class="pb-6 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 text-gray-500">
       <div class="container mx-auto flex flex-wrap justify-between items-end">
         <h1 class="heading"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
         <nav>
           <ul class="flex items-center gap-4 font-medium text-lg mt-3">
             {%- for entry in collections.all | eleventyNavigation %}
               <li>
-                <a href="{{ entry.url | url }}" class="{% if entry.url == page.url %} underline {% endif %}">
+                <a href="{{ entry.url | url }}" class="{% if entry.url == page.url %} dark:text-gray-100 text-gray-800 {% endif %}">
                   {{ entry.title }}
                 </a>
               </li>
