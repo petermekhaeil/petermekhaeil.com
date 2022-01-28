@@ -1,7 +1,7 @@
 ---
 title: How I landed my first job as a software engineer
 date: 2022-01-28
-description: Landing your first engineering job is tough. I share my experience on when I was looking for my first role and the lesson I learnt that has helped me throughout my career.
+description: Landing your first engineering job is tough. I share my experience and the lesson I learnt that has helped throughout my career.
 tags:
   - career
   - leadership
