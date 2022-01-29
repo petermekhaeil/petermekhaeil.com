@@ -7,7 +7,6 @@ pagination:
 permalink: "til/{{ til.name | removeExtension | slug }}/"
 ---
 
-<div class="mt-4 lg:mt-10 mb-16 mx-auto">
+<div class="mx-auto mt-4 mb-16 lg:mt-10">
   {{ til.object.text | markdown | safe }}
 </div>
-

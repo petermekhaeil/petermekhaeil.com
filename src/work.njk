@@ -5,22 +5,23 @@ eleventyNavigation:
   order: 300
 ---
 
-<div class="mt-4 lg:mt-10 mb-16 mx-auto">
-
-  <p class="text-gray-600 dark:text-gray-400 mb-12">Showcase of sites and companies I have worked with.</p>
+<div class="mx-auto mt-4 mb-16 lg:mt-10">
+  <p class="mb-12 text-gray-600 dark:text-gray-400">
+    Showcase of sites and companies I have worked with.
+  </p>
 
   <ul class="list-none space-y-8">
     {% for site in sites %}
-      <li>
-        <a href="{{ site.url | url }}">
-          <h3 class="w-full mb-2 font-medium text-indigo-700 text-lg md:text-xl dark:text-gray-100">
-            {{ site.name }}
-          </h3>
-        </a>
-        <p class="text-gray-600 dark:text-gray-400">{{ site.description }}</p>
-      </li>
+    <li>
+      <a href="{{ site.url | url }}">
+        <h3
+          class="mb-2 w-full text-lg font-medium text-indigo-700 dark:text-gray-100 md:text-xl"
+        >
+          {{ site.name }}
+        </h3>
+      </a>
+      <p class="text-gray-600 dark:text-gray-400">{{ site.description }}</p>
+    </li>
     {% endfor %}
   </ul>
-
 </div>
-

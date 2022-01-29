@@ -5,45 +5,64 @@ eleventyNavigation:
   order: 100
 ---
 
-<div class="mt-4 lg:mt-10 mb-16 mx-auto max-w-2xl">
-
+<div class="mx-auto mt-4 mb-16 max-w-2xl lg:mt-10">
   <ul class="list-none space-y-8">
     {% for post in collections.posts | reverse %}
-      <li>
-        <a href="{{ post.url | url }}">
-          <h3 class="w-full mb-2 font-medium text-indigo-700 text-lg md:text-xl dark:text-gray-100">
-          {% if post.data.title %}
-            {{ post.data.title }}
-          {% else %}
-            <code>{{ post.url }}</code>
+    <li>
+      <a href="{{ post.url | url }}">
+        <h3
+          class="mb-2 w-full text-lg font-medium text-indigo-700 dark:text-gray-100 md:text-xl"
+        >
+          {% if post.data.title %} {{ post.data.title }} {% else %}
+          <code>{{ post.url }}</code>
           {% endif %}
-          </h3>
-        </a>
-        <p class="text-gray-600 dark:text-gray-400">{{ post.data.description }}</p>
-      </li>
+        </h3>
+      </a>
+      <p class="text-gray-600 dark:text-gray-400">
+        {{ post.data.description }}
+      </p>
+    </li>
     {% endfor %}
-      <li>
-        <a href="https://medium.com/singtel-digital-technology/modernising-an-enterprise-front-end-stack-fe0571f259a1">
-          <h3 class="w-full mb-2 font-medium text-indigo-700 text-lg md:text-xl dark:text-gray-100">
-            Modernising an Enterprise Front End Stack
-          </h3>
-        </a>
-        <p class="text-gray-600 dark:text-gray-400">Almost any large enterprise struggles to keep their front-end code
-          maintainable — and so did we! CSS and Javascript code bases grow large and unwieldy quite easily.
-          With our component library, we were able to overcome these challenges.</p>
-      </li>
+    <li>
+      <a
+        href="https://medium.com/singtel-digital-technology/modernising-an-enterprise-front-end-stack-fe0571f259a1"
+      >
+        <h3
+          class="mb-2 w-full text-lg font-medium text-indigo-700 dark:text-gray-100 md:text-xl"
+        >
+          Modernising an Enterprise Front End Stack
+        </h3>
+      </a>
+      <p class="text-gray-600 dark:text-gray-400">
+        Almost any large enterprise struggles to keep their front-end code
+        maintainable — and so did we! CSS and Javascript code bases grow large
+        and unwieldy quite easily. With our component library, we were able to
+        overcome these challenges.
+      </p>
+    </li>
   </ul>
 
   <hr class="m-16" />
 
   <div class="lg:grid lg:grid-cols-12 lg:gap-8">
-    <div class="lg:col-span-6 lg:flex lg:flex-col lg:justify-center space-y-6">
-      <h2 class="font-medium text-black text-3xl dark:text-gray-100">Hi there 👋</h2>
-      <p class="text-lg text-gray-600 dark:text-gray-400">I'm a software engineer with a passion for building performant web apps using the latest web technologies.</p>
-      <p class="text-lg text-gray-600 dark:text-gray-400">This is my space where I'll share my learnings. I am a work in progress so feel free to send me feedback.<p>
+    <div class="space-y-6 lg:col-span-6 lg:flex lg:flex-col lg:justify-center">
+      <h2 class="text-3xl font-medium text-black dark:text-gray-100">
+        Hi there 👋
+      </h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400">
+        I'm a software engineer with a passion for building performant web apps
+        using the latest web technologies.
+      </p>
+      <p class="text-lg text-gray-600 dark:text-gray-400">
+        This is my space where I'll share my learnings. I am a work in progress
+        so feel free to send me feedback.
+      </p>
+      <p></p>
     </div>
-    <div class="sm:mx-auto lg:max-w-none lg:col-span-6">
-      {% Image "src/assets/profile.png", "Handsome photo of Peter Mekhaeil on the Great Wall of China" %}
+
+    <div class="sm:mx-auto lg:col-span-6 lg:max-w-none">
+      {% Image "src/assets/profile.png", "Handsome photo of Peter Mekhaeil on
+      the Great Wall of China" %}
     </div>
   </div>
 </div>

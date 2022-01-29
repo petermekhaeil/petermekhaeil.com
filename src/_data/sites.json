@@ -12,11 +12,11 @@
   {
     "url": "https://f1-page-speed-insights.netlify.app/",
     "name": "Formula 1 Page Speed Insights",
-    "description": "Performance report using PageSpeed Insights and Chrome User Experience Report to showcase which Formula 1 team has the fastest web performance."
+    "description": "Performance report using PageSpeed Insights and Chrome User Experience Report to showcase which Formula 1 team has the fastest web performance. Built using Next.js and hosted on Netlify."
   },
   {
     "url": "https://sg-page-speed-insights.netlify.app/",
     "name": "Singapore E-Commerce Page Speed Insights",
-    "description": "Performance report using PageSpeed Insights and Chrome User Experience Report to showcase which Singapore E-Commerce store has the fastest web performance."
+    "description": "Performance report using PageSpeed Insights and Chrome User Experience Report to showcase which Singapore E-Commerce store has the fastest web performance. Built using Next.js and hosted on Netlify."
   }
 ]
