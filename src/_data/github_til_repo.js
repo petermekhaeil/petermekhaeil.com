@@ -50,6 +50,15 @@ module.exports = async function () {
         (entry) => entry.name === 'learnings' && entry.type === 'tree'
       );
 
-      return learningsDir.object.entries;
+      return learningsDir.object.entries.map((entry) => {
+        return {
+          ...entry,
+          object: {
+            ...entry.object,
+            // Hacky and I love it
+            text: entry.object.text.replace('# ', '## ')
+          }
+        };
+      });
     });
 };
