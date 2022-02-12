@@ -44,26 +44,6 @@ module.exports = (config) => {
 
   config.setLibrary('md', markdownLib);
 
-  config.addFilter('readableDate', (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat(
-      'dd LLL yyyy'
-    );
-  });
-
-  config.addFilter('markdown', (value) => {
-    return `<div class="md-block">${markdownLib.render(value)}</div>`;
-  });
-
-  config.addFilter('toTitleCase', (value) => {
-    return value.replace(/-/g, ' ').replace(/\w\S*/g, function (txt) {
-      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-    });
-  });
-
-  config.addFilter('removeExtension', (value) => {
-    return value.substr(0, value.lastIndexOf('.'));
-  });
-
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   config.addFilter('htmlDateString', (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat(
@@ -73,21 +53,6 @@ module.exports = (config) => {
 
   config.addCollection('posts', function (collection) {
     return collection.getFilteredByGlob('./src/posts/**/*.md');
-  });
-
-  config.addCollection('techPosts', function (collection) {
-    return (
-      collection.getFilteredByTags('webdev') &&
-      collection.getFilteredByTags('javascript')
-    );
-  });
-
-  config.addCollection('performancePosts', function (collection) {
-    return collection.getFilteredByTag('performance');
-  });
-
-  config.addCollection('careerPosts', function (collection) {
-    return collection.getFilteredByTag('career');
   });
 
   // works also with addLiquidShortcode or addJavaScriptFunction

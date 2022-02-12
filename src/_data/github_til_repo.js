@@ -51,8 +51,14 @@ module.exports = async function () {
       );
 
       return learningsDir.object.entries.map((entry) => {
+        const regexHeading = /^# (.*)/;
+        const title = entry.object.text
+          .match(regexHeading)[0]
+          .replace('# ', '');
+
         return {
           ...entry,
+          title,
           object: {
             ...entry.object,
             // Hacky and I love it
