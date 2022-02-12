@@ -44,6 +44,14 @@ module.exports = (config) => {
 
   config.setLibrary('md', markdownLib);
 
+  config.addFilter('markdown', (value) => {
+    return `<div class="md-block">${markdownLib.render(value)}</div>`;
+  });
+
+  config.addFilter('removeExtension', (value) => {
+    return value.substr(0, value.lastIndexOf('.'));
+  });
+
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   config.addFilter('htmlDateString', (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat(
