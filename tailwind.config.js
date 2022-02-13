@@ -27,12 +27,12 @@ module.exports = {
             },
             color: theme('colors.gray.800'),
             a: {
-              color: theme('colors.blue.700'),
+              color: theme('colors.black'),
+              textDecoration: 'none',
               '&:hover': {
-                color: theme('colors.blue.700'),
+                color: theme('colors.black'),
                 textDecoration: 'none'
-              },
-              textDecoration: 'none'
+              }
             },
             pre: {
               borderRadius: theme('spacing.1')

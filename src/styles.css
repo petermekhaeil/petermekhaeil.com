@@ -41,25 +41,12 @@ img {
 }
 
 .heading {
-  background: linear-gradient(-70deg, #9867f0, #ed4e50);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  box-decoration-break: clone;
-
-  @apply text-4xl font-bold;
+  @apply text-4xl font-bold text-black;
 }
 
 .dark a:hover,
 .dark a > h3:hover {
   background: linear-gradient(-70deg, #ff7170, #ffe57f);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  box-decoration-break: clone;
-}
-
-a:hover,
-a > h3:hover {
-  background: linear-gradient(-70deg, #9867f0, #ed4e50);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   box-decoration-break: clone;

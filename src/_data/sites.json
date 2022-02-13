@@ -5,17 +5,17 @@
     "description": "Online store for Singapore's largest telecommunication company. Jamstack website built using Gatsby and AEM as a headless CMS. Hosted on AWS."
   },
   {
-    "url": "https://gobare.vercel.app",
+    "url": "https://gobare.sg",
     "name": "Go Bare",
     "description": "Australian based skin care company. Jamstack website built using Next.js and Shopify. Hosted on Vercel."
   },
   {
-    "url": "https://f1-page-speed-insights.netlify.app/",
+    "url": "https://f1-page-speed-insights.netlify.app",
     "name": "Formula 1 Page Speed Insights",
     "description": "Performance report using PageSpeed Insights and Chrome User Experience Report to showcase which Formula 1 team has the fastest web performance. Built using Next.js and hosted on Netlify."
   },
   {
-    "url": "https://sg-page-speed-insights.netlify.app/",
+    "url": "https://sg-page-speed-insights.netlify.app",
     "name": "Singapore E-Commerce Page Speed Insights",
     "description": "Performance report using PageSpeed Insights and Chrome User Experience Report to showcase which Singapore E-Commerce store has the fastest web performance. Built using Next.js and hosted on Netlify."
   }

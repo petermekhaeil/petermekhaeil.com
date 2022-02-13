@@ -15,12 +15,19 @@ eleventyNavigation:
     <li>
       <a href="{{ site.url | url }}">
         <h3
-          class="mb-2 w-full text-lg font-medium text-indigo-700 dark:text-gray-100 md:text-xl"
+          class="mb-2 w-full text-lg font-medium text-black dark:text-gray-100 md:text-xl"
         >
           {{ site.name }}
         </h3>
       </a>
-      <p class="text-gray-600 dark:text-gray-400">{{ site.description }}</p>
+      <p class="mb-2 text-gray-600 dark:text-gray-400">
+        {{ site.description }}
+      </p>
+      <a
+        class="border-b-2 border-yellow-500 hover:bg-yellow-500"
+        href="{{ site.url | url }}"
+        >{{ site.url | url }}</a
+      >
     </li>
     {% endfor %}
   </ul>

@@ -8,11 +8,11 @@ pagination:
   size: 100
 ---
 
-<div class="mx-auto mt-4 mb-16 lg:mt-10">
-  <p class="mb-12 text-gray-600 dark:text-gray-400">
+<div class="mx-auto mt-4 mb-16 prose-headings:mt-3 lg:mt-10">
+  <p class="mb-12">
     A collection of bite-size learnings I have picked up while
     <a
-      class="text-indigo-700 dark:text-gray-100"
+      class="border-b-2 border-yellow-500 font-medium text-black hover:bg-yellow-500 dark:text-gray-100"
       href="https://www.learninpublic.org/"
       target="noopener"
       >Learning In Public</a
@@ -21,13 +21,13 @@ pagination:
 
   <ul class="list-none">
     {%- for item in pagination.items %}
-    <li>
+    <li class="mb-0">
       <a href="/til/{{ item.name | removeExtension | slug }}">
-        <h3
-          class="mb-2 w-full text-lg font-medium text-indigo-700 dark:text-gray-100 md:text-xl"
+        <span
+          class="text-lg font-medium text-black dark:text-gray-100 md:text-xl"
         >
           {{ item.title }}
-        </h3>
+        </span>
       </a>
       <p class="text-gray-600 dark:text-gray-400">{{ repo.description }}</p>
     </li>
