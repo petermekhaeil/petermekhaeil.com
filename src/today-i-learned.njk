@@ -19,18 +19,19 @@ pagination:
     >.
   </p>
 
-  <ul class="list-none">
-    {%- for item in pagination.items %}
-    <li class="mb-0">
-      <a href="/til/{{ item.name | removeExtension | slug }}">
-        <span
-          class="text-lg font-medium text-black dark:text-gray-100 md:text-xl"
-        >
-          {{ item.title }}
-        </span>
-      </a>
-      <p class="text-gray-600 dark:text-gray-400">{{ repo.description }}</p>
-    </li>
-    {% endfor -%}
-  </ul>
+  <div class="pl-8">
+    <ul class="list-disc">
+      {%- for item in pagination.items %}
+      <li >
+        <a href="/til/{{ item.name | removeExtension | slug }}" class="border-b-2 border-yellow-500 hover:bg-yellow-500">
+          <span
+            class="text-lg font-medium text-black dark:text-gray-100 md:text-xl "
+          >
+            {{ item.title }}
+          </span>
+        </a>
+      </li>
+      {% endfor -%}
+    </ul>
+  </div>
 </div>
