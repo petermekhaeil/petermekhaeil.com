@@ -9,7 +9,7 @@ pagination:
 ---
 
 <div class="mx-auto mt-4 mb-16 prose-headings:mt-3 lg:mt-10">
-  <p class="mb-12">
+  <p class="mb-12 text-gray-600 dark:text-gray-400">
     A collection of bite-size learnings I have picked up while
     <a
       class="border-b-2 border-yellow-500 font-medium text-black hover:bg-yellow-500 dark:text-gray-100"
@@ -19,19 +19,23 @@ pagination:
     >.
   </p>
 
-  <div class="pl-8">
-    <ul class="list-disc">
-      {%- for item in pagination.items %}
-      <li >
-        <a href="/til/{{ item.name | removeExtension | slug }}" class="border-b-2 border-yellow-500 hover:bg-yellow-500">
-          <span
-            class="text-lg font-medium text-black dark:text-gray-100 md:text-xl "
-          >
-            {{ item.title }}
-          </span>
-        </a>
-      </li>
-      {% endfor -%}
-    </ul>
-  </div>
+  <ul class="list-none space-y-8">
+    {%- for item in pagination.items %}
+    <li>
+      <h3
+        class="mb-2 w-full text-lg font-medium text-black dark:text-gray-100 md:text-xl"
+      >
+        {{ item.title }}
+      </h3>
+      <div class="mb-2 text-gray-600 dark:text-gray-400">
+        {{ item.object.description | markdown | safe }}
+      </div>
+      <a
+        href="/til/{{ item.name | removeExtension | slug }}"
+        class="border-b-2 border-yellow-500 font-medium text-black hover:bg-yellow-500 dark:text-gray-100"
+        >Read More</a
+      >
+    </li>
+    {% endfor %}
+  </ul>
 </div>

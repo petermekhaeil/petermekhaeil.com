@@ -52,9 +52,13 @@ module.exports = async function () {
 
       return learningsDir.object.entries.map((entry) => {
         const regexHeading = /^# (.*)/;
+        const regexFirstParagraph = /\n(.+)\n\n/;
+
         const title = entry.object.text
           .match(regexHeading)[0]
           .replace('# ', '');
+
+        const firstParagraph = entry.object.text.match(regexFirstParagraph)[0];
 
         return {
           ...entry,
@@ -62,7 +66,8 @@ module.exports = async function () {
           object: {
             ...entry.object,
             // Hacky and I love it
-            text: entry.object.text.replace('# ', '## ')
+            text: entry.object.text.replace('# ', '## '),
+            description: firstParagraph
           }
         };
       });
