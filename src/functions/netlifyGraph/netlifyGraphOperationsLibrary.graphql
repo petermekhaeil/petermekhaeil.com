@@ -1,0 +1,32 @@
+
+
+query RepoFiles($name: String = "til", $owner: String = "petermekhaeil") @netlify(id: """05b3b55e-da5e-4154-b1c5-0909b2a3addc""", doc: """Return list of TIL files.""") {
+  gitHub {
+    repository(owner: $owner, name: $name) {
+      object(expression: "HEAD:") {
+        ... on GitHubTree {
+          id
+          entries {
+            name
+            type
+            object {
+              ... on GitHubTree {
+                id
+                entries {
+                  name
+                  type
+                  object {
+                    ... on GitHubBlob {
+                      id
+                      text
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
