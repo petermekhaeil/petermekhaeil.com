@@ -19,7 +19,7 @@ module.exports = {
               color: theme('colors.white'),
               borderRadius: theme('spacing.1'),
               fontWeight: theme('fontWeight.medium'),
-              padding: theme('spacing.1')
+              padding: 0
             },
             'code:not([class^="language-"])': {
               color: theme('colors.black'),
@@ -81,6 +81,9 @@ module.exports = {
             'code:not([class^="language-"])': {
               color: theme('colors.gray.300'),
               backgroundColor: theme('colors.gray.700')
+            },
+            'code[class^="language-"]': {
+              padding: 0
             },
             pre: {
               backgroundColor: '#011627' // night-owl theme
