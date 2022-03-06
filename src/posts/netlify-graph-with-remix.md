@@ -99,7 +99,10 @@ Once you have selected your open session (that was created when you started the 
 Below is a GraphQL query with `Issues` as its operation name. Copy the below snippet and paste it in the explorer.
 
 ```graphql
-query Issues($owner: String = "petermekhaeil", $name: String = "netlify-graph-remix") {
+query Issues(
+  $owner: String = "petermekhaeil"
+  $name: String = "netlify-graph-remix"
+) {
   gitHub {
     repository(name: $name, owner: $owner) {
       issues(first: 100, states: OPEN) {
@@ -184,9 +187,9 @@ export default function Index() {
 
 Walking through the code:
 
-- The `loader` function is a built-in data loading Remix API. Each Remix route is served from the server and each route can fetch external data before generating the HTML and returning it back to the user. It is in this function that we will fetch data from Netlify Graph and use it in the React template.
+- The `loader` function is a built-in data loading Remix API. Each Remix route is served from the server and each route can fetch external data before generating the HTML and returning it back to the user. It is in this function that we will fetch data from Netlify Graph and use it in the React template. Learn more about the `loader` function on the [Remix Docs](https://remix.run/docs/en/v1/api/conventions#loader).
 
-- `NetlifyGraph.fetchIssues` is the generated function from Netlify Graph that we will use to fetch the data from GitHub. You can replace the value of `owner` and `name` to your own repository, or use the default value if you wish.
+- `NetlifyGraph.fetchIssues` is the generated function from Netlify Graph that we will use to fetch the data from GitHub. This was generated when you clicked "Save Changes" in the Netlify Graph Explorer from the earlier step. You can replace the value of `owner` and `name` to your own repository, or use the default value if you wish.
 
 - The `useLoaderData` hook from Remix will return the data from the `loader` function so we can use it in the React template.
 
@@ -256,50 +259,6 @@ Walking through the code:
 Now if you refresh the page and click on any of the GitHub issues, you'll be redirected to a page with the full issue content. An example of a dynamic route from the demo app:
 
 - [/getting-started-with-remix-and-netlify-graph](https://netlify-graph-remix.netlify.app/getting-started-with-remix-and-netlify-graph)
-
-### Catching Errors
-
-Because Remix routes are rendered on the server, we can return different response codes to the user in the case of an expected error. An example of an expected error is if the requested GitHub issue cannot be found and we need to let the user know.
-
-Remix comes with a `CatchBoundary` React component that will render in the case that the `loader` function of the route throws an [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) object. Let's update our `loader` function:
-
-```jsx
-export const loader = async ({ params }) => {
-  const post = await getLoaderData(params.slug);
-
-  if (!post) {
-    throw new Response('Post not found', {
-      status: 404
-    });
-  }
-
-  const html = marked(post.body);
-
-  return {
-    ...post,
-    slug: params.slug,
-    html
-  };
-};
-```
-
-In the `loader` function, if no GitHub issue with the requested title was not found, we throw a `Response` object with a 404 status code.
-
-Let's add a `CatchBoundary` component to our dynamic route and Remix will handle the rest for us.
-
-```jsx
-import { useCatch } from 'remix';
-
-export function CatchBoundary() {
-  const caught = useCatch();
-
-  if (caught.status === 404) {
-    return <div>This GitHub issue was not found. Sorry.</div>;
-  }
-
-  throw new Error(`Unhandled error: ${caught.status}`);
-}
-```
 
 ### What we learnt today
 
