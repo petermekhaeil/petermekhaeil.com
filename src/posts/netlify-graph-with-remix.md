@@ -6,6 +6,7 @@ tags:
   - javscript
   - netlify
   - remix
+devto: https://dev.to/petermekhaeil/how-to-build-an-app-with-remix-and-netlify-graph-554k
 ---
 
 In this tutorial, you will learn how to build an app using Remix and use Netlify Graph to talk to third-party APIs. We will use Netlify Graph to fetch data from GitHub and show the user a collection of repository issues. Along the way we will learn about the tools chosen and why they are a great fit for our use case.
