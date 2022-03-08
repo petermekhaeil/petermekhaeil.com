@@ -28,7 +28,7 @@ The source code for this app can be found [in this repository](https://github.co
 Create a new Remix site. Choose "Netlify" when prompted:
 
 ```bash
-npx create-remix@latest
+$ npx create-remix@latest
 ```
 
 ### Install dependencies
@@ -36,7 +36,7 @@ npx create-remix@latest
 We will need to install some dependencies for our app to work. Change directory to your new project and run:
 
 ```bash
-npm install slugify marked
+$ npm install slugify marked
 ```
 
 - **slugify**: Generates URL-friendly paths based on a text string. We will use to generate URLs based on the title of our GitHub issues.
@@ -47,12 +47,12 @@ npm install slugify marked
 You will want to [create a new repository in GitHub](https://github.com/new) and commit the code that was generated in the earlier step. This will be the repository that we will be fetching data from using Netlify Graph.
 
 ```bash
-cd [name of project]
-git init
-git add .
-git commit -m "first commit"
-git remote add origin https://github.com/your-username/name-of-project.git
-git add push -u origin master
+$ cd [name of project]
+$ git init
+$ git add .
+$ git commit -m "first commit"
+$ git remote add origin https://github.com/your-username/name-of-project.git
+$ git add push -u origin master
 ```
 
 ### Install the Netlify CLI
@@ -60,8 +60,8 @@ git add push -u origin master
 Install the latest version of Netlify CLI and log into your Netlify account:
 
 ```bash
-npm i -g netlify-cli@latest
-ntl login
+$ npm i -g netlify-cli@latest
+$ ntl login
 ```
 
 Change directory to your new project (if you have not done so already) and create a new Netlify site:
@@ -76,7 +76,7 @@ $ ntl lnit
 Start the Netlify Dev Server with the `--graph` flag:
 
 ```bash
-ntl dev --graph
+$ ntl dev --graph
 ```
 
 This will start up a local development server that we will use to build our app. It will also start up a Netlify Graph session that we will use in the next section.
