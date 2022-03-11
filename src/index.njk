@@ -5,25 +5,53 @@ eleventyNavigation:
   order: 100
 ---
 
+<div class="mt-8 flex flex-col-reverse items-start sm:flex-row">
+  <div class="mb-16 flex flex-col pr-8">
+    <h1
+      class="heading mb-3 text-3xl font-bold tracking-tight text-black dark:text-white dark:selection:text-black md:text-5xl"
+    >
+      Peter Mekhaeil
+    </h1>
+    <h2 class="mb-4 text-gray-600 dark:text-gray-400">
+      Developer with a passion for making the web faster. I teach about web
+      development using the latest technologies.
+    </h2>
+  </div>
+  <img
+    class="relative mb-8 mr-auto w-[176px] sm:mb-0"
+    src="/assets/profile.png"
+    alt="Handsome photo of Peter Mekhaeil on the Great Wall of China"
+  />
+</div>
+
+<h2 class="text-2xl font-bold text-black dark:text-gray-100 md:text-4xl">
+  Latest Posts
+</h2>
+
 <div class="mx-auto mt-4 mb-16 max-w-2xl lg:mt-10">
   <ul class="list-none space-y-8">
     {% for post in collections.posts | reverse %}
     <li>
-      <a href="{{ post.url | url }}">
-        <h3
-          class="mb-2 w-full text-lg font-medium text-black dark:text-gray-100 md:text-xl"
-        >
-          {% if post.data.title %} {{ post.data.title }} {% else %}
-          <code>{{ post.url }}</code>
-          {% endif %}
-        </h3>
-      </a>
-      <p class="mb-2 text-gray-600 dark:text-gray-400">
+      <div class="flex flex-col justify-between md:flex-row">
+        <a href="{{ post.url | url }}">
+          <h3
+            class="mb-2 w-full text-lg font-medium text-gray-900 dark:text-gray-100 md:text-xl"
+          >
+            {% if post.data.title %} {{ post.data.title }} {% else %}
+            <code>{{ post.url }}</code>
+            {% endif %}
+          </h3>
+        </a>
+        <p class="mb-2 w-32 text-left text-gray-500 md:mb-0 md:text-right">
+          {{ post.data.date | htmlDateString }}
+        </p>
+      </div>
+      <p class="mb-2 text-base text-gray-600 dark:text-gray-400">
         {{ post.data.description }}
       </p>
       <a
         href="{{ post.url | url }}"
-        class="border-b-2 border-yellow-500 font-medium text-black hover:bg-yellow-500 dark:text-gray-100"
+        class="border-b-2 border-yellow-500 text-base font-medium text-black hover:bg-yellow-500 dark:text-gray-100"
         >Read More</a
       >
     </li>
@@ -51,28 +79,4 @@ eleventyNavigation:
       >
     </li>
   </ul>
-
-  <hr class="m-16" />
-
-  <div class="lg:grid lg:grid-cols-12 lg:gap-8">
-    <div class="space-y-6 lg:col-span-6 lg:flex lg:flex-col lg:justify-center">
-      <h2 class="text-3xl font-medium text-black dark:text-gray-100">
-        Hi there 👋
-      </h2>
-      <p class="text-lg text-gray-600 dark:text-gray-400">
-        I'm a software engineer with a passion for building performant web apps
-        using the latest web technologies.
-      </p>
-      <p class="text-lg text-gray-600 dark:text-gray-400">
-        This is my space where I'll share my learnings. I am a work in progress
-        so feel free to send me feedback.
-      </p>
-      <p></p>
-    </div>
-
-    <div class="sm:mx-auto lg:col-span-6 lg:max-w-none">
-      {% Image "src/assets/profile.png", "Handsome photo of Peter Mekhaeil on
-      the Great Wall of China" %}
-    </div>
-  </div>
 </div>

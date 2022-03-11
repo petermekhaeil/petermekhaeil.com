@@ -16,10 +16,10 @@ layout: base.njk
 
   <div class="mb-2">
     {% if date %}
-      <p class="text-sm" style="margin:0">{{ date | htmlDateString }}</p>
+      <p class="text-gray-500" style="margin:0">{{ date | htmlDateString }}</p>
     {% endif %}
     {% if title and not hideReadingTime %}
-     <p class="text-sm" style="margin:0">{{ content | emojiReadTime }}</p>
+     <p class="text-gray-500" style="margin:0">{{ content | emojiReadTime }}</p>
     {% endif %}
   </div>
   {% if toc %}

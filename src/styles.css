@@ -36,12 +36,6 @@ img {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   box-decoration-break: clone;
-
-  @apply text-4xl font-bold;
-}
-
-.heading {
-  @apply text-4xl font-bold text-black;
 }
 
 .dark a:hover,

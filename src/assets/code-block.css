@@ -19,6 +19,16 @@
   --code-bg-color: #282c34;
 }
 
+.dark code {
+  background-color: #2d3338;
+  color: rgb(156, 163, 175);
+  padding: 4px;
+}
+
+.prose code {
+  padding: 4px;
+}
+
 code {
   margin: 0;
   border-radius: 3px;

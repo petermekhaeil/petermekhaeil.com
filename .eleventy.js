@@ -52,10 +52,9 @@ module.exports = (config) => {
     return value.substr(0, value.lastIndexOf('.'));
   });
 
-  // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   config.addFilter('htmlDateString', (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat(
-      'dd LLLL yyyy'
+    return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toLocaleString(
+      DateTime.DATE_MED
     );
   });
 
