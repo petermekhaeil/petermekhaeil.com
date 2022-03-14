@@ -30,18 +30,3 @@ img {
     0 70px 65px rgb(0 0 0 / 9%);
   border-radius: 4px;
 }
-
-.dark .heading {
-  background: linear-gradient(-70deg, #ff7170, #ffe57f);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  box-decoration-break: clone;
-}
-
-.dark a:hover,
-.dark a > h3:hover {
-  background: linear-gradient(-70deg, #ff7170, #ffe57f);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  box-decoration-break: clone;
-}

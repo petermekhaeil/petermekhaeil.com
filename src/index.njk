@@ -8,7 +8,7 @@ eleventyNavigation:
 <div class="mt-8 flex flex-col-reverse items-start sm:flex-row">
   <div class="mb-16 flex flex-col pr-8">
     <h1
-      class="heading mb-3 text-3xl font-bold tracking-tight text-black dark:text-white dark:selection:text-black md:text-5xl"
+      class="heading text-white2 mb-3 text-3xl font-bold tracking-tight dark:bg-gradient-to-r dark:from-yellow-400 dark:to-orange-600 dark:bg-clip-text dark:text-transparent dark:selection:text-black md:text-5xl"
     >
       Peter Mekhaeil
     </h1>
@@ -16,6 +16,32 @@ eleventyNavigation:
       Developer with a passion for making the web faster. I teach about web
       development using the latest technologies.
     </h2>
+    <ul class="flex items-center text-gray-600 dark:text-gray-400">
+        <li class="mr-3">
+          <a href="https://github.com/petermekhaeil" title="GitHub" rel="me noopener">
+            <span class="sr-only">Connect with Peter on GitHub</span>
+            {% include 'icon-github.njk' %}
+          </a>
+        </li>
+        <li class="mr-3">
+          <a href="https://twitter.com/PMekhaeil" title="Twitter" rel="me noopener">
+            <span class="sr-only">Connect with Peter on Twitter</span>
+            {% include 'icon-twitter.njk' %}
+          </a>
+        </li>
+        <li class="mr-3">
+          <a href="https://dev.to/petermekhaeil" title="Dev.to" rel="me noopener">
+            <span class="sr-only">Connect with Peter on Dev.to</span>
+            {% include 'icon-devto.njk' %}
+          </a>
+        </li>
+        <li class="mr-3">
+          <a href="https://www.linkedin.com/in/petermekhaeil/" title="LinkedIn" rel="me noopener">
+            <span class="sr-only">Connect with Peter on LinkedIn.</span>
+            {% include 'icon-linkedin.njk' %}
+          </a>
+        </li>
+      </ul>
   </div>
   <img
     class="relative mb-8 mr-auto w-[176px] sm:mb-0"
@@ -33,50 +59,68 @@ eleventyNavigation:
     {% for post in collections.posts | reverse %}
     <li>
       <div class="flex flex-col justify-between md:flex-row">
-        <a href="{{ post.url | url }}">
-          <h3
-            class="mb-2 w-full text-lg font-medium text-gray-900 dark:text-gray-100 md:text-xl"
+        <a
+          class="w-full transform rounded-xl bg-gradient-to-r
+
+          from-gray-500 to-gray-600 p-1
+
+          hover:from-yellow-400 hover:to-orange-600 dark:from-gray-600 dark:to-gray-700
+          hover:dark:from-yellow-400 hover:dark:to-orange-600 "
+          href="{{ post.url | url }}"
+        >
+          <div
+            class="flex h-full flex-col justify-between rounded-lg bg-white p-4 dark:bg-[#181c20]"
           >
-            {% if post.data.title %} {{ post.data.title }} {% else %}
-            <code>{{ post.url }}</code>
-            {% endif %}
-          </h3>
+            <div class="flex flex-col justify-between md:flex-row">
+              <h3
+                class="mb-2 w-full text-lg font-medium tracking-tight text-gray-900 dark:text-gray-100 md:text-xl"
+              >
+                {{ post.data.title }}
+              </h3>
+            </div>
+            <p class="mb-2 text-base text-gray-600 dark:text-gray-400">
+              {{ post.data.description }}
+            </p>
+            <div
+              class="capsize flex items-center text-gray-800 dark:text-gray-200"
+            >
+              {{ post.data.date | htmlDateString }}
+            </div>
+          </div>
         </a>
-        <p class="mb-2 w-32 text-left text-gray-400 md:mb-0 md:text-right">
-          {{ post.data.date | htmlDateString }}
-        </p>
       </div>
-      <p class="mb-2 text-base text-gray-600 dark:text-gray-400">
-        {{ post.data.description }}
-      </p>
-      <a
-        href="{{ post.url | url }}"
-        class="border-b-2 border-yellow-500 text-base font-medium text-black hover:bg-yellow-500 dark:text-gray-100"
-        >Read More</a
-      >
     </li>
     {% endfor %}
     <li>
-      <a
-        href="https://medium.com/singtel-digital-technology/modernising-an-enterprise-front-end-stack-fe0571f259a1"
-      >
-        <h3
-          class="mb-2 w-full text-lg font-medium text-black dark:text-gray-100 md:text-xl"
+      <div class="flex flex-col justify-between md:flex-row">
+        <a
+          class="w-full transform rounded-xl bg-gradient-to-r from-gray-500 to-gray-600 p-1 hover:from-yellow-400 hover:to-orange-600 dark:from-gray-600 dark:to-gray-700"
+          href="https://medium.com/singtel-digital-technology/modernising-an-enterprise-front-end-stack-fe0571f259a1"
         >
-          Modernising an Enterprise Front End Stack
-        </h3>
-      </a>
-      <p class="mb-2 text-gray-600 dark:text-gray-400">
-        Almost any large enterprise struggles to keep their front-end code
-        maintainable — and so did we! CSS and Javascript code bases grow large
-        and unwieldy quite easily. With our component library, we were able to
-        overcome these challenges.
-      </p>
-      <a
-        href="https://medium.com/singtel-digital-technology/modernising-an-enterprise-front-end-stack-fe0571f259a1"
-        class="border-b-2 border-yellow-500 font-medium text-black hover:bg-yellow-500 dark:text-gray-100"
-        >Read More</a
-      >
+          <div
+            class="flex h-full flex-col justify-between rounded-lg bg-white p-4 dark:bg-[#181c20]"
+          >
+            <div class="flex flex-col justify-between md:flex-row">
+              <h3
+                class="mb-2 w-full text-lg font-medium tracking-tight text-gray-900 dark:text-gray-100 md:text-xl"
+              >
+                Modernising an Enterprise Front End Stack
+              </h3>
+            </div>
+            <p class="mb-2 text-base text-gray-600 dark:text-gray-400">
+              Almost any large enterprise struggles to keep their front-end code
+              maintainable — and so did we! CSS and Javascript code bases grow
+              large and unwieldy quite easily. With our component library, we
+              were able to overcome these challenges.
+            </p>
+            <div
+              class="capsize flex items-center text-gray-800 dark:text-gray-200"
+            >
+              Nov 27, 2018
+            </div>
+          </div>
+        </a>
+      </div>
     </li>
   </ul>
 </div>

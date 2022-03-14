@@ -19,8 +19,12 @@ module.exports = async function () {
 
     const title = entry.object.text.match(regexHeading)[0].replace('# ', '');
 
-    const firstParagraph = entry.object.text.match(regexFirstParagraph)[0];
+    const firstParagraph = entry.object.text
+      .match(regexFirstParagraph)[0]
+      // Remove links
+      .replace(/(?:__|[*#])|\[(.*?)\]\(.*?\)/gm, '$1');
 
+    console.log('firstParagraph', firstParagraph);
     return {
       ...entry,
       title,
