@@ -24,7 +24,6 @@ module.exports = async function () {
       // Remove links
       .replace(/(?:__|[*#])|\[(.*?)\]\(.*?\)/gm, '$1');
 
-    console.log('firstParagraph', firstParagraph);
     return {
       ...entry,
       title,
