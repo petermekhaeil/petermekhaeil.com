@@ -15,3 +15,4 @@ jobs:
         uses: gautamkrishnar/blog-post-workflow@master
         with:
           feed_list: "https://petermekhaeil.com/rss.xml"
+          max_post_count: 1000
