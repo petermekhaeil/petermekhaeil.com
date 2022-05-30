@@ -1,7 +1,7 @@
 ---
 title: Jamstack vs Traditional Web
 date: 2021-12-11
-description: Presentation on Jamstack and how it compares to traditional web.
+description: Learn about what is Jamstack and how it compares to a traditional website. We go through the steps involved in building one, the components that make up a Jamstack site and its advantages and limitations.
 tags:
   - jamstack
   - javascript

@@ -1,7 +1,7 @@
 ---
 title: How to get started with improving site performance
 date: 2021-06-18
-description: With so many techniques on improving site performance - how does one start learning about site performance and what are the first steps?
+description: With so many techniques on improving site performance - how does one start learning about site performance and what are the first steps? Learn about the tools like Google Lighthouse, PageSpeed Insights and WebPageTest.
 tags:
   - performance
 devto: https://dev.to/petermekhaeil/how-to-get-started-with-improving-site-performance-mg1

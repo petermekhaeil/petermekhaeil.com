@@ -1,7 +1,7 @@
 ---
 title: How to build an app with Remix and Netlify Graph
 date: 2022-03-03
-description: Learn how to build an app using Remix that connects with third-party APIs using Netlify Graph. We will fetch data from GitHub and show a list of issues from a repository.
+description: Learn how to build an app using Remix that connects with third-party APIs using Netlify Graph. We will fetch data from GitHub and use React JSX to build the UI.
 tags:
   - javscript
   - netlify

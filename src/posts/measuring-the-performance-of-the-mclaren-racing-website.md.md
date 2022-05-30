@@ -1,7 +1,7 @@
 ---
 title: Measuring the performance of the McLaren Racing website
 date: 2022-03-19
-description: We look at the McLaren Racing website and highlight about some possible improvements that McLaren can do to improve their web performance.
+description: We look at the McLaren Racing website and highlight improvements that will speed up their web performance. We will use tools like PageSpeed Insights and WebPageTest to share techniques on improving page speed.
 tags:
   - css
   - webdev

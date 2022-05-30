@@ -1,7 +1,7 @@
 ---
 title: Page Speed Comparison of Singapore Commerce
 date: 2021-06-10
-description: Comparison of popular Singapore Commerce sites using data from the Chrome UX Report. We look at how they perform and the areas of improvement they can benefit from.
+description: Performance comparison of Singapore E-commerce stores. We look at how the sites perform and the areas of improvement that can speed up their web performance. We will use Chrome UX Report to measure the Core Web Vitals of each store and how they compare against each other.
 tags:
   - performance
 devto: https://dev.to/petermekhaeil/page-speed-comparison-of-singapore-commerce-1go6
