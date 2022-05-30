@@ -10,16 +10,17 @@ layout: base.njk
 
   prose-a:border-b-2
   prose-a:border-yellow-500
+  dark:hover:prose-a:text-black
   hover:prose-a:bg-yellow-500
 ">
   {% if title %}<h2>{{ title }}</h2>{% endif %}
 
   <div class="mb-2">
     {% if date %}
-      <p class="text-gray-400" style="margin:0">{{ date | htmlDateString }}</p>
+      <p class="text-gray-500" style="margin:0">{{ date | htmlDateString }}</p>
     {% endif %}
     {% if title and not hideReadingTime %}
-     <p class="text-gray-400" style="margin:0">{{ content | emojiReadTime }}</p>
+     <p class="text-gray-500" style="margin:0">{{ content | emojiReadTime }}</p>
     {% endif %}
   </div>
   {% if toc %}

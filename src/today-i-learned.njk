@@ -10,39 +10,25 @@ pagination:
 
 <div class="mx-auto mt-4 mb-16 prose-headings:mt-0 lg:mt-10">
   <p class="mb-12 text-gray-600 dark:text-gray-400">
-    Learnings I have picked up by
+    Learnings I have picked up while
     <a
-      class="border-b-2 border-yellow-500 font-medium text-black hover:bg-yellow-500 dark:text-gray-100"
+      class="border-b-2 border-yellow-500 font-medium text-black hover:bg-yellow-500 dark:text-gray-100 hover:dark:text-black"
       href="https://www.learninpublic.org/"
       target="noopener"
       >Learning In Public</a
     >.
   </p>
 
-  <ul class="list-none space-y-8">
+  <ul class="list-none space-y-2">
     {%- for item in pagination.items %}
     <li>
-      <div class="flex flex-col justify-between md:flex-row">
+      <h3 class="font-medium tracking-tight">
         <a
-          class="w-full transform rounded-xl bg-gradient-to-r from-gray-500 to-gray-600 p-1 hover:from-yellow-400 hover:to-orange-600 dark:from-gray-600 dark:to-gray-700 hover:dark:from-yellow-400 hover:dark:to-orange-600"
+          class="inline-flex border-yellow-500 text-black hover:bg-yellow-500 dark:text-gray-100 dark:hover:text-black"
           href="/til/{{ item.name | removeExtension | slug }}"
         >
-          <div
-            class="flex h-full flex-col justify-between rounded-lg bg-white p-4 dark:bg-[#181c20]"
-          >
-            <div class="flex flex-col justify-between md:flex-row">
-              <h3
-                class="mb-2 w-full text-lg font-medium tracking-tight text-gray-900 dark:text-gray-100 md:text-xl"
-              >
-                {{ item.title }}
-              </h3>
-            </div>
-            <p class="mb-2 text-base text-gray-600 dark:text-gray-400">
-              {{ item.object.description | markdown | safe }}
-            </p>
-          </div>
-        </a>
-      </div>
+          {{ item.title }}</a>
+      </h3>
     </li>
     {% endfor %}
   </ul>

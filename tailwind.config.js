@@ -1,7 +1,5 @@
 module.exports = {
-  purge: {
-    content: ['./src/**/*.njk', './src/**/*.md', './*.js']
-  },
+  content: ['./src/**/*.njk', './src/**/*.md', './*.js'],
   mode: 'jit',
   darkMode: 'class',
   theme: {
@@ -47,11 +45,9 @@ module.exports = {
           css: {
             color: theme('colors.gray.400'),
             a: {
-              color: theme('colors.yellow.400'),
-              textDecoration: 'none',
+              color: theme('colors.white'),
               '&:hover': {
-                color: theme('colors.yellow.300'),
-                textDecoration: 'underline'
+                color: theme('colors.black')
               }
             },
             h1: {
