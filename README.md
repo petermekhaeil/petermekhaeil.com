@@ -3,6 +3,7 @@
 ## Posts
 
 <!-- BLOG-POST-LIST:START -->
+- [3 benefits interviews bring you](https://petermekhaeil.com/3-benefits-interviews-bring-you/)
 - [Measuring the performance of the McLaren Racing website](https://petermekhaeil.com/measuring-the-performance-of-the-mclaren-racing-website/)
 - [How to build an app with Remix and Netlify Graph](https://petermekhaeil.com/how-to-build-an-app-with-remix-and-netlify-graph/)
 - [How I landed my first job as a software engineer](https://petermekhaeil.com/how-i-landed-my-first-job-as-a-software-engineer/)
