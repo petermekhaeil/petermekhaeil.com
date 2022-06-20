@@ -2,7 +2,7 @@
 layout: post.njk
 eleventyNavigation:
   key: About
-  order: 100
+  order: 300
 ---
 
 <div class="not-prose mb-8 mt-8">
