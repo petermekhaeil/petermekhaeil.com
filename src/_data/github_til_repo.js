@@ -1,38 +1,73 @@
 const netlifyGraph = require('../functions/netlifyGraph');
 
-module.exports = async function () {
+const getRepoFiles = async ({ name, owner, directory }) => {
   const { data } = await netlifyGraph.fetchRepoFiles(
-    {
-      name: 'til',
-      owner: 'petermekhaeil'
-    },
+    { name, owner, directory },
     { accessToken: process.env.ONEGRAPH_AUTHLIFY_TOKEN }
   );
 
-  const learningsDir = data.gitHub.repository.object.entries.find(
-    (entry) => entry.name === 'learnings' && entry.type === 'tree'
+  const repoDirectory = data.gitHub.repository.object.entries.find(
+    (entry) => entry.name === directory && entry.type === 'tree'
   );
 
-  return learningsDir.object.entries.map((entry) => {
-    const regexHeading = /^# (.*)/;
-    const regexFirstParagraph = /\n(.+)\n\n/;
+  return repoDirectory.object.entries;
+};
 
-    const title = entry.object.text.match(regexHeading)[0].replace('# ', '');
+const getCommittedDate = async ({ name, owner, path }) => {
+  const { data } = await netlifyGraph.fetchCommittedDate(
+    { name, owner, path },
+    { accessToken: process.env.ONEGRAPH_AUTHLIFY_TOKEN }
+  );
 
-    const firstParagraph = entry.object.text
-      .match(regexFirstParagraph)[0]
-      // Remove links
-      .replace(/(?:__|[*#])|\[(.*?)\]\(.*?\)/gm, '$1');
+  return data.gitHub.repository.ref.target.history.edges[0].node.committedDate;
+};
 
-    return {
-      ...entry,
-      title,
-      object: {
-        ...entry.object,
-        // Hacky and I love it
-        text: entry.object.text.replace('# ', '## '),
-        description: firstParagraph
-      }
-    };
+const formatEntry = (entry) => {
+  const regexHeading = /^# (.*)/;
+
+  // The first line in the markdown is the title
+  const title = entry.object.text.match(regexHeading)[0].replace('# ', '');
+
+  return {
+    ...entry,
+    title,
+    object: {
+      ...entry.object,
+      // Lower the heading level (h1 -> h2)
+      text: entry.object.text.replace('# ', '## ')
+    }
+  };
+};
+
+module.exports = async function () {
+  const repoOptions = {
+    name: 'til',
+    owner: 'petermekhaeil',
+    directory: 'learnings'
+  };
+
+  const repoFiles = await getRepoFiles(repoOptions);
+
+  const entries = repoFiles.map(formatEntry);
+
+  const entriesWithCommittedDate = await Promise.all(
+    entries.map(async (entry) => {
+      const committedDate = await getCommittedDate({
+        name: repoOptions.name,
+        owner: repoOptions.owner,
+        path: `${repoOptions.directory}/${entry.name}`
+      });
+
+      return {
+        ...entry,
+        date: committedDate
+      };
+    })
+  );
+
+  const sortedEntries = entriesWithCommittedDate.sort((a, b) => {
+    return new Date(a.date) - new Date(b.date);
   });
+
+  return sortedEntries;
 };

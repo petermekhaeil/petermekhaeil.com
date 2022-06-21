@@ -58,6 +58,10 @@ module.exports = (config) => {
     );
   });
 
+  config.addFilter('isoDate_YYYY_MMM_DD', (isoString) => {
+    return DateTime.fromISO(isoString).toFormat('yyyy LLL dd');
+  });
+
   config.addCollection('posts', function (collection) {
     return collection.getFilteredByGlob('./src/posts/**/*.md');
   });
