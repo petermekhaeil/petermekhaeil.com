@@ -19,15 +19,15 @@ Proxying the requests to [Ackee](https://ackee.electerious.com/) through Netlify
 Netlify Redirects rules are configured in a file called `_redirects`. Create the file if you do not have one already. Here are the rules to use:
 
 ```bash
-/script.js https://pmekh-ackee.netlify.app/tracker.js 200
-/api https://pmekh-ackee.netlify.app/api 200
+/script.js https://your-ackee-domain.com/tracker.js 200
+/api https://your-ackee-domain.com/api 200
 ```
 
 What we have done is proxying these paths to an external path on another domain:
 
 ```bash
-https://petermekhaeil.com/script.js -> https://pmekh-ackee.netlify.app/tracker.js
-https://petermekhaeil.com/api -> https://pmekh-ackee.netlify.app/api
+https://yourdomain.com/script.js -> https://your-ackee-domain.com/tracker.js
+https://yourdomain.com/api -> https://your-ackee-domain.com/api
 ```
 
 ## Update the path in your script tag
@@ -38,7 +38,7 @@ You will need to update the Ackee script to reference the new path:
 <script
   async
   src="/script.js"
-  data-ackee-server="https://petermekhaeil.com"
+  data-ackee-server="https://yourdomain.com"
   data-ackee-domain-id="0000-0000-0000-0000-0000"
 ></script>
 ```
