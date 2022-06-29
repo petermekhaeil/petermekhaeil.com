@@ -7,14 +7,12 @@ tags:
   - netlify
 ---
 
-[Ackee](https://ackee.electerious.com/) is an open-source analytics tool that can be self-hosted on your own server. During installation, you will be asked to configure CORS headers for Ackee to accept requests from another domain. This is where [Netlify Redirects](https://docs.netlify.com/routing/redirects/) can help us cut that step out.
+Proxying the requests to [Ackee](https://ackee.electerious.com/) through Netlify comes with some advantages:
 
-Netlify Redirects can redirect requests to external services and this is how we will be setting up our proxy rewrites, so that we do not need to configure CORS headers.
+- **It bypasses the need to configure CORS headers** - Because Ackee is self-hosted on a domain that is different to your website, during the installation you will be asked to configure CORS headers for Ackee to accept requests from other domains. With proxy rewrites, the browser will be making a request to Ackee through the same domain so we can skip configuring CORS headers.
+- **It makes it difficult for ad-blockers to detect the tracker** - We can rewrite the path to the tracker to not include keywords that can be blocked.
 
-Proxying the requests to Ackee through Netlify comes with some advantages:
-
-- **It bypasses the need to configure CORS headers** because the requests to Ackee will be from the same origin as your website.
-- **It makes it difficult for ad-blockers to detect the tracker** because we can rewrite the path to the tracker to not include keywords that can be blocked.
+[Netlify Redirects](https://docs.netlify.com/routing/redirects/) can redirect requests to external services and this is how we will be setting up our proxy rewrites.
 
 ## Adding the rewrite rules
 
