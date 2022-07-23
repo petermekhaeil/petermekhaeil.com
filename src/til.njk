@@ -6,6 +6,9 @@ pagination:
   alias: til
   addAllPagesToCollections: true
 permalink: "til/{{ til.name | removeExtension | slug }}/"
+hideReadingTime: true
+eleventyComputed:
+    title: "{{ til.title }}"
 ---
 
 <div class="mx-auto mt-4 mb-16 lg:mt-10">

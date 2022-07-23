@@ -33,8 +33,8 @@ const formatEntry = (entry) => {
     title,
     object: {
       ...entry.object,
-      // Lower the heading level (h1 -> h2)
-      text: entry.object.text.replace('# ', '## ')
+      // Remove first line (which is the top heading)
+      text: entry.object.text.replace(/^.*\n/, '')
     }
   };
 };
