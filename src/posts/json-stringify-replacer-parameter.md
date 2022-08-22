@@ -4,6 +4,7 @@ date: 2022-08-22
 description: Learn how to use the replacer parameter of JSON.stringify to replace undefined values.
 tags:
   - javascript
+devto: https://dev.to/petermekhaeil/how-to-keep-undefined-values-in-jsonstringify-3kip
 ---
 
 The [JSON spec](https://www.json.org/json-en.html) does not allow `undefined` values, so when you try to stringify an object that contains an undefined value, the key will get removed:

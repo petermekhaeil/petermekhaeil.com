@@ -5,6 +5,7 @@ description: Ackee is an open-source analytics tool that can be self-hosted on y
 tags:
   - ackee
   - netlify
+devto: https://dev.to/petermekhaeil/proxying-ackee-through-netlify-23j
 ---
 
 Proxying the requests to [Ackee](https://ackee.electerious.com/) through Netlify comes with some advantages:
