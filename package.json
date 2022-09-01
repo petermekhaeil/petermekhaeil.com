@@ -9,7 +9,8 @@
     "clean": "rm -rf ./_site",
     "dev": "concurrently \"npm run dev:css\" \"eleventy --serve\"",
     "dev:css": "tailwindcss -i ./src/styles.css -o ./src/assets/output.css --watch",
-    "format": "prettier --write ./src/*.njk --parser html"
+    "format": "prettier --write ./src/*.njk --parser html",
+    "postinstall": "cd ./eleventy-plugin-embed-tweet && npm install"
   },
   "keywords": [],
   "author": "Peter Mekhaeil <mekhaeil.peter@gmail.com>",
@@ -34,7 +35,6 @@
     "autoprefixer": "^10.0.2",
     "eleventy-plugin-tailwindcss": "0.3.0",
     "eleventy-plugin-toc": "^1.1.0",
-    "faunadb": "^4.0.0",
     "luxon": "^1.25.0",
     "markdown-it-anchor": "^6.0.1",
     "markdown-it-attrs": "^3.0.3",

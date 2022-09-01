@@ -9,8 +9,13 @@ const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const pluginTOC = require('eleventy-plugin-toc');
 const safeLinks = require('@sardine/eleventy-plugin-external-links');
 const pluginTailwindCSS = require('eleventy-plugin-tailwindcss');
+const pluginEmbedTweet = require('./eleventy-plugin-embed-tweet');
 
 module.exports = (config) => {
+  config.addPlugin(pluginEmbedTweet, {
+    autoEmbed: true,
+    useInlineStyles: false
+  });
   config.addPlugin(eleventyNavigationPlugin);
   config.addPlugin(pluginRss);
   config.addPlugin(inclusiveLangPlugin);

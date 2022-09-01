@@ -21,7 +21,7 @@ module.exports = {
             },
             'code:not([class^="language-"])': {
               color: theme('colors.black'),
-              backgroundColor: theme('colors.gray.500')
+              backgroundColor: theme('colors.gray.300')
             },
             color: theme('colors.gray.800'),
             a: {
