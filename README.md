@@ -3,6 +3,7 @@
 ## Posts
 
 <!-- BLOG-POST-LIST:START -->
+- [Typescript tips by Matt Pocock](https://petermekhaeil.com/typescript-tips-by-matt-pocock/)
 - [How to keep undefined values in JSON.stringify](https://petermekhaeil.com/how-to-keep-undefined-values-in-json.stringify/)
 - [Proxying Ackee through Netlify](https://petermekhaeil.com/proxying-ackee-through-netlify/)
 - [3 benefits interviews bring you](https://petermekhaeil.com/3-benefits-interviews-bring-you/)
