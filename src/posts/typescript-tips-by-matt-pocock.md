@@ -1,0 +1,635 @@
+---
+title: Typescript tips by Matt Pocock
+date: 2022-09-01
+description: My notes on Matt Pocock's videos on TypeScript tips.
+tags:
+  - typescript
+tips:
+  - index: 1
+    text: Derive a union type from an object
+    link: tip-%231%3A-derive-a-union-type-from-an-object
+  - index: 2
+    text: Transform a union to another union using the `in` operator
+    link: tip-%232%3A-transform-a-union-to-another-union-using-the-in-operator
+  - index: 3
+    text: String interpolation
+    link: tip-%233%3A-string-interpolation
+  - index: 4
+    text: Function overloads
+    link: tip-%234%3A-function-overloads
+  - index: 5
+    text: Using `extends` to narrow the value of a generic
+    link: tip-%235%3A-using-extends-to-narrow-the-value-of-a-generic
+  - index: 6
+    text: Extract types using `infer`
+    link: tip-%236%3A-extract-types-using-infer
+  - index: 7
+    text: Using generics and `keyof` to type `Object.keys`
+    link: tip-%237%3A-using-generics-and-keyof-to-type-object.keys
+  - index: 8
+    text: Using generics in React props
+    link: tip-%238%3A-using-generics-in-react-props
+  - index: 9
+    text: Generics can be 'curried' through functions
+    link: tip-%239%3A-generics-can-be-'curried'-through-functions
+  - index: 10
+    text: Throw error messages for type checks
+    link: tip-%2310%3A-throw-error-messages-for-type-checks
+  - index: 11
+    text: Deep partials
+    link: tip-%2311%3A-deep-partials
+  - index: 12
+    text: Loose autocomplete
+    link: tip-%2312%3A-loose-autocomplete
+  - index: 13
+    text: Grab types from modules
+    link: tip-%2313%3A-grab-types-from-modules
+  - index: 14
+    text: Globals in TypeScript
+    link: tip-%2314%3A-globals-in-typescript
+  - index: 15
+    text: Use Generics to dynamically specify the number and types of function arguments
+    link: tip-%2315%3A-use-generics-to-dynamically-specify-the-number-and-types-of-function-arguments
+---
+
+[Matt Pocock](https://twitter.com/mattpocockuk) posted a collection of videos on TypeScripts tips that I recommend everyone to watch. These are my notes of each tip that he shared.
+
+### List of tips
+
+<div class="mx-auto mt-8 mb-16 prose-headings:mt-0 lg:mt-10 not-prose">
+  <ul class="list-none space-y-2">
+    {%- for item in tips -%}
+    <li>
+      <div class="flex">
+        <div class="shrink-0 basis-16 text-gray-600 dark:text-gray-400">
+          Tip #{{ item.index }}
+        </div>
+        <h3 class="font-medium tracking-tight">
+          <a
+            class="inline-flex border-yellow-500 text-black hover:bg-yellow-500 dark:text-gray-100 dark:hover:text-black"
+            href="#{{ item.link }}"
+          >
+            {{ item.text }}
+          </a>
+        </h3>
+      </div>
+    </li>
+    {%- endfor -%}
+  </ul>
+</div>
+
+### Tip #1: Derive a union type from an object
+
+<div class="not-prose">
+
+https://twitter.com/mattpocockuk/status/1497262298368409605
+
+</div>
+
+#### Notes
+
+- Derive a union type from an object using dynamic keys. No need to create a union type and specifying each object key manually.
+
+```ts
+export const fruitCounts = {
+  apple: 1,
+  pear: 4,
+  banana: 26
+};
+
+type FruitCounts = typeof fruitCounts;
+
+type SingleFruitCount = {
+  [K in keyof FruitCounts]: {
+    [K2 in K]: number;
+  };
+}[keyof FruitCounts];
+
+const singleFruitCount: SingleFruitCount = {
+  apple: 2
+};
+```
+
+### Tip #2: Transform a union to another union using the `in` operator
+
+<div class="not-prose">
+
+https://twitter.com/mattpocockuk/status/1498284926621396992
+
+</div>
+
+#### Notes
+
+- Transform `{ type: 'user' }` to `{ type: 'user', userId: string }`
+- `Record` supports template literal types.
+
+```ts
+export type Entity =
+  | {
+      type: 'user';
+    }
+  | {
+      type: 'post';
+    }
+  | {
+      type: 'comment';
+    };
+
+type EntityWithId = {
+  [EntityType in Entity['type']]: {
+    type: EntityType;
+  } & Record<`${EntityType}Id`, string>;
+}[Entity['type']];
+
+const resultComment: EntityWithId = {
+  type: 'comment',
+  commentId: '123'
+};
+
+const resultPost: EntityWithId = {
+  type: 'post',
+  postId: '123'
+};
+```
+
+### Tip #3: String interpolation
+
+<div class="not-prose">
+
+https://twitter.com/mattpocockuk/status/1499002040168636420
+
+</div>
+
+#### Notes
+
+- [TS Playground](https://www.typescriptlang.org/play?#code/JYWwDg9gTgLgBAbzgZRlYA7A5gGjgVQ2AgzgF84AzKCEOAIhgGcBaGCCAGwCMBTTmPQDcAKBEBjEk3gBHAK68oATzgBeOAAMA9AAtavAPwBDVZQ4AybqoDuEaxtEiYSsLzgBFBcrVxnriJRw8opKjn5uyLySGAAmniEACkawPqjo2AB0yGCcwDAAPPHKePQG9AB8ANoAjAC6YS5uRUoAopy8ILwYzKlomFhZOXn5kdFxXkpJsCXmFQ2uHhNTRiBMPggicHCVzW0dXfCYiyF7nd1MlRhyIHxQtbUAXIibW9sA0rwqR2n9g7kFu3aZxgJVUFUqAAZ7k8fplsv98i9XsdlKcDjgka96GDMVU6qItmRRGQdhM0edLtdbvdHNFpHAINwAFZPQjEDAZACyiiwvEKS2SKyY5XWLyMT3oZgg9AxW24Ets1hlIiJIiAA)
+- Uses [ts-toolbelt](https://github.com/millsp/ts-toolbelt) to split strings and merge objects.
+
+```ts
+import { String, Union } from 'ts-toolbelt';
+
+const query = `/home?a=foo&b=wow`;
+
+type Query = typeof query;
+
+type SecondQueryPart = String.Split<Query, '?'>[1];
+
+type QueryElements = String.Split<SecondQueryPart, '&'>;
+
+type QueryParams = {
+  [QueryElement in QueryElements[number]]: {
+    [Key in String.Split<QueryElement, '='>[0]]: String.Split<
+      QueryElement,
+      '='
+    >[1];
+  };
+}[QueryElements[number]];
+
+const obj: Union.Merge<QueryParams> = {
+  a: 'foo',
+  b: 'wow'
+};
+```
+
+### Tip #4: Function overloads
+
+<div class="not-prose">
+
+https://twitter.com/mattpocockuk/status/1499730377337827336
+
+</div>
+
+#### Notes
+
+- [TS Playground](https://www.typescriptlang.org/play?#code/GYVwdgxgLglg9mABBOBbADnAzgUwDwCSY6IUANIgGIwBOWUAgjQOYB8AFAFCKKiQBcidjGKlBRElACUiALysqtek2acpg4aKjitM+YrqMWAbk6c+0eEhQZs+CaQrVDKigGUcKMABMVHbrzgEBoikjqSegrOyixkARYATCFagtFGzJGIHl6+LGrJYYgO0nIK2Qi5zKbmQbAIyGiYuIRaTkrp7p4VrogAKgAWtJX+PBYFYkW6pQYxzHGjQUlCoRNpKpnlPq7xQQDM49pZXVssmQNDKvnLKZMR0+c0ldUWddaNduwAdN8AhixYgh+YAAngBtAC6MgA3gEAPSwooYAA2OFQODAUEQSJ+UBwNACNBwUBANCQUIAvogflgqSDTOSzF56FTvN4APJgHByIQ-QRgECoABGeMyMJ4hOJpKpiAA1IgAIz06pMzH81C9OBuKA0ETMbnsXmINXCmiiglEklIH6fKCa7W69hSJWMhDM+g6sDMDUAOQF+sN7t1ZvFFql6D+uCIUANTs45Oq8L6gxpAHcYEikYgU3AaABrRDCiA-EC4RBQfpciWWsvA9A4GmoHEQfpliuIFaYqC1nCcRNwYCtrmcgAemJeVk+nBVLPZnI1Wo9etkDVsuANrI5OAoavn9s9FEDnp9AtjvYR51T6cz3rZvSzOfzheLparUq7dcQ-cQAAMd3bF9+iDeHA9ZnkacCYo2UDNoO7ZaDWH5ft+Pwbpy36TtOh5enAvpCni3I2E0ODsH+C66hQKGzjgsZAA)
+- Add type signatures to a compose function.
+
+```ts
+function compose<Input, FirstArg>(
+  func: (input: Input) => FirstArg
+): (input: Input) => FirstArg;
+
+function compose<Input, FirstArg, SecondArg>(
+  func: (input: Input) => FirstArg,
+  func2: (input: FirstArg) => SecondArg
+): (input: Input) => SecondArg;
+
+function compose<Input, FirstArg, SecondArg, ThirdArg>(
+  func: (input: Input) => FirstArg,
+  func2: (input: FirstArg) => SecondArg,
+  func3: (input: SecondArg) => ThirdArg
+): (input: Input) => ThirdArg;
+
+function compose(...args: any[]) {
+  // Implement later
+  return {} as any;
+}
+
+const addOne = (a: number) => {
+  return a + 1;
+};
+
+const numToString = (a: number) => {
+  return a.toString();
+};
+
+const stringToNum = (a: string) => {
+  return parseInt(a);
+};
+
+// This will work because the return types match the input type
+// of the next function.
+const addOneToString = compose(addOne, numToString, stringToNum);
+
+// This will NOT work because return type of `numToString` does
+// not match the input type of `addOne`.
+const stringToNumber = compose(numToString, addOne);
+```
+
+### Tip #5: Using `extends` to narrow the value of a generic
+
+<div class="not-prose">
+
+https://twitter.com/mattpocockuk/status/1500813765973053440
+
+</div>
+
+#### Notes
+
+- Narrow the value of a generic using `extends`.
+
+```ts
+export const getDeepValue = <
+  Obj,
+  FirstKey extends keyof Obj,
+  SecondKey extends keyof Obj[FirstKey]
+>(
+  obj: Obj,
+  firstKey: FirstKey,
+  secondKey: SecondKey
+): Obj[FirstKey][SecondKey] => {
+  return {} as any;
+};
+
+const obj = {
+  foo: {
+    a: true,
+    b: 2
+  },
+  bar: {
+    c: 'cool',
+    d: 2
+  }
+};
+
+const result = getDeepValue(obj, 'bar', 'c');
+```
+
+### Tip #6: Extract types using `infer`
+
+<div class="not-prose">
+
+https://twitter.com/mattpocockuk/status/1501533441791193090
+
+</div>
+
+#### Notes
+
+- Extract props from React components using `infer`.
+
+```ts
+import React from 'react';
+
+const MyComponent = (props: { enabled: boolean }) => {
+  return null;
+};
+
+class MyOtherComponent extends React.Component<{ enabled: boolean }> {}
+
+type PropsFrom<TComponent> = TComponent extends React.FC<infer Props>
+  ? Props
+  : TComponent extends React.ComponentClass<infer Props>
+  ? Props
+  : never;
+
+const props: PropsFrom<typeof MyComponent> = {
+  enabled: true
+};
+
+const otherProps: PropsFrom<typeof MyOtherComponent> = {
+  enabled: true
+};
+```
+
+### Tip #7: Using generics and `keyof` to type `Object.keys`
+
+<div class="not-prose">
+
+https://twitter.com/mattpocockuk/status/1502264005251018754
+
+</div>
+
+```ts
+export const myObject = {
+  a: 1,
+  b: 2,
+  c: 3
+};
+
+const objectKeys = <Obj>(obj: Obj): (keyof Obj)[] => {
+  return Object.keys(obj) as (keyof Obj)[];
+};
+
+objectKeys(myObject).forEach((key) => {
+  console.log(myObject[key]);
+});
+```
+
+### Tip #8: Using generics in React props
+
+<div class="not-prose">
+
+https://twitter.com/mattpocockuk/status/1503352924537339904
+
+</div>
+
+```ts
+interface TableProps<TItem> {
+  items: TItem[];
+  renderItem: (item: TItem) => React.ReactNode;
+}
+
+export function Table<TItem>(props: TableProps<TItem>) {
+  return null;
+}
+
+const Component = () => {
+  return (
+    <Table
+      items={[
+        {
+          id: '1',
+          name: 'Peter'
+        }
+      ]}
+      renderItem={(item) => <div>{item.name}</div>}
+    />
+  );
+};
+```
+
+### Tip #9: Generics can be 'curried' through functions
+
+<div class="not-prose">
+
+https://twitter.com/mattpocockuk/status/1504088070869884929
+
+</div>
+
+```ts
+export const makeKeyRemover =
+  <Key extends string>(keys: Key[]) =>
+  <Obj>(obj: Obj): Omit<Obj, Key> => {
+    return {} as any;
+  };
+
+const keyRemover = makeKeyRemover(['a', 'b']);
+
+const newObject = keyRemover({ a: 1, b: 2, c: 3 });
+
+// Only `c` is available:
+newObject.c;
+// ^? (property) c: number
+```
+
+### Tip #10: Throw error messages for type checks
+
+<div class="not-prose">
+
+https://twitter.com/mattpocockuk/status/1504802045794078723
+
+</div>
+
+#### Notes
+
+- Return an error message as a string type.
+
+```ts
+type CheckForBadArgs<Arg> = Arg extends any[]
+  ? 'You cannot compare two arrays using deepEqualCompare'
+  : Arg;
+
+export const deepEqualCompare = <Arg>(
+  a: CheckForBadArgs<Arg>,
+  b: CheckForBadArgs<Arg>
+): boolean => {
+  if (Array.isArray(a) || Array.isArray(b)) {
+    throw new Error('You cannot compare two arrays using deepEqualCompare');
+  }
+
+  return a === b;
+};
+
+deepEqualCompare(1, 1);
+// ^? const deepEqualCompare: <number>(a: number, b: number) => boolean
+
+// Below will throw error:
+// Argument of type 'never[]' is not assignable to parameter
+// of type '"You cannot compare two arrays using deepEqualCompare"'.
+deepEqualCompare([], []);
+```
+
+### Tip #11: Deep partials
+
+<div class="not-prose">
+
+https://twitter.com/mattpocockuk/status/1505892984658743300
+
+</div>
+
+#### Notes
+
+- Recursively partial down an object to make each key optional.
+- Useful for mocking an entity in a test file.
+
+```ts
+export type DeepPartial<Thing> = Thing extends Function
+  ? Thing
+  : Thing extends Array<infer InferredArrayMember>
+  ? DeepPartialArray<InferredArrayMember>
+  : Thing extends object
+  ? DeepPartialObject<Thing>
+  : Thing | undefined;
+
+interface DeepPartialArray<Thing> extends Array<DeepPartial<Thing>> {}
+
+type DeepPartialObject<Thing> = {
+  [Key in keyof Thing]?: DeepPartial<Thing[Key]>;
+};
+
+interface Post {
+  id: string;
+  comments: { value: string }[];
+  meta: {
+    name: string;
+    description: string;
+  };
+}
+
+const post: DeepPartial<Post> = {
+  id: '1',
+  meta: {
+    description: '123'
+  }
+};
+```
+
+### Tip #12: Loose autocomplete
+
+<div class="not-prose">
+
+https://twitter.com/mattpocockuk/status/1506607945445949446
+
+</div>
+
+#### Notes
+
+- Autocomplete while allowing arbitrary values.
+
+```ts
+type IconSize = LooseAutocomplete<'sm' | 'xs'>;
+
+type LooseAutocomplete<T extends string> = T | Omit<String, T>;
+
+interface IconProps {
+  size: IconSize;
+}
+
+export const Icon = (props: IconProps) => {
+  return <></>;
+};
+
+const Comp1 = () => {
+  return (
+    <>
+      <Icon size="xs"></Icon>
+    </>
+  );
+};
+```
+
+### Tip #13: Grab types from modules
+
+<div class="not-prose">
+
+https://twitter.com/mattpocockuk/status/1508408811635322883
+
+</div>
+
+#### Notes
+
+- Create type from another module.
+- Map over values to create a union.
+
+```ts
+// constants.ts
+export const ADD_TODO = 'ADD_TODO';
+export const REMOVE_TODO = 'REMOVE_TODO';
+export const EDIT_TODO = 'EDIT_TODO';
+
+// types.ts
+export type ActionModule = typeof import('./constants');
+
+export type Action = ActionModule[keyof ActionModule];
+// ^? "ADD_TODO" | "REMOVE_TODO" | "EDIT_TODO"
+```
+
+### Tip #14: Globals in TypeScript
+
+<div class="not-prose">
+
+https://twitter.com/mattpocockuk/status/1509131700382715905
+
+</div>
+
+#### Notes
+
+- Globals can cross module boundaries
+
+```ts
+// types.ts
+declare global {
+  interface GlobalReducerEvent {}
+}
+
+export type GlobalReducer<TState> = {
+  state: TState;
+  event: {
+    [EventType in keyof GlobalReducerEvent]: {
+      type: EventType;
+    } & GlobalReducerEvent[EventType];
+  }[keyof GlobalReducerEvent]
+} => TState;
+
+// todoReducer.ts
+import { GlobalReducer } from './types';
+
+declare global {
+  interface GlobalReducerEvent {
+    ADD_TODO: {
+      text: string;
+    };
+  }
+}
+
+export const todosReducer: GlobalReducer<{
+  todos: { id: string }[]
+}> = (state, event) => {
+  return state;
+};
+
+
+// userReducer.ts
+import { GlobalReducer } from './types';
+
+declare global {
+  interface GlobalReducerEvent {
+    LOG_IN: {};
+  }
+}
+
+export const userReducer: GlobalReducer<{ id: string }> = (state, event) => {
+  // GlobalReducer has the globals from across all reducers:
+  // event: { type: 'LOG_IN'; } | ({ type: 'ADD_TODO' } & { text: string })
+  return state;
+};
+```
+
+### Tip #15: Use Generics to dynamically specify the number and types of function arguments
+
+<div class="not-prose">
+
+https://twitter.com/mattpocockuk/status/1509131700382715905
+
+</div>
+
+#### Notes
+
+- Uses `Extract` and `infer` to specify if a type is optional or not.
+- Give names to `args_0` and `args_1` using named tuple.
+
+```ts
+export type Event =
+  | { type: 'LOG_IN'; payload: { userId: string } }
+  | { type: 'SIGN_OUT' };
+
+const sendEvent = <Type extends Event['type']>(
+  ...args: Extract<Event, { type: Type }> extends { payload: infer TPayload }
+    ? // Named tuple
+      [type: Type, payload: TPayload]
+    : [type: Type]
+) => {};
+
+sendEvent('SIGN_OUT');
+sendEvent('LOG_IN', { userId: '123' });
+```
