@@ -17,13 +17,13 @@ I have created a [sample starter template](https://github.com/petermekhaeil/crea
 
 **How they work**: these npm packages have an executable file configured in the `package.json`:
 
-```js
+```diff-js
 {
   "name": "create-my-template",
   "version": "1.0.0",
-+  "bin": {
-+    "create-my-template": "./index.js";
-+  }
+  "bin": {
+    "create-my-template": "./index.js";
+  }
 }
 ```
 

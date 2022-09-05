@@ -20,7 +20,7 @@
     "@11ty/eleventy-navigation": "0.3.1",
     "@11ty/eleventy-plugin-inclusive-language": "1.0.3",
     "@11ty/eleventy-plugin-rss": "1.1.2",
-    "@11ty/eleventy-plugin-syntaxhighlight": "3.1.1",
+    "@11ty/eleventy-plugin-syntaxhighlight": "3.2.2",
     "@11tyrocks/eleventy-plugin-emoji-readtime": "1.0.1",
     "@sardine/eleventy-plugin-external-links": "1.3.2",
     "concurrently": "^6.4.0",
