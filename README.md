@@ -3,6 +3,7 @@
 ## Posts
 
 <!-- BLOG-POST-LIST:START -->
+- [How to build an npx starter template](https://petermekhaeil.com/how-to-build-an-npx-starter-template/)
 - [Typescript tips by Matt Pocock](https://petermekhaeil.com/typescript-tips-by-matt-pocock/)
 - [How to keep undefined values in JSON.stringify](https://petermekhaeil.com/how-to-keep-undefined-values-in-json.stringify/)
 - [Proxying Ackee through Netlify](https://petermekhaeil.com/proxying-ackee-through-netlify/)
