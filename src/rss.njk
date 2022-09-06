@@ -1,5 +1,4 @@
 ---
-# Metadata comes from _data/metadata.json
 permalink: "{{ metadata.feed.path }}"
 eleventyExcludeFromCollections: true
 ---
@@ -7,8 +6,7 @@ eleventyExcludeFromCollections: true
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>{{ metadata.title }}</title>
   <subtitle>{{ metadata.feed.subtitle }}</subtitle>
-  {% set absoluteUrl %}{{ metadata.feed.path | url | absoluteUrl(metadata.url)
-  }}{% endset %}
+  {% set absoluteUrl %}{{ metadata.feed.path | url | absoluteUrl(metadata.url)}}{% endset %}
   <link href="{{ absoluteUrl }}" rel="self" />
   <link href="{{ metadata.url }}" />
   <updated>{{ collections.posts | rssLastUpdatedDate }}</updated>
@@ -17,16 +15,23 @@ eleventyExcludeFromCollections: true
     <name>{{ metadata.author.name }}</name>
     <email>{{ metadata.author.email }}</email>
   </author>
-  {%- for post in collections.posts | reverse %} {% set absolutePostUrl %}{{
-  post.url | url | absoluteUrl(metadata.url) }}{% endset %}
+  {%- for post in collections.posts | reverse %}
+  {% set absolutePostUrl %}{{post.url | url | absoluteUrl(metadata.url) }}{% endset %}
   <entry>
     <title>{{ post.data.title }}</title>
     <link href="{{ absolutePostUrl }}" />
     <updated>{{ post.date | rssDate }}</updated>
     <id>{{ absolutePostUrl }}</id>
-    <content type="html"
-      >{{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content
-    >
+    <content type="html">{{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
+  </entry>
+  {%- endfor %}
+  {%- for post in github_til_repo | reverse %}
+  <entry>
+    <title>{{ post.title }}</title>
+    <link href="{{metadata.url}}/til/{{ post.name | removeExtension | slug }}" />
+    <updated>{{ post.date }}</updated>
+    <id>{{metadata.url}}/til/{{ post.name | removeExtension | slug }}</id>
+    <content type="html">{{ post.object.text | markdown }}</content>
   </entry>
   {%- endfor %}
 </feed>

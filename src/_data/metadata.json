@@ -4,7 +4,7 @@
   "url": "https://petermekhaeil.com",
   "image": "https://petermekhaeil.com/assets/profile.jpg",
   "feed": {
-    "subtitle": "",
+    "subtitle": "Peter Mekhaeil's site",
     "filename": "rss.xml",
     "path": "/rss.xml",
     "id": "https://petermekhaeil.com/"
