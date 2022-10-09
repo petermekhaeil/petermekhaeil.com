@@ -8,7 +8,7 @@ pagination:
 permalink: "til/{{ til.name | removeExtension | slug }}/"
 hideReadingTime: true
 eleventyComputed:
-    title: "{{ til.title }}"
+    title: "{{ til.title | safe }}"
 ---
 
 <div class="mx-auto mt-4 mb-16 lg:mt-10">
