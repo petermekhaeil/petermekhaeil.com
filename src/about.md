@@ -68,4 +68,4 @@ I share my professional achievements on [LinkedIn](https://www.linkedin.com/in/p
 
 ## Get in touch
 
-I love to connect and meet new people - You can find me on [Twitter](https://twitter.com/PMekhaeil), [GitHub](https://github.com/petermekhaeil) and [LinkedIn](https://www.linkedin.com/in/petermekhaeil/). If you like to go for runs, come run with me on [Strava](https://www.strava.com/athletes/60074731).
+I love to connect and meet new people - You can find me on [Twitter](https://twitter.com/petermekh), [GitHub](https://github.com/petermekhaeil) and [LinkedIn](https://www.linkedin.com/in/petermekhaeil/). If you like to go for runs, come run with me on [Strava](https://www.strava.com/athletes/60074731).
