@@ -11,8 +11,8 @@
 <meta property="og:site_name" itemprop="name" content="{{ metadata.title }}">
 
 {% if title and date %}
-<meta property="og:image" content="/image/og?title={{ title | encodeUrl }}&subTitle={{ date | htmlDateString | encodeUrl }}">
-<meta name="twitter:image" content="/image/og?title={{ title | encodeUrl }}&subTitle={{ date | htmlDateString | encodeUrl }}">
+<meta property="og:image" content="{{ metadata.url }}/image/og?title={{ title | encodeUrl }}&subTitle={{ date | htmlDateString | encodeUrl }}">
+<meta name="twitter:image" content="{{ metadata.url }}/image/og?title={{ title | encodeUrl }}&subTitle={{ date | htmlDateString | encodeUrl }}">
 {% else %}
 <meta property="og:image" content="{{ metadata.image }}">
 <meta name="twitter:image" content="{{ metadata.image }}">
