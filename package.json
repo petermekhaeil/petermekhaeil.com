@@ -40,7 +40,6 @@
     "markdown-it": "^11.0.0",
     "markdown-it-anchor": "^6.0.1",
     "markdown-it-attrs": "^3.0.3",
-    "netlify-cli": "^12.0.9",
     "prism-theme-night-owl": "^1.4.0"
   }
 }
