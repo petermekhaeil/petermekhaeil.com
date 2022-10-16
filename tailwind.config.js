@@ -1,6 +1,5 @@
 module.exports = {
   content: ['./src/**/*.njk', './src/**/*.md', './*.js'],
-  mode: 'jit',
   darkMode: 'class',
   theme: {
     extend: {
@@ -91,9 +90,6 @@ module.exports = {
         }
       })
     }
-  },
-  variants: {
-    typography: ['responsive', 'dark']
   },
   plugins: [require('@tailwindcss/typography')]
 };

@@ -8,10 +8,11 @@ const emojiReadTime = require('@11tyrocks/eleventy-plugin-emoji-readtime');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const pluginTOC = require('eleventy-plugin-toc');
 const safeLinks = require('@sardine/eleventy-plugin-external-links');
-const pluginTailwindCSS = require('eleventy-plugin-tailwindcss');
 const pluginEmbedTweet = require('./eleventy-plugin-embed-tweet');
 
 module.exports = (config) => {
+  config.setQuietMode(true);
+
   config.addPlugin(pluginEmbedTweet, {
     autoEmbed: true,
     useInlineStyles: false
@@ -29,7 +30,6 @@ module.exports = (config) => {
     label: 'min. read',
     bucketSize: 5
   });
-  config.addPlugin(pluginTailwindCSS);
 
   config.addPassthroughCopy('src/assets');
   config.addPassthroughCopy('src/_redirects');
@@ -61,6 +61,10 @@ module.exports = (config) => {
     return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toLocaleString(
       DateTime.DATE_MED
     );
+  });
+
+  config.addFilter('encodeUrl', (str) => {
+    return encodeURI(str);
   });
 
   config.addFilter('isoDate_YYYY_MMM_DD', (isoString) => {
