@@ -1,25 +1,98 @@
-const netlifyGraph = require('../functions/netlifyGraph');
+const EleventyFetch = require('@11ty/eleventy-fetch');
+// const fetch = require('isomorphic-unfetch');
+
+const fetchGitHub = ({ body }) => {
+  return EleventyFetch(`https://api.github.com/graphql?_query=${body}`, {
+    duration: '1d',
+    type: 'json',
+    fetchOptions: {
+      headers: {
+        Authorization: `Bearer ${process.env.GITHUB_AUTH_TOKEN}`,
+        'content-type': 'application/json'
+      },
+      method: 'POST',
+      body
+    }
+  });
+};
 
 const getRepoFiles = async ({ name, owner, directory }) => {
-  const { data } = await netlifyGraph.fetchRepoFiles(
-    { name, owner, directory },
-    { accessToken: process.env.ONEGRAPH_AUTHLIFY_TOKEN }
-  );
+  const { data } = await fetchGitHub({
+    body: JSON.stringify({
+      query: `query RepoFiles($name: String!, $owner: String!) {
+        repository(owner: $owner, name: $name) {
+          object(expression: "HEAD:") {
+            id
+            ... on Tree {
+              id
+              entries {
+                name
+                type
+                object {
+                  ... on Tree {
+                    id
+                    entries {
+                      name
+                      type
+                      object {
+                        ... on Blob {
+                          id
+                          text
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }`,
+      variables: {
+        name,
+        owner
+      }
+    })
+  });
 
-  const repoDirectory = data.gitHub.repository.object.entries.find(
+  const repoDirectory = data.repository.object.entries.find(
     (entry) => entry.name === directory && entry.type === 'tree'
   );
 
-  return repoDirectory.object.entries;
+  const entries = repoDirectory.object.entries;
+
+  return entries;
 };
 
 const getCommittedDate = async ({ name, owner, path }) => {
-  const { data } = await netlifyGraph.fetchCommittedDate(
-    { name, owner, path },
-    { accessToken: process.env.ONEGRAPH_AUTHLIFY_TOKEN }
-  );
+  const { data } = await fetchGitHub({
+    body: JSON.stringify({
+      query: `query CommittedDate($name: String!, $owner: String!, $path: String!) {
+        repository(owner: $owner, name: $name) {
+          ref(qualifiedName: "refs/heads/master") {
+            target {
+              ... on Commit {
+                history(first: 1, path: $path) {
+                  edges {
+                    node {
+                      committedDate
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }`,
+      variables: {
+        name,
+        owner,
+        path
+      }
+    })
+  });
 
-  return data.gitHub.repository.ref.target.history.edges[0].node.committedDate;
+  return data.repository.ref.target.history.edges[0].node.committedDate;
 };
 
 const formatEntry = (entry) => {

@@ -6,3 +6,4 @@ drafts
 .env
 .env.local
 /src/assets/output.css
+.cache
