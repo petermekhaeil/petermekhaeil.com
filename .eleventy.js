@@ -32,7 +32,6 @@ module.exports = (config) => {
   });
 
   config.addPassthroughCopy('src/assets');
-  config.addPassthroughCopy('src/_redirects');
   config.addPassthroughCopy('images/uploads');
 
   const markdownIt = require('markdown-it');

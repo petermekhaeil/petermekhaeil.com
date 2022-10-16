@@ -10,7 +10,11 @@
 <meta property="og:description" content="{{ description or metadata.description | safe }}">
 <meta property="og:site_name" itemprop="name" content="{{ metadata.title }}">
 
+{% if title and date %}
+<meta property="og:image" content="/image/og?title={{ title | encodeUrl }}&subTitle={{ date | htmlDateString | encodeUrl }}">
+{% else %}
 <meta property="og:image" content="{{ metadata.image }}">
+{% endif %}
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
