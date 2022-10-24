@@ -4,6 +4,8 @@
 {% set canonicalUrl = metadata.url + page.url %}
 <link rel="canonical" href="{{ canonicalUrl }}">
 
+<meta name="generator" content="Eleventy">
+
 <meta property="og:type" content="blog">
 <meta property="og:url" content="{{ canonicalUrl }}">
 <meta property="og:title" content="{{ title | safe }}">
