@@ -33,16 +33,20 @@ layout: base.njk
 
   <div class="mb-2">
     {% if date %}
-    <p class="text-zinc-500" style="margin: 0">
+    <p class="text-zinc-400 dark:text-zinc-500" style="margin: 0">
       {{ date | toDate_MMMM_DD_YYYY }}
     </p>
     {% endif %} {% if title and not hideReadingTime %}
-    <p class="text-zinc-500" style="margin: 0">{{ content | emojiReadTime }}</p>
+    <p class="text-zinc-400 dark:text-zinc-500" style="margin: 0">
+      {{ content | emojiReadTime }}
+    </p>
     {% endif %}
   </div>
 
-  {% if toc %} {{ content | toc | safe }} {% endif %} {{ content | safe }} {% if
-  devto %}
+  {% if toc %} {{ content | toc | safe }} {% endif %} {{ content | safe }}
+
+  <!-- Comment Section -->
+  {% if devto %}
   <div>
     <p class="text-center">
       <a href="{{ devto }}">Leave a comment</a>
