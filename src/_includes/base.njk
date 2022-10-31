@@ -1,46 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="google-site-verification"
-      content="RVy6l7HbXQLZfIbXYPj3rU_0DCMcuJtQgDC4q83xoes"/>
+      content="RVy6l7HbXQLZfIbXYPj3rU_0DCMcuJtQgDC4q83xoes" />
     {% include 'seo.njk' %}
     <link
       rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>"/>
-    <link rel="stylesheet" href="{{ '/assets/output.css' | url }}"/>
-    <link rel="stylesheet" href="{{ '/assets/code-block.css' | url }}"/>
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>" />
+    <link rel="stylesheet" href="{{ '/assets/output.css' | url }}" />
+    <link rel="stylesheet" href="{{ '/assets/code-block.css' | url }}" />
   </head>
   <body
     class="mx-auto max-w-2xl bg-zinc-50 px-4 py-6 text-zinc-600 antialiased dark:bg-zinc-900 dark:text-zinc-400 sm:text-lg">
     <header class="border-b border-zinc-100 pb-6 dark:border-zinc-700/40">
       <nav class="flex items-center justify-between">
         <ul class="flex gap-4 text-base font-medium">
-          {%- for entry in collections.all | eleventyNavigation %}
-            {% set
-            isPrimaryNav = entry | getChildren(page.url) %}
-            <li>
-              {% if entry.url == page.url or isPrimaryNav %}
-                <a
+          {%- for entry in collections.all | eleventyNavigation %} {% set
+          isPrimaryNav = entry | getChildren(page.url) %}
+          <li>
+            {% if entry.url == page.url or isPrimaryNav %}
+            <a
               href="{{ entry.url | url }}"
               class="text-orange-500 hover:text-orange-500 dark:text-orange-400 dark:hover:text-orange-400">
-                  {{ entry.title }}
-                </a>
-              {% else %}
-                <a href="{{ entry.url | url }}">
-                  {{ entry.title }}
-                </a>
-              {% endif %}
-            </li>
+              {{ entry.title }}
+            </a>
+            {% else %}
+            <a href="{{ entry.url | url }}"> {{ entry.title }} </a>
+            {% endif %}
+          </li>
           {%- endfor %}
         </ul>
 
         <ul class="flex items-center space-x-4">
           <li class="hover:text-zinc-800 hover:dark:text-zinc-200">
-            {% include 'icon-sun.njk' %}
-            {% include 'icon-moon.njk' %}
+            {% include 'icon-sun.njk' %} {% include 'icon-moon.njk' %}
           </li>
         </ul>
       </nav>
@@ -112,60 +108,30 @@
         var htmlElem = document.querySelector('html');
 
         if (theme === 'dark' || (!theme && userPrefersDark.matches)) {
-          htmlElem
-            .classList
-            .add('dark');
-          toggleDark
-            .classList
-            .add('visible');
-          toggleLight
-            .classList
-            .remove('hidden');
+          htmlElem.classList.add('dark');
+          toggleDark.classList.add('visible');
+          toggleLight.classList.remove('hidden');
         } else {
-          toggleLight
-            .classList
-            .add('visible');
-          toggleDark
-            .classList
-            .remove('hidden');
+          toggleLight.classList.add('visible');
+          toggleDark.classList.remove('hidden');
         }
 
         toggleLight.addEventListener('click', function () {
           localStorage.setItem('theme', 'light');
-          htmlElem
-            .classList
-            .remove('dark');
-          toggleDark
-            .classList
-            .add('visible');
-          toggleDark
-            .classList
-            .remove('hidden');
-          toggleLight
-            .classList
-            .add('hidden');
-          toggleLight
-            .classList
-            .remove('visible');
+          htmlElem.classList.remove('dark');
+          toggleDark.classList.add('visible');
+          toggleDark.classList.remove('hidden');
+          toggleLight.classList.add('hidden');
+          toggleLight.classList.remove('visible');
         });
 
         toggleDark.addEventListener('click', function () {
           localStorage.setItem('theme', 'dark');
-          htmlElem
-            .classList
-            .add('dark');
-          toggleLight
-            .classList
-            .add('visible');
-          toggleLight
-            .classList
-            .remove('hidden');
-          toggleDark
-            .classList
-            .add('hidden');
-          toggleDark
-            .classList
-            .remove('visible');
+          htmlElem.classList.add('dark');
+          toggleLight.classList.add('visible');
+          toggleLight.classList.remove('hidden');
+          toggleDark.classList.add('hidden');
+          toggleDark.classList.remove('visible');
         });
       })();
     </script>

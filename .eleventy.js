@@ -81,56 +81,23 @@ module.exports = (config) => {
     return collection.getFilteredByGlob('./src/posts/**/*.md');
   });
 
-  // works also with addLiquidShortcode or addJavaScriptFunction
   config.addNunjucksAsyncShortcode(
-    'Image',
-    async function (src, alt, outputFormat = 'jpeg') {
-      if (alt === undefined) {
-        // You bet we throw an error on missing alt (alt="" works okay)
-        throw new Error(`Missing \`alt\` on myImage from: ${src}`);
-      }
-
-      const isFullUrl = (url) => {
-        try {
-          return !!new URL(url);
-        } catch {
-          return false;
-        }
-      };
-
-      const fullSrc = isFullUrl(src) ? src : path.join(__dirname, src);
-
-      // returns Promise
-      let stats = await Image(fullSrc, {
-        widths: [null],
-        formats: ['jpeg', 'webp'],
-        urlPath: './images/',
-        outputDir: './_site/images/'
+    'image',
+    async function (src, alt, sizes, classNames, loading, decoding) {
+      let metadata = await Image(src, {
+        widths: [300, 600],
+        formats: ['avif', 'jpeg'],
+        outputDir: './_site/img/'
       });
 
-      let lowestSrc = stats[outputFormat][0];
-      let sizes = '100vw'; // Make sure you customize this!
-
-      return `
-    <picture>
-    ${Object.values(stats)
-      .map((imageFormat) => {
-        return `  <source
-                  type="image/${imageFormat[0].format}"
-                  srcset="${imageFormat
-                    .map((entry) => `${entry.url} ${entry.width}w`)
-                    .join(', ')}"
-                  sizes="${sizes}">`;
-      })
-      .join('\n')}
-      <img
-        class="rounded-lg mx-auto"
-        src="${lowestSrc.url}"
-        width="${lowestSrc.width}"
-        height="${lowestSrc.height}"
-        alt="${alt}">
-    </picture>
-      `;
+      let imageAttributes = {
+        alt,
+        sizes,
+        loading,
+        decoding,
+        class: classNames
+      };
+      return Image.generateHTML(metadata, imageAttributes);
     }
   );
 
