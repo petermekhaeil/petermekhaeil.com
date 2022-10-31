@@ -1,5 +1,5 @@
 const path = require('path');
-const { DateTime } = require('luxon');
+const dayjs = require('dayjs');
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const Image = require('@11ty/eleventy-img');
@@ -56,18 +56,25 @@ module.exports = (config) => {
     return value.substr(0, value.lastIndexOf('.'));
   });
 
-  config.addFilter('htmlDateString', (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toLocaleString(
-      DateTime.DATE_MED
-    );
-  });
-
   config.addFilter('encodeUrl', (str) => {
     return encodeURI(str);
   });
 
-  config.addFilter('isoDate_YYYY_MMM_DD', (isoString) => {
-    return DateTime.fromISO(isoString).toFormat('yyyy LLL dd');
+  config.addFilter('toDate_MMMM_DD_YYYY', (date) => {
+    return dayjs(date).format('MMMM DD, YYYY');
+  });
+
+  config.addFilter('toDate_YYYY_MM_DD_dashes', (date) => {
+    return dayjs(date).format('YYYY-MM-DD');
+  });
+
+  config.addFilter('toDate_YYYY_MMM_DD', (dateObj) => {
+    return dayjs(dateObj).format('YYYY MMM DD');
+  });
+
+  config.addFilter('getChildren', (entry, url) => {
+    const isFound = entry.children.find((child) => child.url === url);
+    return Boolean(isFound);
   });
 
   config.addCollection('posts', function (collection) {

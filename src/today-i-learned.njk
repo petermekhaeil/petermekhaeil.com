@@ -10,34 +10,34 @@ title: "Today I Learned"
 ---
 
 <div class="mx-auto mt-8 mb-16 prose-headings:mt-0 lg:mt-10">
-  <p class="mb-12 text-gray-600 dark:text-gray-400">
-    This is a collection of short articles about the learnings I have picked up
-    while
+  <p class="mb-12">
+    A collection of short write-ups on things I have learned day to day while working
+    on different technologies. These are things I have learnt while
     <a
-      class="border-b-2 border-yellow-500 font-medium text-black hover:bg-yellow-500 dark:text-gray-100 hover:dark:text-black"
+      class="text-orange-500 dark:text-orange-400"
       href="https://www.learninpublic.org/"
       target="noopener"
-      >Learning In Public</a
-    >.
+      >Learning In Public</a>. <i>
+      <strong>{{ pagination.items.length }}</strong> TILs and counting...</i>
   </p>
 
   <ul class="list-none space-y-2">
     {%- for item in pagination.items | reverse %}
-    <li>
-      <div class="flex">
-        <div class="shrink-0 basis-28 text-gray-600 dark:text-gray-400">
-          {{ item.date | isoDate_YYYY_MMM_DD }}
-        </div>
-        <h3 class="font-medium tracking-tight">
-          <a
-            class="inline-flex border-yellow-500 text-black hover:bg-yellow-500 dark:text-gray-100 dark:hover:text-black"
+      <li>
+        <div class="flex">
+          <div class="shrink-0 basis-28 text-zinc-400 dark:text-zinc-500">
+            {{ item.date | toDate_YYYY_MMM_DD }}
+          </div>
+          <h3 class="font-medium tracking-tight">
+            <a
+            class="inline-fle text-black hover:bg-orange-500 dark:text-gray-100 dark:hover:text-black"
             href="/til/{{ item.name | removeExtension | slug }}"
           >
-            {{ item.title }}
-          </a>
-        </h3>
-      </div>
-    </li>
+              {{ item.title }}
+            </a>
+          </h3>
+        </div>
+      </li>
     {% endfor %}
   </ul>
 </div>

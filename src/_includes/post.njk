@@ -1,7 +1,10 @@
 ---
 layout: base.njk
 ---
-<style type="text/css">{% tweetStyles %}</style>
+
+<style type="text/css">
+  {% tweetStyles %}
+</style>
 <style>
   .tweet-header .tweet-author-name {
     color: #1c2022 !important;
@@ -22,35 +25,28 @@ layout: base.njk
   }
 </style>
 
-<article class="
-  mt-4 mb-16 lg:mt-10 mx-auto
-  prose
-  sm:prose-lg
-  dark:prose-dark
-  prose-h2:mt-0
-
-  prose-a:border-b-2
-  prose-a:border-yellow-500
-  dark:hover:prose-a:text-black
-  hover:prose-a:bg-yellow-500
-">
-  {% if title %}<h2>{{ title }}</h2>{% endif %}
+<article
+  class="prose prose-zinc mx-auto mt-4 mb-16 prose-h2:mt-0 prose-a:text-orange-500 hover:prose-a:text-orange-500 dark:prose-dark dark:prose-a:text-orange-400 dark:hover:prose-a:text-orange-400 lg:prose-lg lg:mt-10">
+  {% if title %}
+  <h2>{{ title }}</h2>
+  {% endif %}
 
   <div class="mb-2">
     {% if date %}
-      <p class="text-gray-500" style="margin:0">{{ date | htmlDateString }}</p>
-    {% endif %}
-    {% if title and not hideReadingTime %}
-     <p class="text-gray-500" style="margin:0">{{ content | emojiReadTime }}</p>
+    <p class="text-zinc-500" style="margin: 0">
+      {{ date | toDate_MMMM_DD_YYYY }}
+    </p>
+    {% endif %} {% if title and not hideReadingTime %}
+    <p class="text-zinc-500" style="margin: 0">{{ content | emojiReadTime }}</p>
     {% endif %}
   </div>
-  {% if toc %}
-    {{ content | toc | safe }}
-  {% endif %}
-  {{ content | safe }}
-  {% if devto %}
-    <div>
-      <p class="text-center"><a href={{ devto }}>Leave a comment</a></p>
-    </div>
+
+  {% if toc %} {{ content | toc | safe }} {% endif %} {{ content | safe }} {% if
+  devto %}
+  <div>
+    <p class="text-center">
+      <a href="{{ devto }}">Leave a comment</a>
+    </p>
+  </div>
   {% endif %}
 </article>

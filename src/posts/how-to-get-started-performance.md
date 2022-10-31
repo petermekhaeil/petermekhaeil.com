@@ -5,6 +5,8 @@ description: With so many techniques on improving site performance - how does on
 tags:
   - performance
 devto: https://dev.to/petermekhaeil/how-to-get-started-with-improving-site-performance-mg1
+eleventyNavigation:
+  parent: Writing
 ---
 
 With so many techniques on improving site performance - how does one start learning about site performance and what are the first steps?
@@ -118,8 +120,7 @@ With this knowledge and the techniques explains in the article - The HTML sample
       rel="preload"
       href="./non-critical-stylesheet.css"
       as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
+      onload="this.onload=null;this.rel='stylesheet'" />
   </head>
   <body>
     <h1>Hello world!</h1>

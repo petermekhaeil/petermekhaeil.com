@@ -4,6 +4,8 @@ date: 2022-09-01
 description: My notes on Matt Pocock's videos on TypeScript tips.
 tags:
   - typescript
+eleventyNavigation:
+  parent: Writing
 tips:
   - index: 1
     text: Derive a union type from an object

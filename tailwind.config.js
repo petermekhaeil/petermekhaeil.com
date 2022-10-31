@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['./src/**/*.njk', './src/**/*.md', './*.js'],
+  content: ['./src/**/*.njk', './src/**/*.md'],
   darkMode: 'class',
   theme: {
     extend: {
@@ -20,9 +20,9 @@ module.exports = {
             },
             'code:not([class^="language-"])': {
               color: theme('colors.black'),
-              backgroundColor: theme('colors.gray.300')
+              backgroundColor: theme('colors.zinc.300')
             },
-            color: theme('colors.gray.800'),
+            color: theme('colors.zinc.800'),
             a: {
               color: theme('colors.black'),
               textDecoration: 'none',
@@ -35,14 +35,14 @@ module.exports = {
               borderRadius: theme('spacing.1')
             },
             small: {
-              color: theme('colors.gray.800')
+              color: theme('colors.zinc.800')
             }
           }
         },
 
         dark: {
           css: {
-            color: theme('colors.gray.400'),
+            color: theme('colors.zinc.400'),
             a: {
               color: theme('colors.white'),
               '&:hover': {
@@ -71,11 +71,11 @@ module.exports = {
               color: theme('colors.white')
             },
             blockquote: {
-              color: theme('colors.blue.300')
+              color: theme('colors.orange.300')
             },
             'code:not([class^="language-"])': {
-              color: theme('colors.gray.300'),
-              backgroundColor: theme('colors.gray.700')
+              color: theme('colors.zinc.300'),
+              backgroundColor: theme('colors.zinc.700')
             },
             'code[class^="language-"]': {
               padding: 0
@@ -84,7 +84,7 @@ module.exports = {
               backgroundColor: '#011627' // night-owl theme
             },
             small: {
-              color: theme('colors.gray.500')
+              color: theme('colors.zinc.500')
             }
           }
         }

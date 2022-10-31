@@ -5,24 +5,26 @@ eleventyNavigation:
   order: 100
 ---
 
+{%- from 'article.macro.njk' import article %}
+
 <div class="mt-8 flex flex-col-reverse items-start sm:flex-row">
   <div class="mb-8 flex flex-col pr-8 lg:mb-12">
     <h1
-      class="heading text-white2 mb-3 text-3xl font-bold tracking-tight dark:bg-gradient-to-r dark:from-yellow-400 dark:to-orange-600 dark:bg-clip-text dark:text-transparent dark:selection:text-black md:text-5xl"
+      class="mb-3 text-3xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 md:text-5xl"
     >
       Peter Mekhaeil
     </h1>
-    <h2 class="mb-4 text-gray-600 dark:text-gray-400">
+    <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
       Developer with a passion for making the web faster. I teach about web
       development using the latest technologies.
-    </h2>
-    <ul class="flex items-center text-gray-600 dark:text-gray-400">
+    </p>
+    <ul class="mt-6 flex items-center text-zinc-600 dark:text-zinc-400">
       <li class="mr-3">
         <a
           href="https://github.com/petermekhaeil"
           title="GitHub"
           rel="me noopener"
-          class="hover:text-black hover:dark:text-gray-200"
+          class="hover:text-zinc-800 hover:dark:text-zinc-200"
         >
           <span class="sr-only">Connect with Peter on GitHub</span>
           {% include 'icon-github.njk' %}
@@ -33,7 +35,7 @@ eleventyNavigation:
           href="https://twitter.com/petermekh"
           title="Twitter"
           rel="me noopener"
-          class="hover:text-black hover:dark:text-gray-200"
+          class="hover:text-zinc-800 hover:dark:text-zinc-200"
         >
           <span class="sr-only">Connect with Peter on Twitter</span>
           {% include 'icon-twitter.njk' %}
@@ -44,7 +46,7 @@ eleventyNavigation:
           href="https://dev.to/petermekhaeil"
           title="Dev.to"
           rel="me noopener"
-          class="hover:text-black hover:dark:text-gray-200"
+          class="hover:text-zinc-800 hover:dark:text-zinc-200"
         >
           <span class="sr-only">Connect with Peter on Dev.to</span>
           {% include 'icon-devto.njk' %}
@@ -55,7 +57,7 @@ eleventyNavigation:
           href="https://www.linkedin.com/in/petermekhaeil/"
           title="LinkedIn"
           rel="me noopener"
-          class="hover:text-black hover:dark:text-gray-200"
+          class="hover:text-zinc-800 hover:dark:text-zinc-200"
         >
           <span class="sr-only">Connect with Peter on LinkedIn.</span>
           {% include 'icon-linkedin.njk' %}
@@ -69,83 +71,34 @@ eleventyNavigation:
     alt="Handsome photo of Peter Mekhaeil on the Great Wall of China"
     height="195.258"
     width="176"
-  />
+/>
 </div>
 
-<h2 class="text-2xl font-bold text-black dark:text-gray-100 md:text-3xl">
-  Learn about the web
-</h2>
+<div class="mt-16 sm:mt-20 mb-16 sm:mb-20 ">
+  <div class="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
+    <div class="flex max-w-3xl flex-col space-y-16">
+      <!-- prettier-ignore-start -->
+      {% for post in collections.posts | reverse %}
+        {{ article({
+          title: post.data.title,
+          description: post.data.description,
+          url: post.url,
+          date: post.data.date
+        })
+      }}
+      {% endfor %}
 
-<div class="mx-auto mt-4 mb-16 max-w-2xl lg:mt-8">
-  <ul class="list-none space-y-10">
-    {% for post in collections.posts | reverse %}
-    <li>
-      <h3 class="mb-2 w-full text-lg font-medium tracking-tight md:text-xl">
-        <a
-          class="border-yellow-500 font-medium text-black hover:border-b-2 hover:bg-yellow-500 dark:text-gray-100 dark:hover:text-black"
-          href="{{ post.url | url }}"
-        >
-          {{ post.data.title }}
-        </a>
-      </h3>
-      <p class="mb-2 text-base text-gray-600 dark:text-gray-400">
-        {{ post.data.description }}
-      </p>
-      <a
-        class="inline-flex border-b-2 border-yellow-500 text-base font-medium text-black hover:bg-yellow-500 dark:text-gray-100 dark:hover:text-black"
-        href="{{ post.url | url }}"
-        >Read {{ post.data.title }}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M13 7l5 5m0 0l-5 5m5-5H6"
-          />
-        </svg>
-      </a>
-    </li>
-    {% endfor %}
-    <li>
-      <h3 class="mb-2 w-full text-lg font-medium tracking-tight md:text-xl">
-        <a
-          class="border-yellow-500 font-medium text-black hover:border-b-2 hover:bg-yellow-500 dark:text-gray-100 dark:hover:text-black"
-          href="https://medium.com/singtel-digital-technology/modernising-an-enterprise-front-end-stack-fe0571f259a1"
-        >
-          Modernising an Enterprise Front End Stack
-        </a>
-      </h3>
-      <p class="mb-2 text-base text-gray-600 dark:text-gray-400">
-        Almost any large enterprise struggles to keep their front-end code
-        maintainable — and so did we! CSS and Javascript code bases grow large
-        and unwieldy quite easily. With our component library, we were able to
-        overcome these challenges.
-      </p>
-      <a
-        class="inline-flex border-b-2 border-yellow-500 text-base font-medium text-black hover:bg-yellow-500 dark:text-gray-100 dark:hover:text-black"
-        href="https://medium.com/singtel-digital-technology/modernising-an-enterprise-front-end-stack-fe0571f259a1"
-        >Read Modernising an Enterprise Front End Stack
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M13 7l5 5m0 0l-5 5m5-5H6"
-          />
-        </svg>
-      </a>
-    </li>
-  </ul>
+      {{ article({
+        title: "Modernising an Enterprise Front End Stack",
+        description: "Almost any large enterprise
+          struggles to keep their front-end code maintainable — and so did we! CSS and
+          Javascript code bases grow large and unwieldy quite easily. With our
+          component library, we were able to overcome these challenges.",
+        url: "https://medium.com/singtel-digital-technology/modernising-an-enterprise-front-end-stack-fe0571f259a1",
+        date: "21 Nov 2020"
+      })
+    }}
+      <!-- prettier-ignore-end -->
+    </div>
+  </div>
 </div>

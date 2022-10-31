@@ -5,6 +5,8 @@ description: Performance comparison of Singapore E-commerce stores. We look at h
 tags:
   - performance
 devto: https://dev.to/petermekhaeil/page-speed-comparison-of-singapore-commerce-1go6
+eleventyNavigation:
+  parent: Writing
 ---
 
 An online commerce store that offers a great user experience will satisfy the needs of its users and page speed performance is a driving factor to this. This is where [Core Web Vitals](https://web.dev/vitals/) comes into play. The Core Web Vitals aim to measure user experience. It is a set of metrics that Google uses to measure user experience and it has become one of their key factors in search result rankings. It is also a great way to compare your commerce store against your competitors.
@@ -136,12 +138,10 @@ The main image is highlighted in green (Row 46). That thin line at the start of 
 ```html
 <link
   rel="preconnect"
-  href="https://image-optimizer-reg.production.sephora-asia.net"
-/>
+  href="https://image-optimizer-reg.production.sephora-asia.net" />
 <link
   rel="dns-prefetch"
-  href="https://image-optimizer-reg.production.sephora-asia.net"
-/>
+  href="https://image-optimizer-reg.production.sephora-asia.net" />
 ```
 
 This would allow the connection setup to happen earlier while the browser was working on other parts of the rendering.
@@ -196,8 +196,7 @@ A stylesheet is required to load the Google fonts. We can avoid it from being re
 <link
   rel="preload"
   as="style"
-  href="https://fonts.googleapis.com/css2?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
-/>
+  href="https://fonts.googleapis.com/css2?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" />
 ```
 
 This technique can be used with any fonts. Harry goes in depth in [The Fastest Google Fonts](https://csswizardry.com/2020/05/the-fastest-google-fonts).

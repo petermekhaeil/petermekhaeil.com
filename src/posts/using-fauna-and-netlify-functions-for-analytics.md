@@ -6,6 +6,8 @@ tags:
   - javascript
   - serverless
 devto: https://dev.to/petermekhaeil/using-faunadb-and-netlify-functions-for-analytics-361m
+eleventyNavigation:
+  parent: Writing
 ---
 
 As I continue to build this blog, I want to add some analytics to get an idea of my viewers and what they are interested in reading. Using [FaunaDB](https://fauna.com/){title="FaunaDB"} and [Netlify Functions](https://www.netlify.com/products/functions/){title="Netlify Functions"}, we are going to build a basic API that will allow us to track the page hits.

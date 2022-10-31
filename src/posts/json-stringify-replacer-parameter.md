@@ -5,6 +5,8 @@ description: Learn how to use the replacer parameter of JSON.stringify to replac
 tags:
   - javascript
 devto: https://dev.to/petermekhaeil/how-to-keep-undefined-values-in-jsonstringify-3kip
+eleventyNavigation:
+  parent: Writing
 ---
 
 The [JSON spec](https://www.json.org/json-en.html) does not allow `undefined` values, so when you try to stringify an object that contains an undefined value, the key will get removed:

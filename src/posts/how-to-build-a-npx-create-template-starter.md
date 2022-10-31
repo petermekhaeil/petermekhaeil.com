@@ -5,6 +5,8 @@ description: Learn to build your own `npx create-my-template` script for your st
 tags:
   - javascript
   - npm
+eleventyNavigation:
+  parent: Writing
 ---
 
 Our favourite frameworks have starter templates to help us get started with setting up our projects with minimal configuration. Some known examples:

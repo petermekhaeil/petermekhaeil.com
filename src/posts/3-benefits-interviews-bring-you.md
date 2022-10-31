@@ -5,6 +5,8 @@ description: Not only do interviews open doors to new opportunities, they also h
 tags:
   - career
 devto: https://dev.to/petermekhaeil/3-benefits-interviews-bring-you-312p
+eleventyNavigation:
+  parent: Writing
 ---
 
 Not only do interviews open doors to new opportunities, they also help you sharpen your skills with new learnings. Interviews keep your career moving forward and I will share some learnings from experience.
