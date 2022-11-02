@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Singtel Shop",
+    "description": "Online store for Singapore's largest telecommunication company. Built using Gatsby and AEM as a headless CMS. Hosted on AWS.",
+    "links": [
+      {
+        "url": "https://shop.singtel.com",
+        "text": "shop.singtel.com"
+      }
+    ]
+  },
+  {
+    "name": "Go Bare",
+    "description": "Award winning Australian skin care company. Built using Next.js and Shopify. Hosted on Vercel.",
+    "links": [
+      {
+        "url": "https://gobare.sg",
+        "text": "gobare.sg"
+      },
+      {
+        "url": "/data-fetching-in-next.js/",
+        "text": "Read my article on how this project was built"
+      }
+    ]
+  }
+]

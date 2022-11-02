@@ -1,5 +1,4 @@
 const EleventyFetch = require('@11ty/eleventy-fetch');
-// const fetch = require('isomorphic-unfetch');
 
 const fetchGitHub = ({ body }) => {
   return EleventyFetch(`https://api.github.com/graphql?_query=${body}`, {

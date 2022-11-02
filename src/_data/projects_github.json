@@ -1,0 +1,100 @@
+[
+  {
+    "name": "Remix Ecommerce",
+    "description": "Ecommerce app built using Remix running on Cloudflare Workers.",
+    "links": [
+      {
+        "url": "https://remix-ecommerce.petermekhaeil.workers.dev",
+        "text": "remix-ecommerce.petermekhaeil.workers.dev"
+      },
+      {
+        "url": "https://github.com/petermekhaeil",
+        "text": "Source code"
+      }
+    ]
+  },
+  {
+    "name": "Formula 1 Page Speed Insights",
+    "description": "Performance report using PageSpeed Insights and Chrome User Experience Report to showcase which Formula 1 team has the fastest web performance. Built using Next.js and hosted on Netlify.",
+    "links": [
+      {
+        "url": "https://f1-page-speed-insights.netlify.app",
+        "text": "f1-page-speed-insights.netlify.app"
+      },
+      {
+        "url": "/page-speed-performance-of-formula-1-websites/",
+        "text": "Read my article on how this project was built"
+      },
+      {
+        "url": "https://github.com/petermekhaeil/page-speed-insights",
+        "text": "Source code"
+      }
+    ]
+  },
+  {
+    "name": "Singapore E-Commerce Page Speed Insights",
+    "description": "Performance report using PageSpeed Insights and Chrome User Experience Report to showcase which Singapore E-Commerce store has the fastest web performance. Built using Next.js and hosted on Netlify.",
+    "links": [
+      {
+        "url": "https://sg-page-speed-insights.netlify.app",
+        "text": "sg-page-speed-insights.netlify.app"
+      },
+      {
+        "url": "/page-speed-comparison-of-singapore-commerce/",
+        "text": "Read my article on how this project was built"
+      },
+      {
+        "url": "https://github.com/petermekhaeil/page-speed-insights",
+        "text": "Source code"
+      }
+    ]
+  },
+  {
+    "name": "Netlify Graph + Remix",
+    "description": "Demo of Remix using Netlify Graph to fetch data from GitHub. When a new issue is created in this repository, it will be listed as a blog post.",
+    "links": [
+      {
+        "url": "https://netlify-graph-remix.netlify.app/",
+        "text": "netlify-graph-remix.netlify.app"
+      },
+      {
+        "url": "https://github.com/petermekhaeil/netlify-graph-remix",
+        "text": "Source code"
+      }
+    ]
+  },
+  {
+    "name": "Next.js Commerce + Shopify",
+    "description": "Collection of hooks and data fetching functions to integrate Shopify in a React application. Designed to work with Next.js Commerce and can be used with other React commerce applications.",
+    "links": [
+      {
+        "url": "https://github.com/petermekhaeil/nextjs-commerce-shopify",
+        "text": "Source code"
+      }
+    ]
+  },
+  {
+    "name": "Tailwind CSS Explorer VS Code Extension",
+    "description": "VS Code Extension for Tailwind CSS - Explore the classes available in your project's tailwind setup.",
+    "links": [
+      {
+        "url": "https://marketplace.visualstudio.com/items?itemName=PeterMekhaeil.vscode-tailwindcss-explorer",
+        "text": "VS Code Marketplace"
+      },
+      {
+        "url": "https://github.com/petermekhaeil/vscode-tailwindcss-explorer",
+        "text": "Source code"
+      }
+    ]
+  },
+  {
+    "name": "Ractive.js Dev Tool",
+    "description": "View and edit Ractive.js components using Chrome Dev Tools.",
+    "links": [
+      {
+        "url": "https://github.com/petermekhaeil/ractive-chrome-extension",
+        "text": "Source code"
+      }
+    ]
+  }
+]

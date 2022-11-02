@@ -17,7 +17,7 @@
     class="mx-auto max-w-2xl bg-zinc-50 px-4 py-6 text-zinc-600 antialiased dark:bg-zinc-900 dark:text-zinc-400 sm:text-lg">
     <header class="border-b border-zinc-100 pb-6 dark:border-zinc-700/40">
       <nav class="flex items-center justify-between">
-        <ul class="flex gap-4 text-base font-medium">
+        <ul class="flex gap-4 text-sm font-medium sm:text-base">
           {%- for entry in collections.all | eleventyNavigation %} {% set
           isPrimaryNav = entry | getChildren(page.url) %}
           <li>
