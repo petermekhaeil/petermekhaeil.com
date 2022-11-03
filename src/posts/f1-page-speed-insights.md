@@ -60,7 +60,7 @@ To pass the assessment, 75% of page views need to hit the recommended target of 
 
 In the example above, Racing Point passed. And it can be seen in more details on the right hand side. These are the Field Data scores we saw earlier, but broken down to indicate the percentage of viewers and their experience. For example, for CLS - 79% of viewers had a good experience and 9% had a poor experience.
 
-Let's take a look at the Williams too. They scored very similar scores but with a noticable difference:
+Let's take a look at the Williams too. They scored very similar scores but with a noticeable difference:
 
 #### Williams
 

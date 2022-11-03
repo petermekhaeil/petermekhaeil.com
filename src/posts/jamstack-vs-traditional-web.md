@@ -59,7 +59,7 @@ This happens in the continuous-integration (CI) build pipeline:
 
 **Static site generator** On a new commit, a build step is triggered and the static site generator will build the application. During the build, if the application requires any content from an external data source, the static site generator will fetch that data. This can be from any external service that provides content in a format that the static site generator supports. Example of data sources: Headless CMS, databases, Markdown.
 
-**Static content** Once the package is bundled and optimised for the web, it is deployed to a CDN. Which is an important element of Jamstack and it one of many reasons why Jamstack is so fast - the pre-rendered static HTML content is served around the world.
+**Static content** Once the package is bundled and optimized for the web, it is deployed to a CDN. Which is an important element of Jamstack and it one of many reasons why Jamstack is so fast - the pre-rendered static HTML content is served around the world.
 
 This process of building a Jamstack application moves the server generation of your page to the build pipeline.
 
@@ -77,11 +77,11 @@ There is no connection with the users and the build pipeline. The users are only
 - **Performance:**
   - Static pages served from CDN.
   - No flash of unstyled content.
-- **Web-optimised image rendering:**
+- **Web-optimized image rendering:**
   - Fetch above-the-fold images immediately.
   - Delay rendering of off-screen images.
   - Image placeholders to avoid layout shifts.
-  - Automatically compressed and optimised for web.
+  - Automatically compressed and optimized for web.
 
 ## Any limitations?
 

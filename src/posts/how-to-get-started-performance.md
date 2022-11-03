@@ -23,13 +23,13 @@ Your application is like a high-performance car owned by a motor sport team. How
 
 Get to know what is in your application, get to know what is being bundled inside because the size of your script files will have an impact on performance and reducing bundle size is one of the first techniques I recommend to getting started on improving site performance. Most modern web applications are bundled with many dependencies and the first step in knowing what to improve is by first knowing what libraries are being imported into your application. Get curious about the size of your application.
 
-One of the first tools that I started using is [webpack-bundle-analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer). It generates a report of the output of your webpack build which visualises the filesize of your JavaScript files and what libraries are included in each file. Here is an example screenshot:
+One of the first tools that I started using is [webpack-bundle-analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer). It generates a report of the output of your webpack build which visualizes the file size of your JavaScript files and what libraries are included in each file. Here is an example screenshot:
 
 ![](/images/uploads/bundlephobia-bundle.png)
 
 So we know what is in our application. What can we do with this information?
 
-We can see `lodash` takes a large portion of the file. Lodash was one of the first libraries that got me interested in reducing bundle size because it was always included in projects when I first started in my software development career. This is where my curiousity kicked in - why was it so large every time, regardless of the functions that I was using?
+We can see `lodash` takes a large portion of the file. Lodash was one of the first libraries that got me interested in reducing bundle size because it was always included in projects when I first started in my software development career. This is where my curiosity kicked in - why was it so large every time, regardless of the functions that I was using?
 
 After some researching, I came to learn that how you import your dependencies, and how your dependencies were build makes a difference. Using `lodash` as an example - the package is not [tree-shakable](https://en.wikipedia.org/wiki/Tree_shaking). So instead of doing this:
 
@@ -50,7 +50,7 @@ You can see that instead of the whole package being imported, only the modules t
 
 This technique doesn't work for every library because it depends on how it is built. The idea here is - get curious about the size of your application. Understand the dependencies being imported and why are they are being imported. There could be better ways to import only the code you need for your application.
 
-A great tool to help you know the size of a packages is [Bundlephobia](https://bundlephobia.com/). It's great for times when you want to know the filesize cost of a package before importing it into your application. It also suggests similar libraries and the filesize comparison.
+A great tool to help you know the size of a packages is [Bundlephobia](https://bundlephobia.com/). It's great for times when you want to know the file size cost of a package before importing it into your application. It also suggests similar libraries and the file size comparison.
 
 For example - if you look at the bundle report above, you will see `moment` being imported and it looks large enough for us to investigate if it can be reduced. Bundlephobia will suggest smaller packages:
 
@@ -60,7 +60,7 @@ Replacing `moment` with a `dayjs`, a much smaller alternative with very similar 
 
 ![](/images/uploads/bundlephobia-bundle-3.png)
 
-By looking at the bundle size, I was able to drop the JavaScript filesize from 868.16 KB to 151.43 KB (83% smaller bundle!).
+By looking at the bundle size, I was able to drop the JavaScript file size from 868.16 KB to 151.43 KB (83% smaller bundle!).
 
 Small note: `moment` was a popular library before it went into [maintenance mode](https://momentjs.com/docs/#/-project-status/) - highly recommend you to start using the other alternative libraries instead.
 
@@ -141,7 +141,7 @@ Provides insights on best practices for your websites. It can run from Chrome De
 
 This is a great place to start. Run it on your own websites to get familiar with some of the suggestions reported and use them to explore many other techniques in improving performance. The suggestions also link to [web.dev](https://web.dev/) articles that go in details on why these suggestions are listed.
 
-Lighthouse reports on [Lab Data](https://developers.google.com/web/fundamentals/performance/speed-tools/#lab_data) which means the scores may change each time depending on [network conditions](https://github.com/GoogleChrome/lighthouse/blob/master/docs/variability.md), so do remember to run it a few times before finalising any solutions.
+Lighthouse reports on [Lab Data](https://developers.google.com/web/fundamentals/performance/speed-tools/#lab_data) which means the scores may change each time depending on [network conditions](https://github.com/GoogleChrome/lighthouse/blob/master/docs/variability.md), so do remember to run it a few times before finalizing any solutions.
 
 ![](/images/uploads/perf-tools-lighthouse.png)
 

@@ -157,7 +157,7 @@ Place the `<img/>` on your template. Here is how I did it for my template:
 
 ## Testing
 
-Testing is a large topic on it's own. Read up on [Netlify Dev](https://docs.netlify.com/cli/get-started/#get-started-with-netlify-dev){title="Netlify Dev"} to get started on the Netlify CLI which will let you test your serverless function locally. I recommend you to test your functions before commiting and deploying.
+Testing is a large topic on it's own. Read up on [Netlify Dev](https://docs.netlify.com/cli/get-started/#get-started-with-netlify-dev){title="Netlify Dev"} to get started on the Netlify CLI which will let you test your serverless function locally. I recommend you to test your functions before committing and deploying.
 
 ## Wrapping it up
 

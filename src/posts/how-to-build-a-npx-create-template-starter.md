@@ -102,10 +102,10 @@ console.log(`Created ${projectName} at ${projectDir}`);
 This is a basic example. Other things you will need to consider when you build your own:
 
 - You can use tools like [commander](https://www.npmjs.com/package/commander) or [inquirer](https://www.npmjs.com/package/inquirer) to add interactive command-line interface.
-- Add some error-handling. Examples: Does the project directory already exists before attempting to create it? Did the user specifiy the project name?
+- Add some error-handling. Examples: Does the project directory already exists before attempting to create it? Did the user specify the project name?
 - Check which package manager the user prefers to use (eg pnpm, yarn).
 - Add some styling using [chalk](https://www.npmjs.com/package/chalk).
-- Do you want to initalise a git repository in the project directory?
+- Do you want to initialize a git repository in the project directory?
 - Should the installation script do a clean up if installation failed?
 
 **Working on a monorepo?** This approach can also be used to create packages in your monorepo from a template!

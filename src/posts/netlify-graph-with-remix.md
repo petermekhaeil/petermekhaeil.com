@@ -3,7 +3,7 @@ title: How to build an app with Remix and Netlify Graph
 date: 2022-03-03
 description: Learn how to build an app using Remix that connects with third-party APIs using Netlify Graph. We will fetch data from GitHub and use React JSX to build the UI.
 tags:
-  - javscript
+  - javascript
   - netlify
   - remix
 devto: https://dev.to/petermekhaeil/how-to-build-an-app-with-remix-and-netlify-graph-554k
@@ -23,7 +23,7 @@ The source code for this app can be found [in this repository](https://github.co
 
 ### What is Netlify Graph
 
-[Netlify Graph](https://github.com/netlify/labs/tree/main/features/graph/documentation) provides developers with a GraphQL-based approach to integrating with third-party APIs without needing to operate a seperate GraphQL server. Developers do not need to spend time learning the API structure of each provider and writing code to piece it together. This is great for our use case because we do not want to worry about how to authenticate with GitHub as Netlify will handle this for us.
+[Netlify Graph](https://github.com/netlify/labs/tree/main/features/graph/documentation) provides developers with a GraphQL-based approach to integrating with third-party APIs without needing to operate a separate GraphQL server. Developers do not need to spend time learning the API structure of each provider and writing code to piece it together. This is great for our use case because we do not want to worry about how to authenticate with GitHub as Netlify will handle this for us.
 
 ### Getting Started with Remix
 
@@ -70,7 +70,7 @@ Change directory to your new project (if you have not done so already) and creat
 
 ```bash
 $ cd [name of project]
-$ ntl lnit
+$ ntl init
 ```
 
 ### Start Development Server

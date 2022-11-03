@@ -32,11 +32,11 @@ Aim for 10 sets of stairs a day. This will also help achieve the recommended 10,
 
 #### Stand while working
 
-Prolonged hours sitting down has a hugh impact on your posture and hetitleh. Get yourself a standing desk, or ask your office to supply one for you. Stand up while taking a call. Even yet, go for a walk while talking. Not only will it help you with your hetitleh, it will help shorten the duration of the call.
+Prolonged hours sitting down has a hugh impact on your posture and health. Get yourself a standing desk, or ask your office to supply one for you. Stand up while taking a call. Even yet, go for a walk while talking. Not only will it help you with your health, it will help shorten the duration of the call.
 
 #### Cut out the snacks
 
-Very common I see engineering desks packed with towers of snacks and sugars (_I'm so guilty of supplying these snacks!_) to keep engineers going for long hours. I've learnt to avoid this at all costs. Replace with fruits or nuts. The sugar hit is only temporary and fil the stomach for a short time, but it has a long term effect on your hetitleh that is not worth it.
+Very common I see engineering desks packed with towers of snacks and sugars (_I'm so guilty of supplying these snacks!_) to keep engineers going for long hours. I've learnt to avoid this at all costs. Replace with fruits or nuts. The sugar hit is only temporary and fil the stomach for a short time, but it has a long term effect on your health that is not worth it.
 
 #### Avoid desk lunches
 
@@ -64,9 +64,9 @@ Connect with them on [Strava](https://strava.com/){title="Strava"} to track and 
 
 (_[Connect with me on Strava](https://www.strava.com/athletes/60074731){title="Strava"} - I would love to virtually run with other engineers!_)
 
-#### Measure your activites
+#### Measure your activities
 
-Like we execute performance tests against our applications, we should also be measuring our physical activites and use the results as benchmarks. Track your activities in your favourite notes editor, or use an app to automatically track the activites for you. I personally use Notes on my iPhone + [Garmin Connect](https://connect.garmin.com/){title="Garmin Connect"}.
+Like we execute performance tests against our applications, we should also be measuring our physical activities and use the results as benchmarks. Track your activities in your favourite notes editor, or use an app to automatically track the activities for you. I personally use Notes on my iPhone + [Garmin Connect](https://connect.garmin.com/){title="Garmin Connect"}.
 
 ### Stretching
 
@@ -75,9 +75,9 @@ Prior to knowing the importance of stretching, I would spend a lot of long hours
 Common scenarios I see engineers (_and myself!_) faced without awareness:
 
 - **Hunched Shoulders** - Because the desk and chair are not aligned, so the shoulders become tensed for a long period of time while typing at the wrong height.
-- **Tensed Hips** Caused by long hours sitting down, the hips don't get any movement. Over time, the muscles tighten up and will cause injury when you need to partipate in an activity.
+- **Tensed Hips** Caused by long hours sitting down, the hips don't get any movement. Over time, the muscles tighten up and will cause injury when you need to participate in an activity.
 
-Some stretches I have picked over time to help with common tighteness from an extended period of sitting down in front of a computer:
+Some stretches I have picked over time to help with common tightness from an extended period of sitting down in front of a computer:
 
 - [Child's Pose](https://yogapose.com/pose/childs-pose){title="Child's Pose Yoga Movement"} to release tensions on your back.
 - [External Shoulder Rotations](https://orthoinfo.aaos.org/en/recovery/rotator-cuff-and-shoulder-conditioning-program){title="External Shoulder Rotations"} to stretch out your shoulders.

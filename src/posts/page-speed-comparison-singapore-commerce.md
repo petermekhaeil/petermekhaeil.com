@@ -50,7 +50,7 @@ We will start by looking at the request waterfall:
 
 #### Possible Improvement - Remove unused JavaScript
 
-The site is built using Next.js which is packed with features to help with performance. A noticable feature is [Dynamic Importing](https://nextjs.org/docs/advanced-features/dynamic-import') which we can see from their chunk requests. By using Chrome Dev Tool's Coverage feature, let us see how much of these chunks are being used:
+The site is built using Next.js which is packed with features to help with performance. A noticeable feature is [Dynamic Importing](https://nextjs.org/docs/advanced-features/dynamic-import') which we can see from their chunk requests. By using Chrome Dev Tool's Coverage feature, let us see how much of these chunks are being used:
 
 ![](/images/uploads/sg-commerce-fairprice-unused-code.png)
 
@@ -76,14 +76,14 @@ If you look up again at the requests up above, row 30 (highlighted in green) is 
 
 ![](/images/uploads/sg-commerce-fairprice-media.png)
 
-That thin bar at the start of the request is the connection setup. This occured because it is the first connection made to this server (this image is hosted on a different domain). FairPrice made an attempt to start this connection setup earlier by using `preconnect` and `dns-prefetch`:
+That thin bar at the start of the request is the connection setup. This occurred because it is the first connection made to this server (this image is hosted on a different domain). FairPrice made an attempt to start this connection setup earlier by using `preconnect` and `dns-prefetch`:
 
 ```html
 <link rel="preconnect" href="https://media.nedigital.sg" />
 <link rel="dns-prefetch" href="https://media.nedigital.sg" />
 ```
 
-This connection setup could have started earlier if the HTML was recieved earlier. You see the thin yellow bar at the start of Row 31 and 32? The browser knew about these requests too but it is also waiting for the same connection setup to start downloading the other images. If they cut down the time it takes for the HTML to download, then these image potientially render earlier.
+This connection setup could have started earlier if the HTML was received earlier. You see the thin yellow bar at the start of Row 31 and 32? The browser knew about these requests too but it is also waiting for the same connection setup to start downloading the other images. If they cut down the time it takes for the HTML to download, then these image potentially render earlier.
 
 Another method to avoid this connection setup is to move the largest contentful paint to the same server. Either technique can improve their LCP score (which is right now their lowest mark in their [Core Web Vital audit](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fwww.fairprice.com.sg%2F&tab=desktop)).
 
@@ -91,7 +91,7 @@ Another method to avoid this connection setup is to move the largest contentful 
 
 ![](/images/uploads/sg-commerce-fairprice-layout-shift-1.gif)
 
-Above is 2 frames that occured when the layout shift occured. We can see the font loading and the lazy loading of products (in the bottom-right corner) is causing the layout shift and resulting in the low CLS score.
+Above is 2 frames that occurred when the layout shift happened. We can see the font loading and the lazy loading of products (in the bottom-right corner) is causing the layout shift and resulting in the low CLS score.
 
 By examining the frames of your page loading, you could understand more of the experience your user is facing and find any unexpected layout shifts. Reducing the layout shift will improve your audit score. WebPageTest is a great tool to grab these frames and highlight where the layout shift occurs.
 
@@ -107,7 +107,7 @@ Two areas we will look at for Sephora is their layout shift and the delay in the
 
 #### Possible Improvement - Reduce render-blocking font files
 
-9 font files were loaded as highest priority from the `<head>` which is render-blocking. Sephora has split the fonts by weight and style into seperate font files. If we loop through all the elements on the page and list down their font usages (using some quick [JavaScript](https://gist.github.com/petermekhaeil/f03702e4df759c0c3d303bde90975fa9)) we can see the usages of these 9 font files:
+9 font files were loaded as highest priority from the `<head>` which is render-blocking. Sephora has split the fonts by weight and style into separate font files. If we loop through all the elements on the page and list down their font usages (using some quick [JavaScript](https://gist.github.com/petermekhaeil/f03702e4df759c0c3d303bde90975fa9)) we can see the usages of these 9 font files:
 
 ![](/images/uploads/sg-commerce-sephora-fonts.png)
 
@@ -133,7 +133,7 @@ Alternatively, we can `async` or `defer` the scripts if they are not required to
 
 ![](/images/uploads/sg-commerce-sephora-request-image.png)
 
-The main image is highlighted in green (Row 46). That thin line at the start of the request is the connection setup, which costed 400ms. This happened because of the new domain request (It looks like it sits behind an image optimisation server). Sephora can shave some time off the request if they moved it to the same domain, or preconnect to this other domain like so:
+The main image is highlighted in green (Row 46). That thin line at the start of the request is the connection setup, which costed 400ms. This happened because of the new domain request (It looks like it sits behind an image optimization server). Sephora can shave some time off the request if they moved it to the same domain, or preconnect to this other domain like so:
 
 ```html
 <link
@@ -160,7 +160,7 @@ Let's look at the request waterfall:
 
 ![](/images/uploads/sg-commerce-circleslife-image-requests.png)
 
-This section of the requests stood out the most. The images on this page can do with some optimisation. 21.5 MB of images was loaded on the landing page. If you're looking for the right tool, [squoosh.app](https://squoosh.app/) is the way to go! Let's try it on the main image that appear above-the-fold:
+This section of the requests stood out the most. The images on this page can do with some optimization. 21.5 MB of images was loaded on the landing page. If you're looking for the right tool, [squoosh.app](https://squoosh.app/) is the way to go! Let's try it on the main image that appear above-the-fold:
 
 Original: 300kb
 ![](/images/uploads/sg-commerce-circleslife-image-original.webp)
@@ -180,11 +180,11 @@ A `<script>` tag that is in the `<head>` without a `defer` or `async` attribute 
 
 If any of these scripts are not critical code for first render, they should be marked with `async` or `defer` attributes. Any code not used on this page should be removed. If they are required and are located on a different server, we can prepare the browser for what is coming with `<link rel="preload">`.
 
-Same goes with stylesheets - if a `<link rel="stylesheet">` does not have `disabled` or `media` attribue that matches the user's device, it is considered render-blocking. Identify the critical styling required for first render and keep it in the `head`. Then load the rest afterwards.
+Same goes with stylesheets - if a `<link rel="stylesheet">` does not have `disabled` or `media` attribute that matches the user's device, it is considered render-blocking. Identify the critical styling required for first render and keep it in the `head`. Then load the rest afterwards.
 
 #### Possible Improvement - Avoid render blocking fonts
 
-The site loads a handful of Google Fonts that we can optimise. We can start by preconnecting the connection setup to Google. This tells the browser to prepare for the download of the font before it is requested:
+The site loads a handful of Google Fonts that we can optimise. We can start by pre-connecting the connection setup to Google. This tells the browser to prepare for the download of the font before it is requested:
 
 ```html
 <link rel="preconnect" href="https://fonts.gstatic.com" />
