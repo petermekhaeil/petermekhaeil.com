@@ -1,7 +1,7 @@
 [
   {
     "name": "Singtel Shop",
-    "description": "Online store for Singapore's largest telecommunication company. Built using Gatsby and AEM as a headless CMS. Hosted on AWS.",
+    "description": "Online store for Singapore's largest telecommunication company. Built using React and Gatsby for the UI framework and AEM as a headless CMS. Hosted on AWS.",
     "links": [
       {
         "url": "https://shop.singtel.com",
