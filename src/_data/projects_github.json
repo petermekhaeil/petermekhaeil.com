@@ -1,14 +1,14 @@
 [
   {
-    "name": "Remix Ecommerce",
-    "description": "Ecommerce app built using Remix running on Cloudflare Workers.",
+    "name": "Remix Commerce",
+    "description": "Performant e-commerce that runs on the edge. Built using Remix running on Cloudflare Workers. It supports different commerce providers to showcase the benefits of a headless commerce architecture.",
     "links": [
       {
-        "url": "https://remix-ecommerce.petermekhaeil.workers.dev",
-        "text": "remix-ecommerce.petermekhaeil.workers.dev"
+        "url": "https://remix-commerce.petermekhaeil.workers.dev/",
+        "text": "remix-commerce.petermekhaeil.workers.dev"
       },
       {
-        "url": "https://github.com/petermekhaeil",
+        "url": "https://github.com/petermekhaeil/remix-commerce",
         "text": "Source code"
       }
     ]
