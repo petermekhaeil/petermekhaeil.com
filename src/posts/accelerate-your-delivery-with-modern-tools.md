@@ -36,7 +36,7 @@ Swapping out a create-react-app (CRA) app to Vite is a matter of replacing the n
 
 ### Use a build system
 
-Build systems like [Turborepo](https://turborepo.org/) can cache the results of tasks to speed up the build process in subsequent builds.
+Build systems like [Turborepo](https://turbo.build/repo) can cache the results of tasks to speed up the build process in subsequent builds.
 
 Each task in a CI pipeline has inputs and outputs - for example, a build task may have source code as inputs and bundled files as outputs. When a task is run, the build system generates a hash based on the inputs and stores the output under that hash. If the task is run again and the inputs have not changed, the build system can reuse the saved output stored under the same hash, rather than running the task again.
 
