@@ -2,6 +2,10 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+article ul {
+  margin-bottom: 1.25em;
+}
+
 img {
   border-radius: 8px;
 }
