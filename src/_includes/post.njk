@@ -27,8 +27,8 @@ layout: base.njk
 
 <article
   class="prose prose-zinc mx-auto mt-4 mb-16 prose-h2:mt-0 prose-a:text-orange-500 hover:prose-a:text-orange-500 dark:prose-dark dark:prose-a:text-orange-400 dark:hover:prose-a:text-orange-400 lg:prose-lg lg:mt-10">
-  {% if title %}
-  <h2>{{ title }}</h2>
+  {% if title and '/til' not in page.url %}
+  <h1>{{ title }}</h1>
   {% endif %}
 
   <div class="mb-2">

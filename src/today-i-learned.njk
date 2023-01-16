@@ -30,7 +30,7 @@ title: "Today I Learned"
   </p>
 
   <ul class="list-none space-y-2">
-    {%- for item in pagination.items | reverse %}
+    {%- for item in pagination.items %}
       <li>
         <div class="flex">
           <div class="shrink-0 basis-28 text-zinc-400 dark:text-zinc-500">
@@ -39,7 +39,7 @@ title: "Today I Learned"
           <h3 class="font-medium tracking-tight">
             <a
             class="inline-fle text-black hover:bg-orange-500 dark:text-gray-100 dark:hover:text-black"
-            href="/til/{{ item.name | removeExtension | slug }}/"
+            href="/til/{{ item.path | removeExtension | slug }}/"
           >
               {{ item.title }}
             </a>

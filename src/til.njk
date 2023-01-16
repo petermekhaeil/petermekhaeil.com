@@ -5,7 +5,7 @@ pagination:
   size: 1
   alias: til
   addAllPagesToCollections: true
-permalink: "til/{{ til.name | removeExtension | slug }}/"
+permalink: "til/{{ til.path | removeExtension | slug }}/"
 hideReadingTime: true
 eleventyComputed:
   title: "{{ til.title | safe }}"
@@ -14,5 +14,5 @@ eleventyNavigation:
 ---
 
 <div class="mx-auto mt-4 mb-16 lg:mt-10">
-  {{ til.object.text | markdown | safe }}
+  {{ til.content | markdown | safe }}
 </div>

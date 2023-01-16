@@ -7,8 +7,8 @@ eleventyExcludeFromCollections: true
   <title>{{ metadata.title }}</title>
   <subtitle>{{ metadata.feed.subtitle }}</subtitle>
   {% set absoluteUrl %}{{ metadata.feed.path | url | absoluteUrl(metadata.url)}}{% endset %}
-  <link href="{{ absoluteUrl }}" rel="self" />
-  <link href="{{ metadata.url }}" />
+  <link href="{{ absoluteUrl }}" rel="self"/>
+  <link href="{{ metadata.url }}"/>
   <updated>{{ collections.posts | rssLastUpdatedDate }}</updated>
   <id>{{ metadata.feed.id }}</id>
   <author>
@@ -16,22 +16,13 @@ eleventyExcludeFromCollections: true
     <email>{{ metadata.author.email }}</email>
   </author>
   {%- for post in collections.posts | reverse %}
-  {% set absolutePostUrl %}{{post.url | url | absoluteUrl(metadata.url) }}{% endset %}
-  <entry>
-    <title>{{ post.data.title }}</title>
-    <link href="{{ absolutePostUrl }}" />
-    <updated>{{ post.date | rssDate }}</updated>
-    <id>{{ absolutePostUrl }}</id>
-    <content type="html">{{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
-  </entry>
-  {%- endfor %}
-  {%- for post in github_til_repo | reverse %}
-  <entry>
-    <title>{{ post.title }}</title>
-    <link href="{{metadata.url}}/til/{{ post.name | removeExtension | slug }}" />
-    <updated>{{ post.date }}</updated>
-    <id>{{metadata.url}}/til/{{ post.name | removeExtension | slug }}</id>
-    <content type="html">{{ post.object.text | markdown }}</content>
-  </entry>
+    {% set absolutePostUrl %}{{post.url | url | absoluteUrl(metadata.url) }}{% endset %}
+    <entry>
+      <title>{{ post.data.title }}</title>
+      <link href="{{ absolutePostUrl }}"/>
+      <updated>{{ post.date | rssDate }}</updated>
+      <id>{{ absolutePostUrl }}</id>
+      <content type="html">{{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
+    </entry>
   {%- endfor %}
 </feed>
