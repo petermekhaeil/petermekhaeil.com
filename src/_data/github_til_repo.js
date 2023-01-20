@@ -20,6 +20,5 @@ module.exports = async function () {
     console.error(e);
   }
 
-  console.log('til', til.length, til[0]);
   return til;
 };
