@@ -1,4 +1,4 @@
-const fetch = require('isomorphic-unfetch');
+const fetch = require('node-fetch');
 
 exports.handler = async function (event) {
   const title = event.queryStringParameters.title;

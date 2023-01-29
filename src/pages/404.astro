@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/base.astro';
+---
+
+<style>
+  .aspect-16x9 {
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+  }
+</style>
+<BaseLayout title="Not Found" description="">
+  <article
+    class="prose prose-zinc mx-auto mt-4 mb-16 prose-h2:mt-0 prose-a:text-orange-500 hover:prose-a:text-orange-500 dark:prose-dark dark:prose-a:text-orange-400 dark:hover:prose-a:text-orange-400 lg:prose-lg lg:mt-10">
+    <div class="aspect-16x9 relative h-0 overflow-hidden">
+      <iframe
+        width="560"
+        height="315"
+        class="absolute top-0 left-0 h-full w-full"
+        src="https://www.youtube.com/embed/bZ3pU-saMLQ"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </article>
+</BaseLayout>

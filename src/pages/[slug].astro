@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import { slug } from '../slug';
+import BaseLayout from '../layouts/base.astro';
+
+type Props = Awaited<ReturnType<typeof getStaticPaths>>[number]['props'];
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+
+  return blogEntries.map((post) => ({
+    params: { slug: slug(post.data.title) },
+    props: { post }
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const formattedDate = new Date(post.data.pubDate).toLocaleDateString('en-us', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  subTitle={formattedDate}
+  parent="writing">
+  <article
+    class="prose prose-zinc mx-auto mt-4 mb-16 prose-h2:mt-0 prose-a:text-orange-500 hover:prose-a:text-orange-500 dark:prose-dark dark:prose-a:text-orange-400 dark:hover:prose-a:text-orange-400 lg:prose-lg lg:mt-10">
+    <h1>{post.data.title}</h1>
+
+    <div class="mb-2">
+      <p class="text-zinc-400 dark:text-zinc-500" style="margin: 0">
+        {formattedDate}
+      </p>
+    </div>
+
+    <Content />
+  </article>
+</BaseLayout>

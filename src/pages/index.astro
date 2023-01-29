@@ -1,0 +1,111 @@
+---
+import { getCollection } from 'astro:content';
+import { slug } from '../slug';
+
+import BaseLayout from '../layouts/base.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import Icon from '../components/Icon.astro';
+
+const pageDescription =
+  'Developer with a passion for making the web faster. I teach about web development using the latest technologies.';
+
+const allBlogPosts = await getCollection('blog');
+
+const sortedPosts = allBlogPosts
+  .filter((post) => post.data.draft !== true)
+  .sort(
+    (a, b) =>
+      new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+  );
+---
+
+<BaseLayout
+  title="Peter Mekhaeil"
+  description={pageDescription}
+  subTitle={pageDescription}>
+  <div class="mt-8 flex flex-col-reverse items-start sm:flex-row">
+    <div class="mb-8 flex flex-col pr-8 lg:mb-12">
+      <h1
+        class="mb-3 text-3xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 md:text-5xl">
+        Peter Mekhaeil
+      </h1>
+      <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+        Developer with a passion for making the web faster. I teach about web
+        development using the latest technologies.
+      </p>
+      <ul class="mt-6 flex items-center text-zinc-600 dark:text-zinc-400">
+        <li class="mr-3">
+          <a
+            href="https://github.com/petermekhaeil"
+            title="GitHub"
+            rel="me noopener"
+            class="hover:text-zinc-800 hover:dark:text-zinc-200">
+            <span class="sr-only">Connect with Peter on GitHub</span>
+            <Icon name="github" />
+          </a>
+        </li>
+        <li class="mr-3">
+          <a
+            href="https://twitter.com/petermekh"
+            title="Twitter"
+            rel="me noopener"
+            class="hover:text-zinc-800 hover:dark:text-zinc-200">
+            <span class="sr-only">Connect with Peter on Twitter</span>
+            <Icon name="twitter" />
+          </a>
+        </li>
+        <li class="mr-3">
+          <a
+            href="https://dev.to/petermekhaeil"
+            title="Dev.to"
+            rel="me noopener"
+            class="hover:text-zinc-800 hover:dark:text-zinc-200">
+            <span class="sr-only">Connect with Peter on Dev.to</span>
+            <Icon name="devto" />
+          </a>
+        </li>
+        <li class="mr-3">
+          <a
+            href="https://www.linkedin.com/in/petermekhaeil/"
+            title="LinkedIn"
+            rel="me noopener"
+            class="hover:text-zinc-800 hover:dark:text-zinc-200">
+            <span class="sr-only">Connect with Peter on LinkedIn.</span>
+            <Icon name="linkedin" />
+          </a>
+        </li>
+      </ul>
+    </div>
+    <img
+      class="relative mb-8 mr-auto w-[176px] sm:mb-0"
+      src="/assets/profile.webp"
+      alt="Handsome photo of Peter Mekhaeil on the Great Wall of China"
+      height="195.258"
+      width="176"
+    />
+  </div>
+
+  <div class="mt-8 sm:mt-16 mb-8 sm:mb-16">
+    <div
+      class="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
+      <div class="flex max-w-3xl flex-col space-y-16">
+        {
+          sortedPosts.map((post) => (
+            <ArticleCard
+              title={post.data.title}
+              description={post.data.description}
+              date={post.data.pubDate}
+              url={`${slug(post.data.title)}/`}
+            />
+          ))
+        }
+        <ArticleCard
+          title="Modernising an Enterprise Front End Stack"
+          description="Almost any large enterprise struggles to keep their front-end code maintainable — and so did we! CSS and Javascript code bases grow large and unwieldy quite easily. With our component library, we were able to overcome these challenges."
+          url="https://medium.com/singtel-digital-technology/modernising-an-enterprise-front-end-stack-fe0571f259a1"
+          date={new Date('27 Nov 2018')}
+        />
+      </div>
+    </div>
+  </div>
+</BaseLayout>
