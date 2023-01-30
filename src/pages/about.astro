@@ -1,0 +1,150 @@
+---
+import { Image } from '@astrojs/image/components';
+import BaseLayout from '../layouts/base.astro';
+import Icon from '../components/Icon.astro';
+
+import profileImage from '/public/assets/profile.png';
+
+const pageDescription =
+  'I am an experienced web developer with a focus on optimizing performance and delivering a seamless user experience. I teach about web development using the latest technologies.';
+---
+
+<BaseLayout
+  title="About Me"
+  description={pageDescription}
+  subTitle={pageDescription}>
+  <article
+    class="prose prose-zinc mx-auto mt-4 mb-16 prose-h2:mt-0 prose-a:text-orange-500 hover:prose-a:text-orange-500 dark:prose-dark dark:prose-a:text-orange-400 dark:hover:prose-a:text-orange-400 lg:prose-lg lg:mt-10">
+    <div class="not-prose mb-8 mt-8">
+      <Image
+        class="w-[176px]"
+        src={profileImage}
+        alt="Peter Mekhaeil"
+        height={195}
+        width={176}
+        loading="eager"
+        aspectRatio={16 / 9}
+      />
+    </div>
+
+    <h2>Hello!</h2>
+
+    <p>
+      My name is Peter and I am passionate about frontend development. I am
+      currently based in Singapore, where I work as a software engineer at
+      Credit Suisse.
+    </p>
+
+    <p>
+      I have a diverse background, having been born in Egypt and raised in
+      Australia. This upbringing sparked my love for computers, cars, and the
+      outdoors. When I'm not working on the web, you can find me running and
+      exploring new outdoor locations.
+    </p>
+
+    <h2>Companies I've worked with</h2>
+
+    <div class="space-y-10 not-prose">
+      <div class="flex items-center space-x-5">
+        <img
+          src="/assets/companies/credit-suisse.jpeg"
+          alt="Credit Suisse logo"
+        />
+        <div>
+          <h3 class="text-xl font-medium">
+            <a href="https://www.credit-suisse.com" title="Credit Suisse"
+              >Credit Suisse</a
+            >
+          </h3>
+          <p class="text-lg">
+            <span class="text-zinc-400 dark:text-zinc-200">Singapore</span>
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-5">
+        <img src="/assets/companies/singtel.jpeg" alt="Singtel logo" />
+        <div>
+          <h3 class="text-xl font-medium">
+            <a href="https://shop.singtel.com" title="Singtel">Singtel</a>
+          </h3>
+          <p class="text-lg">
+            <span class="text-zinc-400 dark:text-zinc-200">Singapore</span>
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-5">
+        <img src="/assets/companies/optus.jpeg" alt="Optus logo" />
+        <div>
+          <h3 class="text-xl font-medium">
+            <a href="https://www.optus.com.au/" title="Optus">Optus</a>
+          </h3>
+          <p class="text-lg">
+            <span class="text-zinc-400 dark:text-zinc-200">Australia</span>
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-5">
+        <img src="/assets/companies/news-corp.jpeg" alt="News Corp logo" />
+        <div>
+          <h3 class="text-xl font-medium">
+            <a href="https://news.com.au/" title="News Corp">News Corp</a>
+          </h3>
+          <p class="text-lg">
+            <span class="text-zinc-400 dark:text-zinc-200">Australia</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <p>
+      I share my professional achievements on <a
+        href="https://www.linkedin.com/in/petermekhaeil/">LinkedIn</a
+      >.
+    </p>
+
+    <h2>Get in touch</h2>
+
+    <div class="not-prose">
+      <ul role="list">
+        <li class="flex">
+          <a
+            class="group flex text-sm font-medium text-zinc-800 transition hover:text-orange-500 dark:text-zinc-200 dark:hover:text-orange-500"
+            href="https://twitter.com/petermekh">
+            <Icon name="twitter" />
+            <span class="ml-4">Follow on Twitter</span></a
+          >
+        </li>
+        <li class="mt-4 flex">
+          <a
+            class="group flex text-sm font-medium text-zinc-800 transition hover:text-orange-500 dark:text-zinc-200 dark:hover:text-orange-500"
+            href="https://github.com/petermekhaeil">
+            <Icon name="github" />
+            <span class="ml-4">Follow on GitHub</span></a
+          >
+        </li>
+        <li class="mt-4 flex">
+          <a
+            class="group flex text-sm font-medium text-zinc-800 transition hover:text-orange-500 dark:text-zinc-200 dark:hover:text-orange-500"
+            href="https://www.linkedin.com/in/petermekhaeil/">
+            <Icon name="linkedin" />
+            <span class="ml-4">Follow on LinkedIn</span></a
+          >
+        </li>
+        <li class="mt-4 flex">
+          <a
+            class="group flex text-sm font-medium text-zinc-800 transition hover:text-orange-500 dark:text-zinc-200 dark:hover:text-orange-500"
+            href="https://www.strava.com/athletes/60074731">
+            <svg
+              viewBox="0 0 16 16"
+              class="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-orange-500">
+              <path
+                d="M6.731 0 2 9.125h2.788L6.73 5.497l1.93 3.628h2.766L6.731 0zm4.694 9.125-1.372 2.756L8.66 9.125H6.547L10.053 16l3.484-6.875h-2.112z"
+              ></path>
+            </svg>
+            <span class="ml-4">Follow on Strava</span></a
+          >
+        </li>
+      </ul>
+    </div>
+  </article>
+</BaseLayout>

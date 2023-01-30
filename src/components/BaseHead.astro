@@ -1,0 +1,64 @@
+---
+import { SEO } from 'astro-seo';
+
+interface Props {
+  title: string;
+  description?: string | undefined;
+  subTitle?: string | undefined;
+}
+
+const {
+  title = 'Peter Mekhaeil',
+  description = '',
+  subTitle = ''
+} = Astro.props;
+const url = Astro.url;
+---
+
+<SEO
+  title={`${title === 'Peter Mekhaeil' ? title : 'Peter Mekhaeil | ' + title}`}
+  description={description}
+  twitter={{
+    creator: '@petermekh',
+    card: 'summary_large_image',
+    site: '@petermekh',
+    title: title,
+    description: description,
+    image: encodeURI(
+      `${url.origin}/image/og2?title=${title}&subTitle=${subTitle}`
+    ),
+    imageAlt: `${title} - ${description}`
+  }}
+  openGraph={{
+    basic: {
+      title: `${title} - ${description}`,
+      type: 'blog',
+      image: encodeURI(
+        `${url.origin}/image/og?title=${title}&subTitle=${subTitle}`
+      ),
+      url: url.href
+    },
+    image: {
+      alt: `${title} - ${description}`,
+      width: 1200,
+      height: 630
+    },
+    optional: {
+      description: description,
+      siteName: 'Peter Mekhaeil'
+    }
+  }}
+  extend={{
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/png',
+        href: '/assets/favicon-32x32.png'
+      },
+      {
+        rel: 'apple-touch-icon',
+        href: '/assets/apple-touch-icon.png'
+      }
+    ]
+  }}
+/>

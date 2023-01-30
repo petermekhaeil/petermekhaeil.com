@@ -1,5 +1,10 @@
 [build]
+  command = "pnpm run build"
   functions = "./src/functions"
+  publish = "dist"
+
+[functions]
+  node_bundler = "esbuild"
 
 [[redirects]]
   from = "/api"

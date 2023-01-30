@@ -1,9 +1,6 @@
-_site
 node_modules
 .DS_Store
-drafts
 .netlify
 .env
-.env.local
-/src/assets/output.css
-.cache
+.astro
+dist/

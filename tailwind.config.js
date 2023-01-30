@@ -1,26 +1,26 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.njk', './src/**/*.md'],
-  darkMode: 'class',
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
       typography: (theme) => ({
         DEFAULT: {
           css: {
             'code::before': {
-              content: ''
+              content: 'none'
             },
             'code::after': {
-              content: ''
+              content: 'none'
             },
-            code: {
-              color: theme('colors.white'),
-              borderRadius: theme('spacing.1'),
-              fontWeight: theme('fontWeight.medium'),
-              padding: 0
-            },
-            'code:not([class^="language-"])': {
+            'code:not(pre code)': {
               color: theme('colors.black'),
-              backgroundColor: theme('colors.zinc.300')
+              backgroundColor: theme('colors.zinc.200'),
+              padding: '0.125rem 0.25rem',
+              fontSize: '.875em',
+              borderRadius: '0.25rem',
+              borderWidth: '2px',
+              borderColor: theme('colors.zinc.300'),
+              fontWeight: 400
             },
             color: theme('colors.zinc.800'),
             a: {
@@ -32,7 +32,8 @@ module.exports = {
               }
             },
             pre: {
-              borderRadius: theme('spacing.1')
+              borderRadius: theme('spacing.1'),
+              backgroundColor: '#0d1117'
             },
             small: {
               color: theme('colors.zinc.800')
@@ -73,15 +74,10 @@ module.exports = {
             blockquote: {
               color: theme('colors.orange.300')
             },
-            'code:not([class^="language-"])': {
+            'code:not(pre code)': {
               color: theme('colors.zinc.300'),
-              backgroundColor: theme('colors.zinc.700')
-            },
-            'code[class^="language-"]': {
-              padding: 0
-            },
-            pre: {
-              backgroundColor: '#011627' // night-owl theme
+              backgroundColor: theme('colors.zinc.700'),
+              borderColor: theme('colors.zinc.600')
             },
             small: {
               color: theme('colors.zinc.500')

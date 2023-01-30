@@ -1,0 +1,140 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Icon from '../components/Icon.astro';
+import '../global.css';
+
+interface Props {
+  title: string;
+  description?: string | undefined;
+  parent?: 'writing' | 'til';
+  subTitle?: string | undefined;
+}
+
+const { title, description, parent, subTitle } = Astro.props;
+
+const pathname = Astro.url.pathname;
+const currentPath = pathname;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="google-site-verification"
+      content="RVy6l7HbXQLZfIbXYPj3rU_0DCMcuJtQgDC4q83xoes"
+    />
+    <BaseHead title={title} description={description} subTitle={subTitle} />
+  </head>
+  <body
+    class="mx-auto max-w-2xl bg-zinc-50 px-4 py-6 text-zinc-600 antialiased dark:bg-zinc-900 dark:text-zinc-400 sm:text-lg">
+    <header class="border-b border-zinc-100 pb-6 dark:border-zinc-700/40">
+      <nav class="flex items-center justify-between">
+        <ul class="flex gap-4 text-sm font-medium sm:text-base">
+          <li>
+            <a
+              href="/about/"
+              class={currentPath === '/about/'
+                ? 'text-orange-500 hover:text-orange-500 dark:text-orange-400 dark:hover:text-orange-400'
+                : ''}>
+              About Me
+            </a>
+          </li>
+          <li>
+            <a
+              href="/"
+              class={currentPath === '/' || parent === 'writing'
+                ? 'text-orange-500 hover:text-orange-500 dark:text-orange-400 dark:hover:text-orange-400'
+                : ''}>
+              Writing
+            </a>
+          </li>
+          <li>
+            <a
+              href="/today-i-learned/"
+              class={currentPath === '/today-i-learned/' || parent === 'til'
+                ? 'text-orange-500 hover:text-orange-500 dark:text-orange-400 dark:hover:text-orange-400'
+                : ''}>
+              Today I Learned
+            </a>
+          </li>
+          <li>
+            <a
+              href="/projects/"
+              class={currentPath === '/projects/'
+                ? 'text-orange-500 hover:text-orange-500 dark:text-orange-400 dark:hover:text-orange-400'
+                : ''}>
+              Projects
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+
+    <footer class="mt-16 flex justify-center">
+      <ul class="flex items-center">
+        <li class="mr-3">
+          <a
+            href="https://github.com/petermekhaeil"
+            title="GitHub"
+            class="hover:text-zinc-800 hover:dark:text-zinc-200"
+            rel="me noopener">
+            <span class="sr-only">Connect with Peter on GitHub</span>
+            <Icon name="github" />
+          </a>
+        </li>
+        <li class="mr-3">
+          <a
+            href="https://twitter.com/petermekh"
+            title="Twitter"
+            class="hover:text-zinc-800 hover:dark:text-zinc-200"
+            rel="me noopener">
+            <span class="sr-only">Connect with Peter on Twitter</span>
+            <Icon name="twitter" />
+          </a>
+        </li>
+        <li class="mr-3">
+          <a
+            href="https://dev.to/petermekhaeil"
+            title="Dev.to"
+            class="hover:text-zinc-800 hover:dark:text-zinc-200"
+            rel="me noopener">
+            <span class="sr-only">Connect with Peter on Dev.to</span>
+            <Icon name="devto" />
+          </a>
+        </li>
+        <li class="mr-3">
+          <a
+            href="https://www.linkedin.com/in/petermekhaeil/"
+            title="LinkedIn"
+            class="hover:text-zinc-800 hover:dark:text-zinc-200"
+            rel="me noopener">
+            <span class="sr-only">Connect with Peter on LinkedIn.</span>
+            <Icon name="linkedin" />
+          </a>
+        </li>
+        <li class="mr-3">
+          <a
+            href="/rss.xml"
+            title="RSS Feed"
+            rel="me noopener"
+            class="hover:text-zinc-800 hover:dark:text-zinc-200">
+            <span class="sr-only">RSS Feed</span>
+            <Icon name="rss" />
+          </a>
+        </li>
+      </ul>
+    </footer>
+    <script
+      is:inline
+      async
+      src="/js/script.js"
+      data-ackee-server="https://petermekhaeil.com"
+      data-ackee-domain-id="547bf18c-53d2-4626-9c00-040e6310d98e"
+      data-ackee-opts='{ "ignoreLocalhost": true, "detailed": true }'
+    ></script>
+  </body>
+</html>
