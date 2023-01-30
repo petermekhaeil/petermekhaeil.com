@@ -1,6 +1,9 @@
 ---
+import { Image } from '@astrojs/image/components';
 import BaseLayout from '../layouts/base.astro';
 import Icon from '../components/Icon.astro';
+
+import profileImage from '/public/assets/profile.png';
 
 const pageDescription =
   'I am an experienced web developer with a focus on optimizing performance and delivering a seamless user experience. I teach about web development using the latest technologies.';
@@ -13,7 +16,15 @@ const pageDescription =
   <article
     class="prose prose-zinc mx-auto mt-4 mb-16 prose-h2:mt-0 prose-a:text-orange-500 hover:prose-a:text-orange-500 dark:prose-dark dark:prose-a:text-orange-400 dark:hover:prose-a:text-orange-400 lg:prose-lg lg:mt-10">
     <div class="not-prose mb-8 mt-8">
-      <img class="w-[176px]" src="/assets/profile.webp" alt="Peter Mekhaeil" />
+      <Image
+        class="w-[176px]"
+        src={profileImage}
+        alt="Peter Mekhaeil"
+        height={195}
+        width={176}
+        loading="eager"
+        aspectRatio={16 / 9}
+      />
     </div>
 
     <h2>Hello!</h2>

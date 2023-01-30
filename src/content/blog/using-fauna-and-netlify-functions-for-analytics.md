@@ -10,7 +10,7 @@ eleventyNavigation:
   parent: Writing
 ---
 
-As I continue to build this blog, I want to add some analytics to get an idea of my viewers and what they are interested in reading. Using [FaunaDB](https://fauna.com/), we are going to build a basic API that will allow us to track the page hits.
+As I continue to build this blog, I want to add some analytics to get an idea of my viewers and what they are interested in reading. Using [FaunaDB](https://fauna.com/) and [Netlify Functions](https://www.netlify.com/products/functions/), we are going to build a basic API that will allow us to track the page hits.
 
 ## TL;DR
 
@@ -24,7 +24,7 @@ We want to keep it as minimal as possible. We can achieve this without using Jav
 
 ### Back End
 
-This blog doesn't sit on a server (woohoo!). It's a static website built on [Eleventy](https://www.11ty.dev/) which are serverless functions that you can deploy alongside your static website. Behind the scenes, Netlify Functions run on AWS Lambda and the beautiful thing about this is that you don't need to worry about using AWS. Lambda functions are fully managed and auto-scale. AWS and Netlify will take care of setting everything up for you, all we need to do is write the API function and deploy it.
+This blog doesn't sit on a server (woohoo!). It's a static website built on [Eleventy](https://www.11ty.dev/) and served from [Netlify](https://netlify.app/). Our solution will involve using [Netlify Functions](https://www.netlify.com/products/functions/) which are serverless functions that you can deploy alongside your static website. Behind the scenes, Netlify Functions run on AWS Lambda and the beautiful thing about this is that you don't need to worry about using AWS. Lambda functions are fully managed and auto-scale. AWS and Netlify will take care of setting everything up for you, all we need to do is write the API function and deploy it.
 
 ### Database
 
@@ -133,7 +133,7 @@ exports.handler = async (event) => {
 };
 ```
 
-The [Fauna Query Language](https://docs.fauna.com/fauna/current/api/fql/functions).
+The [Fauna Query Language](https://docs.fauna.com/fauna/current/api/fql/functions) provides a collection of built-in functions that we used in this function. We started with [Let](https://docs.fauna.com/fauna/current/api/fql/functions/let?lang=javascript) that allowed us to create the variable `match`. The expression used an [If](https://docs.fauna.com/fauna/current/api/fql/functions/if?lang=javascript) which takes 3 parameters `( cond_expr, true_expr, false_expr )`. For the condition, we want to check if the document exists using [Exists](https://docs.fauna.com/fauna/current/api/fql/functions/exists?lang=javascript). If it exists, we referenced it using [Select](https://docs.fauna.com/fauna/current/api/fql/functions/select?lang=javascript) and [Update](https://docs.fauna.com/fauna/current/api/fql/functions/update?lang=javascript). We used [Add](https://docs.fauna.com/fauna/current/api/fql/functions/add?lang=javascript) to add `1` to the previous count. If the document did not exist, we created it with [Create](https://docs.fauna.com/fauna/current/api/fql/functions/create?lang=javascript).
 
 ### Build Environment Variables
 

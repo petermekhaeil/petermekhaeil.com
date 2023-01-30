@@ -15,7 +15,7 @@ F1 2020 is over - Mercedes took 1st and 2nd position, with Red Bull right behind
 
 [PageSpeed Insights](https://developers.google.com/speed/docs/insights/v5/about) is a tool that reports on site performance and it includes both lab data and real-world field data.
 
-[Lab Data](https://developers.google.com/web/fundamentals/performance/speed-tools/#lab_data) and it is capturing real-world user experience - these are from real page views over a set period of time.
+[Lab Data](https://developers.google.com/web/fundamentals/performance/speed-tools/#lab_data) is collected by running [Lighthouse](https://developers.google.com/web/tools/lighthouse) and is measured under controlled conditions - simulating a single device with fixed network conditions. [Field Data](https://developers.google.com/web/fundamentals/performance/speed-tools/#field_data) is collected from [Chrome User Experience Report (CrUX)](https://developers.google.com/web/tools/chrome-user-experience-report/) and it is capturing real-world user experience - these are from real page views over a set period of time.
 
 I have aggregated the results and built a site to show us a summary: [F1 Page Speed Insights](https://f1-page-speed-insights.netlify.app/).
 
@@ -44,7 +44,7 @@ A score of 90 or above is considered good. So these teams have some work to do o
 
 The list is ordered according to their Performance Scores. We can see **Racing Point** takes the lead for `Cumulative Layout Shift` and **Williams** for `Largest Contentful Paint`.
 
-You will notice 3 of the Field Data metrics are used in the Performance Scores. The 4th one being [First Input Delay (FID)](https://web.dev/fid/).
+You will notice 3 of the Field Data metrics are used in the Performance Scores. The 4th one being [First Input Delay (FID)](https://web.dev/fid/). Each of these metrics have their own [scoring](https://developers.google.com/speed/docs/insights/v5/about#categories).
 
 ### Team Breakdown
 
@@ -92,11 +92,11 @@ We can see that content is loaded earlier for Williams.
 
 ### UppubDate: 2020-12-19
 
-Previously on [F1 Page Speed Insights](https://f1-page-speed-insights.netlify.app/). Lab Data has it's benefits - the data is collected from a simulated load on a site using a single device and a fixed network connection. This allows for a reproducible environment which aids in debugging performance issues.
+Previously on [F1 Page Speed Insights](https://f1-page-speed-insights.netlify.app/), the performance score was based on [Lab Data](https://developers.google.com/web/fundamentals/performance/speed-tools/#lab_data) captured from [Lighthouse](https://developers.google.com/web/tools/lighthouse). Lab Data has it's benefits - the data is collected from a simulated load on a site using a single device and a fixed network connection. This allows for a reproducible environment which aids in debugging performance issues.
 
 Lighthouse scoring can [fluctuate](https://github.com/GoogleChrome/lighthouse/blob/master/docs/variability.md). This is because of external conditions such as internet traffic routing, testing on difference devices or network conditions. And because of this, it might not be the right choice to the performance comparison I am looking for.
 
-I have come across [lighthouse-plugin-field-performance](https://github.com/treosh/lighthouse-plugin-field-performance):
+I have come across [lighthouse-plugin-field-performance](https://github.com/treosh/lighthouse-plugin-field-performance) which lets Lighthouse weigh the scoring using the [Field Data](https://developers.google.com/web/fundamentals/performance/speed-tools/#field_data) collected from the [Chrome UX Report](https://developers.google.com/web/tools/chrome-user-experience-report/):
 
 > The scoring algorithm weighs values for Largest Contentful Paint (LCP), First Input Delay (FID), and Cumulative Layout Shift (CLS) and picks a minimum score. It uses Core Web Vitals assessment that expects all its metrics to pass thresholds.
 

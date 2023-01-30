@@ -1,10 +1,13 @@
 ---
+import { Image } from '@astrojs/image/components';
 import { getCollection } from 'astro:content';
 import { slug } from '../slug';
 
 import BaseLayout from '../layouts/base.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import Icon from '../components/Icon.astro';
+
+import profileImage from '/public/assets/profile.png';
 
 const pageDescription =
   'Developer with a passion for making the web faster. I teach about web development using the latest technologies.';
@@ -76,12 +79,14 @@ const sortedPosts = allBlogPosts
         </li>
       </ul>
     </div>
-    <img
+    <Image
       class="relative mb-8 mr-auto w-[176px] sm:mb-0"
-      src="/assets/profile.webp"
+      src={profileImage}
       alt="Handsome photo of Peter Mekhaeil on the Great Wall of China"
-      height="195.258"
-      width="176"
+      height={195}
+      width={176}
+      loading="eager"
+      aspectRatio={16 / 9}
     />
   </div>
 
