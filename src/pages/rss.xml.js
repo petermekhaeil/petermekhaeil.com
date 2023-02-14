@@ -12,7 +12,8 @@ export async function get(context) {
   return rss({
     stylesheet: 'pretty-feed-v3.xsl',
     title: 'Peter Mekhaeil',
-    description: 'I teach about web development using the latest technologies.',
+    description:
+      'I am an experienced web developer with a focus on optimizing performance and delivering a seamless user experience. I teach web development using the latest technologies.',
     site: context.site,
     items: blog.map((post) => {
       return {
