@@ -1,7 +1,7 @@
 [  
   {
     "name": "cvAI.app",
-    "description": "AI-powered resume and cover letter builder. This site uses OpenAI’s new GPT-4 with Vision model.",
+    "description": "AI-powered resume and cover letter builder. This site uses OpenAI’s new GPT-4 with Vision model. Built using SvelteKit and hosted on Vercel.",
     "links": [
       {
         "url": "https://www.cvai.app/",
