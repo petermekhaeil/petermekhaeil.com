@@ -1,4 +1,18 @@
-[
+[  
+  {
+    "name": "cvAI.app",
+    "description": "AI-powered resume and cover letter builder. This site uses OpenAI’s new GPT-4 with Vision model.",
+    "links": [
+      {
+        "url": "https://www.cvai.app/",
+        "text": "cvai.app"
+      },
+      {
+        "url": "https://github.com/petermekhaeil/cvai.app",
+        "text": "Source code"
+      }
+    ]
+  },
   {
     "name": "Remix Commerce",
     "description": "Performant e-commerce that runs on the edge. Built using Remix running on Cloudflare Workers. It supports different commerce providers to showcase the benefits of a headless commerce architecture.",
