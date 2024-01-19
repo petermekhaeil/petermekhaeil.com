@@ -5,8 +5,6 @@ description: Performance report using PageSpeed Insights and Chrome User Experie
 tags:
   - performance
 devto: https://dev.to/petermekhaeil/f1-page-speed-insights-3bji
-eleventyNavigation:
-  parent: Writing
 ---
 
 F1 2020 is over - Mercedes took 1st and 2nd position, with Red Bull right behind them in 3rd. But which team won in terms of web speed performance?

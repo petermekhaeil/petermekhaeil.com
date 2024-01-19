@@ -15,7 +15,7 @@ const pageDescription =
 const allBlogPosts = await getCollection('blog');
 
 const sortedPosts = allBlogPosts
-  .filter((post) => post.data.draft !== true)
+  .filter((post) => post.data.isDraft !== true)
   .sort(
     (a, b) =>
       new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()

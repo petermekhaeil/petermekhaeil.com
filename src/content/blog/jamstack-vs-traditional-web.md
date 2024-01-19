@@ -7,8 +7,6 @@ tags:
   - javascript
   - webdev
 devto: https://dev.to/petermekhaeil/jamstack-vs-traditional-web-4gco
-eleventyNavigation:
-  parent: Writing
 ---
 
 ## Traditional Web

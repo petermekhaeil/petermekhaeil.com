@@ -5,8 +5,6 @@ description: Landing your first engineering job is tough. I share my experience 
 tags:
   - career
   - leadership
-eleventyNavigation:
-  parent: Writing
 ---
 
 I was once an entry level developer with no experience, looking for my first door into an engineering career. I finished my studies back in 2009 and for almost a year I could not find a job. It almost felt like a blind journey from one interview to another, that all ended up in rejection because of lack of experience and knowledge. Without knowing where to look or without knowing what to research, I was mostly answering interview questions with answers that I thought was right, based on my limited knowledge in web development (my computer science studies did not include web dev subjects).

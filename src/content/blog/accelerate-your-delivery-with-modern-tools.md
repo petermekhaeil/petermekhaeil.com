@@ -6,8 +6,6 @@ tags:
   - javascript
   - npm
   - webdev
-eleventyNavigation:
-  parent: Writing
 ---
 
 By using modern tools in the development of large front-end repositories, we can potentially improve the speed of deliverables. This will benefit both the business and the development team. The business will benefit from a faster time to market, and the development team will be more motivated as a faster pipeline reduces the need for context switching. I'll share 3 development tools that will lead to faster delivery of your development.

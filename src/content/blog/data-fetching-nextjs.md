@@ -5,8 +5,6 @@ description: Next.js offers different methods to fetch data for your page conten
 tags:
   - performance
 devto: https://dev.to/petermekhaeil/data-fetching-in-next-js-pci
-eleventyNavigation:
-  parent: Writing
 ---
 
 Next.js offers different methods to fetch data for your page content - choosing the right approach for your application will allow you to benefit from the performant advantages that Next.js provides. We will first start with describing the different methods available, followed with an e-commerce use-case example.

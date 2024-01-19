@@ -8,8 +8,6 @@ tags:
   - javascript
   - performance
 devto: https://dev.to/petermekhaeil/measuring-the-performance-of-the-mclaren-racing-website-97k
-eleventyNavigation:
-  parent: Writing
 ---
 
 With [McLaren Racing](https://www.mclaren.com/racing/) recently [announced a partnership](https://twitter.com/McLarenF1/status/1504133329855164420) with Google Chrome, this is a great opportunity for McLaren to measure the performance of their website and look into how it can be improved. Today, we will look at their performance scores and talk about some possible improvements that McLaren can do to their website performance.

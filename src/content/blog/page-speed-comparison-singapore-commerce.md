@@ -5,8 +5,6 @@ description: Performance comparison of Singapore E-commerce stores. We look at h
 tags:
   - performance
 devto: https://dev.to/petermekhaeil/page-speed-comparison-of-singapore-commerce-1go6
-eleventyNavigation:
-  parent: Writing
 ---
 
 An online commerce store that offers a great user experience will satisfy the needs of its users and page speed performance is a driving factor to this. This is where [Core Web Vitals](https://web.dev/vitals/) comes into play. The Core Web Vitals aim to measure user experience. It is a set of metrics that Google uses to measure user experience and it has become one of their key factors in search result rankings. It is also a great way to compare your commerce store against your competitors.
