@@ -1,5 +1,5 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import { slug } from '../slug';
 
@@ -87,7 +87,6 @@ const sortedPosts = allBlogPosts
       height={195}
       width={176}
       loading="eager"
-      aspectRatio={16 / 9}
     />
   </div>
 

@@ -91,11 +91,11 @@ Select your site from your [Netlify team dashboard](https://app.netlify.com/) an
 
 Netlify Graph supports a handful of API providers that we can connect with:
 
-![Netlify Graph Dashboard](.../../../images/uploads/netlify-remix-2.png)
+![Netlify Graph Dashboard](/images/uploads/netlify-remix-2.png)
 
 We are going to connect to GitHub. Select "GitHub" from the list of providers and you will need to enable both "Authentication" and "Graph Explorer". Then continue with "Start querying GitHub":
 
-![Netlify Graph Dashboard](.../../../images/uploads/netlify-remix-1.png)
+![Netlify Graph Dashboard](/images/uploads/netlify-remix-1.png)
 
 Once you have selected your open session (that was created when you started the dev server), you will be presented with a Graph Explorer. This will allow you to query the GitHub API for the data you are interested in fetching. For our use case, we will want to fetch the GitHub repository issues and their comments.
 
