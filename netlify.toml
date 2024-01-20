@@ -20,8 +20,3 @@
   from = "/image/og"
   to = "/.netlify/functions/og-image-redirect"
   status = 200
-
-[[redirects]]
-  from = "/react-pokedex/*"
-  to = "https://react-workshop-pokedex.vercel.app/:splat"
-  status = 200
