@@ -1,13 +1,9 @@
 ---
-import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import { slug } from '../slug';
 
 import BaseLayout from '../layouts/base.astro';
 import ArticleCard from '../components/ArticleCard.astro';
-import Icon from '../components/Icon.astro';
-
-import profileImage from '/public/assets/profile.png';
 
 const pageDescription =
   'I am an experienced web developer with a focus on optimizing performance and delivering a seamless user experience. I teach web development using the latest technologies.';
@@ -26,91 +22,43 @@ const sortedPosts = allBlogPosts
   title="Peter Mekhaeil"
   description={pageDescription}
   subTitle={pageDescription}>
-  <div class="mt-8 flex flex-col-reverse items-start sm:flex-row">
-    <div class="mb-8 flex flex-col pr-8 lg:mb-12">
-      <h1
-        class="mb-3 text-3xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 md:text-5xl">
-        Peter Mekhaeil
-      </h1>
-      <p class="text-base text-zinc-600 dark:text-zinc-400">
-        I am an experienced web developer with a focus on optimizing performance
-        and delivering a seamless user experience. I teach web development using
-        the latest technologies.
-      </p>
-      <ul class="mt-6 flex items-center text-zinc-600 dark:text-zinc-400">
-        <li class="mr-3">
-          <a
-            href="https://github.com/petermekhaeil"
-            title="GitHub"
-            rel="me noopener"
-            class="hover:text-zinc-800 hover:dark:text-zinc-200">
-            <span class="sr-only">Connect with Peter on GitHub</span>
-            <Icon name="github" />
-          </a>
-        </li>
-        <li class="mr-3">
-          <a
-            href="https://twitter.com/petermekh"
-            title="Twitter"
-            rel="me noopener"
-            class="hover:text-zinc-800 hover:dark:text-zinc-200">
-            <span class="sr-only">Connect with Peter on Twitter</span>
-            <Icon name="twitter" />
-          </a>
-        </li>
-        <li class="mr-3">
-          <a
-            href="https://dev.to/petermekhaeil"
-            title="Dev.to"
-            rel="me noopener"
-            class="hover:text-zinc-800 hover:dark:text-zinc-200">
-            <span class="sr-only">Connect with Peter on Dev.to</span>
-            <Icon name="devto" />
-          </a>
-        </li>
-        <li class="mr-3">
-          <a
-            href="https://www.linkedin.com/in/petermekhaeil/"
-            title="LinkedIn"
-            rel="me noopener"
-            class="hover:text-zinc-800 hover:dark:text-zinc-200">
-            <span class="sr-only">Connect with Peter on LinkedIn.</span>
-            <Icon name="linkedin" />
-          </a>
-        </li>
-      </ul>
+  <p>
+    I'm an experienced web developer with a focus on optimizing performance and
+    delivering a seamless user experience. I teach web development using the
+    latest technologies.
+  </p>
+  <div class="max-w-2xl m-auto mb-10 my-8 text-sm">
+    <div class="py-2 font-medium text-gray-500">
+      <span class="grid grid-cols-8">
+        <span class="col-span-1">Date</span>
+        <span class="col-span-7">Title</span>
+      </span>
     </div>
-    <Image
-      class="relative mb-8 mr-auto w-[176px] sm:mb-0"
-      src={profileImage}
-      alt="Handsome photo of Peter Mekhaeil on the Great Wall of China"
-      height={195}
-      width={176}
-      loading="eager"
-    />
-  </div>
+    <ul>
+      {
+        sortedPosts.map((post, index, posts) => {
+          const year = new Date(post.data.pubDate).getFullYear();
+          const prevPost = posts[index - 1];
+          const prevYear =
+            prevPost && new Date(prevPost.data.pubDate).getFullYear();
+          const showYear = year !== prevYear;
 
-  <div class="mt-8 sm:mt-16 mb-8 sm:mb-16">
-    <div
-      class="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
-      <div class="flex max-w-3xl flex-col space-y-16">
-        {
-          sortedPosts.map((post) => (
+          return (
             <ArticleCard
               title={post.data.title}
-              description={post.data.description}
               date={post.data.pubDate}
               url={`${slug(post.data.title)}/`}
+              showYear={showYear}
             />
-          ))
-        }
-        <ArticleCard
-          title="Modernising an Enterprise Front End Stack"
-          description="Almost any large enterprise struggles to keep their front-end code maintainable — and so did we! CSS and Javascript code bases grow large and unwieldy quite easily. With our component library, we were able to overcome these challenges."
-          url="https://medium.com/singtel-digital-technology/modernising-an-enterprise-front-end-stack-fe0571f259a1"
-          date={new Date('27 Nov 2018')}
-        />
-      </div>
-    </div>
+          );
+        })
+      }
+      <ArticleCard
+        title="Modernising an Enterprise Front End Stack"
+        url="https://medium.com/singtel-digital-technology/modernising-an-enterprise-front-end-stack-fe0571f259a1"
+        date={new Date('27 Nov 2018')}
+        showYear={true}
+      />
+    </ul>
   </div>
 </BaseLayout>

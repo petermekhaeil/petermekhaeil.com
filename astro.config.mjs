@@ -9,6 +9,7 @@ export default defineConfig({
   integrations: [tailwind(), sitemap(), mdx()],
   markdown: {
     shikiConfig: {
+      theme: 'material-theme-palenight',
       wrap: true
     }
   }

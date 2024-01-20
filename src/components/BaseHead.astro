@@ -15,50 +15,57 @@ const {
 const url = Astro.url;
 ---
 
-<SEO
-  title={`${title === 'Peter Mekhaeil' ? title : 'Peter Mekhaeil | ' + title}`}
-  description={description}
-  twitter={{
-    creator: '@petermekh',
-    card: 'summary_large_image',
-    site: '@petermekh',
-    title: title,
-    description: description,
-    image: encodeURI(
-      `${url.origin}/image/og2?title=${title}&subTitle=${subTitle}`
-    ),
-    imageAlt: `${title} - ${description}`
-  }}
-  openGraph={{
-    basic: {
-      title: `${title} - ${description}`,
-      type: 'blog',
-      image: encodeURI(
-        `${url.origin}/image/og?title=${title}&subTitle=${subTitle}`
-      ),
-      url: url.href
-    },
-    image: {
-      alt: `${title} - ${description}`,
-      width: 1200,
-      height: 630
-    },
-    optional: {
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="google-site-verification"
+    content="RVy6l7HbXQLZfIbXYPj3rU_0DCMcuJtQgDC4q83xoes"
+  />
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+  <SEO
+    title={`${
+      title === 'Peter Mekhaeil' ? title : 'Peter Mekhaeil | ' + title
+    }`}
+    description={description}
+    twitter={{
+      creator: '@petermekh',
+      card: 'summary_large_image',
+      site: '@petermekh',
+      title: title,
       description: description,
-      siteName: 'Peter Mekhaeil'
-    }
-  }}
-  extend={{
-    link: [
-      {
-        rel: 'icon',
-        type: 'image/png',
-        href: '/assets/favicon-32x32.png'
+      image: encodeURI(
+        `${url.origin}/image/og2?title=${title}&subTitle=${subTitle}`
+      ),
+      imageAlt: `${title} - ${description}`
+    }}
+    openGraph={{
+      basic: {
+        title: `${title} - ${description}`,
+        type: 'blog',
+        image: encodeURI(
+          `${url.origin}/image/og?title=${title}&subTitle=${subTitle}`
+        ),
+        url: url.href
       },
-      {
-        rel: 'apple-touch-icon',
-        href: '/assets/apple-touch-icon.png'
+      image: {
+        alt: `${title} - ${description}`,
+        width: 1200,
+        height: 630
+      },
+      optional: {
+        description: description,
+        siteName: 'Peter Mekhaeil'
       }
-    ]
-  }}
-/>
+    }}
+    extend={{
+      link: [
+        {
+          rel: 'icon',
+          type: 'image/png',
+          href: '/assets/icon.png'
+        }
+      ]
+    }}
+  />
+</head>

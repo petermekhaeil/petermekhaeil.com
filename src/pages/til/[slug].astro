@@ -23,10 +23,7 @@ const { post } = Astro.props;
   description={post.title}
   parent="til"
   subTitle="Today I Learned">
-  <article
-    class="prose prose-zinc mx-auto mt-4 mb-16 prose-h2:mt-0 prose-a:text-orange-500 hover:prose-a:text-orange-500 dark:prose-dark dark:prose-a:text-orange-400 dark:hover:prose-a:text-orange-400 lg:mt-10 lg:prose-lg">
-    <div class="mx-auto mt-4 mb-16 lg:mt-10">
-      <Markdown content={post.content} />
-    </div>
+  <article class="text-gray-800 prose prose-gray mb-16">
+    <Markdown content={post.content} />
   </article>
 </BaseLayout>
