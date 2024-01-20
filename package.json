@@ -14,9 +14,9 @@
   },
   "devDependencies": {
     "@types/marked": "^4.0.8",
-    "prettier": "^2.8.3",
-    "prettier-plugin-astro": "^0.7.2",
-    "prettier-plugin-tailwindcss": "^0.1.13",
+    "prettier": "^3.0.0",
+    "prettier-plugin-astro": "^0.13.0",
+    "prettier-plugin-tailwindcss": "^0.5.11",
     "tailwindcss": "^3.0.24",
     "typescript": "^5.3.3"
   },
