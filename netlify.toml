@@ -15,8 +15,3 @@
   from = "/js/script.js"
   to = "https://pmekh-ackee.netlify.app/tracker.js"
   status = 200
-
-[[redirects]]
-  from = "/image/og"
-  to = "/.netlify/functions/og-image-redirect"
-  status = 200

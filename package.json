@@ -34,7 +34,6 @@
     "astro-seo": "^0.7.0",
     "markdown-it": "^13.0.1",
     "marked": "^4.2.12",
-    "node-fetch": "2",
     "sanitize-html": "^2.8.1",
     "satori": "^0.10.11",
     "satori-html": "^0.3.2",

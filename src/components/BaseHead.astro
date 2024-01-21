@@ -9,11 +9,11 @@ interface Props {
 
 const {
   title = 'Peter Mekhaeil',
-  description = 'Peter is a software engineer with a focus on optimizing performance and delivering a seamless user experience.',
-  subTitle = ''
+  description = 'Peter is a software engineer with a focus on optimizing performance and delivering a seamless user experience.'
 } = Astro.props;
 
 const url = Astro.url;
+const slug = url.pathname.replace(/\//g, '');
 ---
 
 <head>
@@ -32,18 +32,14 @@ const url = Astro.url;
       site: '@petermekh',
       title: title,
       description: description,
-      image: encodeURI(
-        `${url.origin}/image/og2?title=${title}&subTitle=${subTitle}`
-      ),
+      image: encodeURI(`${url.origin}/og/${slug}`),
       imageAlt: description
     }}
     openGraph={{
       basic: {
         title: description,
         type: 'blog',
-        image: encodeURI(
-          `${url.origin}/image/og?title=${title}&subTitle=${subTitle}`
-        ),
+        image: encodeURI(`${url.origin}/og/${slug}`),
         url: url.href
       },
       image: {
