@@ -3,13 +3,14 @@ import BaseHead from '../components/BaseHead.astro';
 import Icon from '../components/Icon.astro';
 
 interface Props {
-  title: string;
+  title?: string | undefined;
   description?: string | undefined;
-  parent?: 'writing' | 'til';
   subTitle?: string | undefined;
 }
 
 const { title, description, subTitle } = Astro.props;
+
+const isProd = import.meta.env.PROD;
 ---
 
 <html lang="en" class="font-sans antialiased">
@@ -98,13 +99,16 @@ const { title, description, subTitle } = Astro.props;
         </li>
       </ul>
     </footer>
-    <script
-      is:inline
-      async
-      src="/js/script.js"
-      data-ackee-server="https://petermekhaeil.com"
-      data-ackee-domain-id="547bf18c-53d2-4626-9c00-040e6310d98e"
-      data-ackee-opts='{ "ignoreLocalhost": true, "detailed": true }'
-    ></script>
+    {isProd && (
+      <script
+        is:inline
+        async
+        src="/js/script.js"
+        data-ackee-server="https://petermekhaeil.com"
+        data-ackee-domain-id="547bf18c-53d2-4626-9c00-040e6310d98e"
+        data-ackee-opts='{ "ignoreLocalhost": true, "detailed": true }'
+      >
+      </script>
+    )}
   </body>
 </html>

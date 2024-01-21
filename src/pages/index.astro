@@ -5,9 +5,6 @@ import { slug } from '../slug';
 import BaseLayout from '../layouts/base.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 
-const pageDescription =
-  'I am an experienced web developer with a focus on optimizing performance and delivering a seamless user experience. I teach web development using the latest technologies.';
-
 const allBlogPosts = await getCollection('blog');
 
 const sortedPosts = allBlogPosts
@@ -18,10 +15,7 @@ const sortedPosts = allBlogPosts
   );
 ---
 
-<BaseLayout
-  title="Peter Mekhaeil"
-  description={pageDescription}
-  subTitle={pageDescription}>
+<BaseLayout title="Peter Mekhaeil">
   <p>
     I'm an experienced web developer with a focus on optimizing performance and
     delivering a seamless user experience. I teach web development using the

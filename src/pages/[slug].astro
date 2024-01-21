@@ -27,8 +27,7 @@ const formattedDate = new Date(post.data.pubDate).toLocaleDateString('en-us', {
 <BaseLayout
   title={post.data.title}
   description={post.data.description}
-  subTitle={formattedDate}
-  parent="writing">
+  subTitle={formattedDate}>
   <article class="text-gray-800 prose prose-gray mb-16">
     <h1 class="text-2xl font-bold mb-1">
       {post.data.title}

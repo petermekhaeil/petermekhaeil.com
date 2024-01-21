@@ -3,15 +3,9 @@ import BaseLayout from '../layouts/base.astro';
 import Project from '../components/Project.astro';
 import projects from '../_data/projects.json';
 import projects_github from '../_data/projects_github.json';
-
-const pageDescription =
-  'Projects that showcase different web technologies and how they can be used to solve different challenges';
 ---
 
-<BaseLayout
-  title="Projects"
-  description={pageDescription}
-  subTitle={pageDescription}>
+<BaseLayout>
   <h1 class="text-2xl font-bold mb-1">Projects</h1>
   <div class="my-5">
     <ul role="list" class="grid grid-cols-1 gap-y-10">

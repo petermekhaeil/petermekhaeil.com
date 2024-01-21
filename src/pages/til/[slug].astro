@@ -21,7 +21,6 @@ const { post } = Astro.props;
 <BaseLayout
   title={post.title}
   description={post.title}
-  parent="til"
   subTitle="Today I Learned">
   <article class="text-gray-800 prose prose-gray mb-16">
     <Markdown content={post.content} />

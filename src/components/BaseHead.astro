@@ -2,16 +2,17 @@
 import { SEO } from 'astro-seo';
 
 interface Props {
-  title: string;
+  title?: string | undefined;
   description?: string | undefined;
   subTitle?: string | undefined;
 }
 
 const {
   title = 'Peter Mekhaeil',
-  description = '',
+  description = 'Peter is a software engineer with a focus on optimizing performance and delivering a seamless user experience.',
   subTitle = ''
 } = Astro.props;
+
 const url = Astro.url;
 ---
 
@@ -24,7 +25,7 @@ const url = Astro.url;
   />
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
   <SEO
-    title={`${title === 'Peter Mekhaeil' ? title : 'Peter Mekhaeil: ' + title}`}
+    title={title}
     description={description}
     twitter={{
       creator: '@petermekh',
@@ -35,11 +36,11 @@ const url = Astro.url;
       image: encodeURI(
         `${url.origin}/image/og2?title=${title}&subTitle=${subTitle}`
       ),
-      imageAlt: `${title} - ${description}`
+      imageAlt: description
     }}
     openGraph={{
       basic: {
-        title: `${title} - ${description}`,
+        title: description,
         type: 'blog',
         image: encodeURI(
           `${url.origin}/image/og?title=${title}&subTitle=${subTitle}`
@@ -47,7 +48,7 @@ const url = Astro.url;
         url: url.href
       },
       image: {
-        alt: `${title} - ${description}`,
+        alt: description,
         width: 1200,
         height: 630
       },

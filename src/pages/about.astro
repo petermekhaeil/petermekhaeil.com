@@ -3,15 +3,9 @@ import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/base.astro';
 
 import profileImage from '/public/assets/profile.png';
-
-const pageDescription =
-  'I am an experienced web developer with a focus on optimizing performance and delivering a seamless user experience. I teach web development using the latest technologies.';
 ---
 
-<BaseLayout
-  title="About Me"
-  description={pageDescription}
-  subTitle={pageDescription}>
+<BaseLayout>
   <h1 class="text-2xl font-bold mb-1">About</h1>
   <Image
     class="bg-gray-100 rounded-lg block mt-2 mb-5 mx-auto sm:float-right sm:ml-5 sm:mb-5"

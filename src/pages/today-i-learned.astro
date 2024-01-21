@@ -3,15 +3,9 @@ import BaseLayout from '../layouts/base.astro';
 import { getGitHubTilRepo } from '../_data/github_til_repo';
 
 const til = await getGitHubTilRepo();
-
-const pageDescription =
-  'This is a collection of short notes of the things I have learned on the daily while working on different technologies. I share these notes as I learn in public.';
 ---
 
-<BaseLayout
-  title="Today I Learned"
-  description={pageDescription}
-  subTitle={pageDescription}>
+<BaseLayout>
   <h1 class="text-2xl font-bold mb-1">Today I Learned</h1>
   <div class="mb-16">
     <p class="my-5">
