@@ -5,6 +5,10 @@ import type { APIRoute } from 'astro';
 import sharp from 'sharp';
 import { getCollection } from 'astro:content';
 
+function font(name: string) {
+  return `font-family: ${name};`
+}
+
 function blogPostTemplate(post: { data: { title: string; pubDate: Date } }) {
   const title = post.data.title;
   const date = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(
@@ -12,17 +16,17 @@ function blogPostTemplate(post: { data: { title: string; pubDate: Date } }) {
   );
 
   return `
-    <div tw="flex p-10 h-full w-full bg-white flex-col" style="font-family: Inter 300">
+    <div tw="flex p-8 h-full w-full bg-white flex-col" style="${font('Inter 300')}">
         <header tw="flex text-[36px] w-full">
-            <div tw="font-bold" style="font-family: Inter 600">Peter Mekhaeil</div>
+            <div tw="font-bold" style="${font('Inter 600')}">Peter Mekhaeil</div>
         </header>
-        <main tw="flex grow pb-3 flex-col items-center justify-center">
+        <main tw="flex grow pb-4 flex-col items-center justify-center">
             <div tw="flex">
-                <div tw="bg-gray-100 p-8 text-7xl font-medium rounded-md text-center" style="font-family: Inter 500">
+                <div tw="bg-gray-100 p-8 text-7xl font-medium rounded-md text-center" style="${font('Inter 500')}">
                     ${title}
                 </div>
             </div>
-            <div tw="mt-5 flex text-3xl text-gray-500">
+            <div tw="mt-6 flex text-3xl text-gray-500">
                 ${date}
             </div>
         </main>

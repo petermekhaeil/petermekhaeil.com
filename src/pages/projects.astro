@@ -7,8 +7,8 @@ import projects_github from '../_data/projects_github.json';
 
 <BaseLayout>
   <h1 class="text-2xl font-bold mb-1">Projects</h1>
-  <div class="my-5">
-    <ul role="list" class="grid grid-cols-1 gap-y-10">
+  <div class="my-6">
+    <ul role="list" class="grid grid-cols-1 gap-y-12">
       {
         projects.map((project) => (
           <Project
@@ -21,8 +21,8 @@ import projects_github from '../_data/projects_github.json';
     </ul>
   </div>
   <h2 class="font-bold text-xl my-8">Open Source</h2>
-  <div class="my-5">
-    <ul role="list" class="grid grid-cols-1 gap-y-10">
+  <div class="my-6">
+    <ul role="list" class="grid grid-cols-1 gap-y-12">
       {
         projects_github.map((project) => (
           <Project

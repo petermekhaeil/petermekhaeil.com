@@ -16,13 +16,13 @@ const isProd = import.meta.env.PROD;
 
 <html lang="en" class="font-sans antialiased">
   <BaseHead title={title} description={description} subTitle={subTitle} />
-  <body class="text-gray-900 max-w-2xl p-6 pt-3 md:pt-6 mx-auto">
-    <header class="pb-5 md:pb-10 flex items-center">
+  <body class="text-gray-900 max-w-2xl p-6 pt-4 md:pt-6 mx-auto">
+    <header class="pb-4 md:pb-8 flex items-center">
       <h2 class="text-md md:text-lg whitespace-nowrap font-bold">
         <a href="/">Peter Mekhaeil</a>
       </h2>
       <nav
-        class="font-sans text-xs grow justify-end items-center flex gap-1 md:gap-3">
+        class="font-sans text-xs grow justify-end items-center flex gap-1 md:gap-4">
         <a
           class="inline-flex hover:bg-gray-100 active:bg-gray-200 rounded-sm p-2 transition-[background-color]"
           href="/about">About</a
@@ -66,9 +66,9 @@ const isProd = import.meta.env.PROD;
       <slot />
     </main>
 
-    <footer class="p-6 pt-3 pb-6 text-xs text-center mt-3 flex justify-center">
+    <footer class="p-6 pt-4 pb-6 text-xs text-center mt-4 flex justify-center">
       <ul class="flex items-center">
-        <li class="mr-3">
+        <li class="mr-4">
           <a
             href="https://github.com/petermekhaeil"
             title="GitHub"
@@ -78,7 +78,7 @@ const isProd = import.meta.env.PROD;
             <Icon name="github" />
           </a>
         </li>
-        <li class="mr-3">
+        <li class="mr-4">
           <a
             href="https://twitter.com/petermekh"
             title="Twitter"
@@ -88,7 +88,7 @@ const isProd = import.meta.env.PROD;
             <Icon name="twitter" />
           </a>
         </li>
-        <li class="mr-3">
+        <li class="mr-4">
           <a
             href="https://www.linkedin.com/in/petermekhaeil/"
             title="LinkedIn"
