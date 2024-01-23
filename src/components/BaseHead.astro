@@ -13,7 +13,16 @@ const {
 } = Astro.props;
 
 const url = Astro.url;
-const slug = url.pathname.replace(/\//g, '');
+
+function getOgImagePath() {
+  const slug = url.pathname.split('/').slice(1).join('/');
+  const isTil = slug.startsWith('til');
+  const ogSlug = isTil
+    ? `til/og/${slug.split('/').slice(1).join('/')}`
+    : `og/${slug}`;
+
+  return encodeURI(`${url.origin}/${ogSlug}`);
+}
 ---
 
 <head>
@@ -32,14 +41,14 @@ const slug = url.pathname.replace(/\//g, '');
       site: '@petermekh',
       title: title,
       description: description,
-      image: encodeURI(`${url.origin}/og/${slug}`),
+      image: getOgImagePath(),
       imageAlt: description
     }}
     openGraph={{
       basic: {
         title: description,
         type: 'blog',
-        image: encodeURI(`${url.origin}/og/${slug}`),
+        image: getOgImagePath(),
         url: url.href
       },
       image: {
