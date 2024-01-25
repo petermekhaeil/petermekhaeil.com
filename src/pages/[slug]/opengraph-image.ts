@@ -1,21 +1,17 @@
-import satori from 'satori';
-import { html } from 'satori-html';
 import { readFileSync } from 'fs';
+import { getCollection } from 'astro:content';
+import { slug } from '../../slug';
 import type { APIRoute } from 'astro';
-import sharp from 'sharp';
-import { getGitHubTilRepo } from '../../../_data/github_til_repo';
+import { ImageResponse } from '../../lib/astro-opengraph-image';
 
 function font(name: string) {
   return `font-family: ${name};`
 }
 
-function blogPostTemplate(post: {
-  date: string;
-  title: string;
-}) {
-  const title = post.title;
+function Template(post: { data: { title: string; pubDate: Date } }) {
+  const title = post.data.title;
   const date = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(
-    new Date(post.date)
+    new Date(post.data.pubDate)
   );
 
   return `
@@ -38,24 +34,19 @@ function blogPostTemplate(post: {
 }
 
 export async function getStaticPaths() {
-  const tilEntries = await getGitHubTilRepo();
+  const blogEntries = await getCollection('blog');
 
-  const paths = tilEntries.map((post) => {
-    return {
-      params: {
-        route: post.path
-      }
-    };
-  });
-
-  return paths;
+  return blogEntries.map((post) => ({
+    params: { slug: slug(post.data.title) },
+    props: { post }
+  }));
 }
 
 export const GET: APIRoute = async ({ params }) => {
-  const tilEntries = await getGitHubTilRepo();
+  const blogEntries = await getCollection('blog');
 
-  const post = tilEntries.find((post) => {
-    return post.path === params.route;
+  const post = blogEntries.find((post) => {
+    return slug(post.data.title) === params.slug;
   });
 
   if (!post) return new Response('Page not found', { status: 404 });
@@ -67,38 +58,11 @@ export const GET: APIRoute = async ({ params }) => {
   const inter600Path = `${process.cwd()}/node_modules/@fontsource/inter/files/inter-latin-600-normal.woff`;
   const inter600 = readFileSync(inter600Path);
 
-  const markup = html(blogPostTemplate(post));
-
-  const svg = await satori(markup, {
-    width: 1200,
-    height: 630,
+  return new ImageResponse(Template(post), {
     fonts: [
-      {
-        name: 'Inter 300',
-        data: inter300,
-        style: 'normal'
-      },
-      {
-        name: 'Inter 500',
-        data: inter500,
-        style: 'normal'
-      },
-      {
-        name: 'Inter 600',
-        data: inter600,
-        style: 'normal'
-      }
+      { name: 'Inter 300', weight: 300, data: inter300 },
+      { name: 'Inter 500', weight: 500, data: inter500 },
+      { name: 'Inter 600', weight: 600, data: inter600 },
     ]
-  });
-
-  const png = sharp(Buffer.from(svg)).png();
-  const response = await png.toBuffer();
-
-  return new Response(response, {
-    status: 200,
-    headers: {
-      'Content-Type': 'image/png',
-      'Cache-Control': 's-maxage=1, stale-while-revalidate=59'
-    }
   });
 };

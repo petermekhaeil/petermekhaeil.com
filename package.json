@@ -31,7 +31,6 @@
     "@tailwindcss/typography": "^0.5.0",
     "astro": "^4.2.1",
     "astro-embed": "^0.6.1",
-    "astro-seo": "^0.7.0",
     "markdown-it": "^13.0.1",
     "marked": "^4.2.12",
     "sanitize-html": "^2.8.1",

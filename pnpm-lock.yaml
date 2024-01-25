@@ -31,9 +31,6 @@ dependencies:
   astro-embed:
     specifier: ^0.6.1
     version: 0.6.1(astro@4.2.1)
-  astro-seo:
-    specifier: ^0.7.0
-    version: 0.7.0
   markdown-it:
     specifier: ^13.0.1
     version: 13.0.1
@@ -1462,10 +1459,6 @@ packages:
       '@astro-community/astro-embed-vimeo': 0.3.2(astro@4.2.1)
       '@astro-community/astro-embed-youtube': 0.4.4(astro@4.2.1)
       astro: 4.2.1(typescript@5.3.3)
-    dev: false
-
-  /astro-seo@0.7.0:
-    resolution: {integrity: sha512-G7zJUr4lfKLeqfWx2g5rfuBsOsIOfqxIOqErQfrMsMchDFfLFxNKAuW8yAo8hynJJwBvtGyS/vOXgGdMVVCFrA==}
     dev: false
 
   /astro@4.2.1(typescript@5.3.3):
