@@ -5,7 +5,7 @@ import type { APIRoute } from 'astro';
 import { ImageResponse } from '../../lib/astro-opengraph-image';
 
 function font(name: string) {
-  return `font-family: ${name};`
+  return `font-family: ${name};`;
 }
 
 function Template(post: { data: { title: string; pubDate: Date } }) {
@@ -62,7 +62,7 @@ export const GET: APIRoute = async ({ params }) => {
     fonts: [
       { name: 'Inter 300', weight: 300, data: inter300 },
       { name: 'Inter 500', weight: 500, data: inter500 },
-      { name: 'Inter 600', weight: 600, data: inter600 },
+      { name: 'Inter 600', weight: 600, data: inter600 }
     ]
   });
 };

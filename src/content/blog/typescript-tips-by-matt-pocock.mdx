@@ -272,11 +272,12 @@ const MyComponent = (props: { enabled: boolean }) => {
 
 class MyOtherComponent extends React.Component<{ enabled: boolean }> {}
 
-type PropsFrom<TComponent> = TComponent extends React.FC<infer Props>
-  ? Props
-  : TComponent extends React.ComponentClass<infer Props>
-  ? Props
-  : never;
+type PropsFrom<TComponent> =
+  TComponent extends React.FC<infer Props>
+    ? Props
+    : TComponent extends React.ComponentClass<infer Props>
+      ? Props
+      : never;
 
 const props: PropsFrom<typeof MyComponent> = {
   enabled: true
@@ -412,10 +413,10 @@ deepEqualCompare([], []);
 export type DeepPartial<Thing> = Thing extends Function
   ? Thing
   : Thing extends Array<infer InferredArrayMember>
-  ? DeepPartialArray<InferredArrayMember>
-  : Thing extends object
-  ? DeepPartialObject<Thing>
-  : Thing | undefined;
+    ? DeepPartialArray<InferredArrayMember>
+    : Thing extends object
+      ? DeepPartialObject<Thing>
+      : Thing | undefined;
 
 interface DeepPartialArray<Thing> extends Array<DeepPartial<Thing>> {}
 

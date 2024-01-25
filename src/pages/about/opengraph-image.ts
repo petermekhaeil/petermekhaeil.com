@@ -1,14 +1,13 @@
-
 import type { APIRoute } from 'astro';
 import { ImageResponse } from '../../lib/astro-opengraph-image';
 import { readFileSync } from 'fs';
 
 function font(name: string) {
-    return `font-family: ${name};`
+  return `font-family: ${name};`;
 }
 
 function Template() {
-    return `
+  return `
       <div tw="flex p-8 h-full w-full bg-white flex-col" style="${font('Inter 300')}">
           <main tw="flex grow pb-4 flex-col items-center justify-center">
               <div tw="flex">
@@ -27,10 +26,10 @@ const inter500Path = `${process.cwd()}/node_modules/@fontsource/inter/files/inte
 const inter500 = readFileSync(inter500Path);
 
 export const GET: APIRoute = async function () {
-    return new ImageResponse(Template(), {
-        fonts: [
-            { name: 'Inter', weight: 300, data: inter300 },
-            { name: 'Inter', weight: 500, data: inter500 },
-        ]
-    });
-}
+  return new ImageResponse(Template(), {
+    fonts: [
+      { name: 'Inter', weight: 300, data: inter300 },
+      { name: 'Inter', weight: 500, data: inter500 }
+    ]
+  });
+};
