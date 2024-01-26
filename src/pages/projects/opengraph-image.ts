@@ -33,9 +33,9 @@ const inter600 = readFileSync(inter600Path);
 export const GET: APIRoute = async function () {
   return new ImageResponse(Template(), {
     fonts: [
-      { name: 'Inter', weight: 300, data: inter300 },
-      { name: 'Inter', weight: 500, data: inter500 },
-      { name: 'Inter', weight: 600, data: inter600 }
+      { name: 'Inter 300', data: inter300 },
+      { name: 'Inter 500', data: inter500 },
+      { name: 'Inter 600', data: inter600 }
     ]
   });
 };

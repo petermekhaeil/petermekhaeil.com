@@ -8,15 +8,35 @@ function font(name: string) {
 
 function Template() {
   return `
-      <div tw="flex p-8 h-full w-full bg-white flex-col" style="${font('Inter 300')}">
-          <main tw="flex grow pb-4 flex-col items-center justify-center">
-              <div tw="flex">
-                  <div tw="bg-gray-100 p-8 text-7xl font-medium rounded-md text-center" style="${font('Inter 500')}">
-                      About Peter Mekhaeil
-                  </div>
-              </div>
-          </main>
+  <div
+  tw="flex p-10 h-full w-full bg-white flex-col"
+  style="${font('Inter 300')}"
+>
+  <main tw="flex grow pt-4 w-full justify-center items-center">
+    <div tw="flex flex-row">
+      <div tw="flex">
+          <img
+          tw="rounded-full h-74"
+          src="https://petermekhaeil.com/assets/profile.png"
+        />
       </div>
+      <div tw="flex flex-col px-10 grow text-[28px] h-70 justify-center">
+        <div tw="text-[64px] mb-7" style="${font('Inter 600')}">
+          Peter Mekhaeil
+        </div>
+        <div tw="flex mb-5" style="${font('Inter 500')}">
+          <span tw="text-gray-400 mr-3">—</span> Software Engineer
+        </div>
+        <div tw="flex mb-5" style="${font('Inter 500')}">
+          <span tw="text-gray-400 mr-3">—</span> Based in Singapore
+        </div>
+        <div tw="flex" style="${font('Inter 500')}">
+          <span tw="text-gray-400 mr-3">—</span> Web Development Advocate
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
       `;
 }
 
@@ -24,12 +44,15 @@ const inter300Path = `${process.cwd()}/node_modules/@fontsource/inter/files/inte
 const inter300 = readFileSync(inter300Path);
 const inter500Path = `${process.cwd()}/node_modules/@fontsource/inter/files/inter-latin-500-normal.woff`;
 const inter500 = readFileSync(inter500Path);
+const inter600Path = `${process.cwd()}/node_modules/@fontsource/inter/files/inter-latin-600-normal.woff`;
+const inter600 = readFileSync(inter600Path);
 
 export const GET: APIRoute = async function () {
   return new ImageResponse(Template(), {
     fonts: [
-      { name: 'Inter', weight: 300, data: inter300 },
-      { name: 'Inter', weight: 500, data: inter500 }
+      { name: 'Inter 300', data: inter300 },
+      { name: 'Inter 500', data: inter500 },
+      { name: 'Inter 600', data: inter600 }
     ]
   });
 };
