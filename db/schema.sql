@@ -2,9 +2,7 @@ CREATE TABLE analytics (
   id            SERIAL PRIMARY KEY,
   date          TIMESTAMP WITH TIME ZONE NOT NULL,
   path          VARCHAR NOT NULL,
-  flag          VARCHAR,
+  referrer      VARCHAR,
   country       VARCHAR,
-  city          VARCHAR,
-  latitude      DECIMAL,
-  longitude     DECIMAL
+  city          VARCHAR
 )
