@@ -16,7 +16,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
         return Response.json({ message: 'Missing path.' });
     } else {
         await sql(
-            'INSERT INTO analytics(date, path, referrer, country, city) VALUES($1, $2, $3, $4)',
+            'INSERT INTO analytics(date, path, referrer, country, city) VALUES($1, $2, $3, $4, $5)',
             [date, path, referrer, countryCode, city]
         );
 
