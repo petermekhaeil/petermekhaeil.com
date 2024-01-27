@@ -1,0 +1,16 @@
+---
+const path = Astro.url.pathname;
+---
+
+<astro-analytics data-path={path}></astro-analytics>
+<script>
+  class Analytics extends HTMLElement {
+    constructor() {
+      super();
+      (() => {
+        navigator.sendBeacon('/api/page-view', JSON.stringify({ path: this.dataset.path }));
+      })();
+    }
+  }
+  customElements.define('astro-analytics', Analytics);
+</script>
