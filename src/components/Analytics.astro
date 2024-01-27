@@ -5,7 +5,7 @@
       super();
       (() => {
         navigator.sendBeacon('/api/page-view',
-        JSON.stringify({ slug: window.location.pathname, referrer: document.referrer }));
+        JSON.stringify({ path: window.location.pathname, referrer: document.referrer }));
       })();
     }
   }
