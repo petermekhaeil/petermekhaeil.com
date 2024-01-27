@@ -5,6 +5,8 @@ import BaseLayout from '../../layouts/base.astro';
 
 type Props = Awaited<ReturnType<typeof getStaticPaths>>[number]['props'];
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
 

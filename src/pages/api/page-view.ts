@@ -1,6 +1,8 @@
 import type { APIRoute } from 'astro';
 import { neon } from '@neondatabase/serverless';
 
+export const prerender = false;
+
 const sql = neon(import.meta.env.DATABASE_URL);
 
 export const POST: APIRoute = async ({ request, locals }) => {
