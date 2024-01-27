@@ -5,13 +5,3 @@
 
 [functions]
   node_bundler = "esbuild"
-
-[[redirects]]
-  from = "/api"
-  to = "https://pmekh-ackee.netlify.app/api"
-  status = 200
-
-[[redirects]]
-  from = "/js/script.js"
-  to = "https://pmekh-ackee.netlify.app/tracker.js"
-  status = 200
