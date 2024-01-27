@@ -15,6 +15,6 @@ export const POST: APIRoute = async ({ request, locals }) => {
             [date, path]
         );
 
-        return Response.json({ context: locals.netlify.context });
+        return Response.json({ context: locals.netlify.context.geo });
     }
 }
