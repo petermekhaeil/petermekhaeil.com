@@ -3,7 +3,7 @@ import { neon } from '@neondatabase/serverless';
 
 const sql = neon(import.meta.env.DATABASE_URL);
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, locals }) => {
     const date = new Date();
     const { path } = await new Response(request.body).json();
 
@@ -15,6 +15,6 @@ export const POST: APIRoute = async ({ request }) => {
             [date, path]
         );
 
-        return Response.json({});
+        return Response.json({ context: locals.netlify.context });
     }
 }
