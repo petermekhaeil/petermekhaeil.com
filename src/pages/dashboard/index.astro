@@ -1,0 +1,83 @@
+---
+import { ChartTotalVisits } from '../../components/ChartTotalVisits';
+import BaseLayout from '../../layouts/base.astro';
+import { neon } from '@neondatabase/serverless';
+
+export const prerender = false;
+
+const sql = neon(import.meta.env.DATABASE_URL);
+
+interface AnalyticsData {
+  id: number;
+  date: string;
+  path: string;
+  referrer: string;
+  country: string;
+  city: string;
+}
+
+interface GroupedData {
+  [key: string]: { date: Date; day: string; month: string; total: number };
+}
+
+let table: AnalyticsData[] = [];
+
+try {
+  const response = await sql`
+    SELECT * FROM analytics
+    WHERE date >= NOW() - INTERVAL '30 days'`;
+
+  if (!response.length) {
+    throw new Error('Bad request');
+  }
+
+  table = response as AnalyticsData[];
+} catch (error) {
+  console.error(error);
+}
+
+const groupByDate = (array: Array<{ date: string }>) => {
+  const groupedData: GroupedData = array.reduce((acc, item) => {
+    const date = new Date(item.date);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = new Intl.DateTimeFormat('en', { month: 'short' }).format(
+      date
+    );
+    const key = `${day}-${month}`;
+
+    if (!acc[key]) {
+      acc[key] = {
+        date: date,
+        day: day,
+        month: month,
+        total: 0
+      };
+    }
+
+    // @ts-expect-error - TS doesn't know that acc[key] exists
+    acc[key].total++;
+
+    return acc;
+  }, {} as GroupedData);
+
+  return Object.keys(groupedData).map((key) => groupedData[key]);
+};
+
+console.log(JSON.stringify(table, null, 2));
+---
+
+<BaseLayout>
+  <h1 class="mb-1 text-2xl font-bold">Analytics</h1>
+  <div class="flex min-w-full flex-col gap-24">
+    {
+      table ? (
+        <>
+          <section>
+            <h2 class="my-8 text-xl font-bold">Total Visits</h2>
+            <ChartTotalVisits client:only data={groupByDate(table)} />
+          </section>
+        </>
+      ) : null
+    }
+  </div>
+</BaseLayout>
