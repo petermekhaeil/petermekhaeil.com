@@ -22,7 +22,7 @@ const { post } = Astro.props;
   title={post.title}
   description={post.title}
   subTitle="Today I Learned">
-  <article class="text-gray-800 prose prose-gray mb-16">
+  <article class="prose prose-gray mb-16 text-gray-800">
     <Markdown content={post.content} />
   </article>
 </BaseLayout>

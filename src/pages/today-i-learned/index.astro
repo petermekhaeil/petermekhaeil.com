@@ -6,12 +6,12 @@ const til = await getGitHubTilRepo();
 ---
 
 <BaseLayout>
-  <h1 class="text-2xl font-bold mb-1">Today I Learned</h1>
+  <h1 class="mb-1 text-2xl font-bold">Today I Learned</h1>
   <div class="mb-16">
     <p class="my-6">
       This is a collection of short notes of the things I have learned on the
       daily while working on different technologies. I share these notes as I <a
-        class="border-b text-gray-600 border-gray-300 transition-[border-color] hover:border-gray-600"
+        class="border-b border-gray-300 text-gray-600 transition-[border-color] hover:border-gray-600"
         href="https://www.learninpublic.org/"
         target="noopener">learn in public</a
       >.
@@ -21,10 +21,10 @@ const til = await getGitHubTilRepo();
     </p>
     <p class="my-6">
       You can follow along by watching my <a
-        class="border-b text-gray-600 border-gray-300 transition-[border-color] hover:border-gray-600"
+        class="border-b border-gray-300 text-gray-600 transition-[border-color] hover:border-gray-600"
         href="https://github.com/petermekhaeil/til">GitHub repository</a
       >.
-      <ul class="list-none space-y-2 text-sm tabular-nums my-8">
+      <ul class="my-8 list-none space-y-2 text-sm tabular-nums">
         {
           til.map((item) => (
             <li>

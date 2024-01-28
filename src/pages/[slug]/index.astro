@@ -30,11 +30,11 @@ const formattedDate = new Date(post.data.pubDate).toLocaleDateString('en-us', {
   title={post.data.title}
   description={post.data.description}
   subTitle={formattedDate}>
-  <article class="text-gray-800 prose prose-gray mb-16">
-    <h1 class="text-2xl font-bold mb-1">
+  <article class="prose prose-gray mb-16 text-gray-800">
+    <h1 class="mb-1 text-2xl font-bold">
       {post.data.title}
     </h1>
-    <time class="text-gray-500 m-0 text-sm">{formattedDate}</time>
+    <time class="m-0 text-sm text-gray-500">{formattedDate}</time>
     <Content />
   </article>
 </BaseLayout>
