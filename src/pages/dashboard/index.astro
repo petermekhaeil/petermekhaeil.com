@@ -24,6 +24,10 @@ interface GroupedReferrers {
   [key: string]: { referrer: string; total: number };
 }
 
+interface GroupedPaths {
+  [key: string]: { path: string; total: number };
+}
+
 let table: AnalyticsData[] = [];
 
 try {
@@ -98,7 +102,26 @@ const groupByReferrer = (array: Array<{ referrer: string }>) => {
     .filter((item) => item?.referrer !== null);
 };
 
-console.log(JSON.stringify(groupByReferrer(table), null, 2));
+const groupByPath = (array: Array<{ path: string }>) => {
+  const groupedData: GroupedPaths = array.reduce((acc, item) => {
+    const { path } = item;
+    const key = path;
+
+    if (!acc[key]) {
+      acc[key] = {
+        path: path,
+        total: 0
+      };
+    }
+
+    // @ts-expect-error - TS doesn't know that acc[key] exists
+    acc[key].total++;
+
+    return acc;
+  }, {} as GroupedPaths);
+
+  return Object.keys(groupedData).map((key) => groupedData[key]);
+};
 ---
 
 <BaseLayout>
@@ -118,12 +141,37 @@ console.log(JSON.stringify(groupByReferrer(table), null, 2));
           <ul>
             {groupByReferrer(table)
               .filter((item) => item?.referrer !== '')
+              .slice(0, 10)
+              // @ts-expect-error - TS doesn't know that item is not null
+              .sort((a, b) => b.total - a.total)
               .map((item) => (
                 <li class="transition-[background-color] hover:bg-gray-100 active:bg-gray-200">
                   <span class="grid grid-cols-8 gap-2 border-t border-gray-200 py-4">
                     <time class="col-span-7 text-gray-500">
                       {item?.referrer}
                     </time>
+                    <span class="col-span-1">{item?.total}</span>
+                  </span>
+                </li>
+              ))}
+          </ul>
+        </div>
+
+        <h2 class="my-8 text-xl font-bold">Top Posts</h2>
+        <div class="py-2 font-medium text-gray-500">
+          <span class="grid grid-cols-8">
+            <span class="col-span-7">Post</span>
+            <span class="col-span-1">Count</span>
+          </span>
+          <ul>
+            {groupByPath(table)
+              // @ts-expect-error - TS doesn't know that item is not null
+              .sort((a, b) => b.total - a.total)
+              .slice(0, 10)
+              .map((item) => (
+                <li class="transition-[background-color] hover:bg-gray-100 active:bg-gray-200">
+                  <span class="grid grid-cols-8 gap-2 border-t border-gray-200 py-4">
+                    <time class="col-span-7 text-gray-500">{item?.path}</time>
                     <span class="col-span-1">{item?.total}</span>
                   </span>
                 </li>
