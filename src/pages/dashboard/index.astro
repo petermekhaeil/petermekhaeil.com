@@ -20,6 +20,10 @@ interface GroupedData {
   [key: string]: { date: Date; day: string; month: string; total: number };
 }
 
+interface GroupedReferrers {
+  [key: string]: { referrer: string; total: number };
+}
+
 let table: AnalyticsData[] = [];
 
 try {
@@ -32,6 +36,10 @@ try {
   }
 
   table = response as AnalyticsData[];
+
+  table = table.filter(
+    (item) => item.city !== 'Mock City' && !item.referrer.includes('localhost')
+  );
 } catch (error) {
   console.error(error);
 }
@@ -63,21 +71,66 @@ const groupByDate = (array: Array<{ date: string }>) => {
   return Object.keys(groupedData).map((key) => groupedData[key]);
 };
 
-console.log(JSON.stringify(table, null, 2));
+const groupByReferrer = (array: Array<{ referrer: string }>) => {
+  const groupedData: GroupedReferrers = array.reduce((acc, item) => {
+    const { referrer } = item;
+    const url =
+      referrer !== null && referrer.includes('petermekhaeil.com')
+        ? 'https://petermekhaeil.com'
+        : referrer;
+    const key = url;
+
+    if (!acc[key]) {
+      acc[key] = {
+        referrer: url,
+        total: 0
+      };
+    }
+
+    // @ts-expect-error - TS doesn't know that acc[key] exists
+    acc[key].total++;
+
+    return acc;
+  }, {} as GroupedReferrers);
+
+  return Object.keys(groupedData)
+    .map((key) => groupedData[key])
+    .filter((item) => item?.referrer !== null);
+};
+
+console.log(JSON.stringify(groupByReferrer(table), null, 2));
 ---
 
 <BaseLayout>
   <h1 class="mb-1 text-2xl font-bold">Analytics</h1>
-  <div class="flex min-w-full flex-col gap-24">
-    {
-      table ? (
-        <>
-          <section>
-            <h2 class="my-8 text-xl font-bold">Total Visits</h2>
-            <ChartTotalVisits client:only data={groupByDate(table)} />
-          </section>
-        </>
-      ) : null
-    }
-  </div>
+  {
+    table ? (
+      <>
+        <h2 class="my-8 text-xl font-bold">Total Visits</h2>
+        <ChartTotalVisits client:only data={groupByDate(table)} />
+
+        <h2 class="my-8 text-xl font-bold">Top Referrers</h2>
+        <div class="py-2 font-medium text-gray-500">
+          <span class="grid grid-cols-8">
+            <span class="col-span-7">Referrers</span>
+            <span class="col-span-1">Count</span>
+          </span>
+          <ul>
+            {groupByReferrer(table)
+              .filter((item) => item?.referrer !== '')
+              .map((item) => (
+                <li class="transition-[background-color] hover:bg-gray-100 active:bg-gray-200">
+                  <span class="grid grid-cols-8 gap-2 border-t border-gray-200 py-4">
+                    <time class="col-span-7 text-gray-500">
+                      {item?.referrer}
+                    </time>
+                    <span class="col-span-1">{item?.total}</span>
+                  </span>
+                </li>
+              ))}
+          </ul>
+        </div>
+      </>
+    ) : null
+  }
 </BaseLayout>
