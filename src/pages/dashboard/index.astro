@@ -28,6 +28,10 @@ interface GroupedPaths {
   [key: string]: { path: string; total: number };
 }
 
+interface GroupedCities {
+  [key: string]: { city: string; country: string; total: number };
+}
+
 let table: AnalyticsData[] = [];
 
 try {
@@ -122,15 +126,50 @@ const groupByPath = (array: Array<{ path: string }>) => {
 
   return Object.keys(groupedData).map((key) => groupedData[key]);
 };
+
+const groupByCity = (array: Array<{ city: string; country: string }>) => {
+  const groupedData: GroupedCities = array.reduce((acc, item) => {
+    const { city, country } = item;
+    const key = city;
+
+    if (!acc[key]) {
+      acc[key] = {
+        city: city,
+        country: country,
+        total: 0
+      };
+    }
+
+    // @ts-expect-error - TS doesn't know that acc[key] exists
+    acc[key].total++;
+
+    return acc;
+  }, {} as GroupedCities);
+
+  return Object.keys(groupedData).map((key) => groupedData[key]);
+};
+
+// https://github.com/vercel/vercel/blob/main/packages/edge/src/edge-headers.ts#L34
+export const EMOJI_FLAG_UNICODE_STARTING_POSITION = 127397;
+
+function getFlag(countryCode: string | undefined): string | undefined {
+  const regex = new RegExp('^[A-Z]{2}$').test(countryCode!);
+  if (!countryCode || !regex) return undefined;
+  return String.fromCodePoint(
+    ...countryCode
+      .split('')
+      .map((char) => EMOJI_FLAG_UNICODE_STARTING_POSITION + char.charCodeAt(0))
+  );
+}
 ---
 
 <BaseLayout>
   <h1 class="mb-1 text-2xl font-bold">Analytics</h1>
   {
     table ? (
-      <>
+      <div class="m-auto my-8 mb-12 max-w-2xl text-sm">
         <h2 class="my-8 text-xl font-bold">Total Visits</h2>
-        <ChartTotalVisits client:only data={groupByDate(table)} />
+        <ChartTotalVisits client:load data={groupByDate(table)} />
 
         <h2 class="my-8 text-xl font-bold">Top Referrers</h2>
         <div class="py-2 font-medium text-gray-500">
@@ -138,24 +177,22 @@ const groupByPath = (array: Array<{ path: string }>) => {
             <span class="col-span-7">Referrers</span>
             <span class="col-span-1">Count</span>
           </span>
-          <ul>
-            {groupByReferrer(table)
-              .filter((item) => item?.referrer !== '')
-              .slice(0, 10)
-              // @ts-expect-error - TS doesn't know that item is not null
-              .sort((a, b) => b.total - a.total)
-              .map((item) => (
-                <li class="transition-[background-color] hover:bg-gray-100 active:bg-gray-200">
-                  <span class="grid grid-cols-8 gap-2 border-t border-gray-200 py-4">
-                    <time class="col-span-7 text-gray-500">
-                      {item?.referrer}
-                    </time>
-                    <span class="col-span-1">{item?.total}</span>
-                  </span>
-                </li>
-              ))}
-          </ul>
         </div>
+        <ul>
+          {groupByReferrer(table)
+            .filter((item) => item?.referrer !== '')
+            .slice(0, 10)
+            // @ts-expect-error - TS doesn't know that item is not null
+            .sort((a, b) => b.total - a.total)
+            .map((item) => (
+              <li class="transition-[background-color] hover:bg-gray-100 active:bg-gray-200">
+                <span class="grid grid-cols-8 gap-2 border-t border-gray-200 py-2">
+                  <time class="col-span-7">{item?.referrer}</time>
+                  <span class="col-span-1 text-gray-500">{item?.total}</span>
+                </span>
+              </li>
+            ))}
+        </ul>
 
         <h2 class="my-8 text-xl font-bold">Top Posts</h2>
         <div class="py-2 font-medium text-gray-500">
@@ -163,22 +200,46 @@ const groupByPath = (array: Array<{ path: string }>) => {
             <span class="col-span-7">Post</span>
             <span class="col-span-1">Count</span>
           </span>
-          <ul>
-            {groupByPath(table)
-              // @ts-expect-error - TS doesn't know that item is not null
-              .sort((a, b) => b.total - a.total)
-              .slice(0, 10)
-              .map((item) => (
-                <li class="transition-[background-color] hover:bg-gray-100 active:bg-gray-200">
-                  <span class="grid grid-cols-8 gap-2 border-t border-gray-200 py-4">
-                    <time class="col-span-7 text-gray-500">{item?.path}</time>
-                    <span class="col-span-1">{item?.total}</span>
-                  </span>
-                </li>
-              ))}
-          </ul>
         </div>
-      </>
+        <ul>
+          {groupByPath(table)
+            // @ts-expect-error - TS doesn't know that item is not null
+            .sort((a, b) => b.total - a.total)
+            .slice(0, 10)
+            .map((item) => (
+              <li class="transition-[background-color] hover:bg-gray-100 active:bg-gray-200">
+                <span class="grid grid-cols-8 gap-2 border-t border-gray-200 py-2">
+                  <time class="col-span-7">{item?.path}</time>
+                  <span class="col-span-1 text-gray-500">{item?.total}</span>
+                </span>
+              </li>
+            ))}
+        </ul>
+
+        <h2 class="my-8 text-xl font-bold">Top Cities</h2>
+        <div class="py-2 font-medium text-gray-500">
+          <span class="grid grid-cols-8">
+            <span class="col-span-7">City</span>
+            <span class="col-span-1">Count</span>
+          </span>
+        </div>
+        <ul>
+          {groupByCity(table)
+            // @ts-expect-error - TS doesn't know that item is not null
+            .sort((a, b) => b.total - a.total)
+            .slice(0, 10)
+            .map((item) => (
+              <li class="transition-[background-color] hover:bg-gray-100 active:bg-gray-200">
+                <span class="grid grid-cols-8 gap-2 border-t border-gray-200 py-2">
+                  <time class="col-span-7">
+                    {getFlag(item?.country)} {item?.city ?? item?.country}
+                  </time>
+                  <span class="col-span-1 text-gray-500">{item?.total}</span>
+                </span>
+              </li>
+            ))}
+        </ul>
+      </div>
     ) : null
   }
 </BaseLayout>

@@ -10,7 +10,7 @@ import {
 } from 'recharts';
 
 interface DataPoint {
-  date: string;
+  date: Date;
   day: string;
   month: string;
   total: number;
@@ -47,7 +47,7 @@ export const ChartTotalVisits: React.FC<ChartProps> = ({ data }) => {
         width={600}
         height={300}
         data={data}
-        margin={{ top: 20, right: 30, left: 20, bottom: 10 }}>
+        margin={{ top: 20, right: 30, bottom: 10 }}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis
           dataKey="date"
