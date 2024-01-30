@@ -14,20 +14,6 @@
     ]
   },
   {
-    "name": "Remix Commerce",
-    "description": "Performant e-commerce that runs on the edge. Built using Remix running on Cloudflare Workers. It supports different commerce providers to showcase the benefits of a headless commerce architecture.",
-    "links": [
-      {
-        "url": "https://remix-commerce.petermekhaeil.workers.dev/",
-        "text": "remix-commerce.petermekhaeil.workers.dev"
-      },
-      {
-        "url": "https://github.com/petermekhaeil/remix-commerce",
-        "text": "Source code"
-      }
-    ]
-  },
-  {
     "name": "Formula 1 Page Speed Insights",
     "description": "Performance report using PageSpeed Insights and Chrome User Experience Report to showcase which Formula 1 team has the fastest web performance. Built using Next.js and hosted on Netlify.",
     "links": [
@@ -59,54 +45,6 @@
       },
       {
         "url": "https://github.com/petermekhaeil/page-speed-insights",
-        "text": "Source code"
-      }
-    ]
-  },
-  {
-    "name": "Netlify Graph + Remix",
-    "description": "Demo of Remix using Netlify Graph to fetch data from GitHub. When a new issue is created in this repository, it will be listed as a blog post.",
-    "links": [
-      {
-        "url": "https://netlify-graph-remix.netlify.app/",
-        "text": "netlify-graph-remix.netlify.app"
-      },
-      {
-        "url": "https://github.com/petermekhaeil/netlify-graph-remix",
-        "text": "Source code"
-      }
-    ]
-  },
-  {
-    "name": "Next.js Commerce + Shopify",
-    "description": "Collection of hooks and data fetching functions to integrate Shopify in a React application. Designed to work with Next.js Commerce and can be used with other React commerce applications.",
-    "links": [
-      {
-        "url": "https://github.com/petermekhaeil/nextjs-commerce-shopify",
-        "text": "Source code"
-      }
-    ]
-  },
-  {
-    "name": "Tailwind CSS Explorer VS Code Extension",
-    "description": "VS Code Extension for Tailwind CSS - Explore the classes available in your project's tailwind setup.",
-    "links": [
-      {
-        "url": "https://marketplace.visualstudio.com/items?itemName=PeterMekhaeil.vscode-tailwindcss-explorer",
-        "text": "VS Code Marketplace"
-      },
-      {
-        "url": "https://github.com/petermekhaeil/vscode-tailwindcss-explorer",
-        "text": "Source code"
-      }
-    ]
-  },
-  {
-    "name": "Ractive.js Dev Tool",
-    "description": "View and edit Ractive.js components using Chrome Dev Tools.",
-    "links": [
-      {
-        "url": "https://github.com/petermekhaeil/ractive-chrome-extension",
         "text": "Source code"
       }
     ]
