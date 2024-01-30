@@ -17,7 +17,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
   } else {
     await sql(
       'INSERT INTO analytics(date, path, referrer, country, city) VALUES($1, $2, $3, $4, $5)',
-      [date, path, referrer, countryCode, city]
+      [date, path, referrer, countryCode, city?.replace(/[^a-zA-Z ]/g, ' ')]
     );
 
     return Response.json({});

@@ -208,10 +208,12 @@ function getFlag(countryCode: string | undefined): string | undefined {
             .slice(0, 10)
             .map((item) => (
               <li class="transition-[background-color] hover:bg-gray-100 active:bg-gray-200">
-                <span class="grid grid-cols-8 gap-2 border-t border-gray-200 py-2">
-                  <time class="col-span-7">{item?.path}</time>
-                  <span class="col-span-1 text-gray-500">{item?.total}</span>
-                </span>
+                <a href={item?.path}>
+                  <span class="grid grid-cols-8 gap-2 border-t border-gray-200 py-2">
+                    <time class="col-span-7">{item?.path}</time>
+                    <span class="col-span-1 text-gray-500">{item?.total}</span>
+                  </span>
+                </a>
               </li>
             ))}
         </ul>
