@@ -10,9 +10,7 @@ import {
 } from 'recharts';
 
 interface DataPoint {
-  date: Date;
-  day: string;
-  month: string;
+  date: string;
   total: number;
 }
 
@@ -22,16 +20,10 @@ interface ChartProps {
 
 const CustomTooltip: React.FC<any> = ({ active, payload }) => {
   if (active && payload && payload.length) {
-    const formattedDate = new Date(payload[0].payload.date);
-    const day = formattedDate.getDate().toString().padStart(2, '0');
-    const month = new Intl.DateTimeFormat('en', {
-      month: 'short'
-    }).format(formattedDate);
-
     return (
       <div className="bg-card text-card-foreground rounded-lg border bg-white p-2 shadow-sm">
         <p className="text-sm font-bold text-black">
-          {month} {day}
+          {payload[0].payload.date}
         </p>
         <p className="text-sm text-black">{`${payload[0].value} page visits`}</p>
       </div>
@@ -44,29 +36,28 @@ export const ChartTotalVisits: React.FC<ChartProps> = ({ data }) => {
   return (
     <ResponsiveContainer width="100%" height={300}>
       <LineChart
-        width={600}
-        height={300}
         data={data}
-        margin={{ top: 20, right: 30, bottom: 10 }}>
+        margin={{
+          top: 5,
+          right: 10,
+          left: 10,
+          bottom: 0
+        }}>
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis
-          dataKey="date"
-          tickFormatter={(date) => {
-            const formattedDate = new Date(date);
-            const day = formattedDate.getDate().toString().padStart(2, '0');
-            const month = new Intl.DateTimeFormat('en', {
-              month: 'short'
-            }).format(formattedDate);
-            return `${month}-${day}`;
-          }}
-        />
+        <XAxis dataKey="date" />
         <YAxis />
         <Tooltip content={<CustomTooltip />} />
         <Line
           type="monotone"
+          strokeWidth={2}
           dataKey="total"
-          stroke="#8884d8"
-          activeDot={{ r: 8 }}
+          activeDot={{
+            r: 6,
+            style: { fill: 'hsl(220.9 39.3% 11%)', opacity: 0.25 }
+          }}
+          style={{
+            stroke: 'hsl(220.9 39.3% 11%)'
+          }}
         />
       </LineChart>
     </ResponsiveContainer>

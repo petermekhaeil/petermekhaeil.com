@@ -17,7 +17,7 @@ interface AnalyticsData {
 }
 
 interface GroupedData {
-  [key: string]: { date: Date; day: string; month: string; total: number };
+  [key: string]: { date: string; total: number };
 }
 
 interface GroupedReferrers {
@@ -31,6 +31,8 @@ interface GroupedPaths {
 interface GroupedCities {
   [key: string]: { city: string; country: string; total: number };
 }
+
+type ValueOf<T> = T[keyof T];
 
 let table: AnalyticsData[] = [];
 
@@ -63,20 +65,42 @@ const groupByDate = (array: Array<{ date: string }>) => {
 
     if (!acc[key]) {
       acc[key] = {
-        date: date,
-        day: day,
-        month: month,
+        date: key,
         total: 0
       };
     }
 
-    // @ts-expect-error - TS doesn't know that acc[key] exists
-    acc[key].total++;
+    (acc[key] as ValueOf<GroupedData>).total++;
 
     return acc;
   }, {} as GroupedData);
 
-  return Object.keys(groupedData).map((key) => groupedData[key]);
+  const currentDate = new Date();
+  const thirtyDaysAgo = new Date();
+  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+
+  const result = [];
+
+  while (thirtyDaysAgo <= currentDate) {
+    const day = thirtyDaysAgo.getDate().toString().padStart(2, '0');
+    const month = new Intl.DateTimeFormat('en', { month: 'short' }).format(
+      thirtyDaysAgo
+    );
+    const key = `${day}-${month}`;
+
+    if (groupedData[key]) {
+      result.push(groupedData[key] as { date: string; total: number });
+    } else {
+      result.push({
+        date: `${month}-${day}`,
+        total: 0
+      });
+    }
+
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() + 1);
+  }
+
+  return result;
 };
 
 const groupByReferrer = (array: Array<{ referrer: string }>) => {
@@ -95,8 +119,7 @@ const groupByReferrer = (array: Array<{ referrer: string }>) => {
       };
     }
 
-    // @ts-expect-error - TS doesn't know that acc[key] exists
-    acc[key].total++;
+    (acc[key] as ValueOf<GroupedReferrers>).total++;
 
     return acc;
   }, {} as GroupedReferrers);
@@ -118,8 +141,7 @@ const groupByPath = (array: Array<{ path: string }>) => {
       };
     }
 
-    // @ts-expect-error - TS doesn't know that acc[key] exists
-    acc[key].total++;
+    (acc[key] as ValueOf<GroupedPaths>).total++;
 
     return acc;
   }, {} as GroupedPaths);
@@ -130,7 +152,7 @@ const groupByPath = (array: Array<{ path: string }>) => {
 const groupByCity = (array: Array<{ city: string; country: string }>) => {
   const groupedData: GroupedCities = array.reduce((acc, item) => {
     const { city, country } = item;
-    const key = city;
+    const key = `${country}-${city}`;
 
     if (!acc[key]) {
       acc[key] = {
@@ -140,8 +162,7 @@ const groupByCity = (array: Array<{ city: string; country: string }>) => {
       };
     }
 
-    // @ts-expect-error - TS doesn't know that acc[key] exists
-    acc[key].total++;
+    (acc[key] as ValueOf<GroupedCities>).total++;
 
     return acc;
   }, {} as GroupedCities);
@@ -181,9 +202,8 @@ function getFlag(countryCode: string | undefined): string | undefined {
         <ul>
           {groupByReferrer(table)
             .filter((item) => item?.referrer !== '')
+            .sort((a, b) => (b?.total || 0) - (a?.total || 0))
             .slice(0, 10)
-            // @ts-expect-error - TS doesn't know that item is not null
-            .sort((a, b) => b.total - a.total)
             .map((item) => (
               <li class="transition-[background-color] hover:bg-gray-100 active:bg-gray-200">
                 <span class="grid grid-cols-8 gap-2 border-t border-gray-200 py-2">
@@ -203,8 +223,7 @@ function getFlag(countryCode: string | undefined): string | undefined {
         </div>
         <ul>
           {groupByPath(table)
-            // @ts-expect-error - TS doesn't know that item is not null
-            .sort((a, b) => b.total - a.total)
+            .sort((a, b) => (b?.total || 0) - (a?.total || 0))
             .slice(0, 10)
             .map((item) => (
               <li class="transition-[background-color] hover:bg-gray-100 active:bg-gray-200">
@@ -227,8 +246,7 @@ function getFlag(countryCode: string | undefined): string | undefined {
         </div>
         <ul>
           {groupByCity(table)
-            // @ts-expect-error - TS doesn't know that item is not null
-            .sort((a, b) => b.total - a.total)
+            .sort((a, b) => (b?.total || 0) - (a?.total || 0))
             .slice(0, 10)
             .map((item) => (
               <li class="transition-[background-color] hover:bg-gray-100 active:bg-gray-200">
