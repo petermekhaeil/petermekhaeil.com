@@ -15,25 +15,25 @@ const { title, description, subTitle } = Astro.props;
 
 <html lang="en" class="font-sans antialiased">
   <BaseHead title={title} description={description} subTitle={subTitle} />
-  <body class="text-gray-900 max-w-2xl p-6 pt-4 md:pt-6 mx-auto">
-    <header class="pb-4 md:pb-8 flex items-center">
-      <h2 class="text-md md:text-lg whitespace-nowrap font-bold">
+  <body class="mx-auto max-w-2xl p-6 pt-4 text-gray-900 md:pt-6">
+    <header class="flex items-center pb-4 md:pb-8">
+      <h2 class="text-md whitespace-nowrap font-bold md:text-lg">
         <a href="/">Peter Mekhaeil</a>
       </h2>
       <nav
-        class="font-sans text-xs grow justify-end items-center flex gap-1 md:gap-4">
+        class="flex grow items-center justify-end gap-1 font-sans text-xs md:gap-4">
         <a
-          class="inline-flex hover:bg-gray-100 active:bg-gray-200 rounded-sm p-2 transition-[background-color]"
+          class="inline-flex rounded-sm p-2 transition-[background-color] hover:bg-gray-100 active:bg-gray-200"
           href="/about">About</a
         >
         <a
-          class="inline-flex hover:bg-gray-100 active:bg-gray-200 rounded-sm p-2 transition-[background-color]"
+          class="inline-flex rounded-sm p-2 transition-[background-color] hover:bg-gray-100 active:bg-gray-200"
           href="/today-i-learned">
           <span class="hidden sm:block">Today I Learned</span>
           <span class="display sm:hidden">TIL</span>
         </a>
         <a
-          class="inline-flex hover:bg-gray-100 active:bg-gray-200 rounded-sm p-2 transition-[background-color]"
+          class="inline-flex rounded-sm p-2 transition-[background-color] hover:bg-gray-100 active:bg-gray-200"
           href="/projects">Projects</a
         >
         <a
@@ -65,40 +65,21 @@ const { title, description, subTitle } = Astro.props;
       <slot />
     </main>
 
-    <footer class="p-6 pt-4 pb-6 text-xs text-center mt-4 flex justify-center">
-      <ul class="flex items-center">
-        <li class="mr-4">
-          <a
-            href="https://github.com/petermekhaeil"
-            title="GitHub"
-            target="_blank"
-            rel="me noopener">
-            <span class="sr-only">Connect with Peter on GitHub</span>
-            <Icon name="github" />
-          </a>
-        </li>
-        <li class="mr-4">
-          <a
-            href="https://twitter.com/petermekh"
-            title="Twitter"
-            target="_blank"
-            rel="me noopener">
-            <span class="sr-only">Connect with Peter on Twitter</span>
-            <Icon name="twitter" />
-          </a>
-        </li>
-        <li class="mr-4">
-          <a
-            href="https://www.linkedin.com/in/petermekhaeil/"
-            title="LinkedIn"
-            target="_blank"
-            rel="me noopener">
-            <span class="sr-only">Connect with Peter on LinkedIn.</span>
-            <Icon name="linkedin" />
-          </a>
-        </li>
-      </ul>
+    <footer class="mt-3 flex pt-3 pb-6 text-center text-xs text-gray-500">
+      <div class="grow text-left">Peter Mekhaeil</div>
+      <div>
+        <a
+          class="mr-4 border-b border-gray-300 text-gray-600 transition-[border-color] hover:border-gray-600"
+          href="/dashboard">Dashboard</a
+        >
+        <a
+          class="border-b border-gray-300 text-gray-600 transition-[border-color] hover:border-gray-600"
+          target="_blank"
+          href="https://github.com/petermekhaeil">GitHub</a
+        >
+      </div>
     </footer>
+
     <Analytics />
   </body>
 </html>
