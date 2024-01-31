@@ -3,6 +3,7 @@ CREATE TABLE analytics (
   date          TIMESTAMP WITH TIME ZONE NOT NULL,
   path          VARCHAR NOT NULL,
   referrer      VARCHAR,
+  flag          VARCHAR,
   country       VARCHAR,
   city          VARCHAR
 )

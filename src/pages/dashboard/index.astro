@@ -13,7 +13,8 @@ interface AnalyticsData {
   path: string;
   referrer: string;
   country: string;
-  city: string;
+  city: string | null;
+  flag: string;
 }
 
 interface GroupedData {
@@ -29,7 +30,12 @@ interface GroupedPaths {
 }
 
 interface GroupedCities {
-  [key: string]: { city: string; country: string; total: number };
+  [key: string]: {
+    city: string | null;
+    country: string;
+    flag: string;
+    total: number;
+  };
 }
 
 type ValueOf<T> = T[keyof T];
@@ -54,7 +60,7 @@ try {
   console.error(error);
 }
 
-const groupByDate = (array: Array<{ date: string }>) => {
+const groupByDate = (array: AnalyticsData[]) => {
   const groupedData: GroupedData = array.reduce((acc, item) => {
     const date = new Date(item.date);
     const day = date.getDate().toString().padStart(2, '0');
@@ -103,7 +109,7 @@ const groupByDate = (array: Array<{ date: string }>) => {
   return result;
 };
 
-const groupByReferrer = (array: Array<{ referrer: string }>) => {
+const groupByReferrer = (array: AnalyticsData[]) => {
   const groupedData: GroupedReferrers = array.reduce((acc, item) => {
     const { referrer } = item;
     const url =
@@ -129,7 +135,7 @@ const groupByReferrer = (array: Array<{ referrer: string }>) => {
     .filter((item) => item?.referrer !== null);
 };
 
-const groupByPath = (array: Array<{ path: string }>) => {
+const groupByPath = (array: AnalyticsData[]) => {
   const groupedData: GroupedPaths = array.reduce((acc, item) => {
     const { path } = item;
     const key = path;
@@ -149,15 +155,16 @@ const groupByPath = (array: Array<{ path: string }>) => {
   return Object.keys(groupedData).map((key) => groupedData[key]);
 };
 
-const groupByCity = (array: Array<{ city: string; country: string }>) => {
+const groupByCity = (array: AnalyticsData[]) => {
   const groupedData: GroupedCities = array.reduce((acc, item) => {
-    const { city, country } = item;
+    const { city, country, flag } = item;
     const key = `${country}-${city}`;
 
     if (!acc[key]) {
       acc[key] = {
         city: city,
         country: country,
+        flag: flag,
         total: 0
       };
     }
@@ -169,19 +176,6 @@ const groupByCity = (array: Array<{ city: string; country: string }>) => {
 
   return Object.keys(groupedData).map((key) => groupedData[key]);
 };
-
-// https://github.com/vercel/vercel/blob/main/packages/edge/src/edge-headers.ts#L34
-export const EMOJI_FLAG_UNICODE_STARTING_POSITION = 127397;
-
-function getFlag(countryCode: string | undefined): string | undefined {
-  const regex = new RegExp('^[A-Z]{2}$').test(countryCode!);
-  if (!countryCode || !regex) return undefined;
-  return String.fromCodePoint(
-    ...countryCode
-      .split('')
-      .map((char) => EMOJI_FLAG_UNICODE_STARTING_POSITION + char.charCodeAt(0))
-  );
-}
 ---
 
 <BaseLayout>
@@ -246,13 +240,14 @@ function getFlag(countryCode: string | undefined): string | undefined {
         </div>
         <ul>
           {groupByCity(table)
+            .filter((item) => item?.city !== null)
             .sort((a, b) => (b?.total || 0) - (a?.total || 0))
             .slice(0, 10)
             .map((item) => (
               <li class="transition-[background-color] hover:bg-gray-100 active:bg-gray-200">
                 <span class="grid grid-cols-8 gap-2 border-t border-gray-200 py-2">
                   <time class="col-span-7">
-                    {getFlag(item?.country)} {item?.city ?? item?.country}
+                    {item?.flag} {item?.city}
                   </time>
                   <span class="col-span-1 text-gray-500">{item?.total}</span>
                 </span>
