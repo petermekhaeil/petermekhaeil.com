@@ -2,6 +2,8 @@ import type { APIRoute } from 'astro';
 import { ImageResponse } from '../../lib/astro-opengraph-image';
 import { readFileSync } from 'fs';
 
+export const prerender = true;
+
 function font(name: string) {
   return `font-family: ${name};`;
 }

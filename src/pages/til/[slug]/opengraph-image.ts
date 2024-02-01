@@ -3,6 +3,8 @@ import type { APIRoute } from 'astro';
 import { ImageResponse } from '../../../lib/astro-opengraph-image';
 import { getGitHubTilRepo } from '../../../_data/github_til_repo';
 
+export const prerender = true;
+
 function font(name: string) {
   return `font-family: ${name};`;
 }

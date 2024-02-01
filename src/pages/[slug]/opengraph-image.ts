@@ -4,6 +4,8 @@ import { slug } from '../../slug';
 import type { APIRoute } from 'astro';
 import { ImageResponse } from '../../lib/astro-opengraph-image';
 
+export const prerender = true;
+
 function font(name: string) {
   return `font-family: ${name};`;
 }
