@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../../../layouts/base.astro';
 import Markdown from '../../../components/Markdown.astro';
-
 import { getGitHubTilRepo } from '../../../_data/github_til_repo';
+
+export const prerender = true;
 
 type Props = Awaited<ReturnType<typeof getStaticPaths>>[number]['props'];
 

@@ -1,9 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
 import { slug } from '../slug';
-
 import BaseLayout from '../layouts/base.astro';
 import ArticleCard from '../components/ArticleCard.astro';
+
+export const prerender = true;
 
 const allBlogPosts = await getCollection('blog');
 

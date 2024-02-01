@@ -3,6 +3,8 @@ import BaseLayout from '../../layouts/base.astro';
 import { getGitHubTilRepo } from '../../_data/github_til_repo';
 
 const til = await getGitHubTilRepo();
+
+export const prerender = true;
 ---
 
 <BaseLayout>

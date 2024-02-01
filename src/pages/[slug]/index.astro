@@ -3,9 +3,9 @@ import { getCollection } from 'astro:content';
 import { slug } from '../../slug';
 import BaseLayout from '../../layouts/base.astro';
 
-type Props = Awaited<ReturnType<typeof getStaticPaths>>[number]['props'];
-
 export const prerender = true;
+
+type Props = Awaited<ReturnType<typeof getStaticPaths>>[number]['props'];
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
