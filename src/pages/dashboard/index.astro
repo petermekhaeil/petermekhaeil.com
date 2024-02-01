@@ -5,6 +5,11 @@ import { neon } from '@neondatabase/serverless';
 
 export const prerender = false;
 
+Astro.response.headers.set(
+  'CDN-Cache-Control',
+  'public, max-age=3600, must-revalidate'
+);
+
 const sql = neon(import.meta.env.DATABASE_URL);
 
 interface AnalyticsData {
