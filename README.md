@@ -1,5 +1,19 @@
 # petermekhaeil.com
 
+## Tech Stack
+
+- [Astro](https://astro.build/) - Framework
+- [Netlify](https://www.netlify.com/) - Hosting
+- [Neon](https://neon.tech/) - Database
+- [TailwindCSS](https://tailwindcss.com/) - UI
+
+## Design Notes
+
+- Blog posts are static pages hosted under `./src/content/blog`.
+- The _Today I Learned_ notes are stored in the [petermekhaeil/til](https://github.com/petermekhaeil/til) repo. A Netlify webhook from that repo will trigger a new build of this site.
+- Analytics data is stored in a Postgres database. See the API route `./src/pages/api/page-view.ts`.
+- The OpenGraph images are statically generated using [satori](https://github.com/vercel/satori). See `./src/lib/astro-opengraph-image.ts` for implementation.
+
 ## Posts
 
 <!-- BLOG-POST-LIST:START -->
