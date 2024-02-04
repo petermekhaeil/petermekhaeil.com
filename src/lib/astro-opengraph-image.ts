@@ -10,7 +10,7 @@ export class ImageResponse extends Response {
   constructor(template: string, options: ImageResponseOptions = {}) {
     const result = new ReadableStream({
       async start(controller) {
-        const markup = html(template);
+        const markup = html(template) as React.ReactNode;
 
         const svg = await satori(markup, {
           width: 1200,
