@@ -3,7 +3,7 @@
 ## Tech Stack
 
 - [Astro](https://astro.build/) - Framework
-- [Netlify](https://www.netlify.com/) - Hosting
+- [Vercel](https://www.vercel.com/) - Hosting
 - [Neon](https://neon.tech/) - Database
 - [TailwindCSS](https://tailwindcss.com/) - UI
 

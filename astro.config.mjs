@@ -2,14 +2,13 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
-import netlify from '@astrojs/netlify';
-
 import react from '@astrojs/react';
+
+import vercel from '@astrojs/vercel/serverless';
 
 // https://astro.build/config
 export default defineConfig({
-  adapter: netlify({
-    cacheOnDemandPages: true,
+  adapter: vercel({
     edgeMiddleware: true
   }),
   integrations: [tailwind(), sitemap(), mdx(), react()],
@@ -20,5 +19,5 @@ export default defineConfig({
     }
   },
   site: 'https://petermekhaeil.com',
-  output: 'hybrid'
+  output: 'server'
 });

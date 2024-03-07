@@ -1,6 +1,5 @@
 node_modules
 .DS_Store
-.netlify
 .env
 .astro
 dist/
