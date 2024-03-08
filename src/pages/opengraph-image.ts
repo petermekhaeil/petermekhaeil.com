@@ -3,6 +3,8 @@ import { ImageResponse } from '../lib/astro-opengraph-image';
 import { readFileSync } from 'fs';
 import { getCollection } from 'astro:content';
 
+export const prerender = true;
+
 function font(name: string) {
   return `font-family: ${name};`;
 }
@@ -66,7 +68,7 @@ export const GET: APIRoute = async function () {
 
   return new ImageResponse(Template(posts), {
     fonts: [
-      { name: 'Inter 300', data: inter300 },
+      { name: 'Inter 300', data: await inter300 },
       { name: 'Inter 500', data: inter500 },
       { name: 'Inter 600', data: inter600 }
     ]
