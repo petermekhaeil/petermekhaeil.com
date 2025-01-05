@@ -1,33 +1,36 @@
 import { marked } from 'marked';
-import { createHighlighter, type Highlighter } from 'shiki';
+import { createHighlighterCore, type HighlighterCore } from 'shiki/core';
+import { createOnigurumaEngine } from 'shiki/engine/oniguruma';
 import { transformerStyleToClass } from '@shikijs/transformers';
+import githubDark from '@shikijs/themes/github-dark';
 
 const toClass = transformerStyleToClass({
   classPrefix: '__shiki_'
 });
 
-let highlighterInstance: Highlighter | null = null;
+let highlighterInstance: HighlighterCore | null = null;
 
-async function getSingletonHighlighter(): Promise<Highlighter> {
+async function getSingletonHighlighter(): Promise<HighlighterCore> {
   if (!highlighterInstance) {
-    highlighterInstance = await createHighlighter({
-      themes: ['github-dark'],
+    highlighterInstance = await createHighlighterCore({
+      themes: [githubDark],
       langs: [
-        'javascript',
-        'typescript',
-        'html',
-        'css',
-        'json',
-        'bash',
-        'dart',
-        'graphql',
-        'yaml',
-        'sql',
-        'ini',
-        'docker',
-        'php',
-        'cs'
-      ]
+        import('@shikijs/langs/javascript'),
+        import('@shikijs/langs/typescript'),
+        import('@shikijs/langs/html'),
+        import('@shikijs/langs/css'),
+        import('@shikijs/langs/json'),
+        import('@shikijs/langs/bash'),
+        import('@shikijs/langs/dart'),
+        import('@shikijs/langs/graphql'),
+        import('@shikijs/langs/yaml'),
+        import('@shikijs/langs/sql'),
+        import('@shikijs/langs/ini'),
+        import('@shikijs/langs/docker'),
+        import('@shikijs/langs/php'),
+        import('@shikijs/langs/cs')
+      ],
+      engine: createOnigurumaEngine(import('shiki/wasm'))
     });
   }
   return highlighterInstance;
