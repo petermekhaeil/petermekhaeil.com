@@ -1,4 +1,4 @@
-type TIL = {
+export type TIL = {
   content: string;
   date: string;
   path: string;
