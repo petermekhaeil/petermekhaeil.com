@@ -23,6 +23,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
       }
     }
 
+    console.log('TILs:', cachedTils);
     const randomTil = cachedTils[Math.floor(Math.random() * cachedTils.length)];
 
     if (!randomTil) {
