@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../../layouts/base.astro';
+import Markdown from '../../../components/Markdown.astro';
+import { getGitHubTilRepo } from '../../../_data/github_til_repo';
+
+export const prerender = false;
+
+const til = await getGitHubTilRepo();
+const post = til[Math.floor(Math.random() * til.length)];
+---
+
+{
+  post ? (
+    <BaseLayout
+      title={post.title}
+      description={post.title}
+      subTitle="Today I Learned">
+      <article class="prose prose-gray mb-16 text-gray-800">
+        <Markdown content={post.content} />
+      </article>
+    </BaseLayout>
+  ) : (
+    <BaseLayout
+      title="Oops"
+      description="No post found"
+      subTitle="Today I Learned">
+      <article class="prose prose-gray mb-16 text-gray-800">
+        <p>Oops, no post found!</p>
+      </article>
+    </BaseLayout>
+  )
+}
