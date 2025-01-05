@@ -1,4 +1,4 @@
-export type TIL = {
+type TIL = {
   content: string;
   date: string;
   path: string;
@@ -10,14 +10,8 @@ export const getGitHubTilRepo = async () => {
     'https://raw.githubusercontent.com/petermekhaeil/til/master/feed.json'
   );
 
-  // check if ok
-  if (!response.ok) {
-    throw Error('Failed to fetch TIL Feed');
-  }
-
   const body = await response.text();
 
-  console.log('body:', body);
   let til;
 
   try {
@@ -29,8 +23,6 @@ export const getGitHubTilRepo = async () => {
   } catch (e) {
     throw Error('Unable to parse TIL Feed', { cause: e });
   }
-
-  console.log('til:', til);
 
   return til;
 };
