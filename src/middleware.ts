@@ -12,15 +12,13 @@ export const onRequest = defineMiddleware(async (context, next) => {
     const now = Date.now();
     const isStale = now - lastFetched > 3600 * 1000; // 1 hour
 
-    if (!cachedTils || isStale) {
-      // Cache is empty or stale, fetch the TILs
-      try {
-        cachedTils = await getGitHubTilRepo();
-        lastFetched = now;
-      } catch (error) {
-        console.error('Failed to update TIL cache:', error);
-        return next();
-      }
+    // Cache is empty or stale, fetch the TILs
+    try {
+      cachedTils = await getGitHubTilRepo();
+      lastFetched = now;
+    } catch (error) {
+      console.error('Failed to update TIL cache:', error);
+      return next();
     }
 
     console.log('TILs:', cachedTils);
