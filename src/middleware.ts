@@ -8,17 +8,20 @@ import { isPageRequest, trackPageView } from './lib/analytics';
  * Bots don't execute JavaScript, so client-side tracking won't catch them.
  * Human visitors are tracked via client-side Analytics component.
  */
-export const onRequest: MiddlewareHandler = async (context, next) => {
+export const onRequest: MiddlewareHandler = async ({ request, url }, next) => {
   const response = await next();
 
-  // Skip during prerendering - no tracking needed for static generation
-  // import.meta.env.PROD is true during build AND runtime, but we only
-  // want to track during actual runtime requests
-  if (context.isPrerendered) {
+  // Get user-agent first - if missing, this is a build-time prerender, not a real request
+  const userAgent = request.headers.get('user-agent');
+  if (!userAgent) {
     return response;
   }
 
-  const { request, url } = context;
+  // Only track bot visits - humans are tracked via client-side JS
+  const botName = detectBot(userAgent);
+  if (!botName) {
+    return response;
+  }
 
   // Only track HTML page requests
   if (!isPageRequest(request, url)) {
@@ -30,29 +33,24 @@ export const onRequest: MiddlewareHandler = async (context, next) => {
     return response;
   }
 
-  // Detect if request is from a bot
-  const userAgent = request.headers.get('user-agent');
-  const botName = detectBot(userAgent);
-
-  // Only track bot visits - humans are tracked via client-side JS
-  if (!botName) {
+  // Must have geolocation data (ensures this is a real Vercel edge request)
+  const { flag, country, city } = geolocation(request);
+  if (!flag || !country) {
     return response;
   }
 
   try {
-    const { flag, country, city } = geolocation(request);
     const referrer = request.headers.get('referer');
 
     await trackPageView({
       path: url.pathname,
       referrer,
-      flag: flag || null,
-      country: country || null,
+      flag,
+      country,
       city: city || null,
       botName
     });
   } catch (error) {
-    // Log but don't block the response
     console.error('Bot tracking error:', error);
   }
 
