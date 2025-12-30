@@ -41,6 +41,10 @@ Make it one click to copy documentation as markdown.
 
 [Cursor](https://cursor.com/docs) and [Vercel](https://vercel.com/docs) do this with a "Copy page" link in the sidebar.
 
+## Markdown URL Support
+
+Append `.md` to a documentation URL to get the page rendered as markdown. [nuqs](https://nuqs.47ng.com/docs) does this and includes a "Copy Markdown URL" button along with "Open in..." options to open the markdown URL directly in ChatGPT or Claude.
+
 ## llms.txt
 
 Put a [llms.txt](https://llmstxt.org/) in the root. Some sites include links to key docs, others include the full content in markdown format.
