@@ -7,15 +7,13 @@ tags:
   - documentation
 ---
 
-Most documentation traffic now comes from AI crawlers. Agents now read docs more than humans do.
-
-Here's how documentation teams are adapting.
+Most documentation traffic now comes from AI crawlers and agents read docs more than humans do. Here's how teams are adapting.
 
 ## Render Markdown for Agents
 
-Agents request `text/markdown` when fetching pages. Providing markdown reduces tokens and gives agents cleaner content to work with.
+Agents send `Accept: text/markdown` in the request header when fetching pages. Servers can detect this and return markdown instead of HTML. Less tokens, cleaner content.
 
-[Bun](https://x.com/bunjavascript/status/1971934734940098971) and [SST](https://x.com/thdxr/status/1972421466953273392) noticed this pattern. When an agent sends `Accept: text/markdown` in the request header, the server can return the page as markdown instead of HTML.
+[Bun](https://x.com/bunjavascript/status/1971934734940098971) and [@thdxr](https://x.com/thdxr/status/1972421466953273392) shared this pattern.
 
 ## AI Prompts
 
@@ -23,38 +21,37 @@ Docs now include AI prompts you can paste directly into your agent to handle set
 
 Examples:
 
-- [supabase.com/docs/guides/getting-started/ai-prompts](https://supabase.com/docs/guides/getting-started/ai-prompts)
-- [clerk.com/docs/nextjs/getting-started/quickstart](https://clerk.com/docs/nextjs/getting-started/quickstart)
-- [docs.sentry.io/platforms/javascript/guides/nextjs](https://docs.sentry.io/platforms/javascript/guides/nextjs/)
-
-PostHog built a [wizard CLI](https://posthog.com/blog/envoy-wizard-llm-agent) that takes this further. The CLI interacts directly with agents to handle setup automatically.
+- [Clerk Docs](https://clerk.com/docs/nextjs/getting-started/quickstart)
+- [Sentry Docs](https://docs.sentry.io/platforms/javascript/guides/nextjs/)
+- [Supabase Docs](https://supabase.com/docs/guides/getting-started/ai-prompts)
 
 ## Ask AI
 
-Docs sites now embed AI chat as a sidebar or popup. Users get instant answers without leaving the page. Many are powered by [Kapa](https://www.kapa.ai/).
+Docs sites embed AI chat as a sidebar or popup. Many are powered by [Kapa](https://www.kapa.ai/).
 
 Examples:
 
-- [cursor.com/docs](https://cursor.com/docs)
-- [vercel.com/docs](https://vercel.com/docs)
-- [prisma.io/docs](https://www.prisma.io/docs)
+- [Cursor Docs](https://cursor.com/docs)
+- [Prisma Docs](https://www.prisma.io/docs)
+- [Vercel Docs](https://vercel.com/docs)
 
 ## Copy Page as Markdown
 
-Make it one click to copy documentation as markdown. Don't make agents or users work to extract the content.
+Make it one click to copy documentation as markdown.
 
-[Cursor](https://cursor.com/docs) and [Vercel](https://vercel.com/docs) do this well with a "Copy page" link in the sidebar.
+[Cursor](https://cursor.com/docs) and [Vercel](https://vercel.com/docs) do this with a "Copy page" link in the sidebar.
 
 ## llms.txt
 
-[llmstxt.org](https://llmstxt.org/) proposes a standard: put a `/llms.txt` file at your site's root. Some sites include links to key docs, others include the full content in markdown format.
+Put a [llms.txt](https://llmstxt.org/) in the root. Some sites include links to key docs, others include the full content in markdown format.
 
 Examples:
 
-- [ui.shadcn.com/llms.txt](https://ui.shadcn.com/llms.txt)
 - [nextjs.org/docs/llms.txt](https://nextjs.org/docs/llms.txt)
+- [tanstack.com/llms.txt](https://tanstack.com/llms.txt)
+- [ui.shadcn.com/llms.txt](https://ui.shadcn.com/llms.txt)
 
-Some sites provide both `llms.txt` and `llms-full.txt` files. AI tools auto-discover these when you provide the docs URL as a source.
+Some sites provide both `llms.txt` and `llms-full.txt` files.
 
 ## MCP Servers
 
