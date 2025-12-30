@@ -20,30 +20,8 @@ interface AnalyticsData {
   country: string;
   city: string | null;
   flag: string;
+  bot_name: string | null;
 }
-
-interface GroupedData {
-  [key: string]: { date: string; total: number };
-}
-
-interface GroupedReferrers {
-  [key: string]: { referrer: string; total: number };
-}
-
-interface GroupedPaths {
-  [key: string]: { path: string; total: number };
-}
-
-interface GroupedCities {
-  [key: string]: {
-    city: string | null;
-    country: string;
-    flag: string;
-    total: number;
-  };
-}
-
-type ValueOf<T> = T[keyof T];
 
 let table: AnalyticsData[] = [];
 
@@ -53,143 +31,158 @@ try {
     WHERE date >= NOW() - INTERVAL '30 days'`;
 
   if (!response.length) {
-    throw new Error('Bad request');
+    throw new Error('No analytics data found');
   }
 
   table = response as AnalyticsData[];
 
-  table = table.filter(
-    (item) => item.city !== 'Mock City' && !item.referrer.includes('localhost')
-  );
+  if (import.meta.env.PROD) {
+    table = table.filter(
+      (item) => item.city !== 'Mock City' && !item.referrer?.includes('localhost')
+    );
+  }
 } catch (error) {
-  console.error(error);
+  console.error('Analytics fetch error:', error);
 }
 
-const groupByDate = (array: AnalyticsData[]) => {
-  const groupedData: GroupedData = array.reduce((acc, item) => {
-    const date = new Date(item.date);
-    const day = date.getDate().toString().padStart(2, '0');
-    const month = new Intl.DateTimeFormat('en', { month: 'short' }).format(
-      date
-    );
-    const key = `${day}-${month}`;
+/**
+ * Generic grouping utility - reduces repetition
+ */
+function groupBy<T extends Record<string, unknown>, R extends { total: number }>(
+  array: T[],
+  keyFn: (item: T) => string | null,
+  initFn: (item: T) => R
+): R[] {
+  const grouped = new Map<string, R>();
 
-    if (!acc[key]) {
-      acc[key] = {
-        date: key,
-        total: 0
-      };
+  for (const item of array) {
+    const key = keyFn(item);
+    if (key === null) continue;
+
+    const existing = grouped.get(key);
+    if (existing) {
+      existing.total++;
+    } else {
+      grouped.set(key, initFn(item));
     }
+  }
 
-    (acc[key] as ValueOf<GroupedData>).total++;
+  return Array.from(grouped.values());
+}
 
-    return acc;
-  }, {} as GroupedData);
+/**
+ * Sort by total descending and take top N
+ */
+function topN<T extends { total: number }>(items: T[], n: number): T[] {
+  return items.sort((a, b) => b.total - a.total).slice(0, n);
+}
 
+const formatDateKey = (date: Date): string => {
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = new Intl.DateTimeFormat('en', { month: 'short' }).format(date);
+  return `${day}-${month}`;
+};
+
+const groupByDate = (array: AnalyticsData[]) => {
+  const grouped = groupBy(
+    array,
+    (item) => formatDateKey(new Date(item.date)),
+    (item) => ({ date: formatDateKey(new Date(item.date)), total: 1 })
+  );
+
+  const groupedMap = new Map(grouped.map((g) => [g.date, g]));
+
+  // Fill in missing days with zero values
+  const result: { date: string; total: number }[] = [];
   const currentDate = new Date();
   const thirtyDaysAgo = new Date();
   thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
 
-  const result = [];
-
   while (thirtyDaysAgo <= currentDate) {
-    const day = thirtyDaysAgo.getDate().toString().padStart(2, '0');
-    const month = new Intl.DateTimeFormat('en', { month: 'short' }).format(
-      thirtyDaysAgo
-    );
-    const key = `${day}-${month}`;
-
-    if (groupedData[key]) {
-      result.push(groupedData[key] as { date: string; total: number });
-    } else {
-      result.push({
-        date: `${month}-${day}`,
-        total: 0
-      });
-    }
-
+    const key = formatDateKey(thirtyDaysAgo);
+    result.push(groupedMap.get(key) ?? { date: key, total: 0 });
     thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() + 1);
   }
 
   return result;
 };
 
-const groupByReferrer = (array: AnalyticsData[]) => {
-  const groupedData: GroupedReferrers = array.reduce((acc, item) => {
-    const { referrer } = item;
-    const url =
-      referrer !== null && referrer.includes('petermekhaeil.com')
-        ? 'https://petermekhaeil.com'
-        : referrer;
-    const key = url;
-
-    if (!acc[key]) {
-      acc[key] = {
-        referrer: url,
-        total: 0
-      };
-    }
-
-    (acc[key] as ValueOf<GroupedReferrers>).total++;
-
-    return acc;
-  }, {} as GroupedReferrers);
-
-  return Object.keys(groupedData)
-    .map((key) => groupedData[key])
-    .filter((item) => item?.referrer !== null);
+const normalizeReferrer = (referrer: string | null): string => {
+  if (!referrer) return '';
+  return referrer.includes('petermekhaeil.com')
+    ? 'https://petermekhaeil.com'
+    : referrer;
 };
 
-const groupByPath = (array: AnalyticsData[]) => {
-  const groupedData: GroupedPaths = array.reduce((acc, item) => {
-    const { path } = item;
-    const key = path;
+// Pre-compute grouped data (avoid calling in template multiple times)
+const dateData = groupByDate(table);
 
-    if (!acc[key]) {
-      acc[key] = {
-        path: path,
-        total: 0
-      };
-    }
+const referrerData = topN(
+  groupBy(
+    table,
+    (item) => normalizeReferrer(item.referrer) || null,
+    (item) => ({ referrer: normalizeReferrer(item.referrer), total: 1 })
+  ).filter((item) => item.referrer !== ''),
+  10
+);
 
-    (acc[key] as ValueOf<GroupedPaths>).total++;
+const pathData = topN(
+  groupBy(
+    table,
+    (item) => item.path,
+    (item) => ({ path: item.path, total: 1 })
+  ),
+  10
+);
 
-    return acc;
-  }, {} as GroupedPaths);
+const cityData = topN(
+  groupBy(
+    table,
+    (item) => (item.city ? `${item.country}-${item.city}` : null),
+    (item) => ({ city: item.city, country: item.country, flag: item.flag, total: 1 })
+  ),
+  10
+);
 
-  return Object.keys(groupedData).map((key) => groupedData[key]);
-};
-
-const groupByCity = (array: AnalyticsData[]) => {
-  const groupedData: GroupedCities = array.reduce((acc, item) => {
-    const { city, country, flag } = item;
-    const key = `${country}-${city}`;
-
-    if (!acc[key]) {
-      acc[key] = {
-        city: city,
-        country: country,
-        flag: flag,
-        total: 0
-      };
-    }
-
-    (acc[key] as ValueOf<GroupedCities>).total++;
-
-    return acc;
-  }, {} as GroupedCities);
-
-  return Object.keys(groupedData).map((key) => groupedData[key]);
-};
+const botData = topN(
+  groupBy(
+    table,
+    (item) => item.bot_name,
+    (item) => ({ bot_name: item.bot_name!, total: 1 })
+  ),
+  10
+);
 ---
 
 <BaseLayout>
   <h1 class="mb-1 text-2xl font-bold">Analytics</h1>
   {
-    table ? (
+    table.length > 0 ? (
       <div class="m-auto my-8 mb-12 max-w-2xl text-sm">
         <h2 class="my-8 text-xl font-bold">Total Visits</h2>
-        <ChartTotalVisits client:load data={groupByDate(table)} />
+        <ChartTotalVisits client:load data={dateData} />
+
+        <h2 class="my-8 text-xl font-bold">Top Bots</h2>
+        <div class="py-2 font-medium text-gray-500">
+          <span class="grid grid-cols-8">
+            <span class="col-span-7">Crawler</span>
+            <span class="col-span-1">Count</span>
+          </span>
+        </div>
+        {botData.length > 0 ? (
+          <ul>
+            {botData.map((item) => (
+              <li class="transition-[background-color] hover:bg-gray-100 active:bg-gray-200">
+                <span class="grid grid-cols-8 gap-2 border-t border-gray-200 py-2">
+                  <span class="col-span-7">{item.bot_name}</span>
+                  <span class="col-span-1 text-gray-500">{item.total}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="py-2 text-gray-500 border-t border-gray-200">No bot visits recorded yet.</p>
+        )}
 
         <h2 class="my-8 text-xl font-bold">Top Referrers</h2>
         <div class="py-2 font-medium text-gray-500">
@@ -199,18 +192,14 @@ const groupByCity = (array: AnalyticsData[]) => {
           </span>
         </div>
         <ul>
-          {groupByReferrer(table)
-            .filter((item) => item?.referrer !== '')
-            .sort((a, b) => (b?.total || 0) - (a?.total || 0))
-            .slice(0, 10)
-            .map((item) => (
-              <li class="transition-[background-color] hover:bg-gray-100 active:bg-gray-200">
-                <span class="grid grid-cols-8 gap-2 border-t border-gray-200 py-2">
-                  <time class="col-span-7">{item?.referrer}</time>
-                  <span class="col-span-1 text-gray-500">{item?.total}</span>
-                </span>
-              </li>
-            ))}
+          {referrerData.map((item) => (
+            <li class="transition-[background-color] hover:bg-gray-100 active:bg-gray-200">
+              <span class="grid grid-cols-8 gap-2 border-t border-gray-200 py-2">
+                <span class="col-span-7">{item.referrer}</span>
+                <span class="col-span-1 text-gray-500">{item.total}</span>
+              </span>
+            </li>
+          ))}
         </ul>
 
         <h2 class="my-8 text-xl font-bold">Top Posts</h2>
@@ -221,19 +210,16 @@ const groupByCity = (array: AnalyticsData[]) => {
           </span>
         </div>
         <ul>
-          {groupByPath(table)
-            .sort((a, b) => (b?.total || 0) - (a?.total || 0))
-            .slice(0, 10)
-            .map((item) => (
-              <li class="transition-[background-color] hover:bg-gray-100 active:bg-gray-200">
-                <a href={item?.path}>
-                  <span class="grid grid-cols-8 gap-2 border-t border-gray-200 py-2">
-                    <time class="col-span-7">{item?.path}</time>
-                    <span class="col-span-1 text-gray-500">{item?.total}</span>
-                  </span>
-                </a>
-              </li>
-            ))}
+          {pathData.map((item) => (
+            <li class="transition-[background-color] hover:bg-gray-100 active:bg-gray-200">
+              <a href={item.path}>
+                <span class="grid grid-cols-8 gap-2 border-t border-gray-200 py-2">
+                  <span class="col-span-7">{item.path}</span>
+                  <span class="col-span-1 text-gray-500">{item.total}</span>
+                </span>
+              </a>
+            </li>
+          ))}
         </ul>
 
         <h2 class="my-8 text-xl font-bold">Top Cities</h2>
@@ -244,22 +230,20 @@ const groupByCity = (array: AnalyticsData[]) => {
           </span>
         </div>
         <ul>
-          {groupByCity(table)
-            .filter((item) => item?.city !== null)
-            .sort((a, b) => (b?.total || 0) - (a?.total || 0))
-            .slice(0, 10)
-            .map((item) => (
-              <li class="transition-[background-color] hover:bg-gray-100 active:bg-gray-200">
-                <span class="grid grid-cols-8 gap-2 border-t border-gray-200 py-2">
-                  <time class="col-span-7">
-                    {item?.flag} {item?.city}
-                  </time>
-                  <span class="col-span-1 text-gray-500">{item?.total}</span>
+          {cityData.map((item) => (
+            <li class="transition-[background-color] hover:bg-gray-100 active:bg-gray-200">
+              <span class="grid grid-cols-8 gap-2 border-t border-gray-200 py-2">
+                <span class="col-span-7">
+                  {item.flag} {item.city}
                 </span>
-              </li>
-            ))}
+                <span class="col-span-1 text-gray-500">{item.total}</span>
+              </span>
+            </li>
+          ))}
         </ul>
       </div>
-    ) : null
+    ) : (
+      <p class="text-gray-500">No analytics data available.</p>
+    )
   }
 </BaseLayout>

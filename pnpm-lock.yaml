@@ -56,6 +56,9 @@ importers:
       astro-embed:
         specifier: ^0.9.2
         version: 0.9.2(astro@5.16.6(@types/node@25.0.3)(@vercel/functions@2.2.13)(jiti@1.21.7)(rollup@4.54.0)(typescript@5.9.3)(yaml@2.8.2))
+      isbot:
+        specifier: ^5.1.32
+        version: 5.1.32
       markdown-it:
         specifier: ^13.0.1
         version: 13.0.2
@@ -1968,6 +1971,10 @@ packages:
   is-wsl@3.1.0:
     resolution: {integrity: sha512-UcVfVfaK4Sc4m7X3dUSoHoozQGBEFeDC+zVo06t98xe8CzHSZZBekNXH+tu0NalHolcJ/QAGqS46Hef7QXBIMw==}
     engines: {node: '>=16'}
+
+  isbot@5.1.32:
+    resolution: {integrity: sha512-VNfjM73zz2IBZmdShMfAUg10prm6t7HFUQmNAEOAVS4YH92ZrZcvkMcGX6cIgBJAzWDzPent/EeAtYEHNPNPBQ==}
+    engines: {node: '>=18'}
 
   isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
@@ -5551,6 +5558,8 @@ snapshots:
   is-wsl@3.1.0:
     dependencies:
       is-inside-container: 1.0.0
+
+  isbot@5.1.32: {}
 
   isexe@2.0.0: {}
 

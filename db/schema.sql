@@ -5,5 +5,6 @@ CREATE TABLE analytics (
   referrer      VARCHAR,
   flag          VARCHAR,
   country       VARCHAR,
-  city          VARCHAR
+  city          VARCHAR,
+  bot_name      VARCHAR
 )
