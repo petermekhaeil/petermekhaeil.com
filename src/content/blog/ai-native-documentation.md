@@ -43,7 +43,7 @@ Make it one click to copy documentation as markdown.
 
 ## Markdown URL Support
 
-Append `.md` to a documentation URL to get the page rendered as markdown. [nuqs](https://nuqs.47ng.com/docs) does this and includes a "Copy Markdown URL" button along with "Open in..." options to open the markdown URL directly in ChatGPT or Claude.
+Support viewing pages as Markdown by adding `.md` to the end of the URL. [nuqs](https://nuqs.dev/docs) does this and includes a "Copy Markdown URL" button along with "Open in..." options to open the markdown URL directly in ChatGPT or Claude.
 
 ## llms.txt
 
