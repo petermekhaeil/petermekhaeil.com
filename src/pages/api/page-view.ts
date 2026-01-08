@@ -44,10 +44,10 @@ export const POST: APIRoute = async ({ request }) => {
     const referrer = sanitizeReferrer(rawReferrer as string);
 
     // Get geolocation data
-    const { flag, country, city, latitude, longitude } = geolocation(request);
+    const { flag, country, city } = geolocation(request);
 
-    // Validate required geolocation data
-    if (!(flag && country && city && latitude && longitude)) {
+    // Validate required geolocation data (only flag and country are essential)
+    if (!(flag && country)) {
       return Response.json(
         { error: 'Missing geolocation data' },
         { status: 400 }
@@ -63,7 +63,7 @@ export const POST: APIRoute = async ({ request }) => {
       referrer,
       flag,
       country,
-      city,
+      city: city || null,
       botName
     });
 
