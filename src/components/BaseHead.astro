@@ -12,7 +12,7 @@ const {
 
 const urlStr = Astro.url.toString();
 const urlWithTrailingSlash = urlStr.endsWith('/') ? urlStr : urlStr + '/';
-const opengraphImageUrl = new URL(`./opengraph-image`, urlWithTrailingSlash);
+const opengraphImageUrl = new URL(`./opengraph-image.png`, urlWithTrailingSlash);
 ---
 
 <head>
