@@ -1,0 +1,24 @@
+---
+import Analytics from '../components/Analytics.astro';
+import BaseHead from '../components/BaseHead.astro';
+import '@fontsource/inter';
+
+interface Props {
+  title?: string | undefined;
+  description?: string | undefined;
+  subTitle?: string | undefined;
+}
+
+const { title, description, subTitle } = Astro.props;
+---
+
+<html lang="en" class="font-sans antialiased">
+  <BaseHead title={title} description={description} subTitle={subTitle} />
+  <body class="mx-auto max-w-2xl p-6 pt-4 text-gray-900 md:pt-6">
+    <main class="min-h-screen pb-6">
+      <slot />
+    </main>
+
+    <Analytics />
+  </body>
+</html>

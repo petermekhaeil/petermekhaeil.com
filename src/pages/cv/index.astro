@@ -1,0 +1,44 @@
+---
+import cv from '../../_data/cv.md?raw';
+import Markdown from '../../components/Markdown.astro';
+import CvLayout from '../../layouts/cv.astro';
+
+export const prerender = true;
+---
+
+<CvLayout
+  title="CV — Peter Mekhaeil"
+  description="Peter Mekhaeil's curriculum vitae.">
+  <article class="prose prose-gray mb-16 text-gray-800">
+    <Markdown content={cv} />
+  </article>
+</CvLayout>
+
+<style>
+  article :global(h1) {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  article :global(h2) {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  article :global(h3) {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  article :global(h3 + p),
+  article :global(h3 + p + p) {
+    margin-top: 0;
+    margin-bottom: 0.25rem;
+  }
+
+  article :global(h3 + p + ul),
+  article :global(h3 + p + p + ul) {
+    margin-top: 0;
+  }
+</style>
