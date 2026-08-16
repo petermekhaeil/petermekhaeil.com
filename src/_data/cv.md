@@ -10,7 +10,7 @@ Singapore | Open to Singapore-based and remote roles
 
 Software engineer with 15+ years of experience building large-scale web products, front-end platforms and developer tools. Strong background in React, front-end architecture, design systems and web performance, with experience spanning hands-on delivery and regional engineering leadership. Currently focused on hands-on product development, including independent projects using LLMs and agentic workflows.
 
-## Core Skills
+## Engineering Focus
 
 - **Front-end systems:** Architecture and modernisation of large-scale web applications and shared platforms.
 - **Product engineering:** End-to-end delivery of customer-facing products across web and mobile.
