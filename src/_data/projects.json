@@ -1,5 +1,15 @@
 [
   {
+    "name": "Coached",
+    "description": "Mobile training app for runners, triathletes, and HYROX athletes. Provides personalised training plans, daily workout guidance, and flexible scheduling, backed by human coaches who adjust plans as athletes progress.",
+    "links": [
+      {
+        "url": "https://coached.fitness/",
+        "text": "coached.fitness"
+      }
+    ]
+  },
+  {
     "name": "Singtel Shop",
     "description": "Online store for Singapore's largest telecommunication company. Built using React and Gatsby for the UI framework and AEM as a headless CMS. Hosted on AWS.",
     "links": [
